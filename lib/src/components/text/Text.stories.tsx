@@ -101,3 +101,12 @@ export const FontWeights = () => (
     <Text weight="bold">Bold</Text>
   </>
 );
+export const Sizes = () => (
+  <>
+    <Text size="xs">xs</Text>
+    <Text size="sm">sm</Text>
+    <Text size="md">md</Text>
+    <Text size="lg">lg</Text>
+    <Text size="xl">xl</Text>
+  </>
+);
