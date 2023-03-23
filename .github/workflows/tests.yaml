@@ -15,7 +15,7 @@ jobs:
         run: yarn workspaces run lint
 
   test:
-    runs-on: ubuntu-latest-8-cores-airplane
+    runs-on: ubuntu-latest-4-cores-airplane
     steps:
       - uses: actions/checkout@v3
       - uses: actions/cache@v3
@@ -116,7 +116,7 @@ jobs:
   publish-next:
     runs-on: ubuntu-latest
     concurrency: publish
-    needs: [ lint, test, build ]
+    needs: [lint, test, build]
     if: github.ref == 'refs/heads/ga'
     env:
       PACKAGE_NAME: "@airplane/views"
@@ -142,7 +142,7 @@ jobs:
             echo "Already published ${VERSION}, skipping: https://www.npmjs.com/package/${PACKAGE_NAME}/v/${VERSION}"
             exit 0
           fi
-          
+
           if [[ "${VERSION}" != *"-"* ]]; then
             echo "Not a pre-release version, skipping: ${VERSION}"
             exit 0
