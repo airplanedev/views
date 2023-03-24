@@ -1,7 +1,20 @@
 {
   "name": "@airplane/views",
-  "version": "2.0.2",
+  "description": "A React library for building Airplane views. Views components are optimized in style and functionality to produce internal apps that are easy to build and maintain.",
+  "version": "2.0.3",
   "license": "MIT",
+  "homepage": "https://www.airplane.dev/",
+  "repository": {
+    "url": "https://github.com/airplanedev/views.git",
+    "type": "git"
+  },
+  "keywords": [
+    "airplane",
+    "internal tools",
+    "react",
+    "ui",
+    "components"
+  ],
   "sideEffects": false,
   "type": "module",
   "scripts": {
