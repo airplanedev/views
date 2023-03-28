@@ -2,6 +2,7 @@ import { uniqueId } from "lodash-es";
 import hash from "object-hash";
 import { Component, ErrorInfo, ReactNode } from "react";
 
+import { getNPMPackageVersion } from "getNPMPackageVersion";
 import { sendViewMessage } from "message/sendViewMessage";
 
 import { ComponentErrorFallback } from "./ComponentErrorFallback";
@@ -24,9 +25,12 @@ export class ComponentErrorBoundary extends Component<
   }
 
   componentDidMount() {
+    const version = getNPMPackageVersion();
+
     sendViewMessage({
       type: "component_mounted",
       componentName: this.props.componentName,
+      version,
     });
   }
 

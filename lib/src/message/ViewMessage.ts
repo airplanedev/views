@@ -87,6 +87,7 @@ export type PeekMessage = {
 export type ComponentMountedMessage = {
   type: "component_mounted";
   componentName: string;
+  version: string;
 };
 
 export type ViewMessage =
