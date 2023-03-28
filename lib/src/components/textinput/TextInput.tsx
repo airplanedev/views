@@ -21,7 +21,7 @@ export const TextInputComponent = forwardRef(
 
 export const TextInput = forwardRef(
   (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => (
-    <ComponentErrorBoundary componentName={TextInput.displayName}>
+    <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <TextInputWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
   )
@@ -86,4 +86,5 @@ const useFocus = (): [Ref<HTMLInputElement>, () => void] => {
 };
 
 TextInputComponent.displayName = "TextInputComponent";
-TextInput.displayName = "TextInput";
+const DISPLAY_NAME = "TextInput";
+TextInput.displayName = DISPLAY_NAME;

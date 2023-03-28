@@ -204,13 +204,14 @@ DateTimePickerComponent.displayName = "DateTimePickerComponent";
 export const DateTimePicker = forwardRef(
   (props: DateTimePickerProps, ref: Ref<HTMLInputElement>) => {
     return (
-      <ComponentErrorBoundary componentName={DateTimePicker.displayName}>
+      <ComponentErrorBoundary componentName={DISPLAY_NAME}>
         <DateTimePickerWithoutRef {...props} innerRef={ref} />
       </ComponentErrorBoundary>
     );
   }
 );
-DateTimePicker.displayName = "DateTimePicker";
+const DISPLAY_NAME = "DateTimePicker";
+DateTimePicker.displayName = DISPLAY_NAME;
 
 export const DateTimePickerWithoutRef = (
   props: DateTimePickerProps & { innerRef: Ref<HTMLInputElement> }

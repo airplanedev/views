@@ -21,7 +21,7 @@ export const FileInput = forwardRef(
     ref: Ref<HTMLDivElement> | Ref<HTMLButtonElement>
   ) => {
     return (
-      <ComponentErrorBoundary componentName={FileInput.displayName}>
+      <ComponentErrorBoundary componentName={DISPLAY_NAME}>
         <FileInputWithoutRef
           variant={variant}
           {...restProps}
@@ -104,5 +104,5 @@ export const FileInputWithoutRef = ({
     );
   }
 };
-
-FileInput.displayName = "FileInput";
+const DISPLAY_NAME = "FileInput";
+FileInput.displayName = DISPLAY_NAME;

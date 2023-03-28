@@ -42,12 +42,13 @@ SwitchComponent.displayName = "SwitchComponent";
 
 export const Switch = forwardRef(
   (props: SwitchProps, ref: React.Ref<HTMLInputElement>) => (
-    <ComponentErrorBoundary componentName={Switch.displayName}>
+    <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <SwitchWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
   )
 );
-Switch.displayName = "Switch";
+const DISPLAY_NAME = "Switch";
+Switch.displayName = DISPLAY_NAME;
 
 /** Exported for documentation purposes */
 export const SwitchWithoutRef = (

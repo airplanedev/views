@@ -57,10 +57,11 @@ export const Link = forwardRef(
     ref: Ref<HTMLAnchorElement>
   ) => {
     return (
-      <ComponentErrorBoundary componentName={Link.displayName}>
+      <ComponentErrorBoundary componentName={DISPLAY_NAME}>
         <LinkWithoutRef {...props} newTab={newTab} size={size} innerRef={ref} />
       </ComponentErrorBoundary>
     );
   }
 );
-Link.displayName = "Link";
+const DISPLAY_NAME = "Link";
+Link.displayName = DISPLAY_NAME;

@@ -47,7 +47,7 @@ export const NumberInputComponent = forwardRef(
 
 export const NumberInput = forwardRef(
   (props: NumberInputProps, ref: React.Ref<HTMLInputElement>) => (
-    <ComponentErrorBoundary componentName={NumberInput.displayName}>
+    <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <NumberInputWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
   )
@@ -96,6 +96,6 @@ export const NumberInputWithoutRef = (
     />
   );
 };
-
 NumberInputComponent.displayName = "NumberInputComponent";
-NumberInput.displayName = "NumberInput";
+const DISPLAY_NAME = "NumberInput";
+NumberInput.displayName = DISPLAY_NAME;

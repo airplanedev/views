@@ -20,7 +20,7 @@ export const TextareaComponent = forwardRef(
 
 export const Textarea = forwardRef(
   (props: TextareaProps, ref: React.Ref<HTMLTextAreaElement>) => (
-    <ComponentErrorBoundary componentName={Textarea.displayName}>
+    <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <TextareaWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
   )
@@ -85,4 +85,5 @@ const useFocus = (): [Ref<HTMLTextAreaElement>, () => void] => {
 };
 
 TextareaComponent.displayName = "TextareaComponent";
-Textarea.displayName = "Textarea";
+const DISPLAY_NAME = "Textarea";
+Textarea.displayName = DISPLAY_NAME;

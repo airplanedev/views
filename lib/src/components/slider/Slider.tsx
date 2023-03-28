@@ -101,7 +101,7 @@ export const SliderComponent = forwardRef(
 
 export const Slider = forwardRef(
   (props: SliderProps, ref: React.Ref<HTMLInputElement>) => (
-    <ComponentErrorBoundary componentName={Slider.displayName}>
+    <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <SliderWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
   )
@@ -139,4 +139,5 @@ export const SliderWithoutRef = (
 };
 
 SliderComponent.displayName = "SliderComponent";
-Slider.displayName = "Slider";
+const DISPLAY_NAME = "Slider";
+Slider.displayName = DISPLAY_NAME;

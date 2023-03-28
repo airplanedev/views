@@ -9,7 +9,7 @@ import { LatestRun } from "./LatestRunDetails";
 
 export type Props = {
   children: ReactNode;
-  componentName?: string;
+  componentName: string;
   fallback?: ReactNode;
   latestRun?: LatestRun;
 };
@@ -21,6 +21,13 @@ export class ComponentErrorBoundary extends Component<
   constructor(props: Props) {
     super(props);
     this.state = {};
+  }
+
+  componentDidMount() {
+    sendViewMessage({
+      type: "component_mounted",
+      componentName: this.props.componentName,
+    });
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {

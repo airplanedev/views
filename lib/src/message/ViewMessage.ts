@@ -84,6 +84,11 @@ export type PeekMessage = {
   slug: string;
 };
 
+export type ComponentMountedMessage = {
+  type: "component_mounted";
+  componentName: string;
+};
+
 export type ViewMessage =
   | StartRunMessage
   | StartSessionMessage
@@ -92,4 +97,5 @@ export type ViewMessage =
   | UpdateQueryParamsMessage
   | ComponentStateMessage
   | ConsoleMessage
-  | PeekMessage;
+  | PeekMessage
+  | ComponentMountedMessage;

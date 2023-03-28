@@ -24,9 +24,10 @@ export const ImageWithoutRef = ({
 
 export const Image = forwardRef((props: Props, ref: Ref<HTMLDivElement>) => {
   return (
-    <ComponentErrorBoundary componentName={Image.displayName}>
+    <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <ImageWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
   );
 });
-Image.displayName = "Image";
+const DISPLAY_NAME = "Image";
+Image.displayName = DISPLAY_NAME;

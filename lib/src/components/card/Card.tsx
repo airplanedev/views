@@ -8,12 +8,13 @@ import { CardProps } from "./Card.types";
 
 export const Card = forwardRef(
   (props: CardProps, ref: React.Ref<HTMLDivElement>) => (
-    <ComponentErrorBoundary componentName={Card.displayName}>
+    <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <CardWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
   )
 );
-Card.displayName = "Card";
+const DISPLAY_NAME = "Card";
+Card.displayName = DISPLAY_NAME;
 
 export const CardWithoutRef = ({
   children,

@@ -30,12 +30,13 @@ CheckboxComponent.displayName = "CheckboxComponent";
 
 export const Checkbox = forwardRef(
   (props: CheckboxProps, ref: React.Ref<HTMLInputElement>) => (
-    <ComponentErrorBoundary componentName={Checkbox.displayName}>
+    <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <CheckboxWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
   )
 );
-Checkbox.displayName = "Checkbox";
+const DISPLAY_NAME = "Checkbox";
+Checkbox.displayName = DISPLAY_NAME;
 
 /** Exported for documentation purposes */
 export const CheckboxWithoutRef = (

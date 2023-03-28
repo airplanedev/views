@@ -22,11 +22,12 @@ import { fontWeight } from "../theme/typography";
  * Renders text but also supports Markdown.
  */
 export const Text = forwardRef<HTMLDivElement, TextProps>((props, ref) => (
-  <ComponentErrorBoundary componentName={Text.displayName}>
+  <ComponentErrorBoundary componentName={DISPLAY_NAME}>
     <TextWithoutRef {...props} innerRef={ref} />
   </ComponentErrorBoundary>
 ));
-Text.displayName = "Text";
+const DISPLAY_NAME = "Text";
+Text.displayName = DISPLAY_NAME;
 
 type TextWithoutRefProps = TextProps & { innerRef: Ref<HTMLDivElement> };
 /**
