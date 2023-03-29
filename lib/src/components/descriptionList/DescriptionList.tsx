@@ -64,8 +64,8 @@ export const DescriptionListComponent = ({
         >
           {loading ? (
             <>
-              <Skeleton key={idx} height={16} mx={16} width="33%" radius="sm" />
-              <Skeleton key={idx} height={16} mx={16} width="33%" radius="sm" />
+              <Skeleton height={16} mx={16} width="33%" radius="sm" />
+              <Skeleton height={16} mx={16} width="33%" radius="sm" />
             </>
           ) : (
             <>
