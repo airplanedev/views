@@ -1,7 +1,7 @@
 {
   "name": "@airplane/views",
   "description": "A React library for building Airplane views. Views components are optimized in style and functionality to produce internal apps that are easy to build and maintain.",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "license": "MIT",
   "homepage": "https://www.airplane.dev/",
   "repository": {
@@ -33,7 +33,7 @@
     "cypress:open": "TZ=UTC cypress open"
   },
   "dependencies": {
-    "@airplane/lib": "0.2.48",
+    "@airplane/lib": "0.2.52",
     "@babel/runtime": "7.21.0",
     "@codemirror/autocomplete": "6.4.2",
     "@codemirror/lang-javascript": "6.1.4",
@@ -54,7 +54,7 @@
     "@mantine/prism": "5.10.5",
     "@types/object-inspect": "1.8.1",
     "@uiw/react-codemirror": "4.19.9",
-    "airplane": "0.2.48",
+    "airplane": "0.2.52",
     "codemirror": "6.0.1",
     "currency-symbol-map": "5.1.0",
     "dayjs": "1.11.7",

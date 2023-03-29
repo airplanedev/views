@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.2.0.tgz#e1a84fca468f4b337816fcb7f0964beb620ba855"
   integrity sha512-E09FiIft46CmH5Qnjb0wsW54/YQd69LsxeKUOWawmws1XWvyFGURnAChH0mlr7YPFR1ofwvUQfcL0J3lMxXqPA==
 
-"@airplane/lib@0.2.48":
-  version "0.2.48"
-  resolved "https://registry.yarnpkg.com/@airplane/lib/-/lib-0.2.48.tgz#7a522896b7c07916179d0bc6a95d2ab98b911e89"
-  integrity sha512-/T5Ywp3n4SVxk5b4at+8WWYBRPGVXJem/Gb6QqkE9F2qFMxjilbn7U5Q5Y8fZCz19zKHX9FSxwLULA74V2x8bw==
+"@airplane/lib@0.2.52":
+  version "0.2.52"
+  resolved "https://registry.yarnpkg.com/@airplane/lib/-/lib-0.2.52.tgz#f3af69de5eb18ada0eba8ea33304b8ebfdd06eed"
+  integrity sha512-P4VaR4jkxqOp363lxlCfWLK5lm4ZqPqfbSETvSJ4xK4rO/3PN7KTjE6Tc91O0b/MdHX0ao4uzxAoDS0XNzvtlw==
   dependencies:
     "@azure/abort-controller" "1.1.0"
     cross-fetch "3.1.5"
@@ -4705,17 +4705,17 @@ airbnb-js-shims@^2.2.1:
     string.prototype.padstart "^3.0.0"
     symbol.prototype.description "^1.0.0"
 
-airplane@0.2.48:
-  version "0.2.48"
-  resolved "https://registry.yarnpkg.com/airplane/-/airplane-0.2.48.tgz#0d1248fb60c65a5640abe172db84cbb4e5f10468"
-  integrity sha512-KXRa8Ta0cDdvtoycocE0w7iR6lGwpFZape+olPyvBP53rNhS45uiXJ1vpp2VG/pb9pdRDrWJMMU+T9SMxlLCCA==
+airplane@0.2.52:
+  version "0.2.52"
+  resolved "https://registry.yarnpkg.com/airplane/-/airplane-0.2.52.tgz#d8a2c3cd95543624edd923e0e854ee7efd519cae"
+  integrity sha512-Qbzv0ERQkBg10GcjzNH7oZvmtU8iHvp4dvC0MPevsp5rJPuQ7VXUu1VJYAsYrXYoVsSS6nyJuQN+sSNukOQWUQ==
   dependencies:
-    "@airplane/lib" "0.2.48"
+    "@airplane/lib" "0.2.52"
     "@azure/abort-controller" "1.1.0"
     "@opentelemetry/api" "1.2.0"
     fast-equals "5.0.0"
     humanize-string "3.0.0"
-    mime "^3.0.0"
+    mime-db "1.52.0"
     ms "3.0.0-canary.1"
     ts-dedent "2.2.0"
     uuid "9.0.0"
@@ -11125,11 +11125,6 @@ mime@^2.4.4:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/mime/-/mime-2.6.0.tgz#a2a682a95cd4d0cb1d6257e28f83da7e35800367"
   integrity sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg==
-
-mime@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/mime/-/mime-3.0.0.tgz#b374550dca3a0c18443b0c950a6a58f1931cf7a7"
-  integrity sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==
 
 mimic-fn@^2.1.0:
   version "2.1.0"
