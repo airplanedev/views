@@ -13,7 +13,7 @@
   "dependencies": {
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "@airplane/views": "*"
+    "@airplane/views": "2.0.5-rc.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
