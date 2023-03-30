@@ -34,7 +34,6 @@ const disableQueryConfigRetries = (q: QueryClientConfig | undefined) => {
 export const ViewProvider = ({
   children,
   queryClientConfig,
-  themeContainerDocument,
 }: ViewProviderProps) => {
   React.useEffect(() => {
     const version = getNPMPackageVersion();
@@ -51,7 +50,7 @@ export const ViewProvider = ({
       <QueryClientProvider
         queryClientConfig={disableQueryConfigRetries(queryClientConfig)}
       >
-        <ThemeProvider containerDocument={themeContainerDocument}>
+        <ThemeProvider>
           <NotificationsProvider position="bottom-right">
             <RequestDialogProvider>
               <RunnerScaleSignalProvider>{children}</RunnerScaleSignalProvider>
