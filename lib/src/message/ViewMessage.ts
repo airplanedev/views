@@ -71,6 +71,8 @@ type ErrorConsoleMessage = {
   id?: string;
   component?: string;
   stack?: string;
+  taskSlug?: string;
+  runbookSlug?: string;
 } & ConsoleMessageBase;
 
 export type ConsoleMessage =

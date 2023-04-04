@@ -95,6 +95,7 @@ export const executeRunbook = async <
           type: "console",
           messageType: "error",
           message: e.message,
+          runbookSlug: slug,
           hash: hash(e),
           time: Date.now(),
         });
@@ -109,6 +110,7 @@ export const executeRunbook = async <
           type: "console",
           messageType: "error",
           message: e.message,
+          runbookSlug: slug,
           hash: hash(e),
           time: Date.now(),
         });
@@ -122,6 +124,7 @@ export const executeRunbook = async <
         type: "console",
         messageType: "error",
         message,
+        runbookSlug: slug,
         hash: hash(message),
         time: Date.now(),
       });

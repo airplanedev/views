@@ -99,6 +99,7 @@ export const executeTask = async <
           type: "console",
           messageType: "error",
           message: e.message,
+          taskSlug: slug,
           hash: hash(e),
           time: Date.now(),
         });
@@ -113,6 +114,7 @@ export const executeTask = async <
           type: "console",
           messageType: "error",
           message: e.message,
+          taskSlug: slug,
           hash: hash(e),
           time: Date.now(),
         });
@@ -126,6 +128,7 @@ export const executeTask = async <
         type: "console",
         messageType: "error",
         message,
+        taskSlug: slug,
         hash: hash(message),
         time: Date.now(),
       });
