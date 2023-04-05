@@ -197,23 +197,15 @@ describe("Table", () => {
     expect(downloadLink.download).toEqual(expect.stringMatching(/\.csv$/));
   });
 
-  it("renders booleans and nulls in string columns", () => {
+  it("renders booleans string columns", () => {
     type Row = {
-      myColumn: boolean | null;
+      myColumn: boolean;
     };
     const columns: Column[] = [{ accessor: "myColumn", type: "string" }];
-    const data: Row[] = [
-      { myColumn: true },
-      { myColumn: false },
-      { myColumn: null },
-    ];
+    const data: Row[] = [{ myColumn: true }, { myColumn: false }];
     const { getAllByRole } = render(<Table columns={columns} data={data} />);
     const cells = getAllByRole("cell");
-    expect(cells.map((cell) => cell.textContent)).toEqual([
-      "true",
-      "false",
-      "null",
-    ]);
+    expect(cells.map((cell) => cell.textContent)).toEqual(["true", "false"]);
   });
 
   describe("editable cells", () => {

@@ -216,7 +216,7 @@ const StaticCellValue = ({
       <OverflowText
         className={classes.cellPadding}
         wrap={wrap}
-        value={String(value)}
+        value={value != null ? String(value) : value}
       />
     );
   } else if (type === "link") {
