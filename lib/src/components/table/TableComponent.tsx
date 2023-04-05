@@ -122,7 +122,7 @@ export function TableComponent<TRowData extends object>({
   >([]);
   useEffect(() => {
     const hiddenSet = new Set(hiddenColumns);
-    const reactTableColumns = columns
+    const newTableColumns = columns
       .filter(
         (c) => typeof c.accessor === "string" && !hiddenSet.has(c.accessor)
       )
@@ -137,27 +137,24 @@ export function TableComponent<TRowData extends object>({
           ...c,
           id,
           type,
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          // Pass in the accessor as a string to know if the columns have changed
+          _accessor: c.accessor,
           accessor: (data) => data[c.accessor],
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           Component: c.Component as any,
         };
 
-        switch (type) {
-          case "boolean":
-            col.sortType = "basic";
-            break;
-          case "date":
-          case "datetime":
-            col.sortType = dateTimeSort;
-            break;
+        if (type === "boolean") {
+          col.sortType = "basic";
+        } else if (type === "date" || type === "datetime") {
+          col.sortType = dateTimeSort;
         }
 
         return col;
       });
     if (loading || error || !columns.length) {
       const cs = columns.length
-        ? reactTableColumns
+        ? newTableColumns
         : Array.from({ length: LOADING_COL_COUNT }, (_, i) => ({
             id: String(i),
           }));
@@ -166,8 +163,8 @@ export function TableComponent<TRowData extends object>({
         Cell: <Skeleton height={8} mt={16} mx={16} width="25%" radius="sm" />,
       }));
       setTableColumns(loadingColumns);
-    } else if (!isEqual(reactTableColumns, tableColumns)) {
-      setTableColumns(reactTableColumns);
+    } else if (didColumnsChange(newTableColumns, tableColumns)) {
+      setTableColumns(newTableColumns);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, columns, error, columnTypes, hiddenColumns]); // Don't include tableColumns to avoid an unnecessary re-render
@@ -729,6 +726,26 @@ const RowActionsMenu = <TRowData extends object>({
       </Menu.Dropdown>
     </Menu>
   );
+};
+
+const didColumnsChange = <TRowData extends object>(
+  currColumns: ReactTableColumn<TRowData>[],
+  newColumns: ReactTableColumn<TRowData>[]
+) => {
+  if (currColumns.length !== newColumns.length) {
+    return true;
+  }
+  for (let i = 0; i < currColumns.length; i++) {
+    const currColumnCompare = { ...currColumns[i] };
+    const newColumn = { ...newColumns[i] };
+    // Don't compare the accessor function since that will always be different.
+    delete currColumnCompare.accessor;
+    delete newColumn.accessor;
+    if (!isEqual(currColumnCompare, newColumn)) {
+      return true;
+    }
+  }
+  return false;
 };
 
 /**
