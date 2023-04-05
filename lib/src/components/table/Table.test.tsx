@@ -70,63 +70,6 @@ describe("Table", () => {
     expect(cells[3].textContent).toBe(data[1].phone);
   });
 
-  describe("null-ish data", () => {
-    const testCases: Record<CellType, Column | "skip"> = {
-      string: { accessor: "string", type: "string" },
-      number: { accessor: "number", type: "number" },
-      boolean: { accessor: "boolean", type: "boolean" },
-      date: { accessor: "date", type: "date" },
-      datetime: { accessor: "datetime", type: "datetime" },
-      select: {
-        accessor: "select",
-        type: "select",
-        typeOptions: { selectData: ["A"] },
-      },
-      json: "skip",
-      link: { accessor: "link", type: "link" },
-    };
-
-    Object.values(testCases).forEach((column) => {
-      if (column !== "skip") {
-        it(`renders ${column.type} column with null data`, () => {
-          const { getByRole } = render(
-            <Table columns={[column]} data={[{ [column.accessor!]: null }]} />
-          );
-          expect(getByRole("cell")).toHaveTextContent(/$^/);
-        });
-
-        it(`renders ${column.type} column with undefined data`, () => {
-          const { getByRole } = render(
-            <Table columns={[column]} data={[{}]} />
-          );
-          expect(getByRole("cell")).toHaveTextContent(/$^/);
-        });
-      }
-    });
-
-    // The JSON Code component injects styles into the DOM, which show up in the text content.
-    // Workaround: test that the cell doesn't contain the string "null"
-    it("renders json column with null data", () => {
-      const { getByRole } = render(
-        <Table
-          columns={[{ accessor: "json", type: "json" }]}
-          data={[{ json: null }]}
-        />
-      );
-      expect(getByRole("cell").textContent).not.toContain("null");
-    });
-
-    it("renders json column with undefined data", () => {
-      const { getByRole } = render(
-        <Table<{ json?: string }>
-          columns={[{ accessor: "json", type: "json" }]}
-          data={[{}]}
-        />
-      );
-      expect(getByRole("cell").textContent).not.toContain("undefined");
-    });
-  });
-
   it("renders dates from numbers", async () => {
     render(
       <Table
@@ -135,249 +78,6 @@ describe("Table", () => {
       />
     );
     await screen.findByText("Jul 06, 2022");
-  });
-
-  it("editable cells", async () => {
-    const mockCallback = jest.fn();
-    render(
-      <Table
-        columns={[
-          { label: "string", accessor: "string", canEdit: true },
-          {
-            label: "number",
-            accessor: "number",
-            type: "number",
-            canEdit: true,
-          },
-          {
-            label: "JSON",
-            accessor: "json",
-            type: "json",
-            canEdit: true,
-          },
-          { label: "Date", accessor: "date", type: "date", canEdit: true },
-          {
-            label: "Datetime",
-            accessor: "datetime",
-            type: "datetime",
-            canEdit: true,
-          },
-          {
-            label: "Boolean",
-            accessor: "bool",
-            type: "boolean",
-            canEdit: true,
-          },
-          {
-            label: "Select",
-            accessor: "select",
-            type: "select",
-            canEdit: true,
-            typeOptions: {
-              selectData: ["one", { label: "Two", value: "two" }, "three"],
-            },
-          },
-        ]}
-        data={[
-          {
-            string: "My String",
-            number: 1,
-            json: { foo: "bar" },
-            date: new Date("2022-07-06T00:00:00.000Z"),
-            datetime: new Date("2022-07-06T04:20:00.000Z"),
-            bool: true,
-            select: "one",
-          },
-        ]}
-        rowActions={[
-          ({ row }) => <Button onClick={() => mockCallback(row)}>b1</Button>,
-        ]}
-      />
-    );
-    const editIcons = await screen.findAllByTestId("edit-icon");
-    await userEvent.click(editIcons[0]);
-    const stringInput: HTMLInputElement = await screen.findByDisplayValue(
-      "My String"
-    );
-    await userEvent.type(stringInput, "2");
-    expect(stringInput.value).toBe("My String2");
-    await userEvent.type(stringInput, "{tab}");
-    await screen.findByText("My String2");
-
-    await userEvent.click(editIcons[1]);
-    const numInput: HTMLInputElement = await screen.findByDisplayValue(1);
-    await userEvent.type(numInput, "0");
-    expect(numInput.value).toBe("10");
-    await userEvent.type(numInput, "{enter}");
-    await screen.findByText("10");
-
-    await userEvent.click(editIcons[2]);
-    const jsonInput = await screen.findByText(`{ "foo": "bar" }`);
-    await userEvent.clear(jsonInput);
-    await userEvent.type(jsonInput, '{{ "foo": "baz" }');
-    await screen.findByText(`{ "foo": "baz" }`);
-
-    await userEvent.click(editIcons[3]);
-    const dateInput: HTMLInputElement = await screen.findByDisplayValue(
-      "Jul 06, 2022"
-    );
-    await userEvent.click(await screen.findByText("7"));
-    expect(dateInput.value).toBe("Jul 07, 2022");
-    await userEvent.type(document.body, "{enter}");
-    await screen.findByText("Jul 07, 2022");
-
-    await userEvent.click(editIcons[4]);
-    const datetimeInput: HTMLInputElement = await screen.findByDisplayValue(
-      formatDatetime(new Date(2022, 6, 6, 4, 20))
-    );
-    await userEvent.click(await screen.findByText("7"));
-    await userEvent.click(await screen.findByText("+5"));
-    expect(datetimeInput.value).toBe(
-      formatDatetime(new Date(2022, 6, 7, 4, 25))
-    );
-    await userEvent.type(document.body, "{enter}");
-    await screen.findByText(formatDatetime(new Date(2022, 6, 7, 4, 25)));
-
-    const boolToggle = await screen.findByRole("checkbox", { name: "toggle" });
-    expect(boolToggle).toBeChecked();
-    await userEvent.click(boolToggle);
-    expect(boolToggle).not.toBeChecked();
-
-    await userEvent.click(editIcons[5]);
-    // Verify that all the options are there and click an option
-    await screen.findByText("one");
-    const two = await screen.findByText("Two");
-    await screen.findByText("three");
-    await userEvent.click(two);
-    // Option two has the label != value. Verify that the inputs are updated.
-    await screen.findByDisplayValue("two");
-    await screen.findByDisplayValue("Two");
-
-    await userEvent.click(await screen.findByText("b1"));
-    expect(mockCallback.mock.lastCall[0]).toEqual({
-      bool: false,
-      date: new Date("2022-07-07T00:00:00.000Z"),
-      datetime: new Date("2022-07-07T04:25:00.000Z"),
-      json: `{ "foo": "baz" }`,
-      number: 10,
-      string: "My String2",
-      select: "two",
-    });
-  }, 25000);
-
-  it("cancels an edit", async () => {
-    const mockCallback = jest.fn();
-    render(
-      <Table
-        columns={[{ label: "string", accessor: "string", canEdit: true }]}
-        data={[
-          {
-            string: "My String",
-          },
-        ]}
-        rowActions={[
-          (row) => <Button onClick={() => mockCallback(row)}>b1</Button>,
-        ]}
-      />
-    );
-    await userEvent.click(await screen.findByTestId("edit-icon"));
-    const stringInput: HTMLInputElement = await screen.findByDisplayValue(
-      "My String"
-    );
-    await userEvent.type(stringInput, "2");
-    expect(stringInput.value).toBe("My String2");
-    await userEvent.type(stringInput, "{escape}");
-    await screen.findByText("My String");
-  });
-
-  it("editable number cells with options", async () => {
-    const mockCallback = jest.fn();
-    render(
-      <Table
-        columns={[
-          {
-            label: "number",
-            accessor: "number",
-            type: "number",
-            typeOptions: {
-              numberMin: 0,
-              numberMax: 100,
-            },
-            canEdit: true,
-          },
-        ]}
-        data={[{ number: 1 }]}
-        rowActions={[
-          ({ row }) => <Button onClick={() => mockCallback(row)}>b1</Button>,
-        ]}
-      />
-    );
-
-    await userEvent.click(await screen.findByTestId("edit-icon"));
-    let numInput: HTMLInputElement = await screen.findByDisplayValue(1);
-    await userEvent.type(numInput, "0");
-    expect(numInput.value).toBe("10");
-    await userEvent.type(numInput, "{enter}");
-    await screen.findByText("10");
-
-    await userEvent.click(await screen.findByText("b1"));
-    expect(mockCallback.mock.lastCall[0]).toEqual({
-      number: 10,
-    });
-
-    // min
-    await userEvent.click(await screen.findByTestId("edit-icon"));
-    numInput = await screen.findByDisplayValue(10);
-    await userEvent.clear(numInput);
-    await userEvent.type(numInput, "-7");
-    await userEvent.type(numInput, "{enter}");
-    await screen.findByText("0");
-
-    // max
-    await userEvent.click(await screen.findByTestId("edit-icon"));
-    numInput = await screen.findByDisplayValue(0);
-    await userEvent.clear(numInput);
-    await userEvent.type(numInput, "700");
-    await userEvent.type(numInput, "{enter}");
-    await screen.findByText("100");
-  });
-
-  it("editable boolean cells dirty state works when initial value is undefined", async () => {
-    const mockCallback = jest.fn();
-    render(
-      <Table
-        columns={[
-          {
-            label: "Boolean",
-            accessor: "bool",
-            type: "boolean",
-            canEdit: true,
-          },
-        ]}
-        data={[
-          {
-            bool: undefined,
-          },
-        ]}
-        rowActions={[
-          ({ row }) => <Button onClick={() => mockCallback(row)}>b1</Button>,
-        ]}
-      />
-    );
-    const boolToggle = await screen.findByRole("checkbox", {
-      name: "toggle",
-    });
-    expect(boolToggle).not.toBeChecked();
-
-    // Toggle on. Cell should be dirty.
-    await userEvent.click(boolToggle);
-    expect(boolToggle).toBeChecked();
-    await screen.findByTestId("editable-cell-dirty");
-
-    // Toggle off. Cell should not be dirty.
-    await userEvent.click(boolToggle);
-    expect(boolToggle).not.toBeChecked();
-    await screen.findByTestId("editable-cell");
   });
 
   it("static cells of different types", async () => {
@@ -423,6 +123,344 @@ describe("Table", () => {
     await screen.findByText("Jul 06, 2022");
     await screen.findByText(formatDatetime(new Date(2022, 6, 6)));
     await screen.findByText(formatDatetime(new Date(2022, 6, 7)));
+  });
+
+  it("supports pagination", async () => {
+    const { getAllByRole } = render(
+      <Table columns={columns} data={data} defaultPageSize={1} />
+    );
+    const headers = getAllByRole("columnheader");
+    expect(headers).toHaveLength(columns.length);
+    expect(headers[0].textContent).toBe("Name");
+    expect(headers[1].textContent).toBe("Phone Number");
+    let cells = getAllByRole("cell");
+    expect(cells).toHaveLength(2);
+    expect(cells[0].textContent).toBe(data[0].name);
+    expect(cells[1].textContent).toBe(data[0].phone);
+
+    const next = await screen.findByRole("button", { name: "next" });
+    const prev = await screen.findByRole("button", { name: "previous" });
+
+    expect(prev).toBeDisabled();
+    await screen.findByText("1 – 1 of 2");
+    await userEvent.click(next);
+    cells = await screen.findAllByRole("cell");
+    expect(cells).toHaveLength(2);
+    expect(cells[0].textContent).toBe(data[1].name);
+    expect(cells[1].textContent).toBe(data[1].phone);
+
+    expect(next).toBeDisabled();
+    await screen.findByText("2 – 2 of 2");
+    await userEvent.click(prev);
+    cells = await screen.findAllByRole("cell");
+    expect(cells).toHaveLength(2);
+    expect(cells[0].textContent).toBe(data[0].name);
+    expect(cells[1].textContent).toBe(data[0].phone);
+  });
+
+  it("starts resizing when holding on drag handle", async () => {
+    const user = userEvent.setup();
+    const columns: Column[] = [
+      { label: "Name", accessor: "name" },
+      { label: "Phone Number", accessor: "phone" },
+    ];
+    const { getByRole } = render(<Table columns={columns} data={[]} />);
+    const namelabel = getByRole("columnheader", { name: "Name" });
+    const dragHandle = within(namelabel).getByRole("separator");
+    expect(dragHandle).toHaveClass("resizer");
+    await user.pointer({ keys: "[MouseLeft>]", target: dragHandle });
+    expect(dragHandle).toHaveClass("resizer isResizing");
+  });
+
+  it("renders the CSV download link correctly", async () => {
+    render(
+      <Table
+        data={[
+          { foo: "bar", foo2: "bar2" },
+          {
+            foo: "bar",
+            foo2: `abc"\ndef`,
+            hiddenColumn: "shouldn't be downloaded",
+          },
+        ]}
+        columns={["foo", "foo2"]}
+        enableCSVDownload
+      />
+    );
+    const expectedData =
+      "data:text/csv;charset=utf-8," +
+      encodeURIComponent(`"foo","foo2"\n"bar","bar2"\n"bar","abc""\ndef"`);
+    const downloadLink = await screen.findByTestId<HTMLAnchorElement>(
+      "csvDownload"
+    );
+    expect(downloadLink.href).toEqual(expectedData);
+    expect(downloadLink.download).toEqual(expect.stringMatching(/\.csv$/));
+  });
+
+  it("renders booleans and nulls in string columns", () => {
+    type Row = {
+      myColumn: boolean | null;
+    };
+    const columns: Column[] = [{ accessor: "myColumn", type: "string" }];
+    const data: Row[] = [
+      { myColumn: true },
+      { myColumn: false },
+      { myColumn: null },
+    ];
+    const { getAllByRole } = render(<Table columns={columns} data={data} />);
+    const cells = getAllByRole("cell");
+    expect(cells.map((cell) => cell.textContent)).toEqual([
+      "true",
+      "false",
+      "null",
+    ]);
+  });
+
+  describe("editable cells", () => {
+    it("edits cells", async () => {
+      const mockCallback = jest.fn();
+      render(
+        <Table
+          columns={[
+            { label: "string", accessor: "string", canEdit: true },
+            {
+              label: "number",
+              accessor: "number",
+              type: "number",
+              canEdit: true,
+            },
+            {
+              label: "JSON",
+              accessor: "json",
+              type: "json",
+              canEdit: true,
+            },
+            { label: "Date", accessor: "date", type: "date", canEdit: true },
+            {
+              label: "Datetime",
+              accessor: "datetime",
+              type: "datetime",
+              canEdit: true,
+            },
+            {
+              label: "Boolean",
+              accessor: "bool",
+              type: "boolean",
+              canEdit: true,
+            },
+            {
+              label: "Select",
+              accessor: "select",
+              type: "select",
+              canEdit: true,
+              typeOptions: {
+                selectData: ["one", { label: "Two", value: "two" }, "three"],
+              },
+            },
+          ]}
+          data={[
+            {
+              string: "My String",
+              number: 1,
+              json: { foo: "bar" },
+              date: new Date("2022-07-06T00:00:00.000Z"),
+              datetime: new Date("2022-07-06T04:20:00.000Z"),
+              bool: true,
+              select: "one",
+            },
+          ]}
+          rowActions={[
+            ({ row }) => <Button onClick={() => mockCallback(row)}>b1</Button>,
+          ]}
+        />
+      );
+      const editIcons = await screen.findAllByTestId("edit-icon");
+      await userEvent.click(editIcons[0]);
+      const stringInput: HTMLInputElement = await screen.findByDisplayValue(
+        "My String"
+      );
+      await userEvent.type(stringInput, "2");
+      expect(stringInput.value).toBe("My String2");
+      await userEvent.type(stringInput, "{tab}");
+      await screen.findByText("My String2");
+
+      await userEvent.click(editIcons[1]);
+      const numInput: HTMLInputElement = await screen.findByDisplayValue(1);
+      await userEvent.type(numInput, "0");
+      expect(numInput.value).toBe("10");
+      await userEvent.type(numInput, "{enter}");
+      await screen.findByText("10");
+
+      await userEvent.click(editIcons[2]);
+      const jsonInput = await screen.findByText(`{ "foo": "bar" }`);
+      await userEvent.clear(jsonInput);
+      await userEvent.type(jsonInput, '{{ "foo": "baz" }');
+      await screen.findByText(`{ "foo": "baz" }`);
+
+      await userEvent.click(editIcons[3]);
+      const dateInput: HTMLInputElement = await screen.findByDisplayValue(
+        "Jul 06, 2022"
+      );
+      await userEvent.click(await screen.findByText("7"));
+      expect(dateInput.value).toBe("Jul 07, 2022");
+      await userEvent.type(document.body, "{enter}");
+      await screen.findByText("Jul 07, 2022");
+
+      await userEvent.click(editIcons[4]);
+      const datetimeInput: HTMLInputElement = await screen.findByDisplayValue(
+        formatDatetime(new Date(2022, 6, 6, 4, 20))
+      );
+      await userEvent.click(await screen.findByText("7"));
+      await userEvent.click(await screen.findByText("+5"));
+      expect(datetimeInput.value).toBe(
+        formatDatetime(new Date(2022, 6, 7, 4, 25))
+      );
+      await userEvent.type(document.body, "{enter}");
+      await screen.findByText(formatDatetime(new Date(2022, 6, 7, 4, 25)));
+
+      const boolToggle = await screen.findByRole("checkbox", {
+        name: "toggle",
+      });
+      expect(boolToggle).toBeChecked();
+      await userEvent.click(boolToggle);
+      expect(boolToggle).not.toBeChecked();
+
+      await userEvent.click(editIcons[5]);
+      // Verify that all the options are there and click an option
+      await screen.findByText("one");
+      const two = await screen.findByText("Two");
+      await screen.findByText("three");
+      await userEvent.click(two);
+      // Option two has the label != value. Verify that the inputs are updated.
+      await screen.findByDisplayValue("two");
+      await screen.findByDisplayValue("Two");
+
+      await userEvent.click(await screen.findByText("b1"));
+      expect(mockCallback.mock.lastCall[0]).toEqual({
+        bool: false,
+        date: new Date("2022-07-07T00:00:00.000Z"),
+        datetime: new Date("2022-07-07T04:25:00.000Z"),
+        json: `{ "foo": "baz" }`,
+        number: 10,
+        string: "My String2",
+        select: "two",
+      });
+    }, 25000);
+
+    it("cancels an edit", async () => {
+      const mockCallback = jest.fn();
+      render(
+        <Table
+          columns={[{ label: "string", accessor: "string", canEdit: true }]}
+          data={[
+            {
+              string: "My String",
+            },
+          ]}
+          rowActions={[
+            (row) => <Button onClick={() => mockCallback(row)}>b1</Button>,
+          ]}
+        />
+      );
+      await userEvent.click(await screen.findByTestId("edit-icon"));
+      const stringInput: HTMLInputElement = await screen.findByDisplayValue(
+        "My String"
+      );
+      await userEvent.type(stringInput, "2");
+      expect(stringInput.value).toBe("My String2");
+      await userEvent.type(stringInput, "{escape}");
+      await screen.findByText("My String");
+    });
+
+    it("editable number cells with options", async () => {
+      const mockCallback = jest.fn();
+      render(
+        <Table
+          columns={[
+            {
+              label: "number",
+              accessor: "number",
+              type: "number",
+              typeOptions: {
+                numberMin: 0,
+                numberMax: 100,
+              },
+              canEdit: true,
+            },
+          ]}
+          data={[{ number: 1 }]}
+          rowActions={[
+            ({ row }) => <Button onClick={() => mockCallback(row)}>b1</Button>,
+          ]}
+        />
+      );
+
+      await userEvent.click(await screen.findByTestId("edit-icon"));
+      let numInput: HTMLInputElement = await screen.findByDisplayValue(1);
+      await userEvent.type(numInput, "0");
+      expect(numInput.value).toBe("10");
+      await userEvent.type(numInput, "{enter}");
+      await screen.findByText("10");
+
+      await userEvent.click(await screen.findByText("b1"));
+      expect(mockCallback.mock.lastCall[0]).toEqual({
+        number: 10,
+      });
+
+      // min
+      await userEvent.click(await screen.findByTestId("edit-icon"));
+      numInput = await screen.findByDisplayValue(10);
+      await userEvent.clear(numInput);
+      await userEvent.type(numInput, "-7");
+      await userEvent.type(numInput, "{enter}");
+      await screen.findByText("0");
+
+      // max
+      await userEvent.click(await screen.findByTestId("edit-icon"));
+      numInput = await screen.findByDisplayValue(0);
+      await userEvent.clear(numInput);
+      await userEvent.type(numInput, "700");
+      await userEvent.type(numInput, "{enter}");
+      await screen.findByText("100");
+    });
+
+    it("editable boolean cells dirty state works when initial value is undefined", async () => {
+      const mockCallback = jest.fn();
+      render(
+        <Table
+          columns={[
+            {
+              label: "Boolean",
+              accessor: "bool",
+              type: "boolean",
+              canEdit: true,
+            },
+          ]}
+          data={[
+            {
+              bool: undefined,
+            },
+          ]}
+          rowActions={[
+            ({ row }) => <Button onClick={() => mockCallback(row)}>b1</Button>,
+          ]}
+        />
+      );
+      const boolToggle = await screen.findByRole("checkbox", {
+        name: "toggle",
+      });
+      expect(boolToggle).not.toBeChecked();
+
+      // Toggle on. Cell should be dirty.
+      await userEvent.click(boolToggle);
+      expect(boolToggle).toBeChecked();
+      await screen.findByTestId("editable-cell-dirty");
+
+      // Toggle off. Cell should not be dirty.
+      await userEvent.click(boolToggle);
+      expect(boolToggle).not.toBeChecked();
+      await screen.findByTestId("editable-cell");
+    });
   });
 
   describe("custom cells", () => {
@@ -512,169 +550,170 @@ describe("Table", () => {
     });
   });
 
-  it("supports pagination", async () => {
-    const { getAllByRole } = render(
-      <Table columns={columns} data={data} defaultPageSize={1} />
-    );
-    const headers = getAllByRole("columnheader");
-    expect(headers).toHaveLength(columns.length);
-    expect(headers[0].textContent).toBe("Name");
-    expect(headers[1].textContent).toBe("Phone Number");
-    let cells = getAllByRole("cell");
-    expect(cells).toHaveLength(2);
-    expect(cells[0].textContent).toBe(data[0].name);
-    expect(cells[1].textContent).toBe(data[0].phone);
-
-    const next = await screen.findByRole("button", { name: "next" });
-    const prev = await screen.findByRole("button", { name: "previous" });
-
-    expect(prev).toBeDisabled();
-    await screen.findByText("1 – 1 of 2");
-    await userEvent.click(next);
-    cells = await screen.findAllByRole("cell");
-    expect(cells).toHaveLength(2);
-    expect(cells[0].textContent).toBe(data[1].name);
-    expect(cells[1].textContent).toBe(data[1].phone);
-
-    expect(next).toBeDisabled();
-    await screen.findByText("2 – 2 of 2");
-    await userEvent.click(prev);
-    cells = await screen.findAllByRole("cell");
-    expect(cells).toHaveLength(2);
-    expect(cells[0].textContent).toBe(data[0].name);
-    expect(cells[1].textContent).toBe(data[0].phone);
-  });
-
-  it("starts resizing when holding on drag handle", async () => {
-    const user = userEvent.setup();
-    const columns: Column[] = [
-      { label: "Name", accessor: "name" },
-      { label: "Phone Number", accessor: "phone" },
-    ];
-    const { getByRole } = render(<Table columns={columns} data={[]} />);
-    const namelabel = getByRole("columnheader", { name: "Name" });
-    const dragHandle = within(namelabel).getByRole("separator");
-    expect(dragHandle).toHaveClass("resizer");
-    await user.pointer({ keys: "[MouseLeft>]", target: dragHandle });
-    expect(dragHandle).toHaveClass("resizer isResizing");
-  });
-
-  it("supports sorting", async () => {
-    const user = userEvent.setup();
-    type Row = {
-      name: string;
+  describe("null-ish data", () => {
+    const testCases: Record<CellType, Column | "skip"> = {
+      string: { accessor: "string", type: "string" },
+      number: { accessor: "number", type: "number" },
+      boolean: { accessor: "boolean", type: "boolean" },
+      date: { accessor: "date", type: "date" },
+      datetime: { accessor: "datetime", type: "datetime" },
+      select: {
+        accessor: "select",
+        type: "select",
+        typeOptions: { selectData: ["A"] },
+      },
+      json: "skip",
+      link: { accessor: "link", type: "link" },
     };
-    const columns: Column[] = [{ label: "Name", accessor: "name" }];
-    const data: Row[] = [
-      { name: "D" },
-      { name: "E" },
-      { name: "B" },
-      { name: "F" },
-      { name: "A" },
-      { name: "C" },
-    ];
-    const { getByRole, getAllByRole } = render(
-      <Table columns={columns} data={data} />
-    );
-    await user.click(getByRole("columnheader", { name: "Name" }));
-    const ascCells = getAllByRole("cell");
-    expect(ascCells.map((cell) => cell.textContent)).toEqual(
-      data.map((d) => d.name).sort()
-    );
-    await user.click(getByRole("columnheader", { name: "Name" }));
-    const descCells = getAllByRole("cell");
-    expect(descCells.map((cell) => cell.textContent)).toEqual(
-      data
-        .map((d) => d.name)
-        .sort()
-        .reverse()
-    );
-    await user.click(getByRole("columnheader", { name: "Name" }));
-    const unorderedCells = getAllByRole("cell");
-    expect(unorderedCells.map((cell) => cell.textContent)).toEqual(
-      data.map((d) => d.name)
-    );
+
+    Object.values(testCases).forEach((column) => {
+      if (column !== "skip") {
+        it(`renders ${column.type} column with null data`, () => {
+          const { getByRole } = render(
+            <Table columns={[column]} data={[{ [column.accessor!]: null }]} />
+          );
+          expect(getByRole("cell")).toHaveTextContent(/$^/);
+        });
+
+        it(`renders ${column.type} column with undefined data`, () => {
+          const { getByRole } = render(
+            <Table columns={[column]} data={[{}]} />
+          );
+          expect(getByRole("cell")).toHaveTextContent(/$^/);
+        });
+      }
+    });
+
+    // The JSON Code component injects styles into the DOM, which show up in the text content.
+    // Workaround: test that the cell doesn't contain the string "null"
+    it("renders json column with null data", () => {
+      const { getByRole } = render(
+        <Table
+          columns={[{ accessor: "json", type: "json" }]}
+          data={[{ json: null }]}
+        />
+      );
+      expect(getByRole("cell").textContent).not.toContain("null");
+    });
+
+    it("renders json column with undefined data", () => {
+      const { getByRole } = render(
+        <Table<{ json?: string }>
+          columns={[{ accessor: "json", type: "json" }]}
+          data={[{}]}
+        />
+      );
+      expect(getByRole("cell").textContent).not.toContain("undefined");
+    });
   });
 
-  it("supports sorting dates", async () => {
-    const user = userEvent.setup();
-    type Row = {
-      date: Date;
-    };
-    const columns: Column[] = [{ label: "Date", accessor: "date" }];
-    const data: Row[] = [
-      { date: new Date(2022, 2) },
-      { date: new Date(2022, 1) },
-      { date: new Date(2022, 3) },
-    ];
-    const { getByRole, getAllByRole } = render(
-      <Table columns={columns} data={data} />
-    );
-    await user.click(getByRole("columnheader", { name: "Date" }));
-    const ascCells = getAllByRole("cell");
-    expect(ascCells.map((cell) => cell.textContent)).toEqual([
-      formatDatetime(new Date(2022, 1, 1)),
-      formatDatetime(new Date(2022, 2, 1)),
-      formatDatetime(new Date(2022, 3, 1)),
-    ]);
-    await user.click(getByRole("columnheader", { name: "Date" }));
-    const descCells = getAllByRole("cell");
-    expect(descCells.map((cell) => cell.textContent)).toEqual([
-      formatDatetime(new Date(2022, 3, 1)),
-      formatDatetime(new Date(2022, 2, 1)),
-      formatDatetime(new Date(2022, 1, 1)),
-    ]);
-  });
+  describe("sort", () => {
+    it("supports sorting", async () => {
+      const user = userEvent.setup();
+      type Row = {
+        name: string;
+      };
+      const columns: Column[] = [{ label: "Name", accessor: "name" }];
+      const data: Row[] = [
+        { name: "D" },
+        { name: "E" },
+        { name: "B" },
+        { name: "F" },
+        { name: "A" },
+        { name: "C" },
+      ];
+      const { getByRole, getAllByRole } = render(
+        <Table columns={columns} data={data} />
+      );
+      await user.click(getByRole("columnheader", { name: "Name" }));
+      const ascCells = getAllByRole("cell");
+      expect(ascCells.map((cell) => cell.textContent)).toEqual(
+        data.map((d) => d.name).sort()
+      );
+      await user.click(getByRole("columnheader", { name: "Name" }));
+      const descCells = getAllByRole("cell");
+      expect(descCells.map((cell) => cell.textContent)).toEqual(
+        data
+          .map((d) => d.name)
+          .sort()
+          .reverse()
+      );
+      await user.click(getByRole("columnheader", { name: "Name" }));
+      const unorderedCells = getAllByRole("cell");
+      expect(unorderedCells.map((cell) => cell.textContent)).toEqual(
+        data.map((d) => d.name)
+      );
+    });
 
-  it("supports sorting bools", async () => {
-    const user = userEvent.setup();
-    type Row = {
-      name: string;
-      bool: boolean;
-    };
-    const columns: Column[] = [
-      { label: "Name", accessor: "name" },
-      { label: "Bool", accessor: "bool" },
-    ];
-    const data: Row[] = [
-      { name: "a", bool: false },
-      { name: "b", bool: true },
-      { name: "c", bool: false },
-    ];
-    const { getByRole, getAllByRole } = render(
-      <Table columns={columns} data={data} />
-    );
-    await user.click(getByRole("columnheader", { name: "Bool" }));
-    const ascCells = getAllByRole("cell");
-    expect(ascCells.map((cell) => cell.textContent)).toEqual([
-      "a",
-      "",
-      "c",
-      "",
-      "b",
-      "",
-    ]);
-    await user.click(getByRole("columnheader", { name: "Bool" }));
-    const descCells = getAllByRole("cell");
-    expect(descCells.map((cell) => cell.textContent)).toEqual([
-      "b",
-      "",
-      "c",
-      "",
-      "a",
-      "",
-    ]);
-  });
+    it("supports sorting dates", async () => {
+      const user = userEvent.setup();
+      type Row = {
+        date: Date;
+      };
+      const columns: Column[] = [{ label: "Date", accessor: "date" }];
+      const data: Row[] = [
+        { date: new Date(2022, 2) },
+        { date: new Date(2022, 1) },
+        { date: new Date(2022, 3) },
+      ];
+      const { getByRole, getAllByRole } = render(
+        <Table columns={columns} data={data} />
+      );
+      await user.click(getByRole("columnheader", { name: "Date" }));
+      const ascCells = getAllByRole("cell");
+      expect(ascCells.map((cell) => cell.textContent)).toEqual([
+        formatDatetime(new Date(2022, 1, 1)),
+        formatDatetime(new Date(2022, 2, 1)),
+        formatDatetime(new Date(2022, 3, 1)),
+      ]);
+      await user.click(getByRole("columnheader", { name: "Date" }));
+      const descCells = getAllByRole("cell");
+      expect(descCells.map((cell) => cell.textContent)).toEqual([
+        formatDatetime(new Date(2022, 3, 1)),
+        formatDatetime(new Date(2022, 2, 1)),
+        formatDatetime(new Date(2022, 1, 1)),
+      ]);
+    });
 
-  it("handles accessors with periods in them", () => {
-    type Row = {
-      "my.name": string;
-    };
-    const columns: Column[] = [{ label: "My name", accessor: "my.name" }];
-    const data: Row[] = [{ "my.name": "a" }];
-    const { getByRole } = render(<Table columns={columns} data={data} />);
-    const cell = getByRole("cell");
-    expect(cell.textContent).toEqual("a");
+    it("supports sorting bools", async () => {
+      const user = userEvent.setup();
+      type Row = {
+        name: string;
+        bool: boolean;
+      };
+      const columns: Column[] = [
+        { label: "Name", accessor: "name" },
+        { label: "Bool", accessor: "bool" },
+      ];
+      const data: Row[] = [
+        { name: "a", bool: false },
+        { name: "b", bool: true },
+        { name: "c", bool: false },
+      ];
+      const { getByRole, getAllByRole } = render(
+        <Table columns={columns} data={data} />
+      );
+      await user.click(getByRole("columnheader", { name: "Bool" }));
+      const ascCells = getAllByRole("cell");
+      expect(ascCells.map((cell) => cell.textContent)).toEqual([
+        "a",
+        "",
+        "c",
+        "",
+        "b",
+        "",
+      ]);
+      await user.click(getByRole("columnheader", { name: "Bool" }));
+      const descCells = getAllByRole("cell");
+      expect(descCells.map((cell) => cell.textContent)).toEqual([
+        "b",
+        "",
+        "c",
+        "",
+        "a",
+        "",
+      ]);
+    });
   });
 
   describe("row selection", () => {
@@ -1343,6 +1382,17 @@ describe("Table", () => {
       expect(headers[0].textContent).toBe("name");
       expect(headers[1].textContent).toBe("phone");
     });
+
+    it("handles accessors with periods in them", () => {
+      type Row = {
+        "my.name": string;
+      };
+      const columns: Column[] = [{ label: "My name", accessor: "my.name" }];
+      const data: Row[] = [{ "my.name": "a" }];
+      const { getByRole } = render(<Table columns={columns} data={data} />);
+      const cell = getByRole("cell");
+      expect(cell.textContent).toEqual("a");
+    });
   });
 
   describe("task query", () => {
@@ -1605,31 +1655,6 @@ describe("Table", () => {
         await screen.findByText("Latest run");
       });
     });
-  });
-
-  it("renders the CSV download link correctly", async () => {
-    render(
-      <Table
-        data={[
-          { foo: "bar", foo2: "bar2" },
-          {
-            foo: "bar",
-            foo2: `abc"\ndef`,
-            hiddenColumn: "shouldn't be downloaded",
-          },
-        ]}
-        columns={["foo", "foo2"]}
-        enableCSVDownload
-      />
-    );
-    const expectedData =
-      "data:text/csv;charset=utf-8," +
-      encodeURIComponent(`"foo","foo2"\n"bar","bar2"\n"bar","abc""\ndef"`);
-    const downloadLink = await screen.findByTestId<HTMLAnchorElement>(
-      "csvDownload"
-    );
-    expect(downloadLink.href).toEqual(expectedData);
-    expect(downloadLink.download).toEqual(expect.stringMatching(/\.csv$/));
   });
 
   describe("filtering", () => {

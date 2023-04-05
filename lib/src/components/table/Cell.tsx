@@ -213,7 +213,11 @@ const StaticCellValue = ({
   const canEdit = !!onEdit;
   if (type === "string") {
     return (
-      <OverflowText className={classes.cellPadding} wrap={wrap} value={value} />
+      <OverflowText
+        className={classes.cellPadding}
+        wrap={wrap}
+        value={String(value)}
+      />
     );
   } else if (type === "link") {
     if (!value) return null;
