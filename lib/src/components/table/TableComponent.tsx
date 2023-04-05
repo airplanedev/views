@@ -138,7 +138,7 @@ export function TableComponent<TRowData extends object>({
           id,
           type,
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          accessor: c.accessor as any, // React table generics isn't happy if we exclude these, but they're valid.
+          accessor: (data) => data[c.accessor],
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           Component: c.Component as any,
         };

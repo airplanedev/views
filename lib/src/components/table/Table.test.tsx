@@ -666,6 +666,17 @@ describe("Table", () => {
     ]);
   });
 
+  it("handles accessors with periods in them", () => {
+    type Row = {
+      "my.name": string;
+    };
+    const columns: Column[] = [{ label: "My name", accessor: "my.name" }];
+    const data: Row[] = [{ "my.name": "a" }];
+    const { getByRole } = render(<Table columns={columns} data={data} />);
+    const cell = getByRole("cell");
+    expect(cell.textContent).toEqual("a");
+  });
+
   describe("row selection", () => {
     const TestC = (props: Partial<Omit<TableProps<Row>, "task">>) => {
       const state = useComponentState<TableState<Row>>("myTable");
