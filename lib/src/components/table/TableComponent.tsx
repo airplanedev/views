@@ -736,12 +736,12 @@ const didColumnsChange = <TRowData extends object>(
     return true;
   }
   for (let i = 0; i < currColumns.length; i++) {
-    const currColumnCompare = { ...currColumns[i] };
+    const currColumn = { ...currColumns[i] };
     const newColumn = { ...newColumns[i] };
     // Don't compare the accessor function since that will always be different.
-    delete currColumnCompare.accessor;
+    delete currColumn.accessor;
     delete newColumn.accessor;
-    if (!isEqual(currColumnCompare, newColumn)) {
+    if (!isEqual(currColumn, newColumn)) {
       return true;
     }
   }
