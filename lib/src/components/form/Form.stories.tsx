@@ -661,6 +661,7 @@ export const FieldOptions = () => {
         slug: "every_optional_param",
         hiddenFields: ["sql", "file", "number"],
         fieldOptions: [
+          { slug: "boolean", defaultValue: true },
           { slug: "long_text", value: "abc" },
           {
             slug: "short_text",

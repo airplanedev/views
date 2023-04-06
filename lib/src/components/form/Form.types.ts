@@ -14,7 +14,7 @@ export type FieldOption = {
   /** The value assigned to the field. */
   value?: string | number | boolean | Date;
   /** The default value for the field. Ignored if `value` is set. */
-  defaultValue?: string | number | Date;
+  defaultValue?: string | number | boolean | Date;
   /** The set of allowed values for the field. Ignored if `value` is set. */
   allowedValues?: string[] | number[] | Date[];
   /** If true, the field will be disabled. */

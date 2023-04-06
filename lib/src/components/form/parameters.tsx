@@ -146,7 +146,9 @@ export const parameterToInput = (
     id: idPrefix + param.slug,
     label: param.name,
     key,
-    defaultValue: opt?.defaultValue,
+    ...(param.type === "boolean"
+      ? { defaultChecked: opt?.defaultValue }
+      : { defaultValue: opt?.defaultValue }),
     validate: opt?.validate,
     // This is not param?.desc because we don't want to pass an empty string desc
     description: param.desc || undefined,
@@ -165,7 +167,11 @@ export const parameterToInput = (
       <Select
         clearable
         {...props}
-        defaultValue={canonicalizeValue(opt?.defaultValue, param.type)}
+        defaultValue={
+          typeof opt?.defaultValue === "boolean"
+            ? undefined
+            : canonicalizeValue(opt?.defaultValue, param.type)
+        }
         data={allowedValues}
       />
     );
@@ -175,7 +181,11 @@ export const parameterToInput = (
       <Select
         clearable
         {...props}
-        defaultValue={canonicalizeValue(opt?.defaultValue, param.type)}
+        defaultValue={
+          typeof opt?.defaultValue === "boolean"
+            ? undefined
+            : canonicalizeValue(opt?.defaultValue, param.type)
+        }
         data={constraintValues}
       />
     );
