@@ -53,7 +53,7 @@
     "@mantine/notifications": "5.10.5",
     "@mantine/prism": "5.10.5",
     "@types/object-inspect": "1.8.1",
-    "@uiw/react-codemirror": "4.19.15",
+    "@uiw/react-codemirror": "4.19.9",
     "airplane": "0.2.54",
     "codemirror": "6.0.1",
     "currency-symbol-map": "5.1.0",
