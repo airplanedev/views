@@ -9,7 +9,11 @@ const borderStyles = {
 };
 
 export const THEME: MantineThemeBase = {
-  globalStyles: () => ({}),
+  globalStyles: () => ({
+    "*": {
+      fontVariantLigatures: "no-contextual",
+    },
+  }),
   dir: "ltr",
   primaryShade: {
     light: 6,
