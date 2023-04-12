@@ -117,7 +117,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: publish
     needs: [lint, test, build]
-    if: github.ref == 'refs/heads/ga'
+    if: github.ref == 'refs/heads/next'
     env:
       PACKAGE_NAME: "@airplane/views"
     permissions:
