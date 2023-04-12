@@ -185,7 +185,7 @@ describe("useTaskQuery", () => {
     await waitFor(() => {
       expect(result.current.loading).toBe(false);
       expect(result.current.error).toEqual({
-        message: "Request failed: 400: Oh NO",
+        message: `Failed to execute task "slug": Request failed: 400: Oh NO`,
         type: "CLIENT_ERROR",
       });
       expect(result.current.output).toBeFalsy();
