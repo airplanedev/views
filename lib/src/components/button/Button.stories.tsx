@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import withMock from "storybook-addon-mock";
 
 import { CogIconMini } from "components/icon";
@@ -6,7 +6,6 @@ import { Stack } from "components/stack/Stack";
 import { Text } from "components/text/Text";
 
 import { Button } from "./Button";
-import { ButtonProps } from "./Button.types";
 
 const scaleSignalMock = {
   url: "http://api/v0/runners/createScaleSignal",
@@ -141,9 +140,9 @@ export default {
   decorators: [withMock],
   excludeStories: ["mockDataExecute"],
   parameters: { mockData: mockDataExecute },
-} as ComponentMeta<typeof Button>;
+} as Meta<typeof Button>;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};

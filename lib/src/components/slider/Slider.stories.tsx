@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Button } from "components/button/Button";
 import { Card } from "components/card/Card";
@@ -14,9 +14,9 @@ export default {
   title: "Slider",
   component: Slider,
   args: { label: "my slider" },
-} as ComponentMeta<typeof Slider>;
+} as Meta<typeof Slider>;
 
-const Template: Story<SliderProps> = (props) => (
+const Template: StoryFn<SliderProps> = (props) => (
   <Card width="1/2">
     <Slider {...props} />
   </Card>

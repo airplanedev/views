@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
 import { useState } from "react";
 
@@ -9,7 +9,6 @@ import { SelectState, useComponentState } from "state";
 import { SelectTValue } from "state/components/select/reducer";
 
 import { Select } from "./Select";
-import { SelectProps } from "./Select.types";
 
 export default {
   title: "Select",
@@ -21,9 +20,9 @@ export default {
       </Stack>
     ),
   ],
-} as ComponentMeta<typeof Select>;
+} as Meta<typeof Select>;
 
-const Template: Story<SelectProps> = (args) => <Select {...args} />;
+const Template: StoryFn<typeof Select> = (args) => <Select {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -106,7 +105,11 @@ ItemComponent.args = {
   ...Default.args,
   ItemComponent: ({ label }) => <Callout>{label}</Callout>,
 };
-ItemComponent.play = async ({ canvasElement }) => {
+ItemComponent.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement;
+}) => {
   const canvas = within(canvasElement);
   await userEvent.click(canvas.getByLabelText("Fruits"));
 };

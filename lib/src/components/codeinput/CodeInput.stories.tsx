@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Button } from "components/button/Button";
 import { Checkbox } from "components/checkbox/Checkbox";
@@ -7,13 +7,14 @@ import { Stack } from "components/stack/Stack";
 import { useComponentState } from "state";
 
 import { CodeInput } from "./CodeInput";
+import { CodeInputProps } from "./CodeInput.types";
 
 export default {
   title: "Code Input",
   component: CodeInput,
-} as ComponentMeta<typeof CodeInput>;
+} as Meta<typeof CodeInput>;
 
-const Template: ComponentStory<typeof CodeInput> = (args) => (
+const Template: StoryFn<typeof CodeInput> = (args: CodeInputProps) => (
   <CodeInput {...args} />
 );
 

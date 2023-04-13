@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 
 import {
@@ -9,9 +9,9 @@ import {
 export default {
   title: "AirplaneInternalErrorModal",
   component: AirplaneInternalErrorModal,
-} as ComponentMeta<typeof AirplaneInternalErrorModal>;
+} as Meta<typeof AirplaneInternalErrorModal>;
 
-const Template: Story<AirplaneInternalErrorModalProps> = (args) => {
+const Template: StoryFn<AirplaneInternalErrorModalProps> = (args: any) => {
   const [opened, setOpened] = useState(true);
   return (
     <AirplaneInternalErrorModal

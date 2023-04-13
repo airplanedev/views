@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Link } from "./Link";
 import { Props } from "./Link.types";
@@ -10,9 +10,9 @@ export default {
     children: "Hello World",
     href: "https://www.airplane.dev",
   },
-} as ComponentMeta<typeof Link>;
+} as Meta<typeof Link>;
 
-const Template: Story<Props> = ({ children, ...restProps }) => (
+const Template: StoryFn<Props> = ({ children, ...restProps }) => (
   <div>
     <Link {...restProps}>{children}</Link>
     <div>

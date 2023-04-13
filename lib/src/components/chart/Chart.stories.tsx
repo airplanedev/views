@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Button } from "components/button/Button";
 import { Stack } from "components/stack/Stack";
@@ -6,7 +6,6 @@ import { Text } from "components/text/Text";
 import { ChartState, useComponentState } from "state";
 
 import { Chart } from "./Chart";
-import { ChartProps } from "./Chart.types";
 
 export default {
   title: "Chart",
@@ -14,9 +13,9 @@ export default {
   parameters: {
     chromatic: { disableSnapshot: true },
   },
-} as ComponentMeta<typeof Chart>;
+} as Meta<typeof Chart>;
 
-const Template: Story<ChartProps> = (args) => <Chart {...args} />;
+const Template: StoryFn<typeof Chart> = (args) => <Chart {...args} />;
 
 export const Scatter = Template.bind({});
 Scatter.args = {

@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
 import { useQueryClient } from "@tanstack/react-query";
 import { useCallback, useEffect, useState } from "react";
@@ -33,7 +33,7 @@ const Template = <T extends object = Record<string, any>>(
   args: TableProps<T>
 ) => <Table<T> {...args} />;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TemplateFn = <T extends object = Record<string, any>>(): Story<
+const TemplateFn = <T extends object = Record<string, any>>(): StoryFn<
   TableProps<T>
 > => Template;
 
@@ -67,7 +67,7 @@ export default {
       },
     ],
   },
-} as ComponentMeta<typeof Table>;
+} as Meta<typeof Table>;
 
 export const Simple = TemplateFn<SimpleUser>().bind({});
 Simple.args = {
@@ -263,7 +263,11 @@ CustomizedRowActions.args = {
   rowSelection: "single",
   freezeRowActions: false,
 };
-CustomizedRowActions.play = async ({ canvasElement }) => {
+CustomizedRowActions.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement;
+}) => {
   const canvas = within(canvasElement);
   setTimeout(
     async () =>
@@ -330,7 +334,11 @@ MultiSelection.args = {
   columns: SIMPLE_DATA_COLUMNS,
   rowSelection: "checkbox",
 };
-MultiSelection.play = async ({ canvasElement }) => {
+MultiSelection.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement;
+}) => {
   const canvas = within(canvasElement);
   await canvas.findByText("User ID");
   const checkboxes = await canvas.findAllByRole("checkbox");
@@ -482,7 +490,11 @@ ResizedColumn.args = {
   columns: SIMPLE_DATA_COLUMNS,
   defaultPageSize: 10,
 };
-ResizedColumn.play = async ({ canvasElement }) => {
+ResizedColumn.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement;
+}) => {
   const canvas = within(canvasElement);
   setTimeout(async () => {
     const dragHandle = canvas.getByRole("separator");

@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { AirplaneFile } from "airplane";
 import { useState } from "react";
 import withMock from "storybook-addon-mock";
@@ -51,9 +51,9 @@ export default {
   component: FileInput,
   decorators: [withMock],
   parameters: { mockData },
-} as ComponentMeta<typeof FileInput>;
+} as Meta<typeof FileInput>;
 
-const Template: Story<FileInputProps> = (args) => {
+const Template: StoryFn<FileInputProps> = (args: any) => {
   const { id, value } = useComponentState();
   return (
     <>

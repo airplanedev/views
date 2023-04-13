@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import * as React from "react";
 
 import {
@@ -19,9 +19,9 @@ export default {
   args: {
     children: <AcademicCapIcon />,
   },
-} as ComponentMeta<typeof Icon>;
+} as Meta<typeof Icon>;
 
-const Template: Story<Props> = ({ children, ...args }) => {
+const Template: StoryFn<Props> = ({ children, ...args }) => {
   const c = children as React.ReactElement;
   return <Icon {...args}>{c}</Icon>;
 };

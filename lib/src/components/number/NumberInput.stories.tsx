@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useRef } from "react";
 
 import { Button } from "components/button/Button";
@@ -12,9 +12,9 @@ import { NumberInput } from "./NumberInput";
 export default {
   title: "Number Input",
   component: NumberInput,
-} as ComponentMeta<typeof NumberInput>;
+} as Meta<typeof NumberInput>;
 
-const Template: ComponentStory<typeof NumberInput> = (args) => (
+const Template: StoryFn<typeof NumberInput> = (args) => (
   <NumberInput {...args} />
 );
 

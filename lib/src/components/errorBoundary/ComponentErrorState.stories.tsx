@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Stack } from "components/stack/Stack";
 import { Text } from "components/text/Text";
@@ -12,9 +12,9 @@ import {
 export default {
   title: "ComponentErrorState",
   component: ComponentErrorState,
-} as ComponentMeta<typeof ComponentErrorState>;
+} as Meta<typeof ComponentErrorState>;
 
-const Template: Story<ComponentErrorStateProps> = (args) => (
+const Template: StoryFn<ComponentErrorStateProps> = (args: any) => (
   <ComponentErrorState {...args} />
 );
 

@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { useComponentState, SwitchState } from "state";
 
@@ -11,9 +11,9 @@ export default {
   args: {
     label: "This is my simple switch",
   },
-} as ComponentMeta<typeof Switch>;
+} as Meta<typeof Switch>;
 
-const Template: Story<SwitchProps> = (props) => <Switch {...props} />;
+const Template: StoryFn<SwitchProps> = (props) => <Switch {...props} />;
 
 export const Default = Template.bind({});
 

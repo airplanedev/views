@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Button } from "components/button/Button";
 
@@ -12,9 +12,9 @@ export default {
     children: <Button>Did you hear about the claustrophobic astronaut?</Button>,
     label: "He just needed a little space",
   },
-} as ComponentMeta<typeof Tooltip>;
+} as Meta<typeof Tooltip>;
 
-const Template: Story<Props> = ({ children, ...restProps }) => (
+const Template: StoryFn<Props> = ({ children, ...restProps }) => (
   <div style={{ padding: 120 }}>
     <Tooltip {...restProps}>{children}</Tooltip>
   </div>

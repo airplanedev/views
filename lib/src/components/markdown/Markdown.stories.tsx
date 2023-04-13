@@ -1,13 +1,13 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Markdown, MarkdownProps } from "./Markdown";
 
 export default {
   title: "Markdown",
   component: Markdown,
-} as ComponentMeta<typeof Markdown>;
+} as Meta<typeof Markdown>;
 
-const Template: Story<MarkdownProps> = (args) => (
+const Template: StoryFn<MarkdownProps> = (args: MarkdownProps) => (
   <Markdown>{args.children}</Markdown>
 );
 

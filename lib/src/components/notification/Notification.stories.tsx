@@ -1,5 +1,5 @@
 import { Button } from "@mantine/core";
-import { Story } from "@storybook/react";
+import { StoryFn } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
 
 import { AcademicCapIcon } from "components/icon";
@@ -17,7 +17,7 @@ export default {
   },
 };
 
-const Template: Story<Props> = (args) => (
+const Template: StoryFn<Props> = (args: Props) => (
   <Button onClick={() => showNotification(args)}>Show notification</Button>
 );
 
