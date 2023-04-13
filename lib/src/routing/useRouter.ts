@@ -23,6 +23,7 @@ type PeekParams = {
   view?: string;
   /** A task slug to open in a peek. **/
   task?: string;
+  params?: Record<string, string | undefined>;
 };
 
 export type Router = {
@@ -174,7 +175,7 @@ export const useRouter = (): Router => {
     [getHref]
   );
 
-  const peek: Router["peek"] = useCallback(({ view, task }) => {
+  const peek: Router["peek"] = useCallback(({ view, task, params }) => {
     if (inIframe()) {
       if (view && task) {
         throw new Error("Cannot specify both view and task");
@@ -184,12 +185,14 @@ export const useRouter = (): Router => {
           type: "peek",
           peekType: "view",
           slug: view,
+          params,
         });
       } else if (task) {
         sendViewMessage({
           type: "peek",
           peekType: "task",
           slug: task,
+          params,
         });
       } else {
         throw new Error("Must specify view or task");

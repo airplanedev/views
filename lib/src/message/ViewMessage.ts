@@ -84,6 +84,7 @@ export type PeekMessage = {
   type: "peek";
   peekType: "view" | "task";
   slug: string;
+  params?: Record<string, string | undefined>;
 };
 
 export type ComponentMountedMessage = {
