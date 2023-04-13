@@ -94,7 +94,7 @@ export type BarProps = {
    * @default group
    */
   mode?: "group" | "stack";
-};
+} & SeriesPlotProps;
 
 interface SeriesPlotProps {
   /**
