@@ -5,7 +5,6 @@ import { Stack } from "components/stack/Stack";
 import { Text } from "components/text/Text";
 
 import { Confirmation } from "./Confirmation";
-import { ConfirmationProps } from "./Dialog.types";
 
 export default {
   title: "Confirmation Dialog",
@@ -25,7 +24,7 @@ export default {
   },
 } as Meta<typeof Confirmation>;
 
-const Template: StoryFn<ConfirmationProps> = (args: any) => (
+const Template: StoryFn<typeof Confirmation> = (args) => (
   <Confirmation {...args} />
 );
 

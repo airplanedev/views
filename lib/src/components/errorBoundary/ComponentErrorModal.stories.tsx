@@ -1,17 +1,14 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 
-import {
-  ComponentErrorModal,
-  ComponentErrorFallbackProps,
-} from "./ComponentErrorFallback";
+import { ComponentErrorModal } from "./ComponentErrorFallback";
 
 export default {
   title: "ComponentErrorModal",
   component: ComponentErrorModal,
 } as Meta<typeof ComponentErrorModal>;
 
-const Template: StoryFn<ComponentErrorFallbackProps> = (args: any) => {
+const Template: StoryFn<typeof ComponentErrorModal> = (args) => {
   const [opened, setOpened] = useState(true);
   return (
     <ComponentErrorModal {...args} opened={opened} setOpened={setOpened} />

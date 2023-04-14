@@ -5,7 +5,6 @@ import { Text } from "components/text/Text";
 
 import {
   ComponentErrorState,
-  ComponentErrorStateProps,
   RunErrorComponentErrorState,
 } from "./ComponentErrorState";
 
@@ -14,7 +13,7 @@ export default {
   component: ComponentErrorState,
 } as Meta<typeof ComponentErrorState>;
 
-const Template: StoryFn<ComponentErrorStateProps> = (args: any) => (
+const Template: StoryFn<typeof ComponentErrorState> = (args) => (
   <ComponentErrorState {...args} />
 );
 

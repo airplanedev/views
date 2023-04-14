@@ -8,7 +8,6 @@ import { Text } from "components/text/Text";
 import { FileInputState, useComponentState } from "state";
 
 import { FileInput } from "./FileInput";
-import { FileInputProps } from "./FileInput.types";
 
 const mockData = [
   {
@@ -53,7 +52,7 @@ export default {
   parameters: { mockData },
 } as Meta<typeof FileInput>;
 
-const Template: StoryFn<FileInputProps> = (args: any) => {
+const Template: StoryFn<typeof FileInput> = (args) => {
   const { id, value } = useComponentState();
   return (
     <>

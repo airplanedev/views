@@ -1,13 +1,13 @@
 import { Meta, StoryFn } from "@storybook/react";
 
-import { ComponentErrorBoundary, Props } from "./ComponentErrorBoundary";
+import { ComponentErrorBoundary } from "./ComponentErrorBoundary";
 
 export default {
   title: "ComponentErrorBoundary",
   component: ComponentErrorBoundary,
 } as Meta<typeof ComponentErrorBoundary>;
 
-const Template: StoryFn<Props> = (args: any) => (
+const Template: StoryFn<typeof ComponentErrorBoundary> = (args) => (
   <ComponentErrorBoundary {...args}>
     <ErrorC />
   </ComponentErrorBoundary>

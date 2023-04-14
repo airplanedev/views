@@ -1,13 +1,13 @@
 import { Meta, StoryFn } from "@storybook/react";
 
-import { ErrorFallback, ErrorFallbackProps } from "./ErrorFallback";
+import { ErrorFallback } from "./ErrorFallback";
 
 export default {
   title: "ErrorFallback",
   component: ErrorFallback,
 } as Meta<typeof ErrorFallback>;
 
-const Template: StoryFn<ErrorFallbackProps> = (args: any) => (
+const Template: StoryFn<typeof ErrorFallback> = (args) => (
   <ErrorFallback {...args} />
 );
 

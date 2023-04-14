@@ -95,6 +95,19 @@ Bar.args = {
   },
 };
 
+export const StackedBar = Template.bind({});
+StackedBar.args = {
+  title: "My bar chart",
+  type: "bar",
+  mode: "stack",
+  data: {
+    x: ["one", "two", "three"],
+    square: [0, 1, 4, 9, 16],
+    cube: [0, 1, 9, 27, 64],
+    linear: [0, 1, 2, 3, 4],
+  },
+};
+
 export const Line = Template.bind({});
 Line.args = {
   title: "Active users",
