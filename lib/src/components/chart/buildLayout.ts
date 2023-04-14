@@ -1,6 +1,6 @@
 import { Layout } from "plotly.js-basic-dist";
 
-import { AxisType, ChartProps } from "./Chart.types";
+import { AxisType, BarProps, ChartProps } from "./Chart.types";
 import { COLORS } from "../theme/colors";
 
 const FONT_FAMILY =
@@ -27,6 +27,7 @@ export const buildLayout = ({
   yAxisTitle?: string;
   yAxisType?: AxisType;
   yAxisFormat?: string;
+  mode?: BarProps["mode"];
 }): Partial<Layout> => {
   const baseLayout: Partial<Layout> = {
     font: FONT,
@@ -38,6 +39,7 @@ export const buildLayout = ({
       pad: 2,
     },
     clickmode: "event+select",
+    barmode: props.mode,
     ...computeLegend(legendPosition),
   };
 

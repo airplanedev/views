@@ -87,8 +87,13 @@ type LineProps = {
   type: "line";
 } & SeriesPlotProps;
 
-type BarProps = {
+export type BarProps = {
   type: "bar";
+  /**
+   * The variant of the bar graph.
+   * @default group
+   */
+  mode?: "group" | "stack";
 } & SeriesPlotProps;
 
 interface SeriesPlotProps {
