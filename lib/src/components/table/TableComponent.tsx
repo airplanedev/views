@@ -1,4 +1,4 @@
-import { ActionIcon, Code, Menu } from "@mantine/core";
+import { ActionIcon, Code, createStyles, Menu } from "@mantine/core";
 import { isEqual } from "lodash-es";
 import {
   Ref,
@@ -665,25 +665,54 @@ const EditIcon = () => {
   const { classes } = useStyles();
   return (
     <div className={classes.headerEditIcon}>
-      <Tooltip
-        position="right"
-        label={
-          <Stack spacing="xs">
-            <div>This column is editable</div>
-            <Stack direction="row" spacing="xs" align="center">
-              <span>Save: </span>
-              <Code color="grey">shift-enter</Code>
-            </Stack>
-            <Stack direction="row" spacing="xs" align="center">
-              <span>Cancel: </span>
-              <Code color="grey">escape</Code>
-            </Stack>
-          </Stack>
-        }
-      >
+      <Tooltip position="right" label={<EditTooltip />}>
         <PencilSquareIconOutline />
       </Tooltip>
     </div>
+  );
+};
+
+const useTooltipStyles = createStyles((theme) => {
+  return {
+    info: {
+      color: theme.colors.dark[2],
+    },
+    header: {
+      background: theme.colors.dark[7],
+      display: "flex",
+      // Negative margin to compensate for the padding on the tooltip
+      margin: "-4px -8px 0 -8px",
+      padding: "4px 8px",
+      gap: "4px",
+      alignItems: "center",
+    },
+    shortcut: {
+      display: "flex",
+      justifyContent: "space-between",
+    },
+    command: {
+      fontFamily: theme.fontFamily,
+      backgroundColor: theme.colors.gray[6],
+      borderRadius: 2,
+      padding: "0 4px",
+    },
+  };
+});
+
+const EditTooltip = () => {
+  const { classes } = useTooltipStyles();
+  return (
+    <Stack spacing="xs">
+      <span className={classes.header}>This column is editable</span>
+      <div className={classes.shortcut}>
+        <span>Save: </span>
+        <span className={classes.command}>⇧ + ⏎</span>
+      </div>
+      <div className={classes.shortcut}>
+        <span>Cancel: </span>
+        <kbd className={classes.command}>Esc</kbd>
+      </div>
+    </Stack>
   );
 };
 
