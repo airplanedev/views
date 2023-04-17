@@ -1,4 +1,4 @@
-import { ActionIcon, Code, createStyles, Menu } from "@mantine/core";
+import { ActionIcon, createStyles, Menu } from "@mantine/core";
 import { isEqual } from "lodash-es";
 import {
   Ref,
@@ -51,7 +51,6 @@ import { useResizeColumns } from "./useResizeColumns";
 const LOADING_ROW_COUNT = 10;
 const LOADING_COL_COUNT = 4;
 const DEFAULT_ROW_MENU_WIDTH = 160;
-export const DEFAULT_ROW_MENU_ICON_WIDTH = 24;
 const ACTION_COLUMN_ID = "_action";
 
 export type TableComponentElement = {
