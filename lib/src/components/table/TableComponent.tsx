@@ -690,7 +690,6 @@ const useTooltipStyles = createStyles((theme) => {
       justifyContent: "space-between",
     },
     command: {
-      fontFamily: theme.fontFamily,
       backgroundColor: theme.colors.gray[6],
       borderRadius: 2,
       padding: "0 4px",
