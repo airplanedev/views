@@ -678,12 +678,9 @@ const useTooltipStyles = createStyles((theme) => {
     },
     header: {
       background: theme.colors.dark[7],
-      display: "flex",
       // Negative margin to compensate for the padding on the tooltip
       margin: "-4px -8px 0 -8px",
       padding: "4px 8px",
-      gap: "4px",
-      alignItems: "center",
     },
     shortcut: {
       display: "flex",
