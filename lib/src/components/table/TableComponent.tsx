@@ -704,11 +704,11 @@ const EditTooltip = () => {
     <Stack spacing="xs">
       <span className={classes.header}>This column is editable</span>
       <div className={classes.shortcut}>
-        <span>Save: </span>
+        <span>Save:</span>
         <span className={classes.command}>⇧ + ⏎</span>
       </div>
       <div className={classes.shortcut}>
-        <span>Cancel: </span>
+        <span>Cancel:</span>
         <kbd className={classes.command}>Esc</kbd>
       </div>
     </Stack>
