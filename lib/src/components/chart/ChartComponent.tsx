@@ -3,11 +3,14 @@ import Plotly, { Data } from "plotly.js-basic-dist";
 import createPlotlyComponent from "react-plotly.js/factory";
 
 import { Heading } from "components/heading/Heading";
+import { Skeleton } from "components/Skeleton";
+import { Label } from "components/text/Text";
 
 import { buildLayout } from "./buildLayout";
 import { ChartProps } from "./Chart.types";
 import { useCommonLayoutStyle } from "../layout/useCommonLayoutStyle";
 
+const NUM_LOADING_LINES = 6;
 const Plot = createPlotlyComponent(Plotly);
 
 type ChartComponentProps = ChartProps & {
@@ -44,6 +47,8 @@ const ChartComponent = ({
   width,
   height,
   grow,
+  loading,
+  error,
   ...restProps
 }: ChartComponentProps) => {
   const { classes, cx } = useStyles();
@@ -55,6 +60,49 @@ const ChartComponent = ({
   // Layout controls the visual aspects of the chart.
   const layout = buildLayout(restProps);
 
+  let component = (
+    <Plot
+      onDeselect={onDeselect}
+      onSelected={onSelected}
+      data={normalizedData}
+      layout={layout}
+      useResizeHandler
+      config={{
+        modeBarButtonsToRemove: ["select2d", "lasso2d"],
+      }}
+      className={classes.plot}
+    />
+  );
+  if (loading) {
+    component = (
+      <div style={{ marginTop: 10, overflow: "hidden" }}>
+        {new Array(NUM_LOADING_LINES).fill(0).map((_, index) => (
+          <Skeleton
+            key={index}
+            height={2}
+            // If the container's width is set, fill it. If not, use a fixed width.
+            width={width != null ? "100%" : 500}
+            mb={index < NUM_LOADING_LINES - 1 ? 50 : 0}
+          />
+        ))}
+      </div>
+    );
+  }
+  if (error) {
+    component = (
+      <Label
+        style={{
+          // If the container's width/height is set, fill it. If not, use a fixed width/height.
+          width: width != null ? "100%" : 500,
+          height: height != null ? "100%" : 200,
+        }}
+        color="red"
+      >
+        {error}
+      </Label>
+    );
+  }
+
   return (
     <div style={style} className={cx(classes.wrapper, layoutClasses.style)}>
       {
@@ -65,17 +113,7 @@ const ChartComponent = ({
           </Heading>
         ) : null
       }
-      <Plot
-        onDeselect={onDeselect}
-        onSelected={onSelected}
-        data={normalizedData}
-        layout={layout}
-        useResizeHandler
-        config={{
-          modeBarButtonsToRemove: ["select2d", "lasso2d"],
-        }}
-        className={classes.plot}
-      />
+      {component}
     </div>
   );
 };

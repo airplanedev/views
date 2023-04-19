@@ -1,7 +1,6 @@
 import type { PlotSelectionEvent } from "plotly.js-basic-dist";
 import React from "react";
 
-import { Text } from "components/text/Text";
 import { useChartState } from "state/components/chart";
 import { useComponentId } from "state/components/useId";
 
@@ -10,11 +9,7 @@ import { firstField, useNormalizedData } from "./useNormalizedData";
 
 const ChartComponent = React.lazy(() => import("./ChartComponent"));
 
-export const ConnectedChart = ({
-  loading,
-  error,
-  ...props
-}: ConnectedChartProps) => {
+export const ConnectedChart = ({ ...props }: ConnectedChartProps) => {
   const [selectionIndexes, setSelectionIndexes] = React.useState(
     new Map<string, number[]>()
   );
@@ -70,16 +65,6 @@ export const ConnectedChart = ({
     setSelectionIndexes(new Map<string, number[]>());
   }, [changeSelection]);
 
-  if (loading) {
-    return <Text disableMarkdown>Loading...</Text>;
-  }
-  if (error) {
-    return (
-      <Text disableMarkdown color="red">
-        {error}
-      </Text>
-    );
-  }
   return (
     <React.Suspense fallback={null}>
       <ChartComponent

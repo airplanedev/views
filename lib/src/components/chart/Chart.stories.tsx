@@ -171,3 +171,11 @@ PieWithColors.args = {
   },
   colors: ["red", "green", "blue"],
 };
+
+export const Loading = Template.bind({});
+Loading.args = {
+  title: "My loading chart",
+  type: "scatter",
+  data: [],
+  loading: true,
+};
