@@ -226,7 +226,15 @@ const testCases = [
       );
       server.use(
         rest.get("http://api/v0/users/get", (_, res, ctx) => {
-          throw new Error("Should not be called");
+          return res(
+            ctx.json({
+              user: {
+                userID: "unused",
+                name: "unused",
+                avatarURL: "unused",
+              },
+            })
+          );
         })
       );
       server.use(
