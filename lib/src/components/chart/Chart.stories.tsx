@@ -1,7 +1,9 @@
 import { ComponentMeta, Story } from "@storybook/react";
+import { userEvent, within } from "@storybook/testing-library";
 
 import { Button } from "components/button/Button";
 import { Stack } from "components/stack/Stack";
+import { Tabs } from "components/tabs/Tabs";
 import { Text } from "components/text/Text";
 import { ChartState, useComponentState } from "state";
 
@@ -178,4 +180,36 @@ Loading.args = {
   type: "scatter",
   data: [],
   loading: true,
+};
+
+export const InTabs = () => {
+  return (
+    <Tabs defaultValue="overview">
+      <Tabs.Tab value="overview" label="Overview">
+        Overview content here
+      </Tabs.Tab>
+      <Tabs.Tab value="chart" label="Chart">
+        <Chart
+          id="chart"
+          type="scatter"
+          data={[
+            { x: 0, square: 0 },
+            { x: 1, square: 1 },
+            { x: 2, square: 4 },
+          ]}
+        />
+      </Tabs.Tab>
+    </Tabs>
+  );
+};
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+InTabs.play = async ({ canvasElement }: any) => {
+  const canvas = within(canvasElement);
+  await canvas.findByText("Overview content here");
+  await userEvent.click(await canvas.findByText("Chart"));
+  await canvas.findByText("square");
+};
+InTabs.parameters = {
+  // Wait for chart to resize.
+  chromatic: { delay: 300 },
 };

@@ -10,6 +10,7 @@ import { useTabsRouting } from "routing/useTabsRouting";
 import { useTabsState } from "state/components/tabs";
 import { useComponentId } from "state/components/useId";
 
+import { TabsContext } from "./Context";
 import flattenChildren from "./flattenchildren";
 import { useStyles } from "./Tabs.styles";
 import {
@@ -115,7 +116,15 @@ export const TabsComponent = ({
           value={p.value}
           className={classes.panel}
         >
-          <Text>{p.contents}</Text>
+          <TabsContext.Provider
+            value={{
+              activeTab: props.value,
+              tab: p.value,
+              isActive: p.value != null && p.value === props.value,
+            }}
+          >
+            <Text>{p.contents}</Text>
+          </TabsContext.Provider>
         </MantineTabs.Panel>
       ))}
 

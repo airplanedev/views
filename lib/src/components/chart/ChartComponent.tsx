@@ -1,9 +1,11 @@
 import { createStyles } from "@mantine/core";
 import Plotly, { Data } from "plotly.js-basic-dist";
+import { useContext, useEffect, useRef } from "react";
 import createPlotlyComponent from "react-plotly.js/factory";
 
 import { Heading } from "components/heading/Heading";
 import { Skeleton } from "components/Skeleton";
+import { TabsContext } from "components/tabs/Context";
 import { Label } from "components/text/Text";
 
 import { buildLayout } from "./buildLayout";
@@ -57,11 +59,22 @@ const ChartComponent = ({
     height,
     grow,
   });
+  const plotRef = useRef<{ resizeHandler?: () => void }>(null);
+  const tabsContext = useContext(TabsContext);
+  useEffect(() => {
+    if (tabsContext?.isActive && plotRef.current?.resizeHandler) {
+      // If this chart is rendered in tabs, it will need to resize when the tab is switched to.
+      plotRef.current.resizeHandler();
+    }
+  }, [tabsContext]);
+
   // Layout controls the visual aspects of the chart.
   const layout = buildLayout(restProps);
 
   let component = (
     <Plot
+      //@ts-ignore -- Plotly types are wrong. There is a ref on this component.
+      ref={plotRef}
       onDeselect={onDeselect}
       onSelected={onSelected}
       data={normalizedData}
