@@ -109,7 +109,7 @@ const ChartComponent = ({
       )}
       <Transition
         mounted={!loading && !error}
-        transition="scale-x"
+        transition="scale"
         duration={400}
         timingFunction="ease"
       >
