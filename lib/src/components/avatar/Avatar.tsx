@@ -9,7 +9,7 @@ import { ComponentErrorBoundary } from "components/errorBoundary/ComponentErrorB
 import { AvatarProps } from "./Avatar.types";
 
 export const getInitials = (displayName?: string) => {
-  if (displayName === undefined) {
+  if (!displayName) {
     return undefined;
   }
   const nameParts = displayName.split(" ");
@@ -37,12 +37,16 @@ export const AvatarComponent = ({
   ...props
 }: AvatarProps) => {
   const emailOrUserID = email || userID;
-  const { data } = useQuery([USERS_GET, emailOrUserID], async () => {
-    const fetcher = new Fetcher();
-    return await fetcher.get<{ user: User }>(
-      USERS_GET,
-      email ? { email } : { userID }
-    );
+  const { data } = useQuery({
+    queryKey: [USERS_GET, emailOrUserID],
+    queryFn: async () => {
+      const fetcher = new Fetcher();
+      return await fetcher.get<{ user: User }>(
+        USERS_GET,
+        email ? { email } : { userID }
+      );
+    },
+    enabled: !!emailOrUserID,
   });
 
   // avatarURL might be an empty string here, in which case we want to make it undefined.
