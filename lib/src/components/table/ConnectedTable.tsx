@@ -18,6 +18,8 @@ import {
 } from "./Table.types";
 import { TableComponent, TableComponentElement } from "./TableComponent";
 
+const DEFAULT_ROW_MENU_ICON_WIDTH = 24;
+
 /**
  * ConnectedTable is a table that's connected to the global component state.
  */
@@ -47,9 +49,18 @@ export const ConnectedTable = <TRowData extends object>(
     setRowActionResult,
     true
   );
-  const rowActionsMenuWidth = getRowActionsMenuWidth(
+  let rowActionsComputedWidth = getRowActionsWidth(
+    props.rowActions,
+    canvas,
+    false
+  );
+  if (rowActionsComputedWidth !== undefined && rowActionsMenu) {
+    rowActionsComputedWidth += DEFAULT_ROW_MENU_ICON_WIDTH;
+  }
+  const rowActionsMenuWidth = getRowActionsWidth(
     props.rowActionsMenu,
-    canvas
+    canvas,
+    true
   );
 
   const columns = useColumns(props.data, props.columns, props.columnsTransform);
@@ -59,6 +70,7 @@ export const ConnectedTable = <TRowData extends object>(
       {...props}
       columns={columns}
       rowActions={rowActions}
+      rowActionsComputedWidth={rowActionsComputedWidth}
       rowActionsMenu={rowActionsMenu}
       rowActionsMenuWidth={rowActionsMenuWidth}
       onRowSelectionChanged={changeRowSelection}
@@ -112,9 +124,10 @@ function getRowActions<TRowData extends object>(
   });
 }
 
-function getRowActionsMenuWidth<TRowData extends object>(
+function getRowActionsWidth<TRowData extends object>(
   rowActions: ConnectedTableProps<TRowData>["rowActions"],
-  canvas: HTMLCanvasElement
+  canvas: HTMLCanvasElement,
+  inMenu: boolean
 ): number | undefined {
   if (rowActions === undefined) {
     return 0;
@@ -155,10 +168,15 @@ function getRowActionsMenuWidth<TRowData extends object>(
       label = rowAction.label ?? slug;
     }
     // Account for 10px of padding on the left and right, and 5% error margin
-    return getTextWidth(label) * 1.05 + 20;
+    return getTextWidth(label) * 1.05 + ("href" in rowAction ? 45 : 20);
   });
-  // maximum width plus padding
-  return widths.reduce((a, b) => Math.max(a, b)) + 8;
+  if (inMenu) {
+    // maximum width plus padding
+    return widths.reduce((a, b) => Math.max(a, b)) + 8;
+  } else {
+    // total width plus padding
+    return widths.reduce((a, b) => a + b, 16);
+  }
 }
 
 const RowActionButton = <TRowData extends object>({

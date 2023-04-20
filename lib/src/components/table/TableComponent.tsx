@@ -70,6 +70,7 @@ export function TableComponent<TRowData extends object>({
   rowActions,
   rowActionsMenu,
   rowActionsWidth,
+  rowActionsComputedWidth,
   rowActionsMenuWidth,
   defaultPageSize = 10,
   title,
@@ -88,7 +89,6 @@ export function TableComponent<TRowData extends object>({
   height,
   grow,
 }: TableComponentProps<TRowData> & { tableRef: Ref<TableComponentElement> }) {
-  const rowActionRef = useRef<HTMLDivElement>(null);
   const { classes, cx } = useStyles();
   // dirtyCells is a map of row IDs to a set of column IDs that have been edited.
   const [dirtyCells, setDirtyCells] = useState<Record<string, Set<string>>>({});
@@ -279,16 +279,15 @@ export function TableComponent<TRowData extends object>({
 
   function addActions(hooks: Hooks<TRowData>) {
     if (rowActions?.length || (rowActionsMenu?.length && !loading)) {
-      const contentWidth = rowActionRef.current?.offsetWidth;
       const actionsColumn = {
         id: ACTION_COLUMN_ID,
-        width: rowActionsWidth || contentWidth,
+        width: rowActionsWidth || rowActionsComputedWidth,
         sticky: freezeRowActions ? "right" : undefined,
         // Overwrite maxWidth for actions column with arbitrarily large value
         maxWidth: 10000,
         Cell: ({ row }: { row: Row<TRowData> }) => {
           return (
-            <div className={classes.actionContainer} ref={rowActionRef}>
+            <div className={classes.actionContainer}>
               {rowActions?.map((RowActionComponent, i) => (
                 <RowActionComponent key={i} row={row.original} />
               ))}
