@@ -37,17 +37,17 @@ export const AvatarComponent = ({
   ...props
 }: AvatarProps) => {
   const emailOrUserID = email || userID;
-  const { data } = useQuery({
-    queryKey: [USERS_GET, emailOrUserID],
-    queryFn: async () => {
+  const { data } = useQuery(
+    [USERS_GET, emailOrUserID],
+    async () => {
       const fetcher = new Fetcher();
       return await fetcher.get<{ user: User }>(
         USERS_GET,
         email ? { email } : { userID }
       );
     },
-    enabled: !!emailOrUserID,
-  });
+    { enabled: !!emailOrUserID }
+  );
 
   // avatarURL might be an empty string here, in which case we want to make it undefined.
   const imageSrc = src || data?.user?.avatarURL || undefined;
