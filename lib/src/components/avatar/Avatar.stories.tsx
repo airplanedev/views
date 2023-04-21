@@ -1,5 +1,4 @@
 import { StoryFn, Meta } from "@storybook/react";
-import withMock from "storybook-addon-mock";
 
 import { Avatar } from "./Avatar";
 import { AvatarProps } from "./Avatar.types";
@@ -7,7 +6,6 @@ import { AvatarProps } from "./Avatar.types";
 export default {
   title: "Avatar",
   component: Avatar,
-  decorators: [withMock],
 } as Meta<typeof Avatar>;
 
 const Template: StoryFn<typeof Avatar> = (args: AvatarProps) => (

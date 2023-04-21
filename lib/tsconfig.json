@@ -19,6 +19,6 @@
     "emitDeclarationOnly": true,
     "outDir": "dist"
   },
-  "include": ["src", "storybook.d.ts"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

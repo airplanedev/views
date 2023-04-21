@@ -1,5 +1,4 @@
 import { Meta, StoryFn } from "@storybook/react";
-import withMock from "storybook-addon-mock";
 
 import { CogIconMini } from "components/icon";
 import { Stack } from "components/stack/Stack";
@@ -137,7 +136,6 @@ export default {
   argTypes: {
     onClick: { action: "click" },
   },
-  decorators: [withMock],
   excludeStories: ["mockDataExecute"],
   parameters: { mockData: mockDataExecute },
 } as Meta<typeof Button>;

@@ -2,7 +2,6 @@ import { Meta, StoryFn } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
 import { useQueryClient } from "@tanstack/react-query";
 import { useCallback, useEffect, useState } from "react";
-import withMock from "storybook-addon-mock";
 
 import { Button } from "components/button/Button";
 import { mockDataExecute } from "components/button/Button.stories";
@@ -45,7 +44,6 @@ const DATA = createRandomUsers(20);
 export default {
   title: "Table",
   component: Table,
-  decorators: [withMock],
   parameters: {
     mockData: [
       ...mockDataExecute,
