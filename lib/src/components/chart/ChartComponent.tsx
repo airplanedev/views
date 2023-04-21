@@ -75,9 +75,11 @@ const ChartComponent = ({
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            // If the container's width/height is set, fill it. If not, use a fixed width/height.
+            // If the container's width is set, fill it. If not, use a fixed width.
             width: width != null ? "100%" : 500,
-            height: height != null ? "100%" : 200,
+            height: "100%",
+            // If the container's height is not set, use a fixed height.
+            minHeight: height != null ? undefined : 200,
           }}
         >
           <Loader />
@@ -88,7 +90,9 @@ const ChartComponent = ({
           style={{
             // If the container's width/height is set, fill it. If not, use a fixed width/height.
             width: width != null ? "100%" : 500,
-            height: height != null ? "100%" : 200,
+            height: "100%",
+            // If the container's height is not set, use a fixed height.
+            minHeight: height != null ? undefined : 200,
           }}
           color="red"
         >
@@ -97,7 +101,7 @@ const ChartComponent = ({
       )}
       <Transition
         mounted={!loading && !error}
-        transition="scale-x"
+        transition="scale"
         duration={400}
         timingFunction="ease"
       >
