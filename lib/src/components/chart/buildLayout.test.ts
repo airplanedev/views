@@ -93,15 +93,19 @@ describe("buildLayout", () => {
       type: "line",
       xAxisType: "linear",
       yAxisType: "log",
+      xAxisRange: "tozero",
+      yAxisRange: [0, 100],
     });
     checkLayout(layout, {
       xaxis: {
         ...BASE_LAYOUT.xaxis,
         type: "linear",
+        rangemode: "tozero",
       },
       yaxis: {
         ...BASE_LAYOUT.yaxis,
         type: "log",
+        range: [0, 100],
       },
     });
   });
