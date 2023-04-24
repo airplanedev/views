@@ -18,20 +18,48 @@ type ChartComponentProps = ChartProps & {
   onDeselect?: () => void;
 };
 
-const useStyles = createStyles(() => ({
-  wrapper: {
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "0.5rem",
-  },
-  title: {
-    alignSelf: "center",
-  },
-  plot: {
-    width: "100%",
-    height: "100%",
-  },
-}));
+const useStyles = createStyles(
+  (
+    _theme,
+    {
+      width,
+      height,
+    }: {
+      width: ChartComponentProps["width"];
+      height: ChartComponentProps["height"];
+    }
+  ) => ({
+    wrapper: {
+      display: "flex",
+      flexDirection: "column",
+      rowGap: "0.5rem",
+    },
+    title: {
+      alignSelf: "center",
+    },
+    plot: {
+      width: "100%",
+      height: "100%",
+    },
+    loadingContainer: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      // If the container's width is set, fill it. If not, use a fixed width.
+      width: width != null ? "100%" : 500,
+      height: "100%",
+      // If the container's height is not set, use a fixed height.
+      minHeight: height != null ? undefined : 200,
+    },
+    errorLabel: {
+      // If the container's width/height is set, fill it. If not, use a fixed width/height.
+      width: width != null ? "100%" : 500,
+      height: "100%",
+      // If the container's height is not set, use a fixed height.
+      minHeight: height != null ? undefined : 200,
+    },
+  })
+);
 
 /**
  * Presentational component. Assumes data fetching, wrangling, etc. has been handled.
@@ -50,7 +78,7 @@ const ChartComponent = ({
   error,
   ...restProps
 }: ChartComponentProps) => {
-  const { classes, cx } = useStyles();
+  const { classes, cx } = useStyles({ width, height });
   const { classes: layoutClasses } = useCommonLayoutStyle({
     width,
     height,
@@ -70,32 +98,12 @@ const ChartComponent = ({
         ) : null
       }
       {loading && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            // If the container's width is set, fill it. If not, use a fixed width.
-            width: width != null ? "100%" : 500,
-            height: "100%",
-            // If the container's height is not set, use a fixed height.
-            minHeight: height != null ? undefined : 200,
-          }}
-        >
+        <div className={classes.loadingContainer}>
           <Loader />
         </div>
       )}
       {error && (
-        <Label
-          style={{
-            // If the container's width/height is set, fill it. If not, use a fixed width/height.
-            width: width != null ? "100%" : 500,
-            height: "100%",
-            // If the container's height is not set, use a fixed height.
-            minHeight: height != null ? undefined : 200,
-          }}
-          color="red"
-        >
+        <Label className={classes.errorLabel} color="red">
           {error}
         </Label>
       )}
