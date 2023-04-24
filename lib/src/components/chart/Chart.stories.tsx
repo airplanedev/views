@@ -121,6 +121,18 @@ Line.args = {
   },
 };
 
+export const CustomRange = Template.bind({});
+CustomRange.args = {
+  title: "Number of states with a cat older than 100",
+  type: "line",
+  data: {
+    x: ["2022-01-01", "2022-02-01", "2022-03-01", "2022-04-01", "2022-05-01"],
+    states: [10, 15, 45, 29, 16],
+  },
+  xAxisRange: ["2021-12-15", "2022-04-15"],
+  yAxisRange: [0, 60],
+};
+
 export const LineWithPercents = Template.bind({});
 LineWithPercents.args = {
   title: "Percentage",
