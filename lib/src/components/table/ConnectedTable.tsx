@@ -168,7 +168,10 @@ function getRowActionsWidth<TRowData extends object>(
       label = rowAction.label ?? slug;
     }
     // Account for 10px of padding on the left and right, and 5% error margin
-    return getTextWidth(label) * 1.05 + ("href" in rowAction ? 45 : 20);
+    return (
+      getTextWidth(label) * 1.05 +
+      (typeof rowAction !== "string" && "href" in rowAction ? 45 : 20)
+    );
   });
   if (inMenu) {
     // maximum width plus padding
