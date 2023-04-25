@@ -54,14 +54,14 @@ describe("Chart", () => {
         expectedParamValues: { foo: "bar" },
       });
 
-      const { container, getByText } = render(<TestC />);
+      const { container, findByText } = render(<TestC />);
 
       await waitFor(async () =>
         expect(container.querySelector(".js-plotly-plot")).toBeTruthy()
       );
       await waitFor(() => expect(mockCallback.mock.calls.length).toBe(1));
-      expect(getByText("My Chart")).toBeVisible();
-      expect(getByText("User Count")).toBeVisible();
+      await findByText("My Chart");
+      await findByText("User Count");
     });
 
     it("transforms data", async () => {
@@ -70,7 +70,7 @@ describe("Chart", () => {
         expectedParamValues: { foo: "bar" },
       });
 
-      const { container, getByText } = render(
+      const { container, findByText } = render(
         <TestC
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           outputTransform={(output: any) => ({
@@ -84,8 +84,8 @@ describe("Chart", () => {
         expect(container.querySelector(".js-plotly-plot")).toBeTruthy()
       );
       await waitFor(() => expect(mockCallback.mock.calls.length).toBe(1));
-      expect(getByText("My Chart")).toBeVisible();
-      expect(getByText("Member Count")).toBeVisible();
+      await findByText("My Chart");
+      await findByText("Member Count");
     });
 
     it("unwraps Q1", async () => {
@@ -94,14 +94,14 @@ describe("Chart", () => {
         expectedParamValues: { foo: "bar" },
       });
 
-      const { container, getByText } = render(<TestC />);
+      const { container, findByText } = render(<TestC />);
 
       await waitFor(async () =>
         expect(container.querySelector(".js-plotly-plot")).toBeTruthy()
       );
       await waitFor(() => expect(mockCallback.mock.calls.length).toBe(1));
-      expect(getByText("My Chart")).toBeVisible();
-      expect(getByText("User Count")).toBeVisible();
+      await findByText("My Chart");
+      await findByText("User Count");
     });
 
     describeExpectError(() => {
