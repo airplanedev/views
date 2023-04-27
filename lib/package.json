@@ -95,7 +95,7 @@
     "@types/plotly.js-basic-dist": "1.54.1",
     "@types/react": "18.0.38",
     "@types/react-dom": "18.0.11",
-    "@types/react-is": "17.0.3",
+    "@types/react-is": "18.2.0",
     "@types/react-plotly.js": "2.6.0",
     "@types/react-table": "7.7.14",
     "@types/uuid": "9.0.1",
