@@ -1,4 +1,5 @@
 import { ComponentMeta, Story } from "@storybook/react";
+import { useEffect, useState } from "react";
 
 import { Button } from "components/button/Button";
 import { Stack } from "components/stack/Stack";
@@ -96,6 +97,19 @@ Bar.args = {
   },
 };
 
+export const StackedBar = Template.bind({});
+StackedBar.args = {
+  title: "My bar chart",
+  type: "bar",
+  mode: "stack",
+  data: {
+    x: ["one", "two", "three"],
+    square: [0, 1, 4, 9, 16],
+    cube: [0, 1, 9, 27, 64],
+    linear: [0, 1, 2, 3, 4],
+  },
+};
+
 export const Line = Template.bind({});
 Line.args = {
   title: "Active users",
@@ -105,6 +119,18 @@ Line.args = {
     wau: [0, 2, 4, 8, 16, 32],
     mau: [0, 3, 9, 27, 81, 243],
   },
+};
+
+export const CustomRange = Template.bind({});
+CustomRange.args = {
+  title: "Number of states with a cat older than 100",
+  type: "line",
+  data: {
+    x: ["2022-01-01", "2022-02-01", "2022-03-01", "2022-04-01", "2022-05-01"],
+    states: [10, 15, 45, 29, 16],
+  },
+  xAxisRange: ["2021-12-15", "2022-04-15"],
+  yAxisRange: [0, 60],
 };
 
 export const LineWithPercents = Template.bind({});
@@ -157,4 +183,27 @@ PieWithColors.args = {
     valuesA: [100, 200, 300],
   },
   colors: ["red", "green", "blue"],
+};
+
+export const Loading = () => {
+  const [l, setL] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setL(false);
+    }, 5000);
+  }, []);
+  return (
+    <Chart
+      id="chart"
+      type="scatter"
+      width="96u"
+      height="72u"
+      data={[
+        { x: 0, square: 0 },
+        { x: 1, square: 1 },
+        { x: 2, square: 4 },
+      ]}
+      loading={l}
+    />
+  );
 };

@@ -1,6 +1,6 @@
 import { Button, MultiSelect } from "@mantine/core";
 import { useQueries, useQuery, UseQueryResult } from "@tanstack/react-query";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import * as React from "react";
 
 import { DefaultParams, ParamValues } from "client";
@@ -51,9 +51,9 @@ const ResultRow = React.forwardRef<HTMLDivElement, ItemProps>(
         {ug.user && (
           <Stack spacing="sm" direction="row" align="center">
             <Avatar size="sm" src={ug.user.avatarURL}>
-              {getInitials(ug.user.name)}
+              {getInitials(label)}
             </Avatar>
-            <Text disableMarkdown>{ug.user.name}</Text>
+            <Text disableMarkdown>{label}</Text>
           </Stack>
         )}
         {ug.group && (
@@ -61,7 +61,7 @@ const ResultRow = React.forwardRef<HTMLDivElement, ItemProps>(
             <Avatar size="sm">
               <UserGroupIcon />
             </Avatar>
-            <Text disableMarkdown>{ug.group.name}</Text>
+            <Text disableMarkdown>{label}</Text>
           </Stack>
         )}
       </div>
@@ -70,6 +70,12 @@ const ResultRow = React.forwardRef<HTMLDivElement, ItemProps>(
 );
 ResultRow.displayName = "ResultRow";
 
+type UserOrGroup = { groupID?: string; userID?: string };
+type ReviewerForSelect = {
+  label: string;
+  value: string;
+  ug: UserGroup;
+};
 type HydratedReviewers = UseQueryResult<
   { user: User } | { group: Group },
   unknown
@@ -81,6 +87,8 @@ export function RequestRunnableDialog<
   const [selections, setSelections] = useState<string[]>([]);
   const [reason, setReason] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const reviewersForSelect = useRef<ReviewerForSelect[]>([]);
 
   if (props.runbookSlug && props.taskSlug) {
     throw new Error("cannot specify both runbookSlug and taskSlug");
@@ -117,7 +125,7 @@ export function RequestRunnableDialog<
         scope: "all",
       });
     },
-    { staleTime: Infinity }
+    { staleTime: Infinity, enabled: !hasExplicitPermissions(runnableData) }
   );
 
   const hydratedReviewers = useQueries({
@@ -150,17 +158,24 @@ export function RequestRunnableDialog<
   const reviewersLoading =
     runnableDataIsLoading || hydratedReviewers.some((res) => res.isLoading);
 
-  const { triggerID, reviewersForSelect, reviewerList } = processQueryOutputs(
-    hydratedReviewers,
-    runnableData,
-    entities
+  const { triggerID, reviewersForSelect: newReviewersForSelect } =
+    processQueryOutputs(hydratedReviewers, runnableData, entities);
+  // Add to the list of reviewers that we've already fetched instead of replacing.
+  const reviewersToAdd = newReviewersForSelect.filter(
+    (newReviewer) =>
+      !reviewersForSelect.current.some(
+        (reviewer) => reviewer.value === newReviewer.value
+      )
   );
+  reviewersForSelect.current.push(...reviewersToAdd);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!triggerID) {
       throw new Error("no trigger to execute");
     }
+    setSubmitting(true);
+    const reviewers: UserOrGroup[] = selections.map(getUserOrGroupFromValue);
     try {
       const fetcher = new Fetcher();
       await fetcher.post<{ triggerRequestID: string }>(REQUESTS_CREATE, {
@@ -178,19 +193,23 @@ export function RequestRunnableDialog<
           }),
         },
         reason,
-        reviewers: selections.map((v) => reviewerList[Number(v)]),
+        reviewers,
       });
       showNotification({
         message: "Request successful",
         type: "success",
       });
       props.onSubmit();
+      setSelections([]);
+      setReason("");
     } catch (e) {
       showNotification({
         title: "Request unsuccessful",
         message: e instanceof Error ? e.message : "",
         type: "error",
       });
+    } finally {
+      setSubmitting(false);
     }
   };
   const onSearchChange = useAsyncDebounce((value: string) => {
@@ -222,7 +241,7 @@ export function RequestRunnableDialog<
           {/* Once we have our own MultiSelect, this should be swapped out */}
           {!reviewersLoading && (
             <MultiSelect
-              data={reviewersForSelect}
+              data={reviewersForSelect.current}
               placeholder="Select users or groups"
               label="Reviewers"
               itemComponent={ResultRow}
@@ -237,7 +256,11 @@ export function RequestRunnableDialog<
           {reviewersLoading && <Loader variant="dots" />}
 
           <Stack direction="row" justify="end">
-            <Button type="submit" disabled={reviewersLoading}>
+            <Button
+              type="submit"
+              disabled={reviewersLoading}
+              loading={submitting}
+            >
               Request
             </Button>
           </Stack>
@@ -258,7 +281,6 @@ function processQueryOutputs(
   let triggerID = "";
   let reviewersForSelect: { label: string; value: string; ug: UserGroup }[] =
     [];
-  let reviewerList: { userID?: string; groupID?: string }[] = [];
 
   if (runnableData != null) {
     const allUsersAndGroupsFetched = hydratedReviewers.every(
@@ -273,51 +295,78 @@ function processQueryOutputs(
     }
     triggerID = formTrigger.triggerID;
 
-    if (
-      runnableData.task?.requireExplicitPermissions ||
-      runnableData.runbook?.isPrivate
-    ) {
+    if (hasExplicitPermissions(runnableData)) {
       if (allUsersAndGroupsFetched) {
         reviewersForSelect = hydratedReviewers.map((queryResult, i) => {
           const ret: { label: string; value: string; ug: UserGroup } = {
             label: "",
-            value: String(i),
+            value: "",
             ug: {},
           };
           if ("user" in queryResult.data!) {
-            ret.ug.user = queryResult.data!.user;
-            ret.label = queryResult.data!.user.name;
+            ret.ug.user = queryResult.data.user;
+            ret.label = getUserLabel(queryResult.data.user);
+            ret.value = getUserValue(queryResult.data.user);
           }
           if ("group" in queryResult.data!) {
-            ret.ug.group = queryResult.data!.group;
-            ret.label = queryResult.data!.group.name;
+            ret.ug.group = queryResult.data.group;
+            ret.label = getGroupLabel(queryResult.data.group);
+            ret.value = getGroupValue(queryResult.data.group);
           }
           return ret;
         });
-        reviewerList = runnableData.reviewers;
       }
     } else {
       if (entities != null) {
         reviewersForSelect = entities.results.map((ug, i) => {
           if (ug.user) {
-            return { label: ug.user.name, value: String(i), ug };
+            return {
+              label: getUserLabel(ug.user),
+              value: getUserValue(ug.user),
+              ug,
+            };
           }
           if (ug.group) {
-            return { label: ug.group.name, value: String(i), ug };
+            return {
+              label: getGroupLabel(ug.group),
+              value: getGroupValue(ug.group),
+              ug,
+            };
           }
           return { label: "", value: "", ug: {} };
-        });
-        reviewerList = entities.results.map((ug) => {
-          if (ug.user) {
-            return { userID: ug.user.userID };
-          }
-          if (ug.group) {
-            return { groupID: ug.group.id };
-          }
-          return {};
         });
       }
     }
   }
-  return { triggerID, reviewersForSelect, reviewerList };
+  return { triggerID, reviewersForSelect };
+}
+
+function getUserLabel(user: User) {
+  return user.name || user.email || user.userID;
+}
+function getGroupLabel(group: Group) {
+  return group.name || group.id;
+}
+function getUserValue(user: User) {
+  return `usr_${user.userID}`;
+}
+function getGroupValue(group: Group) {
+  return `grp_${group.id}`;
+}
+function getUserOrGroupFromValue(value: string): UserOrGroup {
+  if (value.startsWith("usr_")) {
+    return { userID: value.substring(4) };
+  }
+  if (value.startsWith("grp_")) {
+    return { groupID: value.substring(4) };
+  }
+  throw new Error("unexpected value: " + value);
+}
+function hasExplicitPermissions(
+  taskOrRunbook?: TaskOrRunbookReviewersResponse
+): boolean {
+  return !!(
+    taskOrRunbook?.task?.requireExplicitPermissions ||
+    taskOrRunbook?.runbook?.isPrivate
+  );
 }

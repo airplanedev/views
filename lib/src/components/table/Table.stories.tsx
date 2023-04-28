@@ -491,7 +491,6 @@ ResizedColumn.play = async ({ canvasElement }) => {
     });
   }, 750);
 };
-
 ResizedColumn.parameters = {
   chromatic: { delay: 1500 },
 };

@@ -1,6 +1,6 @@
 import { Layout } from "plotly.js-basic-dist";
 
-import { AxisType, ChartProps } from "./Chart.types";
+import { AxisType, BarProps, ChartProps, Range } from "./Chart.types";
 import { COLORS } from "../theme/colors";
 
 const FONT_FAMILY =
@@ -15,6 +15,8 @@ export const buildLayout = ({
   legendPosition = "right",
   xAxisType = "auto",
   yAxisType = "auto",
+  xAxisRange,
+  yAxisRange,
   ...props
 }: {
   type: ChartProps["type"];
@@ -23,10 +25,13 @@ export const buildLayout = ({
   xAxisTitle?: string;
   xAxisType?: AxisType;
   xAxisFormat?: string;
+  xAxisRange?: Range;
 
   yAxisTitle?: string;
   yAxisType?: AxisType;
   yAxisFormat?: string;
+  yAxisRange?: Range;
+  mode?: BarProps["mode"];
 }): Partial<Layout> => {
   const baseLayout: Partial<Layout> = {
     font: FONT,
@@ -38,6 +43,7 @@ export const buildLayout = ({
       pad: 2,
     },
     clickmode: "event+select",
+    barmode: props.mode,
     ...computeLegend(legendPosition),
   };
 
@@ -68,6 +74,8 @@ export const buildLayout = ({
           automargin: true,
           fixedrange: true,
           zerolinecolor: "#DEDEDE",
+          range: Array.isArray(xAxisRange) ? xAxisRange : undefined,
+          rangemode: typeof xAxisRange === "string" ? xAxisRange : undefined,
         },
         yaxis: {
           title: yAxisTitle,
@@ -76,6 +84,8 @@ export const buildLayout = ({
           automargin: true,
           fixedrange: true,
           zerolinecolor: "#DEDEDE",
+          range: Array.isArray(yAxisRange) ? yAxisRange : undefined,
+          rangemode: typeof yAxisRange === "string" ? yAxisRange : undefined,
         },
       };
     }
