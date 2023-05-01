@@ -124,8 +124,9 @@ export type SharedTableProps<TRowData extends object> = {
   rowActionsWidth?: number;
   /**
    * Adds a "download as CSV button" to the table footer.
+   * If a string is provided, it will be used as the file name with a `.csv` extension appended.
    */
-  enableCSVDownload?: boolean;
+  enableCSVDownload?: boolean | string;
   /**
    * This is called when the selection state of a row is toggled. Passes in the row data
    * as well as the index of the row in the table.
