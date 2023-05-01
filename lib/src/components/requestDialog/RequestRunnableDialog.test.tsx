@@ -47,19 +47,52 @@ const testCases = [
       );
       server.use(
         rest.get("http://api/v0/entities/search", (_, res, ctx) => {
+          throw new Error("Should not be called");
+        })
+      );
+    },
+    taskSlug: "exit_1",
+  },
+  {
+    testName: "explicit permissions - user has no name",
+    setupFunc: () => {
+      server.use(
+        rest.get("http://api/v0/tasks/getTaskReviewers", (_, res, ctx) => {
           return res(
             ctx.json({
-              results: [
-                {
-                  user: {
-                    userID: "unused",
-                    name: "unused",
-                    avatarURL: "unused",
+              task: {
+                taskID: "tsk1",
+                name: "Exit 1",
+                slug: "exit_1",
+                requireExplicitPermissions: true,
+                triggers: [
+                  {
+                    kind: "form",
+                    triggerID: "trg1",
                   },
-                },
-              ],
+                ],
+              },
+              reviewers: [{ userID: "usr1" }],
             })
           );
+        })
+      );
+      server.use(
+        rest.get("http://api/v0/users/get", (_, res, ctx) => {
+          return res(
+            ctx.json({
+              user: {
+                userID: "usr1",
+                email: "George Du",
+                avatarURL: "",
+              },
+            })
+          );
+        })
+      );
+      server.use(
+        rest.get("http://api/v0/entities/search", (_, res, ctx) => {
+          throw new Error("Should not be called");
         })
       );
     },
@@ -161,19 +194,7 @@ const testCases = [
       );
       server.use(
         rest.get("http://api/v0/entities/search", (_, res, ctx) => {
-          return res(
-            ctx.json({
-              results: [
-                {
-                  user: {
-                    userID: "unused",
-                    name: "unused",
-                    avatarURL: "unused",
-                  },
-                },
-              ],
-            })
-          );
+          throw new Error("Should not be called");
         })
       );
     },
