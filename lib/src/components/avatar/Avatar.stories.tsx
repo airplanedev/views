@@ -1,12 +1,10 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import withMock from "storybook-addon-mock";
 
 import { Avatar } from "./Avatar";
 
 export default {
   title: "Avatar",
   component: Avatar,
-  decorators: [withMock],
 } as ComponentMeta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;

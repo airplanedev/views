@@ -1,13 +1,11 @@
 import { ComponentMeta } from "@storybook/react";
 import { useState } from "react";
-import withMock from "storybook-addon-mock";
 
 import { RequestRunnableDialog } from "./RequestRunnableDialog";
 
 export default {
   title: "RequestRunnableDialog",
   component: RequestRunnableDialog,
-  decorators: [withMock],
 } as ComponentMeta<typeof RequestRunnableDialog>;
 
 export const Simple = () => {

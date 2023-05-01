@@ -1,7 +1,6 @@
 import { ComponentMeta, Story } from "@storybook/react";
 import { AirplaneFile } from "airplane";
 import { useState } from "react";
-import withMock from "storybook-addon-mock";
 
 import { Button } from "components/button/Button";
 import { Text } from "components/text/Text";
@@ -49,7 +48,6 @@ const f3 = new AirplaneFile(new Blob(["baz"]), {
 export default {
   title: "FileInput",
   component: FileInput,
-  decorators: [withMock],
   parameters: { mockData },
 } as ComponentMeta<typeof FileInput>;
 

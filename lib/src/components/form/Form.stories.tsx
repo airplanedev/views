@@ -2,7 +2,6 @@ import { action } from "@storybook/addon-actions";
 import { ComponentMeta, Story } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
 import { AirplaneFile } from "airplane";
-import withMock from "storybook-addon-mock";
 
 import { Button } from "components/button/Button";
 import { Card } from "components/card/Card";
@@ -46,7 +45,6 @@ const mockDataFileInput = [
 export default {
   title: "Form",
   component: Form,
-  decorators: [withMock],
   parameters: { mockData: mockDataFileInput },
   argTypes: { onSubmit: { action: "submitted" } },
 } as ComponentMeta<typeof Form>;
