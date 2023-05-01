@@ -115,25 +115,6 @@ export const InlineData = () => {
   );
 };
 
-export const RefetchTask = () => {
-  const queryClient = useQueryClient();
-  return (
-    <Stack>
-      <Table
-        task="get_table_data"
-        title="Task-based table"
-        columns={SIMPLE_DATA_COLUMNS}
-        defaultPageSize={10}
-        isDefaultSelectedRow={(r, i) => i === 0}
-        rowSelection="single"
-      />
-      <Button onClick={() => queryClient.invalidateQueries()}>
-        Refetch tasks
-      </Button>
-    </Stack>
-  );
-};
-
 export const NoFilter = TemplateFn<SimpleUser>().bind({});
 NoFilter.args = {
   data: SIMPLE_DATA,
