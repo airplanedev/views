@@ -501,7 +501,6 @@ ResizedColumn.play = async ({
     });
   }, 750);
 };
-
 ResizedColumn.parameters = {
   chromatic: { delay: 1500 },
 };

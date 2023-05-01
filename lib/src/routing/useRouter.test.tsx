@@ -17,6 +17,9 @@ describe("useRouter", () => {
   });
 
   afterEach(() => {
+    delete window.location;
+    delete window.top;
+    delete window.self;
     window.location = location;
     window.top = top;
     window.self = self;
