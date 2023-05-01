@@ -37,7 +37,6 @@ export type Column<TRowData extends object = Record<string, any>> = {
 type Column_<TRowData extends object, K extends keyof TRowData> = {
   /**
    * Maps data to this column. e.g. if your accessor is "firstName", the column will display data at row["firstName"].
-   * You can also specify deeply nested values with accessors like "name.first" or even "names[0].first".
    *
    * This field uniquely identifies this column and allows you to reference it in the Table `columns` prop.
    *
