@@ -174,7 +174,7 @@ export const THEME: MantineThemeBase = {
     Tooltip: {
       styles: (theme) => ({
         tooltip: {
-          ...textPreset[2],
+          ...textPreset[4],
           padding: "6px 10px",
           borderRadius: theme.radius.md,
           color: "white",

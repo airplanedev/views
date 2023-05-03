@@ -1,11 +1,11 @@
 import { createStyles, MantineSize, useMantineTheme } from "@mantine/core";
 
 const textSizeToTextPreset = {
-  xs: 1,
-  sm: 2,
+  xs: 5,
+  sm: 4,
   md: 3,
-  lg: 4,
-  xl: 5,
+  lg: 2,
+  xl: 1,
 };
 
 const textSizeToMarginBottom = {

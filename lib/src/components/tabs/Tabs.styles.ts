@@ -12,7 +12,7 @@ export const useStyles = createStyles((theme, params: StyleParams) => {
     root: { height: "100%" },
     tabIcon: { color: theme.colors.gray[6] },
     tabLabel: {
-      ...theme.other.typography.headingPreset[1],
+      ...theme.other.typography.headingPreset[6],
       lineHeight: "1.5rem",
       color: theme.colors.gray[7],
       marginTop: 0,
