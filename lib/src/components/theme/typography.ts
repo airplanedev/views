@@ -12,27 +12,27 @@ export const fontWeight: Record<FontWeight, number> = {
 };
 
 export const textPreset = {
-  5: {
+  xs: {
     fontSize: "0.625rem",
     lineHeight: "1rem",
     fontWeight: fontWeight.normal,
   },
-  4: {
+  sm: {
     fontSize: "0.75rem",
     lineHeight: "1.125rem",
     fontWeight: fontWeight.normal,
   },
-  3: {
+  md: {
     fontSize: "0.875rem",
     lineHeight: "1.25rem",
     fontWeight: fontWeight.normal,
   },
-  2: {
+  lg: {
     fontSize: "1rem",
     lineHeight: "1.375rem",
     fontWeight: fontWeight.normal,
   },
-  1: {
+  xl: {
     fontSize: "1.125rem",
     lineHeight: "1.5rem",
     fontWeight: fontWeight.normal,

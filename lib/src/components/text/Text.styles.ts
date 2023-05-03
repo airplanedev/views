@@ -1,13 +1,5 @@
 import { createStyles, MantineSize, useMantineTheme } from "@mantine/core";
 
-const textSizeToTextPreset = {
-  xs: 5,
-  sm: 4,
-  md: 3,
-  lg: 2,
-  xl: 1,
-};
-
 const textSizeToMarginBottom = {
   xs: "0.25rem",
   sm: "0.25rem",
@@ -37,12 +29,8 @@ export const useRawTextStyles = createStyles(
   (theme, { size }: { size: MantineSize }) => {
     return {
       root: {
-        fontSize:
-          theme.other.typography.textPreset[textSizeToTextPreset[size]]
-            .fontSize,
-        lineHeight:
-          theme.other.typography.textPreset[textSizeToTextPreset[size]]
-            .lineHeight,
+        fontSize: theme.other.typography.textPreset[size].fontSize,
+        lineHeight: theme.other.typography.textPreset[size].lineHeight,
       },
     };
   }
@@ -50,6 +38,5 @@ export const useRawTextStyles = createStyles(
 
 export const useTextWeight = (size: MantineSize) => {
   const theme = useMantineTheme();
-  return theme.other.typography.textPreset[textSizeToTextPreset[size]]
-    .fontWeight;
+  return theme.other.typography.textPreset[size].fontWeight;
 };
