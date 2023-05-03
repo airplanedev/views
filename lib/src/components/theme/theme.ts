@@ -117,7 +117,7 @@ export const THEME: MantineThemeBase = {
     InputWrapper: {
       styles: (theme) => ({
         label: {
-          ...headingPreset[1],
+          ...headingPreset[6],
           color: theme.colors.gray[7],
           marginBottom: "0.375rem",
         },
