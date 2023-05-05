@@ -107,27 +107,19 @@ const ChartComponent = ({
           {error}
         </Label>
       )}
-      <Transition
-        mounted={!loading && !error}
-        transition="scale"
-        duration={400}
-        timingFunction="ease"
-      >
-        {(styles) => (
-          <Plot
-            style={styles}
-            onDeselect={onDeselect}
-            onSelected={onSelected}
-            data={normalizedData}
-            layout={layout}
-            useResizeHandler
-            config={{
-              modeBarButtonsToRemove: ["select2d", "lasso2d"],
-            }}
-            className={classes.plot}
-          />
-        )}
-      </Transition>
+      {!loading && !error && (
+        <Plot
+          onDeselect={onDeselect}
+          onSelected={onSelected}
+          data={normalizedData}
+          layout={layout}
+          useResizeHandler
+          config={{
+            modeBarButtonsToRemove: ["select2d", "lasso2d"],
+          }}
+          className={classes.plot}
+        />
+      )}
     </div>
   );
 };
