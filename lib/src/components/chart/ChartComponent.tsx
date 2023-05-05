@@ -1,4 +1,4 @@
-import { createStyles, Transition } from "@mantine/core";
+import { createStyles } from "@mantine/core";
 import Plotly, { Data } from "plotly.js-basic-dist";
 import createPlotlyComponent from "react-plotly.js/factory";
 
