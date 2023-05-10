@@ -209,7 +209,7 @@ export const Loading = () => {
 
 export const NextToEachOther = () => {
   return (
-    <Stack>
+    <Stack direction="row">
       <Chart
         id="chart"
         type="scatter"
