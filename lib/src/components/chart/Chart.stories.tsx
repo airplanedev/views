@@ -206,3 +206,28 @@ export const Loading = () => {
     />
   );
 };
+
+export const NextToEachOther = () => {
+  return (
+    <Stack>
+      <Chart
+        id="chart"
+        type="scatter"
+        data={[
+          { x: 0, square: 0 },
+          { x: 1, square: 1 },
+          { x: 2, square: 4 },
+        ]}
+      />
+      <Chart
+        id="chart"
+        type="scatter"
+        data={[
+          { x: 0, square: 0 },
+          { x: 1, square: 1 },
+          { x: 2, square: 4 },
+        ]}
+      />
+    </Stack>
+  );
+};
