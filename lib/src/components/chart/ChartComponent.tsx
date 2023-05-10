@@ -32,10 +32,9 @@ const useStyles = createStyles(
     wrapper: {
       display: "flex",
       flexDirection: "column",
+      alignItems: "center",
       rowGap: "0.5rem",
-    },
-    title: {
-      alignSelf: "center",
+      width: "100%",
     },
     plot: {
       width: "100%",
@@ -91,11 +90,7 @@ const ChartComponent = ({
     <div style={style} className={cx(classes.wrapper, layoutClasses.style)}>
       {
         // Render title using our own component, instead of Plotly's.
-        title ? (
-          <Heading className={classes.title} level={2}>
-            {title}
-          </Heading>
-        ) : null
+        title ? <Heading level={2}>{title}</Heading> : null
       }
       {loading && (
         <div className={classes.loadingContainer}>
