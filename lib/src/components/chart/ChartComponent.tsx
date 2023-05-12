@@ -17,6 +17,7 @@ type ChartComponentProps = ChartProps & {
   onSelected?: (event: Plotly.PlotSelectionEvent) => void;
   onDeselect?: () => void;
 };
+const DEFAULT_HEIGHT = "375px";
 
 const useStyles = createStyles(
   (
@@ -48,14 +49,14 @@ const useStyles = createStyles(
       width: width != null ? "100%" : 500,
       height: "100%",
       // If the container's height is not set, use a fixed height.
-      minHeight: height != null ? undefined : 200,
+      minHeight: height != null ? undefined : DEFAULT_HEIGHT,
     },
     errorLabel: {
       // If the container's width/height is set, fill it. If not, use a fixed width/height.
       width: width != null ? "100%" : 500,
       height: "100%",
       // If the container's height is not set, use a fixed height.
-      minHeight: height != null ? undefined : 200,
+      minHeight: height != null ? undefined : DEFAULT_HEIGHT,
     },
   })
 );
@@ -71,7 +72,7 @@ const ChartComponent = ({
   className,
   style,
   width,
-  height,
+  height = DEFAULT_HEIGHT,
   grow,
   loading,
   error,

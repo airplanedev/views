@@ -231,3 +231,17 @@ export const NextToEachOther = () => {
     </Stack>
   );
 };
+
+export const WithHeight = Template.bind({});
+WithHeight.args = {
+  title: "My scatter chart",
+  type: "scatter",
+  data: [
+    { x: 0, square: 0, cube: 0 },
+    { x: 1, square: 1, cube: 1 },
+    { x: 2, square: 4, cube: 9 },
+    { x: 3, square: 9, cube: 27 },
+    { x: 4, square: 16, cube: 64 },
+  ],
+  height: "1000px",
+};
