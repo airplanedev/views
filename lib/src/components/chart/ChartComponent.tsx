@@ -17,7 +17,7 @@ type ChartComponentProps = ChartProps & {
   onSelected?: (event: Plotly.PlotSelectionEvent) => void;
   onDeselect?: () => void;
 };
-const DEFAULT_HEIGHT = "375px";
+const DEFAULT_HEIGHT = "384px";
 
 const useStyles = createStyles(
   (
