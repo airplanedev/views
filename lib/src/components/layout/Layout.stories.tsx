@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { ComponentMeta } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import { ComponentType } from "react";
 
 import {
@@ -47,7 +47,7 @@ import { Default as TextInputDefault } from "components/textinput/TextInput.stor
 export default {
   title: "Layout",
   component: Card,
-} as ComponentMeta<typeof Card>;
+} as Meta<typeof Card>;
 
 const createStory = <P extends CommonLayoutProps>(
   Component: ComponentType<P>,

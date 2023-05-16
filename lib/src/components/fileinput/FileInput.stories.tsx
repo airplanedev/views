@@ -1,14 +1,12 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { AirplaneFile } from "airplane";
 import { useState } from "react";
-import withMock from "storybook-addon-mock";
 
 import { Button } from "components/button/Button";
 import { Text } from "components/text/Text";
 import { FileInputState, useComponentState } from "state";
 
 import { FileInput } from "./FileInput";
-import { FileInputProps } from "./FileInput.types";
 
 const mockData = [
   {
@@ -49,11 +47,10 @@ const f3 = new AirplaneFile(new Blob(["baz"]), {
 export default {
   title: "FileInput",
   component: FileInput,
-  decorators: [withMock],
   parameters: { mockData },
-} as ComponentMeta<typeof FileInput>;
+} as Meta<typeof FileInput>;
 
-const Template: Story<FileInputProps> = (args) => {
+const Template: StoryFn<typeof FileInput> = (args) => {
   const { id, value } = useComponentState();
   return (
     <>

@@ -1,20 +1,19 @@
 import { faker } from "@faker-js/faker";
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Text } from "components";
 import { PaperAirplaneIcon } from "components/icon";
 
 import { Callout } from "./Callout";
-import { CalloutProps } from "./Callout.types";
 
 faker.seed(123);
 
 export default {
   title: "Callout",
   component: Callout,
-} as ComponentMeta<typeof Callout>;
+} as Meta<typeof Callout>;
 
-const Template: Story<CalloutProps> = (args) => <Callout {...args} />;
+const Template: StoryFn<typeof Callout> = (args) => <Callout {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

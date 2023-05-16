@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Loader } from "./Loader";
 import { LoaderProps } from "./Loader.types";
@@ -6,9 +6,11 @@ import { LoaderProps } from "./Loader.types";
 export default {
   title: "Loader",
   component: Loader,
-} as ComponentMeta<typeof Loader>;
+} as Meta<typeof Loader>;
 
-const Template: Story<LoaderProps> = (args) => <Loader {...args} />;
+const Template: StoryFn<LoaderProps> = (args: LoaderProps) => (
+  <Loader {...args} />
+);
 
 export const Oval = Template.bind({});
 Oval.args = {

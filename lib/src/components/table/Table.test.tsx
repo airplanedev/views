@@ -197,6 +197,27 @@ describe("Table", () => {
     expect(downloadLink.download).toEqual(expect.stringMatching(/\.csv$/));
   });
 
+  it("renders the CSV download link with a custom name", async () => {
+    render(
+      <Table
+        data={[
+          { foo: "bar", foo2: "bar2" },
+          {
+            foo: "bar",
+            foo2: `abc"\ndef`,
+            hiddenColumn: "shouldn't be downloaded",
+          },
+        ]}
+        columns={["foo", "foo2"]}
+        enableCSVDownload="my-custom-name.csv"
+      />
+    );
+    const downloadLink = await screen.findByTestId<HTMLAnchorElement>(
+      "csvDownload"
+    );
+    expect(downloadLink.download).toEqual("my-custom-name.csv");
+  });
+
   it("renders booleans string columns", () => {
     type Row = {
       myColumn: boolean;

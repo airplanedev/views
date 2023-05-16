@@ -87,10 +87,16 @@ type LineProps = {
   type: "line";
 } & SeriesPlotProps;
 
-type BarProps = {
+export type BarProps = {
   type: "bar";
+  /**
+   * The variant of the bar graph.
+   * @default group
+   */
+  mode?: "group" | "stack";
 } & SeriesPlotProps;
 
+export type Range = [unknown, unknown] | "tozero";
 interface SeriesPlotProps {
   /**
    * Which field of `data` to use for the chart's x-axis.
@@ -129,6 +135,15 @@ interface SeriesPlotProps {
    */
   xAxisType?: AxisType;
   /**
+   * A custom range for the x-axis from the first element to the second element.
+   * This can also be set to "tozero" which sets the start of the range to 0 and auto-calculates the end.
+   * If not set, the range is auto-calculated based on the extrema of the input data.
+   * @example [0, 100]
+   * @example ["2016-07-01","2016-12-31"]
+   * @example "tozero"
+   */
+  xAxisRange?: Range;
+  /**
    * Title for the y-axis.
    */
   yAxisTitle?: string;
@@ -141,6 +156,15 @@ interface SeriesPlotProps {
    * @default auto
    */
   yAxisType?: AxisType;
+  /**
+   * A custom range for the y-axis from the first element to the second element.
+   * This can also be set to "tozero" which sets the start of the range to 0 and auto-calculates the end.
+   * If not set, the range is auto-calculated based on the extrema of the input data.
+   * @example [0, 100]
+   * @example ["2016-07-01","2016-12-31"]
+   * @example "tozero"
+   */
+  yAxisRange?: Range;
 }
 
 interface PieProps {

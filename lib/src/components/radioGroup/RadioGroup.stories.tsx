@@ -1,16 +1,15 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { useComponentState } from "state";
 
 import { RadioGroup } from "./RadioGroup";
-import { RadioGroupProps } from "./RadioGroup.types";
 
 export default {
   title: "RadioGroup",
   component: RadioGroup,
-} as ComponentMeta<typeof RadioGroup>;
+} as Meta<typeof RadioGroup>;
 
-const Template: Story<RadioGroupProps> = (args) => <RadioGroup {...args} />;
+const Template: StoryFn<typeof RadioGroup> = (args) => <RadioGroup {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

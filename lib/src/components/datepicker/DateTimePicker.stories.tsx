@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { DateTimePickerProps } from "./DatePicker.types";
 import { DateTimePicker } from "./DateTimePicker";
@@ -6,9 +6,9 @@ import { DateTimePicker } from "./DateTimePicker";
 export default {
   title: "DateTimePicker",
   component: DateTimePicker,
-} as ComponentMeta<typeof DateTimePicker>;
+} as Meta<typeof DateTimePicker>;
 
-const Template: Story<DateTimePickerProps> = (args) => (
+const Template: StoryFn<DateTimePickerProps> = (args: DateTimePickerProps) => (
   <DateTimePicker {...args} />
 );
 

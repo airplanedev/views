@@ -1,18 +1,17 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { DatePicker } from "components/datepicker/DatePicker";
 import { Select } from "components/select/Select";
 import { Text } from "components/text/Text";
 
 import { Card } from "./Card";
-import { CardProps } from "./Card.types";
 
 export default {
   title: "Card",
   component: Card,
-} as ComponentMeta<typeof Card>;
+} as Meta<typeof Card>;
 
-const Template: Story<CardProps> = ({ children, ...restProps }) => (
+const Template: StoryFn<typeof Card> = ({ children, ...restProps }) => (
   <Card {...restProps}>{children}</Card>
 );
 

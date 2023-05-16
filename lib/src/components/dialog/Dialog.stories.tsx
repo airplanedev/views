@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Button } from "components/button/Button";
 import { Heading } from "components/heading/Heading";
@@ -22,9 +22,9 @@ export default {
     opened: true,
   },
   argTypes: { onClose: { action: "close" } },
-} as ComponentMeta<typeof Dialog>;
+} as Meta<typeof Dialog>;
 
-const Template: Story<Props> = (args) => (
+const Template: StoryFn<Props> = (args: Props) => (
   <div>
     <div>Stuff in the background</div>
     <Dialog {...args} />

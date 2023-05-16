@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
 import { useState } from "react";
 
@@ -21,9 +21,11 @@ export default {
       </Stack>
     ),
   ],
-} as ComponentMeta<typeof MultiSelect>;
+} as Meta<typeof MultiSelect>;
 
-const Template: Story<MultiSelectProps> = (args) => <MultiSelect {...args} />;
+const Template: StoryFn<MultiSelectProps> = (args: MultiSelectProps) => (
+  <MultiSelect {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {
@@ -106,7 +108,11 @@ ItemComponent.args = {
   ...Default.args,
   ItemComponent: ({ label }) => <Callout>{label}</Callout>,
 };
-ItemComponent.play = async ({ canvasElement }) => {
+ItemComponent.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement;
+}) => {
   const canvas = within(canvasElement);
   await userEvent.click(canvas.getByLabelText("Fruits"));
 };

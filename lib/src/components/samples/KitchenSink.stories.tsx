@@ -1,4 +1,4 @@
-import { ComponentMeta } from "@storybook/react";
+import { Meta } from "@storybook/react";
 
 import { Button } from "../button/Button";
 import { Card } from "../card/Card";
@@ -73,6 +73,6 @@ const KitchenSink = () => (
 export default {
   title: "Samples/KitchenSink",
   component: KitchenSink,
-} as ComponentMeta<typeof KitchenSink>;
+} as Meta<typeof KitchenSink>;
 
 export const Default = () => <KitchenSink />;

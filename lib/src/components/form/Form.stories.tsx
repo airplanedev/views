@@ -1,8 +1,7 @@
 import { action } from "@storybook/addon-actions";
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
 import { AirplaneFile } from "airplane";
-import withMock from "storybook-addon-mock";
 
 import { Button } from "components/button/Button";
 import { Card } from "components/card/Card";
@@ -46,12 +45,11 @@ const mockDataFileInput = [
 export default {
   title: "Form",
   component: Form,
-  decorators: [withMock],
   parameters: { mockData: mockDataFileInput },
   argTypes: { onSubmit: { action: "submitted" } },
-} as ComponentMeta<typeof Form>;
+} as Meta<typeof Form>;
 
-const Template: Story<FormProps> = (args) => <Form {...args} />;
+const Template: StoryFn<FormProps> = (args: FormProps) => <Form {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -183,7 +181,11 @@ WithValidation.args = {
     </>
   ),
 };
-WithValidation.play = async ({ canvasElement }) => {
+WithValidation.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement;
+}) => {
   const canvas = within(canvasElement);
   await new Promise((r) => setTimeout(r, 500));
   const submit = await canvas.findByRole("button");
@@ -253,7 +255,11 @@ WithMultiValidation.args = {
     </>
   ),
 };
-WithMultiValidation.play = async ({ canvasElement }) => {
+WithMultiValidation.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement;
+}) => {
   const canvas = within(canvasElement);
   await new Promise((r) => setTimeout(r, 500));
   const submit = await canvas.findByRole("button");
@@ -760,7 +766,8 @@ InputsWithoutIds.args = {
 export const WrappedInCard = () => {
   return (
     <Card>
-      <Default {...Default.args} />
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+      <Default {...(Default.args as any)} />
     </Card>
   );
 };

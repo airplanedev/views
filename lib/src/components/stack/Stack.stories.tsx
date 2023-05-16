@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { Fragment, ReactElement } from "react";
 
 import { Card } from "components/card/Card";
@@ -31,9 +31,9 @@ export default {
   argTypes: {
     spacing: { type: "number" },
   },
-} as ComponentMeta<typeof Stack>;
+} as Meta<typeof Stack>;
 
-const Template: Story<StackProps> = ({ children, ...args }) => {
+const Template: StoryFn<StackProps> = ({ children, ...args }) => {
   // Unwrap children if they are nested in a React fragment.
   let nonFragmentChildren = children;
   while (

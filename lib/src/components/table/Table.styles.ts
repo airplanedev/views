@@ -16,7 +16,7 @@ export const useStyles = createStyles((theme) => {
       ".table": {
         overflow: "auto",
         ...theme.fn.fontStyles(),
-        fontSize: theme.other.typography.textPreset[2].fontSize, // NOTE: This seems to be a catch all, I'm not sure if it does anything but matching to be new body size for the table (14px). We can remove this if it's not needed (and maybe even the line above — not sure what that does).
+        fontSize: theme.other.typography.textPreset["sm"].fontSize, // NOTE: This seems to be a catch all, I'm not sure if it does anything but matching to be new body size for the table (14px). We can remove this if it's not needed (and maybe even the line above — not sure what that does).
         display: "block",
         borderSpacing: 0,
 
@@ -120,7 +120,7 @@ export const useStyles = createStyles((theme) => {
     },
     noData: {
       borderTop: theme.other.borderStyles.light,
-      ...theme.other.typography.textPreset[2],
+      ...theme.other.typography.textPreset["sm"],
       height: "2.5rem",
       textAlign: "center",
       display: "flex",

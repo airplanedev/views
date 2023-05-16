@@ -1,4 +1,4 @@
-import { ComponentMeta } from "@storybook/react";
+import { Meta } from "@storybook/react";
 
 import { Heading } from "components";
 
@@ -95,6 +95,6 @@ const Typography = () => {
 export default {
   title: "Typography",
   component: Typography,
-} as ComponentMeta<typeof Typography>;
+} as Meta<typeof Typography>;
 
 export const Default = () => <Typography />;

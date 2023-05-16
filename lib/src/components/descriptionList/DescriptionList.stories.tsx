@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Button } from "components/button/Button";
 import { Card } from "components/card/Card";
@@ -25,9 +25,9 @@ const ITEMS = [
 export default {
   title: "DescriptionList",
   component: DescriptionList,
-} as ComponentMeta<typeof DescriptionList>;
+} as Meta<typeof DescriptionList>;
 
-const Template: Story<Props> = (args) => (
+const Template: StoryFn<Props> = (args: Props) => (
   <div>
     <DescriptionList {...args} />
   </div>

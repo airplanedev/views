@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Image } from "./Image";
 import { Props } from "./Image.types";
@@ -9,9 +9,9 @@ export default {
   args: {
     src: "https://pilotinstitute.com/wp-content/uploads/2021/02/very-small-light-aircraft.jpg",
   },
-} as ComponentMeta<typeof Image>;
+} as Meta<typeof Image>;
 
-const Template: Story<Props> = (args) => (
+const Template: StoryFn<Props> = (args: Props) => (
   <div style={{ width: 500 }}>
     <Image {...args} />
   </div>

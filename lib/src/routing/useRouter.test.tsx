@@ -17,6 +17,9 @@ describe("useRouter", () => {
   });
 
   afterEach(() => {
+    delete window.location;
+    delete window.top;
+    delete window.self;
     window.location = location;
     window.top = top;
     window.self = self;
@@ -131,6 +134,23 @@ describe("useRouter", () => {
       );
     });
 
+    it("peeks a view with params", () => {
+      const { result } = renderHook(() => useRouter(), {
+        wrapper: QueryProvider,
+      });
+
+      result.current.peek({ view: "myView", params: { foo: "bar" } });
+      expect(window.parent.postMessage).toBeCalledWith(
+        {
+          type: "peek",
+          peekType: "view",
+          slug: "myView",
+          params: { foo: "bar" },
+        },
+        "*"
+      );
+    });
+
     it("peeks a task", () => {
       const { result } = renderHook(() => useRouter(), {
         wrapper: QueryProvider,
@@ -139,6 +159,23 @@ describe("useRouter", () => {
       result.current.peek({ task: "myTask" });
       expect(window.parent.postMessage).toBeCalledWith(
         { type: "peek", peekType: "task", slug: "myTask" },
+        "*"
+      );
+    });
+
+    it("peeks a task with params", () => {
+      const { result } = renderHook(() => useRouter(), {
+        wrapper: QueryProvider,
+      });
+
+      result.current.peek({ task: "myTask", params: { foo: "bar" } });
+      expect(window.parent.postMessage).toBeCalledWith(
+        {
+          type: "peek",
+          peekType: "task",
+          slug: "myTask",
+          params: { foo: "bar" },
+        },
         "*"
       );
     });
