@@ -111,7 +111,7 @@ export const useTaskQuery = <
     enabled: enabledOption = true,
     refetchInterval,
     executeOnMount = true,
-    executeOnWindowFocus = true,
+    executeOnWindowFocus = false,
     executeOnReconnect = true,
     onSuccess,
     onError,
