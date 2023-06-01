@@ -37,7 +37,6 @@ export type Column<TRowData extends object = Record<string, any>> = {
 type Column_<TRowData extends object, K extends keyof TRowData> = {
   /**
    * Maps data to this column. e.g. if your accessor is "firstName", the column will display data at row["firstName"].
-   * You can also specify deeply nested values with accessors like "name.first" or even "names[0].first".
    *
    * This field uniquely identifies this column and allows you to reference it in the Table `columns` prop.
    *
@@ -124,8 +123,9 @@ export type SharedTableProps<TRowData extends object> = {
   rowActionsWidth?: number;
   /**
    * Adds a "download as CSV button" to the table footer.
+   * If a string is provided, it will be used as the file name with a `.csv` extension appended.
    */
-  enableCSVDownload?: boolean;
+  enableCSVDownload?: boolean | string;
   /**
    * This is called when the selection state of a row is toggled. Passes in the row data
    * as well as the index of the row in the table.

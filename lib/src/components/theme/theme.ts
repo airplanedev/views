@@ -117,20 +117,20 @@ export const THEME: MantineThemeBase = {
     InputWrapper: {
       styles: (theme) => ({
         label: {
-          ...headingPreset[1],
+          ...headingPreset[6],
           color: theme.colors.gray[7],
           marginBottom: "0.375rem",
         },
 
         description: {
-          ...textPreset[3],
+          ...textPreset["md"],
           color: theme.colors.gray[6],
           marginTop: "0.25rem",
           marginBottom: 0,
         },
 
         error: {
-          ...textPreset[3],
+          ...textPreset["md"],
           whiteSpace: "pre-wrap",
         },
       }),
@@ -174,7 +174,7 @@ export const THEME: MantineThemeBase = {
     Tooltip: {
       styles: (theme) => ({
         tooltip: {
-          ...textPreset[2],
+          ...textPreset["sm"],
           padding: "6px 10px",
           borderRadius: theme.radius.md,
           color: "white",
@@ -184,13 +184,13 @@ export const THEME: MantineThemeBase = {
     Notification: {
       styles: (theme, props: NotificationStylesParams) => {
         const topLine = {
-          ...textPreset[3],
+          ...textPreset["md"],
           color: theme.colors.gray[9],
           marginBottom: 0,
           fontWeight: 500,
         };
         const bottomLine = {
-          ...textPreset[3],
+          ...textPreset["md"],
           color: theme.colors.gray[5],
           marginBottom: 0,
           marginTop: theme.spacing.xs,

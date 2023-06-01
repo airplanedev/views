@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
 import { useState } from "react";
 
@@ -48,12 +48,12 @@ export default {
       </>
     ),
   },
-} as ComponentMeta<typeof Tabs>;
+} as Meta<typeof Tabs>;
 
-const Template: Story<TabsProps> = (props) => <Tabs {...props} />;
+const Template: StoryFn<TabsProps> = (props) => <Tabs {...props} />;
 
 export const Default = Template.bind({});
-Default.play = async ({ canvasElement }) => {
+Default.play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
   const canvas = within(canvasElement);
   await canvas.findByText("Gallery page");
   await userEvent.click(await canvas.findByText("Messages"));
@@ -323,7 +323,7 @@ export const Unmounted = Template.bind({});
 Unmounted.args = {
   keepMounted: false,
 };
-Unmounted.play = async ({ canvasElement }) => {
+Unmounted.play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
   const canvas = within(canvasElement);
   await canvas.findByText("Gallery page");
   await userEvent.click(await canvas.findByText("Messages"));

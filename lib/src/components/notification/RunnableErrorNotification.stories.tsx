@@ -1,5 +1,5 @@
 import { Button } from "@mantine/core";
-import { Story } from "@storybook/react";
+import { StoryFn } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
 
 import { ExecuteError } from "components/query";
@@ -27,7 +27,7 @@ export default {
   },
 };
 
-const Template: Story<Props> = (args) => (
+const Template: StoryFn<Props> = (args: Props) => (
   <Button onClick={() => showRunnableErrorNotification(args)}>
     Show notification
   </Button>
@@ -38,7 +38,7 @@ Task.args = {
   error: ExampleRunError,
   runID: "runXYZ",
 };
-Task.play = async ({ canvasElement }) => {
+Task.play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
   const canvas = within(canvasElement);
   await userEvent.click(await canvas.findByText("Show notification"));
 };
@@ -48,7 +48,7 @@ Session.args = {
   error: ExampleSessionError,
   sessionID: "sessionXYZ",
 };
-Session.play = async ({ canvasElement }) => {
+Session.play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
   const canvas = within(canvasElement);
   await userEvent.click(await canvas.findByText("Show notification"));
 };
@@ -59,7 +59,7 @@ WithSlug.args = {
   runID: "runXYZ",
   slug: "my_task",
 };
-WithSlug.play = async ({ canvasElement }) => {
+WithSlug.play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
   const canvas = within(canvasElement);
   await userEvent.click(await canvas.findByText("Show notification"));
 };

@@ -1,17 +1,16 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Stack } from "components";
 import { COLORS } from "components/theme/colors";
 
 import { Chip } from "./Chip";
-import { ChipProps } from "./Chip.types";
 
 export default {
   title: "Chip",
   component: Chip,
-} as ComponentMeta<typeof Chip>;
+} as Meta<typeof Chip>;
 
-const Template: Story<ChipProps> = (args) => <Chip {...args} />;
+const Template: StoryFn<typeof Chip> = (args) => <Chip {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Stack } from "components";
 
@@ -7,9 +7,11 @@ import { Divider, DividerProps } from "./Divider";
 export default {
   title: "Divider",
   component: Divider,
-} as ComponentMeta<typeof Divider>;
+} as Meta<typeof Divider>;
 
-const Template: Story<DividerProps> = (args) => <Divider {...args} />;
+const Template: StoryFn<DividerProps> = (args: DividerProps) => (
+  <Divider {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {};

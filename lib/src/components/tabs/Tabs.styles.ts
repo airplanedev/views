@@ -12,7 +12,7 @@ export const useStyles = createStyles((theme, params: StyleParams) => {
     root: { height: "100%" },
     tabIcon: { color: theme.colors.gray[6] },
     tabLabel: {
-      ...theme.other.typography.headingPreset[1],
+      ...theme.other.typography.headingPreset[6],
       lineHeight: "1.5rem",
       color: theme.colors.gray[7],
       marginTop: 0,
@@ -35,10 +35,10 @@ export const useStyles = createStyles((theme, params: StyleParams) => {
       alignItems: "center",
     },
     panel: {
-      marginTop: params.placement == "top" ? theme.spacing.lg : 0,
-      marginBottom: params.placement == "bottom" ? theme.spacing.lg : 0,
-      marginLeft: params.placement == "left" ? theme.spacing.lg : 0,
-      marginRight: params.placement == "right" ? theme.spacing.lg : 0,
+      paddingTop: params.placement == "top" ? theme.spacing.lg : 0,
+      paddingBottom: params.placement == "bottom" ? theme.spacing.lg : 0,
+      paddingLeft: params.placement == "left" ? theme.spacing.lg : 0,
+      paddingRight: params.placement == "right" ? theme.spacing.lg : 0,
       height: "100%",
       overflowY: "auto",
     },

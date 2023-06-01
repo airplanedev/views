@@ -14,6 +14,8 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "yarn"
       - run: yarn install --frozen-lockfile
+      - name: Build lib
+        run: yarn workspace @airplane/views run build
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:

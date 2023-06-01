@@ -1,13 +1,14 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Textarea } from "./Textarea";
+import { TextareaProps } from "./Textarea.types";
 
 export default {
   title: "Text Area",
   component: Textarea,
-} as ComponentMeta<typeof Textarea>;
+} as Meta<typeof Textarea>;
 
-const Template: ComponentStory<typeof Textarea> = (args) => (
+const Template: StoryFn<typeof Textarea> = (args: TextareaProps) => (
   <Textarea {...args} />
 );
 

@@ -1,8 +1,6 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
-import { useQueryClient } from "@tanstack/react-query";
 import { useCallback, useEffect, useState } from "react";
-import withMock from "storybook-addon-mock";
 
 import { Button } from "components/button/Button";
 import { mockDataExecute } from "components/button/Button.stories";
@@ -34,7 +32,7 @@ const Template = <T extends object = Record<string, any>>(
   args: TableProps<T>
 ) => <Table<T> {...args} />;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TemplateFn = <T extends object = Record<string, any>>(): Story<
+const TemplateFn = <T extends object = Record<string, any>>(): StoryFn<
   TableProps<T>
 > => Template;
 
@@ -46,7 +44,6 @@ const DATA = createRandomUsers(20);
 export default {
   title: "Table",
   component: Table,
-  decorators: [withMock],
   parameters: {
     mockData: [
       ...mockDataExecute,
@@ -68,7 +65,7 @@ export default {
       },
     ],
   },
-} as ComponentMeta<typeof Table>;
+} as Meta<typeof Table>;
 
 export const Simple = TemplateFn<SimpleUser>().bind({});
 Simple.args = {
@@ -115,25 +112,6 @@ export const InlineData = () => {
       isDefaultSelectedRow={(r, i) => i === 0}
       rowSelection="single"
     />
-  );
-};
-
-export const RefetchTask = () => {
-  const queryClient = useQueryClient();
-  return (
-    <Stack>
-      <Table
-        task="get_table_data"
-        title="Task-based table"
-        columns={SIMPLE_DATA_COLUMNS}
-        defaultPageSize={10}
-        isDefaultSelectedRow={(r, i) => i === 0}
-        rowSelection="single"
-      />
-      <Button onClick={() => queryClient.invalidateQueries()}>
-        Refetch tasks
-      </Button>
-    </Stack>
   );
 };
 
@@ -278,7 +256,11 @@ CustomizedRowActions.args = {
   rowSelection: "single",
   freezeRowActions: false,
 };
-CustomizedRowActions.play = async ({ canvasElement }) => {
+CustomizedRowActions.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement;
+}) => {
   const canvas = within(canvasElement);
   setTimeout(
     async () =>
@@ -345,7 +327,11 @@ MultiSelection.args = {
   columns: SIMPLE_DATA_COLUMNS,
   rowSelection: "checkbox",
 };
-MultiSelection.play = async ({ canvasElement }) => {
+MultiSelection.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement;
+}) => {
   const canvas = within(canvasElement);
   await canvas.findByText("User ID");
   const checkboxes = await canvas.findAllByRole("checkbox");
@@ -497,7 +483,11 @@ ResizedColumn.args = {
   columns: SIMPLE_DATA_COLUMNS,
   defaultPageSize: 10,
 };
-ResizedColumn.play = async ({ canvasElement }) => {
+ResizedColumn.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement;
+}) => {
   const canvas = within(canvasElement);
   setTimeout(async () => {
     const dragHandle = canvas.getByRole("separator");

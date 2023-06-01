@@ -1,16 +1,17 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Button } from "components/button/Button";
 import { TextInputState, useComponentState } from "state";
 
 import { TextInput } from "./TextInput";
+import { TextInputProps } from "./TextInput.types";
 
 export default {
   title: "Text Input",
   component: TextInput,
-} as ComponentMeta<typeof TextInput>;
+} as Meta<typeof TextInput>;
 
-const Template: ComponentStory<typeof TextInput> = (args) => (
+const Template: StoryFn<typeof TextInput> = (args: TextInputProps) => (
   <TextInput {...args} />
 );
 

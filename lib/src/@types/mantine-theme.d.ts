@@ -16,7 +16,7 @@ declare module "@mantine/core" {
   export interface MantineThemeOther {
     typography: {
       textPreset: Record<
-        number,
+        MantineSize,
         {
           fontSize: CSSProperties["fontSize"];
           lineHeight: CSSProperties["lineHeight"];

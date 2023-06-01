@@ -42,15 +42,6 @@ export type HeadingProps = {
 } & CommonLayoutProps &
   CommonStylingProps;
 
-const titleOrderToHeadingPreset: Record<HeadingLevel, number> = {
-  1: 6,
-  2: 5,
-  3: 4,
-  4: 3,
-  5: 2,
-  6: 1,
-};
-
 const titleOrderToGrayShade = {
   1: 9,
   2: 8,
@@ -67,7 +58,7 @@ type StyleParams = {
 
 const useStyles = createStyles((theme, { level, weight }: StyleParams) => {
   const headingPreset = {
-    ...theme.other.typography.headingPreset[titleOrderToHeadingPreset[level]],
+    ...theme.other.typography.headingPreset[level],
   };
   if (weight) {
     headingPreset.fontWeight = fontWeight[weight];

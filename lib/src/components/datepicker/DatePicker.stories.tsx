@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
 
 import { DatePicker } from "./DatePicker";
@@ -12,9 +12,11 @@ export default {
     description: "Description",
     placeholder: "Placeholder",
   },
-} as ComponentMeta<typeof DatePicker>;
+} as Meta<typeof DatePicker>;
 
-const Template: Story<DatePickerProps> = (args) => <DatePicker {...args} />;
+const Template: StoryFn<DatePickerProps> = (args: DatePickerProps) => (
+  <DatePicker {...args} />
+);
 
 export const Default = Template.bind({});
 
@@ -27,7 +29,7 @@ Clearable.parameters = {
   // TODO(PDS-2123): Fix flaky story
   chromatic: { disableSnapshot: true },
 };
-Clearable.play = async ({ canvasElement }) => {
+Clearable.play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
   const canvas = within(canvasElement);
   await userEvent.click(await canvas.findByLabelText("Label"));
 };
@@ -37,7 +39,11 @@ DisabledDates.args = {
   excludeDate: (d) => d.getDay() === 0,
   defaultValue: new Date(2022, 1, 1),
 };
-DisabledDates.play = async ({ canvasElement }) => {
+DisabledDates.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement;
+}) => {
   const canvas = within(canvasElement);
   await userEvent.click(await canvas.findByLabelText("Label"));
   await canvas.findByText("15");

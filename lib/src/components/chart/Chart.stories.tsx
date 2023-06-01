@@ -1,4 +1,5 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
+import { useEffect, useState } from "react";
 
 import { Button } from "components/button/Button";
 import { Stack } from "components/stack/Stack";
@@ -6,7 +7,6 @@ import { Text } from "components/text/Text";
 import { ChartState, useComponentState } from "state";
 
 import { Chart } from "./Chart";
-import { ChartProps } from "./Chart.types";
 
 export default {
   title: "Chart",
@@ -14,9 +14,9 @@ export default {
   parameters: {
     chromatic: { disableSnapshot: true },
   },
-} as ComponentMeta<typeof Chart>;
+} as Meta<typeof Chart>;
 
-const Template: Story<ChartProps> = (args) => <Chart {...args} />;
+const Template: StoryFn<typeof Chart> = (args) => <Chart {...args} />;
 
 export const Scatter = Template.bind({});
 Scatter.args = {
@@ -120,6 +120,18 @@ Line.args = {
   },
 };
 
+export const CustomRange = Template.bind({});
+CustomRange.args = {
+  title: "Number of states with a cat older than 100",
+  type: "line",
+  data: {
+    x: ["2022-01-01", "2022-02-01", "2022-03-01", "2022-04-01", "2022-05-01"],
+    states: [10, 15, 45, 29, 16],
+  },
+  xAxisRange: ["2021-12-15", "2022-04-15"],
+  yAxisRange: [0, 60],
+};
+
 export const LineWithPercents = Template.bind({});
 LineWithPercents.args = {
   title: "Percentage",
@@ -170,4 +182,66 @@ PieWithColors.args = {
     valuesA: [100, 200, 300],
   },
   colors: ["red", "green", "blue"],
+};
+
+export const Loading = () => {
+  const [l, setL] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setL(false);
+    }, 5000);
+  }, []);
+  return (
+    <Chart
+      id="chart"
+      type="scatter"
+      width="96u"
+      height="72u"
+      data={[
+        { x: 0, square: 0 },
+        { x: 1, square: 1 },
+        { x: 2, square: 4 },
+      ]}
+      loading={l}
+    />
+  );
+};
+
+export const NextToEachOther = () => {
+  return (
+    <Stack direction="row">
+      <Chart
+        id="chart"
+        type="scatter"
+        data={[
+          { x: 0, square: 0 },
+          { x: 1, square: 1 },
+          { x: 2, square: 4 },
+        ]}
+      />
+      <Chart
+        id="chart"
+        type="scatter"
+        data={[
+          { x: 0, square: 0 },
+          { x: 1, square: 1 },
+          { x: 2, square: 4 },
+        ]}
+      />
+    </Stack>
+  );
+};
+
+export const WithHeight = Template.bind({});
+WithHeight.args = {
+  title: "My scatter chart",
+  type: "scatter",
+  data: [
+    { x: 0, square: 0, cube: 0 },
+    { x: 1, square: 1, cube: 1 },
+    { x: 2, square: 4, cube: 9 },
+    { x: 3, square: 9, cube: 27 },
+    { x: 4, square: 16, cube: 64 },
+  ],
+  height: "1000px",
 };

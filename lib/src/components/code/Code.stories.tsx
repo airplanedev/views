@@ -1,4 +1,4 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Code } from "./Code";
 import { Props } from "./Code.types";
@@ -14,9 +14,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Code>;
+} as Meta<typeof Code>;
 
-const Template: Story<Props> = (args) => <Code {...args} />;
+const Template: StoryFn<Props> = (args: Props) => <Code {...args} />;
 
 export const JS = Template.bind({});
 JS.args = {

@@ -1,11 +1,10 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Heading } from "components/heading/Heading";
 import { Stack } from "components/stack/Stack";
 import { Text } from "components/text/Text";
 
 import { Confirmation } from "./Confirmation";
-import { ConfirmationProps } from "./Dialog.types";
 
 export default {
   title: "Confirmation Dialog",
@@ -23,9 +22,11 @@ export default {
     onClose: { action: "close" },
     onConfirm: { action: "confirm" },
   },
-} as ComponentMeta<typeof Confirmation>;
+} as Meta<typeof Confirmation>;
 
-const Template: Story<ConfirmationProps> = (args) => <Confirmation {...args} />;
+const Template: StoryFn<typeof Confirmation> = (args) => (
+  <Confirmation {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {

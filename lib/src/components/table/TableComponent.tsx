@@ -628,10 +628,10 @@ export function TableComponent<TRowData extends object>({
       {(hasPagination || enableCSVDownload) && (
         <div className={classes.tableFooter}>
           <div>
-            {enableCSVDownload && (
+            {!!enableCSVDownload && (
               <a
                 href={dataAsCSVLink}
-                download="table_data.csv"
+                download={getCSVFileName(enableCSVDownload)}
                 data-testid="csvDownload"
               >
                 <ActionIcon size="sm">
@@ -783,4 +783,14 @@ const fixActionCol = (props: TableHeaderProps | TableCellProps) => {
     props.style.flex = "0 0 auto";
   }
   return props;
+};
+
+const getCSVFileName = (enableCSVDownload: string | boolean) => {
+  if (typeof enableCSVDownload === "boolean") {
+    return "table_data.csv";
+  }
+  if (enableCSVDownload.endsWith(".csv")) {
+    return enableCSVDownload;
+  }
+  return `${enableCSVDownload}.csv`;
 };

@@ -1,4 +1,4 @@
-import { ComponentMeta } from "@storybook/react";
+import { Meta } from "@storybook/react";
 
 import { Card } from "components/card/Card";
 import { Container } from "components/Container";
@@ -49,7 +49,7 @@ export const Dashboard = () => {
 export default {
   title: "Samples/Dashboard",
   component: Dashboard,
-} as ComponentMeta<typeof Dashboard>;
+} as Meta<typeof Dashboard>;
 
 export const DashboardInContainer = () => (
   // This container simulates the same container we wrap our views in so we can test what it looks via storybook

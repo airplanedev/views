@@ -50,15 +50,6 @@ export type TitleProps = {
 } & CommonLayoutProps &
   CommonStylingProps;
 
-const titleOrderToHeadingPreset: Record<TitleOrder, number> = {
-  1: 6,
-  2: 5,
-  3: 4,
-  4: 3,
-  5: 2,
-  6: 1,
-};
-
 const titleOrderToGrayShade = {
   1: 9,
   2: 8,
@@ -74,7 +65,7 @@ type StyleParams = {
 
 const useStyles = createStyles((theme, { order }: StyleParams) => ({
   root: {
-    ...theme.other.typography.headingPreset[titleOrderToHeadingPreset[order]],
+    ...theme.other.typography.headingPreset[order],
     "&:first-child": {
       marginTop: 0,
     },

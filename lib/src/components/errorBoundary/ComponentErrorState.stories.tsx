@@ -1,20 +1,19 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Stack } from "components/stack/Stack";
 import { Text } from "components/text/Text";
 
 import {
   ComponentErrorState,
-  ComponentErrorStateProps,
   RunErrorComponentErrorState,
 } from "./ComponentErrorState";
 
 export default {
   title: "ComponentErrorState",
   component: ComponentErrorState,
-} as ComponentMeta<typeof ComponentErrorState>;
+} as Meta<typeof ComponentErrorState>;
 
-const Template: Story<ComponentErrorStateProps> = (args) => (
+const Template: StoryFn<typeof ComponentErrorState> = (args) => (
   <ComponentErrorState {...args} />
 );
 

@@ -12,27 +12,27 @@ export const fontWeight: Record<FontWeight, number> = {
 };
 
 export const textPreset = {
-  1: {
+  xs: {
     fontSize: "0.625rem",
     lineHeight: "1rem",
     fontWeight: fontWeight.normal,
   },
-  2: {
+  sm: {
     fontSize: "0.75rem",
     lineHeight: "1.125rem",
     fontWeight: fontWeight.normal,
   },
-  3: {
+  md: {
     fontSize: "0.875rem",
     lineHeight: "1.25rem",
     fontWeight: fontWeight.normal,
   },
-  4: {
+  lg: {
     fontSize: "1rem",
     lineHeight: "1.375rem",
     fontWeight: fontWeight.normal,
   },
-  5: {
+  xl: {
     fontSize: "1.125rem",
     lineHeight: "1.5rem",
     fontWeight: fontWeight.normal,
@@ -40,19 +40,19 @@ export const textPreset = {
 };
 
 export const headingPreset = {
-  1: {
+  6: {
     fontSize: "0.875rem",
     lineHeight: "1rem",
     fontWeight: fontWeight.medium,
     marginTop: "0.25rem",
   },
-  2: {
+  5: {
     fontSize: "1rem",
     lineHeight: "1.25rem",
     fontWeight: fontWeight.semibold,
     marginTop: "0.125rem",
   },
-  3: {
+  4: {
     fontSize: "1.166rem",
     lineHeight: "1.25rem",
     fontWeight: fontWeight.semibold,
@@ -60,7 +60,7 @@ export const headingPreset = {
     marginTop: "0.125rem",
     marginBottom: "0.25rem",
   },
-  4: {
+  3: {
     fontSize: "1.333rem",
     lineHeight: "1.5rem",
     fontWeight: fontWeight.bold,
@@ -68,7 +68,7 @@ export const headingPreset = {
     marginBottom: "0.5rem",
     marginTop: "1rem",
   },
-  5: {
+  2: {
     fontSize: "1.555rem",
     lineHeight: "1.75rem",
     fontWeight: fontWeight.bold,
@@ -76,7 +76,7 @@ export const headingPreset = {
     marginBottom: "0.75rem",
     marginTop: "1.25rem",
   },
-  6: {
+  1: {
     fontSize: "1.777rem",
     lineHeight: "2rem",
     fontWeight: fontWeight.bold,
