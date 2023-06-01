@@ -159,6 +159,10 @@ export type TableComponentProps<TRowData extends object> = {
    */
   rowActions?: ComponentRowAction<TRowData>[];
   /**
+   * The computed width of the row actions.
+   */
+  rowActionsComputedWidth?: number;
+  /**
    * Adds custom components to an overflow menu at the end of each row.
    */
   rowActionsMenu?: ComponentRowAction<TRowData>[];

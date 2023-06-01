@@ -7,6 +7,7 @@ import { mockDataExecute } from "components/button/Button.stories";
 import { Card } from "components/card/Card";
 import { Link } from "components/link/Link";
 import { Stack } from "components/stack/Stack";
+import { Tabs } from "components/tabs/Tabs";
 import { TextInput } from "components/textinput/TextInput";
 import { useComponentState } from "state";
 import { drag } from "storybook-utils/drag";
@@ -167,38 +168,52 @@ RowActionsMenu.args = {
   freezeRowActions: false,
 };
 
-export const RowActionsLinkButtons = TemplateFn<SimpleUser>().bind({});
-RowActionsLinkButtons.args = {
-  data: SIMPLE_DATA,
-  columns: SIMPLE_DATA_COLUMNS,
-  rowActions: [
-    {
-      label: "Impersonate",
-      preset: "tertiary",
-      href: (row) => {
-        return { task: "impersonate", params: { id: row.userID } };
-      },
-    },
-    {
-      label: "Search user",
-      preset: "tertiary",
-      href: (row) => `https://www.google.com/search?q=${row.username}`,
-    },
-  ],
-  rowActionsMenu: [
-    {
-      label: "Another one",
-      href: () => "https://www.airplane.dev",
-      preset: "tertiary",
-      variant: "subtle",
-    },
-  ],
-  rowSelection: "single",
-  freezeRowActions: false,
+export const LinkRowActionsInTab = () => {
+  return (
+    <Tabs>
+      <Tabs.Tab value="table content">
+        <Table
+          data={SIMPLE_DATA}
+          columns={SIMPLE_DATA_COLUMNS}
+          rowActions={[
+            {
+              label: "Impersonate",
+              preset: "tertiary",
+              href: (row) => {
+                return { task: "impersonate", params: { id: row.userID } };
+              },
+            },
+            {
+              label: "Search user",
+              preset: "tertiary",
+              href: (row) => `https://www.google.com/search?q=${row.username}`,
+            },
+          ]}
+          rowActionsMenu={[
+            {
+              label: "Another one",
+              href: () => "https://www.airplane.dev",
+              preset: "tertiary",
+              variant: "subtle",
+            },
+          ]}
+          rowSelection="single"
+          freezeRowActions={false}
+        />
+      </Tabs.Tab>
+    </Tabs>
+  );
 };
-RowActionsLinkButtons.parameters = {
-  // Wait for permissions to load
-  chromatic: { delay: 300 },
+LinkRowActionsInTab.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLCanvasElement;
+}) => {
+  const canvas = within(canvasElement);
+  setTimeout(
+    async () => await userEvent.click(await canvas.findByText("table content")),
+    500
+  );
 };
 
 export const CustomizedRowActions = TemplateFn<SimpleUser>().bind({});
