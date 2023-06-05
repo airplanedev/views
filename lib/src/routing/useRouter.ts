@@ -58,7 +58,7 @@ export const useRouter = (): Router => {
         if (queryParams === undefined) {
           queryParams = new URLSearchParams();
         }
-        return `${webHost}/studio/view/${viewSlug}?${queryParams}`;
+        return `${webHost}/studio/views/${viewSlug}?${queryParams}`;
       }
       return `${webHost}/views/${viewData.id}?${queryParams}`;
     },
@@ -82,7 +82,7 @@ export const useRouter = (): Router => {
         if (queryParams === undefined) {
           queryParams = new URLSearchParams();
         }
-        return `${webHost}/studio/task/${taskSlug}?${queryParams}`;
+        return `${webHost}/studio/tasks/${taskSlug}?${queryParams}`;
       }
       return `${webHost}/tasks/${taskMetadata.id}?${queryParams}`;
     },
