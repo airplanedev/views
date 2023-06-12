@@ -176,7 +176,10 @@ export const parameterToInput = (
       />
     );
   } else if (param.constraints.options) {
-    const constraintValues = param.constraints.options.map((v) => v.value);
+    const constraintOptions = param.constraints.options.map((v) => ({
+      label: v.label || v.value, // Override not set or empty ("") label
+      value: v.value,
+    }));
     return (
       <Select
         clearable
@@ -186,7 +189,7 @@ export const parameterToInput = (
             ? undefined
             : canonicalizeValue(opt?.defaultValue, param.type)
         }
-        data={constraintValues}
+        data={constraintOptions}
       />
     );
   }
