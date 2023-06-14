@@ -39,7 +39,7 @@
     "@codemirror/lang-javascript": "6.1.8",
     "@codemirror/lang-json": "6.0.1",
     "@codemirror/lang-sql": "6.5.0",
-    "@codemirror/language": "6.7.0",
+    "@codemirror/language": "6.6.0",
     "@codemirror/legacy-modes": "6.3.2",
     "@codemirror/lint": "6.2.1",
     "@codemirror/search": "6.4.0",
