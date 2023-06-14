@@ -392,15 +392,15 @@ const mockData = [
                 optional: true,
                 options: [
                   {
-                    label: "",
+                    label: "Cat",
                     value: "cat",
                   },
                   {
-                    label: "",
+                    label: "Dog",
                     value: "dog",
                   },
                   {
-                    label: "",
+                    label: "Fish",
                     value: "fish",
                   },
                 ],

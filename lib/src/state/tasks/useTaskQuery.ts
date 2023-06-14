@@ -117,7 +117,7 @@ export const useTaskQuery = <
     onError,
   } = fullQuery;
   const slug = getSlug(fullQuery);
-  const enabled = enabledOption && Boolean(slug);
+  const enabled = Boolean(enabledOption) && Boolean(slug);
   const { isInitialLoading, isLoading, error, data, refetch } = useReactQuery<
     ExecuteTaskSuccess<TOutput>,
     ExecuteTaskError<TOutput>

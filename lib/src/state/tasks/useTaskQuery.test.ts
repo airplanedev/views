@@ -231,10 +231,26 @@ describe("useTaskQuery", () => {
   });
 
   it("skips", async () => {
-    const { result } = renderQueryHook(() =>
+    let { result } = renderQueryHook(() =>
       useTaskQuery({ slug: "slug", enabled: false })
     );
 
+    expect(result.current.loading).toBe(false);
+    expect(result.current.error).toBeFalsy();
+    expect(result.current.output).toBeFalsy();
+
+    ({ result } = renderQueryHook(() =>
+      // @ts-ignore
+      useTaskQuery({ slug: "slug", enabled: null })
+    ));
+    expect(result.current.loading).toBe(false);
+    expect(result.current.error).toBeFalsy();
+    expect(result.current.output).toBeFalsy();
+
+    ({ result } = renderQueryHook(() =>
+      // @ts-ignore
+      useTaskQuery({ slug: "slug", enabled: "" })
+    ));
     expect(result.current.loading).toBe(false);
     expect(result.current.error).toBeFalsy();
     expect(result.current.output).toBeFalsy();
