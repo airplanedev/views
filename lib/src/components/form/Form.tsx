@@ -221,7 +221,8 @@ const FormWithRunnable = <TOutput,>({
         // Extract the first element of file inputs
         .map(([key, val]) => {
           if (paramMetadata[key] === "upload") {
-            return [key, val?.length ? val[0] : val];
+            const fileVal = val as File | File[];
+            return [key, Array.isArray(fileVal) ? fileVal[0] : fileVal];
           } else {
             return [key, val];
           }
