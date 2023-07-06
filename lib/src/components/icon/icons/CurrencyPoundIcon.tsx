@@ -16,7 +16,7 @@ export const CurrencyPoundIconOutline = forwardRef(
         <HeroCurrencyPoundIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CurrencyPoundIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CurrencyPoundIconSolid = forwardRef(
         <HeroCurrencyPoundIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CurrencyPoundIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CurrencyPoundIconMini = forwardRef(
         <HeroCurrencyPoundIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -16,7 +16,7 @@ export const FingerPrintIconOutline = forwardRef(
         <HeroFingerPrintIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const FingerPrintIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const FingerPrintIconSolid = forwardRef(
         <HeroFingerPrintIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const FingerPrintIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const FingerPrintIconMini = forwardRef(
         <HeroFingerPrintIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -1,7 +1,7 @@
 import type { RunStatus, SessionStatus } from "airplane/api";
 
 export const isStatusTerminal = (
-  status?: RunStatus | SessionStatus
+  status?: RunStatus | SessionStatus,
 ): boolean => {
   // Note that the terminal run and session statuses happen to be the same,
   // so we can get away with this, but we should probably be careful whether

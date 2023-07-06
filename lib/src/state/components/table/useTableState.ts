@@ -20,7 +20,7 @@ export type TableHookOptions = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useTableState = <TRowData = any>(
   id: string,
-  options: TableHookOptions
+  options: TableHookOptions,
 ): TableState<TRowData> => {
   const [internalState, dispatch] = useReducer<
     Reducer<ReducerState<TRowData>, Action<TRowData>>
@@ -62,7 +62,7 @@ export const useTableState = <TRowData = any>(
       changeRowSelection,
       setRowActionResult,
       options.clearSelection,
-    ]
+    ],
   );
   useSyncComponentState(id, state);
 

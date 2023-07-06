@@ -16,7 +16,7 @@ export const ChartBarIconOutline = forwardRef(
         <HeroChartBarIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ChartBarIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ChartBarIconSolid = forwardRef(
         <HeroChartBarIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ChartBarIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ChartBarIconMini = forwardRef(
         <HeroChartBarIconMini />
       </Icon>
     );
-  }
+  },
 );

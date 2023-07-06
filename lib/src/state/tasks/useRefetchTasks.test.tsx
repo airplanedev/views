@@ -44,7 +44,7 @@ describe("refetching", () => {
       }),
       rest.get("http://api/v0/runs/getOutputs", (_, res, ctx) => {
         return res(ctx.json({ output: "value" }));
-      })
+      }),
     );
   });
 
@@ -53,7 +53,7 @@ describe("refetching", () => {
       () => {
         return useRefetchTasks();
       },
-      { wrapper: WrapperWithQueries }
+      { wrapper: WrapperWithQueries },
     );
     await waitFor(() => {
       expect(query2Calls).toBe(1);
@@ -74,7 +74,7 @@ describe("refetching", () => {
       () => {
         return useRefetchTasks();
       },
-      { wrapper: WrapperWithQueries }
+      { wrapper: WrapperWithQueries },
     );
 
     await waitFor(() => {
@@ -96,7 +96,7 @@ describe("refetching", () => {
       () => {
         return useRefetchTasks();
       },
-      { wrapper: WrapperWithQueries }
+      { wrapper: WrapperWithQueries },
     );
 
     await waitFor(() => {
@@ -126,14 +126,14 @@ describe("refetching", () => {
       },
       () => {
         return "";
-      }
+      },
     );
 
     const { result } = renderHook(
       () => {
         return useRefetchTasks();
       },
-      { wrapper: WrapperWithQueries }
+      { wrapper: WrapperWithQueries },
     );
 
     await waitFor(() => {
@@ -157,7 +157,7 @@ describe("refetching", () => {
       },
       () => {
         return "";
-      }
+      },
     );
     const myTask2 = airplane.task(
       {
@@ -168,14 +168,14 @@ describe("refetching", () => {
       },
       () => {
         return "";
-      }
+      },
     );
 
     const { result } = renderHook(
       () => {
         return useRefetchTasks();
       },
-      { wrapper: WrapperWithQueries }
+      { wrapper: WrapperWithQueries },
     );
 
     await waitFor(() => {

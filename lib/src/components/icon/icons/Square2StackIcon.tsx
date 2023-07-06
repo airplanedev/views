@@ -16,7 +16,7 @@ export const Square2StackIconOutline = forwardRef(
         <HeroSquare2StackIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const Square2StackIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const Square2StackIconSolid = forwardRef(
         <HeroSquare2StackIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const Square2StackIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const Square2StackIconMini = forwardRef(
         <HeroSquare2StackIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -16,7 +16,7 @@ export const MoonIconOutline = forwardRef(
         <HeroMoonIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const MoonIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const MoonIconSolid = forwardRef(
         <HeroMoonIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const MoonIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const MoonIconMini = forwardRef(
         <HeroMoonIconMini />
       </Icon>
     );
-  }
+  },
 );

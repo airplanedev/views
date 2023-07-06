@@ -23,7 +23,7 @@ describe("Confirmation", () => {
           title="title"
         >
           <div>hi</div>
-        </Confirmation>
+        </Confirmation>,
       );
 
       const confirm = await screen.findByText("Confirm");
@@ -45,7 +45,7 @@ describe("Confirmation", () => {
           onConfirm={mockOnConfirm}
           confirmText="yeet"
           cancelText="neet"
-        />
+        />,
       );
 
       const confirm = await screen.findByText("yeet");

@@ -16,7 +16,7 @@ export const MicrophoneIconOutline = forwardRef(
         <HeroMicrophoneIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const MicrophoneIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const MicrophoneIconSolid = forwardRef(
         <HeroMicrophoneIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const MicrophoneIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const MicrophoneIconMini = forwardRef(
         <HeroMicrophoneIconMini />
       </Icon>
     );
-  }
+  },
 );

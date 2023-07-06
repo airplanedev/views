@@ -16,7 +16,7 @@ export const DeviceTabletIconOutline = forwardRef(
         <HeroDeviceTabletIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const DeviceTabletIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const DeviceTabletIconSolid = forwardRef(
         <HeroDeviceTabletIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const DeviceTabletIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const DeviceTabletIconMini = forwardRef(
         <HeroDeviceTabletIconMini />
       </Icon>
     );
-  }
+  },
 );

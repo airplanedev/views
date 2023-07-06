@@ -101,10 +101,10 @@ export type SetLatestRunProps = {
  * task-backed component's error boundary.
  */
 export const useSetLatestRunInTaskQuery = <
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 >(
   task: TaskQuery<TParams>,
-  setLatestRun?: (run: LatestRun) => void
+  setLatestRun?: (run: LatestRun) => void,
 ) => {
   const fullQuery = getFullQuery(task);
   const fullQueryOnSuccess = fullQuery.onSuccess;
@@ -115,7 +115,7 @@ export const useSetLatestRunInTaskQuery = <
       fullQueryOnSuccess?.(output, runID);
       setLatestRun?.({ output, runID });
     },
-    [fullQueryOnSuccess, setLatestRun]
+    [fullQueryOnSuccess, setLatestRun],
   );
 
   fullQuery.onError = useCallback(
@@ -124,7 +124,7 @@ export const useSetLatestRunInTaskQuery = <
       fullQueryOnError?.(output, error, runID);
       setLatestRun?.({ output, error, runID });
     },
-    [fullQueryOnError, setLatestRun]
+    [fullQueryOnError, setLatestRun],
   );
   return fullQuery;
 };

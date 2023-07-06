@@ -10,7 +10,7 @@ import { useTaskOrRunbookMutation } from "./useTaskOrRunbookMutation";
 
 export type MutationHookOptions<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = {
   /**
    * The params of the task to execute.
@@ -32,13 +32,13 @@ export type MutationHookOptions<
   onError?: (
     output: TOutput | undefined,
     error: ExecuteError,
-    runID?: string
+    runID?: string,
   ) => void;
 };
 
 export type MutationFn<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = (options?: MutationHookOptions<TParams, TOutput>) => void;
 
 export type MutationState<TOutput = DefaultOutput> = {
@@ -62,7 +62,7 @@ export type MutationState<TOutput = DefaultOutput> = {
 
 export type MutationResult<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = {
   /**
    * Function that executes the task mutation.
@@ -77,9 +77,9 @@ export type MutationResult<
  */
 export const useTaskMutation = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
-  mutation: TaskMutation<TParams, TOutput>
+  mutation: TaskMutation<TParams, TOutput>,
 ): MutationResult<TParams, TOutput> => {
   const fullMutation = getFullMutation<TParams>(mutation);
   const result = useTaskOrRunbookMutation<TParams, TOutput>({

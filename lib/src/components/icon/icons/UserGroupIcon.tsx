@@ -16,7 +16,7 @@ export const UserGroupIconOutline = forwardRef(
         <HeroUserGroupIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const UserGroupIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const UserGroupIconSolid = forwardRef(
         <HeroUserGroupIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const UserGroupIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const UserGroupIconMini = forwardRef(
         <HeroUserGroupIconMini />
       </Icon>
     );
-  }
+  },
 );

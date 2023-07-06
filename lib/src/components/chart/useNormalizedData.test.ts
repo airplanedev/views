@@ -12,7 +12,7 @@ describe("useNormalizedData", () => {
           y: [1, 2, 3],
           z: [4, 5, 6],
         },
-      })
+      }),
     );
     expect(result.current.length).toEqual(2);
     expect(result.current[0]).toMatchObject({
@@ -40,7 +40,7 @@ describe("useNormalizedData", () => {
           { x: 1, y: 2, z: 8 },
           { x: 2, y: 4, z: 8 },
         ],
-      })
+      }),
     );
     expect(result.current.length).toEqual(2);
     expect(result.current[0]).toMatchObject({
@@ -68,7 +68,7 @@ describe("useNormalizedData", () => {
           { x: 1, y: 2, z: 8 },
           { x: 2, y: 4, z: 8 },
         ],
-      })
+      }),
     );
     expect(result.current.length).toEqual(2);
     expect(result.current[0]).toMatchObject({
@@ -96,7 +96,7 @@ describe("useNormalizedData", () => {
           y: [1, 2, 3],
           z: [4, 5, 6],
         },
-      })
+      }),
     );
     expect(result.current.length).toEqual(2);
     expect(result.current[0]).toMatchObject({
@@ -121,7 +121,7 @@ describe("useNormalizedData", () => {
           size: [10, 10, 20],
         },
         labels: ["a", "b", "c"],
-      })
+      }),
     );
     expect(result.current.length).toEqual(1);
     expect(result.current[0]).toMatchObject({
@@ -147,21 +147,21 @@ describe("useNormalizedData", () => {
             { x: 2, y: 4, z: 8 },
           ],
         },
-        selectionIndexes
-      )
+        selectionIndexes,
+      ),
     );
     expect(result.current.length).toEqual(2);
     expect(result.current[0]).toEqual(
       expect.objectContaining({
         name: "y",
         selectedpoints: [0, 2],
-      })
+      }),
     );
     expect(result.current[1]).toEqual(
       expect.objectContaining({
         name: "z",
         selectedpoints: [1],
-      })
+      }),
     );
   });
 
@@ -180,21 +180,21 @@ describe("useNormalizedData", () => {
             { x: 2, y: 4, z: 8 },
           ],
         },
-        selectionIndexes
-      )
+        selectionIndexes,
+      ),
     );
     expect(result.current.length).toEqual(2);
     expect(result.current[0]).toEqual(
       expect.objectContaining({
         name: "y",
         selectedpoints: [0, 2],
-      })
+      }),
     );
     expect(result.current[1]).toEqual(
       expect.objectContaining({
         name: "z",
         selectedpoints: [1],
-      })
+      }),
     );
   });
 
@@ -213,21 +213,21 @@ describe("useNormalizedData", () => {
             z: [4, 5, 6],
           },
         },
-        selectionIndexes
-      )
+        selectionIndexes,
+      ),
     );
     expect(result.current.length).toEqual(2);
     expect(result.current[0]).toEqual(
       expect.objectContaining({
         name: "y",
         selectedpoints: [0, 2],
-      })
+      }),
     );
     expect(result.current[1]).toEqual(
       expect.objectContaining({
         name: "z",
         selectedpoints: [1],
-      })
+      }),
     );
   });
 });

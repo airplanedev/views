@@ -186,7 +186,7 @@ describe("RadioGroup", () => {
             }))
           }
           defaultValue="HI"
-        />
+        />,
       );
 
       const hiInput = await screen.findByLabelText<HTMLInputElement>("HI");
@@ -229,7 +229,7 @@ describe("RadioGroup", () => {
       render(
         <ViewProvider>
           <TestC />
-        </ViewProvider>
+        </ViewProvider>,
       );
     });
 
@@ -276,7 +276,7 @@ describe("RadioGroup", () => {
       render(
         <ViewProvider>
           <TestC />
-        </ViewProvider>
+        </ViewProvider>,
       );
 
       const hiInput = await screen.findByLabelText<HTMLInputElement>("hi");
@@ -303,7 +303,7 @@ describe("RadioGroup", () => {
       render(
         <ViewProvider>
           <TestC />
-        </ViewProvider>
+        </ViewProvider>,
       );
 
       const hiInput = await screen.findByLabelText<HTMLInputElement>("Hi");
@@ -329,7 +329,7 @@ describe("RadioGroup", () => {
         },
         (params) => {
           return "";
-        }
+        },
       );
 
       const TestC = () => {
@@ -379,7 +379,7 @@ describe("RadioGroup", () => {
         rawRender(
           <ViewProvider>
             <TestC />
-          </ViewProvider>
+          </ViewProvider>,
         );
 
         await screen.findByText(getRunErrorMessage("myTask"));
@@ -399,13 +399,13 @@ describe("RadioGroup", () => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             outputTransform={(data) => data.Q7.map((d: any) => d.toUpperCase())}
             defaultValue="HI"
-          />
+          />,
         );
 
         render(<TestC />);
         await screen.findAllByRole("dialog");
         await screen.findByText(
-          "Something went wrong in the RadioGroup component"
+          "Something went wrong in the RadioGroup component",
         );
         await screen.findByText("Stack trace");
         await screen.findByText("Component stack trace");

@@ -16,7 +16,7 @@ export const PuzzlePieceIconOutline = forwardRef(
         <HeroPuzzlePieceIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const PuzzlePieceIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const PuzzlePieceIconSolid = forwardRef(
         <HeroPuzzlePieceIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const PuzzlePieceIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const PuzzlePieceIconMini = forwardRef(
         <HeroPuzzlePieceIconMini />
       </Icon>
     );
-  }
+  },
 );

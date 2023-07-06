@@ -12,9 +12,9 @@ import { doesUseTask, TableWithTask } from "./TableWithTask";
 export const Table = <
   TRowData extends object = Record<string, any>,
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
-  props: TableProps<TRowData, TParams, TOutput>
+  props: TableProps<TRowData, TParams, TOutput>,
 ) => {
   /* eslint-enable @typescript-eslint/no-explicit-any */
   const usesTask = doesUseTask<TRowData, TParams, TOutput>(props);

@@ -15,8 +15,8 @@ import { TextInputComponentProps, TextInputProps } from "./TextInput.types";
 export const TextInputComponent = forwardRef(
   (
     { width, ...props }: TextInputComponentProps,
-    ref: React.Ref<HTMLInputElement>
-  ) => <MantineTextInput {...props} ref={ref} />
+    ref: React.Ref<HTMLInputElement>,
+  ) => <MantineTextInput {...props} ref={ref} />,
 );
 
 export const TextInput = forwardRef(
@@ -24,11 +24,11 @@ export const TextInput = forwardRef(
     <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <TextInputWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
-  )
+  ),
 );
 
 export const TextInputWithoutRef = (
-  props: TextInputProps & { innerRef: React.Ref<HTMLInputElement> }
+  props: TextInputProps & { innerRef: React.Ref<HTMLInputElement> },
 ) => {
   const [inputRef, focus] = useFocus();
   const mergedRef = useMergedRef(inputRef, props.innerRef);
@@ -44,7 +44,7 @@ export const TextInputWithoutRef = (
     props,
     state,
     dispatch,
-    (e: ChangeEvent<HTMLInputElement>) => e.currentTarget.value
+    (e: ChangeEvent<HTMLInputElement>) => e.currentTarget.value,
   );
   useRegisterFormInput(id, "text-input");
   const {

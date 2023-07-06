@@ -16,7 +16,7 @@ export const Cog6ToothIconOutline = forwardRef(
         <HeroCog6ToothIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const Cog6ToothIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const Cog6ToothIconSolid = forwardRef(
         <HeroCog6ToothIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const Cog6ToothIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const Cog6ToothIconMini = forwardRef(
         <HeroCog6ToothIconMini />
       </Icon>
     );
-  }
+  },
 );

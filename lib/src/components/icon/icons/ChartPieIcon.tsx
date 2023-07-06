@@ -16,7 +16,7 @@ export const ChartPieIconOutline = forwardRef(
         <HeroChartPieIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ChartPieIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ChartPieIconSolid = forwardRef(
         <HeroChartPieIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ChartPieIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ChartPieIconMini = forwardRef(
         <HeroChartPieIconMini />
       </Icon>
     );
-  }
+  },
 );

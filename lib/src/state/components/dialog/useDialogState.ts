@@ -15,7 +15,7 @@ export type DialogHookOptions = {
  */
 export const useDialogState = (
   id: string,
-  options?: DialogHookOptions
+  options?: DialogHookOptions,
 ): DialogState => {
   const [internalState, dispatch] = useReducer(reducer, {
     opened: options?.initialState?.opened ?? false,
@@ -40,7 +40,7 @@ export const useDialogState = (
       opened: internalState.opened,
       componentType: ComponentType.Dialog,
     }),
-    [id, internalState.opened, open, close]
+    [id, internalState.opened, open, close],
   );
   useSyncComponentState(id, state);
 

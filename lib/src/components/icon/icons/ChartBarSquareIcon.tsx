@@ -16,7 +16,7 @@ export const ChartBarSquareIconOutline = forwardRef(
         <HeroChartBarSquareIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ChartBarSquareIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ChartBarSquareIconSolid = forwardRef(
         <HeroChartBarSquareIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ChartBarSquareIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ChartBarSquareIconMini = forwardRef(
         <HeroChartBarSquareIconMini />
       </Icon>
     );
-  }
+  },
 );

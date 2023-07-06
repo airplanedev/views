@@ -23,13 +23,13 @@ interface ParamConfig {
       label: string;
       key: number;
     },
-    component?: string
+    component?: string,
   ) => ReactElement;
 
   validate: (
     val: string | boolean | Date | number,
     slug: string,
-    constraints?: string[]
+    constraints?: string[],
   ) => string | undefined;
 }
 
@@ -56,7 +56,7 @@ const PARAM_CONFIG_MAP: Record<Parameter["type"], ParamConfig> = {
         (typeof val === "string" && !dayjs(val).isValid()) ||
         (constraints &&
           constraints.find(
-            (v) => new Date(v).getTime() === new Date(val).getTime()
+            (v) => new Date(v).getTime() === new Date(val).getTime(),
           ) === undefined)
       ) {
         return `${val} is not a valid value for ${slug}`;
@@ -71,7 +71,7 @@ const PARAM_CONFIG_MAP: Record<Parameter["type"], ParamConfig> = {
         (typeof val === "string" && !dayjs(val).isValid()) ||
         (constraints &&
           constraints.find(
-            (v) => new Date(v).getTime() === new Date(val).getTime()
+            (v) => new Date(v).getTime() === new Date(val).getTime(),
           ) === undefined)
       ) {
         return `${val} is not a valid value for ${slug}`;
@@ -132,12 +132,12 @@ export const parameterToInput = (
   param: Parameter,
   key: number,
   idPrefix: string,
-  opt?: FieldOption
+  opt?: FieldOption,
 ) => {
   if (opt?.value !== undefined) {
     return (
       <Input.Label key={key}>{`${param.slug}: ${JSON.stringify(
-        opt.value
+        opt.value,
       )}`}</Input.Label>
     );
   }
@@ -160,7 +160,7 @@ export const parameterToInput = (
       allowedValues = filterValues(
         allowedValues,
         param.constraints.options,
-        param.type
+        param.type,
       );
     }
     return (
@@ -198,7 +198,7 @@ export const parameterToInput = (
 
 export const validateParameterOptions = <TOutput,>(
   params: Parameter[],
-  opts: TaskOptions<TOutput> | RunbookOptions
+  opts: TaskOptions<TOutput> | RunbookOptions,
 ) => {
   for (const param of params) {
     // Check that all required fields are set or not hidden
@@ -239,7 +239,7 @@ export const validateParameterOptions = <TOutput,>(
         const validateResult = PARAM_CONFIG_MAP[param.type]?.validate(
           val,
           opt.slug,
-          constraints
+          constraints,
         );
         if (validateResult) {
           return validateResult;
@@ -254,7 +254,7 @@ export const validateParameterOptions = <TOutput,>(
  */
 const canonicalizeValue = (
   value: string | number | Date | undefined,
-  type: string
+  type: string,
 ): string | undefined => {
   if (value === undefined) {
     return undefined;
@@ -286,7 +286,7 @@ const canonicalizeValue = (
  */
 const canonicalizeValues = (
   values: Date[] | string[] | number[],
-  type: string
+  type: string,
 ): string[] => {
   if (values[0] instanceof Date) {
     values = (values as Date[]).map((d) => d.toISOString());
@@ -317,14 +317,14 @@ const canonicalizeValues = (
 const filterValues = (
   values: string[],
   constraints: { label: string; value: string }[],
-  type: string
+  type: string,
 ): string[] => {
   if (type === "date" || type === "datetime") {
     const constraintValues = constraints.map((v) =>
-      new Date(v.value).getTime()
+      new Date(v.value).getTime(),
     );
     return values.filter((v) =>
-      constraintValues.includes(new Date(v).getTime())
+      constraintValues.includes(new Date(v).getTime()),
     );
   } else {
     const constraintValues = constraints.map((v) => v.value);

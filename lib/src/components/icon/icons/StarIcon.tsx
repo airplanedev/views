@@ -16,7 +16,7 @@ export const StarIconOutline = forwardRef(
         <HeroStarIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const StarIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const StarIconSolid = forwardRef(
         <HeroStarIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const StarIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const StarIconMini = forwardRef(
         <HeroStarIconMini />
       </Icon>
     );
-  }
+  },
 );

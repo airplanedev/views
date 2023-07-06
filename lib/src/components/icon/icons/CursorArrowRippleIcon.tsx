@@ -16,7 +16,7 @@ export const CursorArrowRippleIconOutline = forwardRef(
         <HeroCursorArrowRippleIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CursorArrowRippleIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CursorArrowRippleIconSolid = forwardRef(
         <HeroCursorArrowRippleIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CursorArrowRippleIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CursorArrowRippleIconMini = forwardRef(
         <HeroCursorArrowRippleIconMini />
       </Icon>
     );
-  }
+  },
 );

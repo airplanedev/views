@@ -36,7 +36,7 @@ export const DatePickerComponent = forwardRef(
       style,
       ...props
     }: DatePickerComponentProps,
-    ref: React.Ref<HTMLInputElement>
+    ref: React.Ref<HTMLInputElement>,
   ) => {
     const { classes, cx } = useStyles();
     const { classes: layoutClasses } = useCommonLayoutStyle({
@@ -71,7 +71,7 @@ export const DatePickerComponent = forwardRef(
         {...props}
       />
     );
-  }
+  },
 );
 DatePickerComponent.displayName = "DatePickerComponent";
 
@@ -82,13 +82,13 @@ export const DatePicker = forwardRef(
         <DatePickerWithoutRef {...props} innerRef={ref} />
       </ComponentErrorBoundary>
     );
-  }
+  },
 );
 const DISPLAY_NAME = "DatePicker";
 DatePicker.displayName = DISPLAY_NAME;
 
 export const DatePickerWithoutRef = (
-  props: DatePickerProps & { innerRef: Ref<HTMLInputElement> }
+  props: DatePickerProps & { innerRef: Ref<HTMLInputElement> },
 ) => {
   const id = useComponentId(props.id);
   const { state, dispatch } = useDatePickerState(id, {

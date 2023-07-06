@@ -199,11 +199,11 @@ describe("MultiSelect", () => {
             // @ts-expect-error
             data.Q7.map((d) => d.toUpperCase())
           }
-        />
+        />,
       );
       await screen.findAllByRole("dialog");
       await screen.findByText(
-        "Something went wrong in the MultiSelect component"
+        "Something went wrong in the MultiSelect component",
       );
       await screen.findByText("Stack trace");
       await screen.findByText("Component stack trace");

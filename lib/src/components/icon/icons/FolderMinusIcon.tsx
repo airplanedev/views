@@ -16,7 +16,7 @@ export const FolderMinusIconOutline = forwardRef(
         <HeroFolderMinusIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const FolderMinusIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const FolderMinusIconSolid = forwardRef(
         <HeroFolderMinusIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const FolderMinusIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const FolderMinusIconMini = forwardRef(
         <HeroFolderMinusIconMini />
       </Icon>
     );
-  }
+  },
 );

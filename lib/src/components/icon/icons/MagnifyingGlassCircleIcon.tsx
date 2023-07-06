@@ -16,7 +16,7 @@ export const MagnifyingGlassCircleIconOutline = forwardRef(
         <HeroMagnifyingGlassCircleIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const MagnifyingGlassCircleIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const MagnifyingGlassCircleIconSolid = forwardRef(
         <HeroMagnifyingGlassCircleIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const MagnifyingGlassCircleIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const MagnifyingGlassCircleIconMini = forwardRef(
         <HeroMagnifyingGlassCircleIconMini />
       </Icon>
     );
-  }
+  },
 );

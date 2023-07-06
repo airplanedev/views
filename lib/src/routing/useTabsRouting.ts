@@ -6,7 +6,7 @@ import { useRouter } from "./useRouter";
  * useTabsRouting is an internal hook that makes the Tab read and write to the tab state encoded in the URL.
  */
 export const useTabsRouting = (
-  routingKey: string | null
+  routingKey: string | null,
 ): {
   routerValue: string | undefined;
   navigateTab: (tabValue: string) => void;
@@ -25,7 +25,7 @@ export const useTabsRouting = (
         });
       }
     },
-    [router, routingKey]
+    [router, routingKey],
   );
 
   return {

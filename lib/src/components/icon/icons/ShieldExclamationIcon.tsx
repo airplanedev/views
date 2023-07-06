@@ -16,7 +16,7 @@ export const ShieldExclamationIconOutline = forwardRef(
         <HeroShieldExclamationIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ShieldExclamationIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ShieldExclamationIconSolid = forwardRef(
         <HeroShieldExclamationIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ShieldExclamationIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ShieldExclamationIconMini = forwardRef(
         <HeroShieldExclamationIconMini />
       </Icon>
     );
-  }
+  },
 );

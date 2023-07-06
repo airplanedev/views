@@ -151,7 +151,7 @@ export type ConnectedMultiSelectProps = {
 
 export type MultiSelectPropsWithTask<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = {
   /**
    * The task query to execute. The multiselect data will be populated by the task's output.
@@ -171,5 +171,5 @@ export type MultiSelectPropsWithTask<
 
 export type MultiSelectProps<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = MultiSelectPropsWithTask<TParams, TOutput> | ConnectedMultiSelectProps;

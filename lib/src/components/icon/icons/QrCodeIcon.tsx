@@ -16,7 +16,7 @@ export const QrCodeIconOutline = forwardRef(
         <HeroQrCodeIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const QrCodeIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const QrCodeIconSolid = forwardRef(
         <HeroQrCodeIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const QrCodeIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const QrCodeIconMini = forwardRef(
         <HeroQrCodeIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -16,7 +16,7 @@ export const UserCircleIconOutline = forwardRef(
         <HeroUserCircleIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const UserCircleIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const UserCircleIconSolid = forwardRef(
         <HeroUserCircleIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const UserCircleIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const UserCircleIconMini = forwardRef(
         <HeroUserCircleIconMini />
       </Icon>
     );
-  }
+  },
 );

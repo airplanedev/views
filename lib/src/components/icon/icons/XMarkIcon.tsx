@@ -16,7 +16,7 @@ export const XMarkIconOutline = forwardRef(
         <HeroXMarkIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const XMarkIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const XMarkIconSolid = forwardRef(
         <HeroXMarkIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const XMarkIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const XMarkIconMini = forwardRef(
         <HeroXMarkIconMini />
       </Icon>
     );
-  }
+  },
 );

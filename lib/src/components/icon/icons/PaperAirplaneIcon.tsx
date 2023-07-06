@@ -16,7 +16,7 @@ export const PaperAirplaneIconOutline = forwardRef(
         <HeroPaperAirplaneIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const PaperAirplaneIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const PaperAirplaneIconSolid = forwardRef(
         <HeroPaperAirplaneIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const PaperAirplaneIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const PaperAirplaneIconMini = forwardRef(
         <HeroPaperAirplaneIconMini />
       </Icon>
     );
-  }
+  },
 );

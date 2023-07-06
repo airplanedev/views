@@ -60,14 +60,14 @@ import {
  */
 const ButtonC = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
   props: ButtonProps<TParams, TOutput>,
   ref: Ref<
     typeof props extends ButtonComponentLinkProps
       ? HTMLAnchorElement
       : HTMLButtonElement
-  >
+  >,
 ) => (
   <ComponentErrorBoundary componentName={"Button"}>
     <ButtonWithoutRef {...props} innerRef={ref} />
@@ -76,20 +76,20 @@ const ButtonC = <
 
 export const Button = forwardRef(ButtonC) as <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
   props: ButtonProps<TParams, TOutput> & {
     ref?: Ref<HTMLAnchorElement | HTMLButtonElement>;
-  }
+  },
 ) => ReactElement;
 
 export function ButtonWithoutRef<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
   props: ButtonProps<TParams, TOutput> & {
     innerRef: React.Ref<HTMLAnchorElement | HTMLButtonElement>;
-  }
+  },
 ) {
   const id = useComponentId(props.id);
   const { setResult } = useButtonState(id);
@@ -110,7 +110,7 @@ export function ButtonWithoutRef<
  * */
 export function UnconnectedButton<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(props: ButtonProps<TParams, TOutput>) {
   if (doesUseTask<TParams, TOutput>(props)) {
     return <ButtonWithTask {...props} />;
@@ -126,7 +126,7 @@ export function UnconnectedButton<
  */
 const ButtonWithTask = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >({
   innerRef,
   setResult,
@@ -156,7 +156,7 @@ const ButtonWithTask = <
         type: "success",
       });
     },
-    [setResult, fullMutationOnSuccess, slug]
+    [setResult, fullMutationOnSuccess, slug],
   );
   const onError = useCallback(
     (
@@ -164,13 +164,13 @@ const ButtonWithTask = <
       output: any,
       error: ExecuteError,
       runID?: string,
-      status?: RunStatus
+      status?: RunStatus,
     ) => {
       setResult?.({ output, error, runID });
       fullMutationOnError?.(output, error, runID);
       showRunnableErrorNotification({ error, runID, slug });
     },
-    [setResult, fullMutationOnError, slug]
+    [setResult, fullMutationOnError, slug],
   );
 
   const { mutate, loading } = useTaskMutation<TParams, TOutput>({
@@ -186,13 +186,13 @@ const ButtonWithTask = <
       {
         task_slug: slug,
         actions: ["tasks.execute", "tasks.request_run"],
-      }
+      },
     );
   });
   const { canExecute, canRequest, disabled } = processPermissionsQueryResult(
     status,
     data?.resource["tasks.execute"],
-    data?.resource["tasks.request_run"]
+    data?.resource["tasks.request_run"],
   );
   const confirmOptions = processConfirm(confirm, slug);
 
@@ -205,7 +205,7 @@ const ButtonWithTask = <
       }
       onClick?.(e);
     },
-    [status, canExecute, canRequest, mutate, onClick]
+    [status, canExecute, canRequest, mutate, onClick],
   );
 
   return (
@@ -244,7 +244,7 @@ const ButtonWithTask = <
  * ButtonWithRunbook is a button that executes a runbook on click.
  */
 const ButtonWithRunbook = <
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 >({
   innerRef,
   setResult,
@@ -275,7 +275,7 @@ const ButtonWithRunbook = <
         type: "success",
       });
     },
-    [setResult, fullMutationOnSuccess, slug]
+    [setResult, fullMutationOnSuccess, slug],
   );
   const onError = useCallback(
     (error: ExecuteError, sessionID?: string, status?: SessionStatus) => {
@@ -283,7 +283,7 @@ const ButtonWithRunbook = <
       fullMutationOnError?.(error, sessionID);
       showRunnableErrorNotification({ error, sessionID, slug });
     },
-    [setResult, fullMutationOnError, slug]
+    [setResult, fullMutationOnError, slug],
   );
 
   const { mutate, loading } = useRunbookMutation<TParams>({
@@ -299,13 +299,13 @@ const ButtonWithRunbook = <
       {
         runbook_slug: slug,
         actions: ["runbooks.execute", "trigger_requests.create"],
-      }
+      },
     );
   });
   const { canExecute, canRequest, disabled } = processPermissionsQueryResult(
     status,
     data?.resource["runbooks.execute"],
-    data?.resource["trigger_requests.create"]
+    data?.resource["trigger_requests.create"],
   );
   const confirmOptions = processConfirm(confirm, slug);
 
@@ -318,7 +318,7 @@ const ButtonWithRunbook = <
       }
       onClick?.(e);
     },
-    [status, canExecute, canRequest, mutate, onClick]
+    [status, canExecute, canRequest, mutate, onClick],
   );
 
   return (
@@ -372,7 +372,7 @@ export const ButtonComponent = forwardRef<
       style,
       ...props
     }: ButtonComponentProps,
-    ref
+    ref,
   ) => {
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [clickEvent, setClickEvent] = useState<
@@ -408,7 +408,7 @@ export const ButtonComponent = forwardRef<
           e.stopPropagation();
         }
       },
-      [props]
+      [props],
     );
 
     if (isAnchor(props)) {
@@ -471,7 +471,7 @@ export const ButtonComponent = forwardRef<
       );
     }
     return null;
-  }
+  },
 );
 ButtonComponent.displayName = "ButtonComponent";
 
@@ -499,7 +499,7 @@ const LinkButtonComponent = forwardRef<
       style,
       ...props
     }: ButtonComponentLinkProps,
-    ref
+    ref,
   ) => {
     const { classes, cx } = useStyles({ color, variant });
     const { classes: layoutClasses } = useCommonLayoutStyle({
@@ -509,7 +509,7 @@ const LinkButtonComponent = forwardRef<
     });
 
     const [buttonHref, setButtonHref] = useState(() =>
-      typeof href === "string" ? href : ""
+      typeof href === "string" ? href : "",
     );
     const { getHref } = useRouter();
     useEffect(() => {
@@ -552,12 +552,12 @@ const LinkButtonComponent = forwardRef<
         loaderPosition="center"
       />
     );
-  }
+  },
 );
 LinkButtonComponent.displayName = "LinkButtonComponent";
 
 const isAnchor = (
-  props: ButtonComponentProps
+  props: ButtonComponentProps,
 ): props is ButtonComponentBaseProps &
   ButtonComponentLinkProps & {
     innerRef?: React.Ref<HTMLAnchorElement>;
@@ -566,7 +566,7 @@ const isAnchor = (
 };
 
 const isButton = (
-  props: ButtonComponentProps
+  props: ButtonComponentProps,
 ): props is ButtonComponentBaseProps &
   ButtonComponentButtonProps & {
     innerRef?: React.Ref<HTMLButtonElement>;
@@ -575,7 +575,7 @@ const isButton = (
 };
 
 function doesUseTask<TParams extends ParamValues | undefined, TOutput>(
-  props: ButtonProps<TParams, TOutput>
+  props: ButtonProps<TParams, TOutput>,
 ): props is ButtonPropsWithTask<TParams, TOutput> & {
   innerRef: React.Ref<HTMLButtonElement>;
 } {
@@ -583,7 +583,7 @@ function doesUseTask<TParams extends ParamValues | undefined, TOutput>(
 }
 
 function doesUseRunbook<TParams extends ParamValues | undefined>(
-  props: ButtonProps<TParams>
+  props: ButtonProps<TParams>,
 ): props is ButtonPropsWithRunbook<TParams> & {
   innerRef: React.Ref<HTMLButtonElement>;
 } {
@@ -592,7 +592,7 @@ function doesUseRunbook<TParams extends ParamValues | undefined>(
 
 function processConfirm(
   confirm: undefined | boolean | ButtonConfirmOptions,
-  slug: string
+  slug: string,
 ): undefined | ButtonConfirmOptions {
   const confirmOptions = typeof confirm === "boolean" ? {} : confirm;
   if (confirmOptions) {
@@ -614,7 +614,7 @@ function processConfirm(
 function processPermissionsQueryResult(
   status: string,
   apiCanExecute: boolean | undefined,
-  apiCanRequest: boolean | undefined
+  apiCanRequest: boolean | undefined,
 ): { canExecute: boolean; canRequest: boolean; disabled: boolean } {
   let canExecute = false;
   let canRequest = false;

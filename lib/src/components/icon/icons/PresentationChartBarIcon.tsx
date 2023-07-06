@@ -16,7 +16,7 @@ export const PresentationChartBarIconOutline = forwardRef(
         <HeroPresentationChartBarIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const PresentationChartBarIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const PresentationChartBarIconSolid = forwardRef(
         <HeroPresentationChartBarIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const PresentationChartBarIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const PresentationChartBarIconMini = forwardRef(
         <HeroPresentationChartBarIconMini />
       </Icon>
     );
-  }
+  },
 );

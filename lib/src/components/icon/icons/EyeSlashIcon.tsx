@@ -16,7 +16,7 @@ export const EyeSlashIconOutline = forwardRef(
         <HeroEyeSlashIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const EyeSlashIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const EyeSlashIconSolid = forwardRef(
         <HeroEyeSlashIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const EyeSlashIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const EyeSlashIconMini = forwardRef(
         <HeroEyeSlashIconMini />
       </Icon>
     );
-  }
+  },
 );

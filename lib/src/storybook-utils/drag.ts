@@ -50,7 +50,7 @@ type DragProps = {
 
 export async function drag(
   element: HTMLElement,
-  { to: inTo, delta, steps = 20, duration = 500 }: DragProps
+  { to: inTo, delta, steps = 20, duration = 500 }: DragProps,
 ) {
   const from = getElementClientCenter(element);
   const to = delta

@@ -14,7 +14,7 @@ describe("useFileInputState", () => {
   });
   it("sets value", () => {
     const { result } = renderHook(() =>
-      useFileInputState("id", { initialState: {} })
+      useFileInputState("id", { initialState: {} }),
     );
 
     expect(result.current.state.value).toStrictEqual(undefined);
@@ -27,7 +27,7 @@ describe("useFileInputState", () => {
 
   it("sets disabled", () => {
     const { result } = renderHook(() =>
-      useFileInputState("id", { initialState: { disabled: true } })
+      useFileInputState("id", { initialState: { disabled: true } }),
     );
 
     expect(result.current.state.disabled).toBe(true);

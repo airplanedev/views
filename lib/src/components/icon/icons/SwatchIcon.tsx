@@ -16,7 +16,7 @@ export const SwatchIconOutline = forwardRef(
         <HeroSwatchIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const SwatchIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const SwatchIconSolid = forwardRef(
         <HeroSwatchIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const SwatchIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const SwatchIconMini = forwardRef(
         <HeroSwatchIconMini />
       </Icon>
     );
-  }
+  },
 );

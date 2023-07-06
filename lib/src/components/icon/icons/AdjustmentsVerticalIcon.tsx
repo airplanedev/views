@@ -16,7 +16,7 @@ export const AdjustmentsVerticalIconOutline = forwardRef(
         <HeroAdjustmentsVerticalIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const AdjustmentsVerticalIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const AdjustmentsVerticalIconSolid = forwardRef(
         <HeroAdjustmentsVerticalIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const AdjustmentsVerticalIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const AdjustmentsVerticalIconMini = forwardRef(
         <HeroAdjustmentsVerticalIconMini />
       </Icon>
     );
-  }
+  },
 );

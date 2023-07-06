@@ -16,7 +16,7 @@ export const Bars2IconOutline = forwardRef(
         <HeroBars2IconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const Bars2IconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const Bars2IconSolid = forwardRef(
         <HeroBars2IconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const Bars2IconMini = forwardRef(
@@ -36,5 +36,5 @@ export const Bars2IconMini = forwardRef(
         <HeroBars2IconMini />
       </Icon>
     );
-  }
+  },
 );

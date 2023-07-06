@@ -23,7 +23,7 @@ const DEFAULT_COLORS: Color[] = [
  */
 export const useNormalizedData = (
   props: ConnectedChartProps,
-  selectionIndexes: Map<string, number[]> = new Map<string, number[]>()
+  selectionIndexes: Map<string, number[]> = new Map<string, number[]>(),
 ): Data[] => {
   const theme = useMantineTheme();
   if (!props.data || (Array.isArray(props.data) && props.data.length === 0)) {
@@ -38,7 +38,7 @@ export const useNormalizedData = (
           mode: "lines+markers",
         },
         selectionIndexes,
-        theme
+        theme,
       );
     case "scatter":
       return seriesData(
@@ -48,7 +48,7 @@ export const useNormalizedData = (
           mode: "markers",
         },
         selectionIndexes,
-        theme
+        theme,
       );
     case "bar":
       return seriesData(
@@ -57,7 +57,7 @@ export const useNormalizedData = (
           type: "bar",
         },
         selectionIndexes,
-        theme
+        theme,
       );
     case "pie":
       return pieData(props, theme);
@@ -71,7 +71,7 @@ const seriesData = (
   props: ConnectedChartProps & { type: "scatter" | "line" | "bar" },
   plotlyDataOptions: Partial<Data & { type: "scatter" | "bar" }>,
   selectionIndexes: Map<string, number[]>,
-  theme: MantineTheme
+  theme: MantineTheme,
 ): Data[] => {
   const xAxis = props.xAxis ?? firstField(props.data);
   const dataSets = props.datasets ?? fields(props.data).slice(1);
@@ -99,13 +99,13 @@ const seriesData = (
 
 const pieData = (
   props: ConnectedChartProps & { type: "pie" },
-  theme: MantineTheme
+  theme: MantineTheme,
 ): Data[] => {
   // Unlike e.g. line charts, for pieData we only care about one dataset.
   const dataSet = props.dataset ?? firstField(props.data);
 
   const colors = (props.colors ?? DEFAULT_COLORS).map((color, idx) =>
-    resolveColor(theme, idx, color)
+    resolveColor(theme, idx, color),
   );
   return [
     {
@@ -136,7 +136,7 @@ const fields = <T>(data: ChartData<T>) =>
 const resolveColor = (
   theme: MantineTheme,
   idx: number,
-  color?: string
+  color?: string,
 ): string => {
   const colorIndex = 6;
   if (!color) {

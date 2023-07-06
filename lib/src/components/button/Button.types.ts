@@ -169,7 +169,7 @@ export type ButtonComponentProps =
 
 export type ButtonPropsWithTask<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = {
   /**
    * The task query to execute on button click.
@@ -179,7 +179,7 @@ export type ButtonPropsWithTask<
 } & ButtonComponentButtonProps;
 
 export type ButtonPropsWithRunbook<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 > = {
   /**
    * The runbook mutation to execute on button click.
@@ -190,7 +190,7 @@ export type ButtonPropsWithRunbook<
 
 export type ButtonProps<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > =
   | (ButtonComponentProps & { task?: never; runbook?: never })
   | ButtonPropsWithTask<TParams, TOutput>

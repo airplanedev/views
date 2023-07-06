@@ -75,7 +75,7 @@ export type FileInputComponentProps = {
    */
   getUploadURL?: (
     filename: string,
-    sizeBytes: number
+    sizeBytes: number,
   ) => Promise<{ uploadID: string; readURL: string; writeURL: string }>;
   /**
    * CSS style overrides.

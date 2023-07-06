@@ -24,7 +24,7 @@ export const useUploadAirplaneFiles = ({
   onError?: (f: File, e: unknown) => void;
   getUploadURL?: (
     filename: string,
-    sizeBytes: number
+    sizeBytes: number,
   ) => Promise<{ uploadID: string; readURL: string; writeURL: string }>;
 }): {
   onDrop: (files: File[]) => void;
@@ -46,7 +46,7 @@ export const useUploadAirplaneFiles = ({
               name: file.name,
             }),
           };
-        })
+        }),
       );
       const fetcher = new Fetcher();
       const onChangeInput = await Promise.all(
@@ -109,7 +109,7 @@ export const useUploadAirplaneFiles = ({
               xhr.open("PUT", writeOnlyURL);
               xhr.setRequestHeader(
                 "X-Goog-Content-Length-Range",
-                `0,${file.size}`
+                `0,${file.size}`,
               );
               xhr.send(file);
             });
@@ -133,12 +133,12 @@ export const useUploadAirplaneFiles = ({
               name: file.name,
             });
           }
-        })
+        }),
       );
       onChange(onChangeInput);
       setUploads([]);
     },
-    [onChange, onLoad, onLoadEnd, onError, getUploadURL]
+    [onChange, onLoad, onLoadEnd, onError, getUploadURL],
   );
 
   return {

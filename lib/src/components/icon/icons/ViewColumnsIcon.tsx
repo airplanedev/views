@@ -16,7 +16,7 @@ export const ViewColumnsIconOutline = forwardRef(
         <HeroViewColumnsIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ViewColumnsIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ViewColumnsIconSolid = forwardRef(
         <HeroViewColumnsIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ViewColumnsIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ViewColumnsIconMini = forwardRef(
         <HeroViewColumnsIconMini />
       </Icon>
     );
-  }
+  },
 );

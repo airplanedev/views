@@ -14,7 +14,7 @@ describe("useTableState", () => {
           clearSelection: () => {
             result.current.changeRowSelection([]);
           },
-        })
+        }),
       );
 
       expect(result.current.selectedRows[0]).toBeFalsy();
@@ -42,7 +42,7 @@ describe("useTableState", () => {
             result.current.changeRowSelection([]);
           },
           singleSelect: true,
-        })
+        }),
       );
 
       expect(result.current.selectedRows[0]).toBeFalsy();

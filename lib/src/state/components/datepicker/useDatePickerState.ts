@@ -35,7 +35,7 @@ export const getUseDatePickerState =
         id,
         componentType,
       }),
-      [internalState, stateSetters, id]
+      [internalState, stateSetters, id],
     );
     useSyncComponentState(id, state);
 
@@ -43,8 +43,8 @@ export const getUseDatePickerState =
   };
 
 export const useDatePickerState = getUseDatePickerState(
-  ComponentType.DatePicker
+  ComponentType.DatePicker,
 );
 export const useDateTimePickerState = getUseDatePickerState(
-  ComponentType.DateTimePicker
+  ComponentType.DateTimePicker,
 );

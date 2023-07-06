@@ -16,7 +16,7 @@ export const AcademicCapIconOutline = forwardRef(
         <HeroAcademicCapIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const AcademicCapIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const AcademicCapIconSolid = forwardRef(
         <HeroAcademicCapIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const AcademicCapIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const AcademicCapIconMini = forwardRef(
         <HeroAcademicCapIconMini />
       </Icon>
     );
-  }
+  },
 );

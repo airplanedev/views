@@ -16,7 +16,7 @@ export const BeakerIconOutline = forwardRef(
         <HeroBeakerIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BeakerIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BeakerIconSolid = forwardRef(
         <HeroBeakerIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BeakerIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BeakerIconMini = forwardRef(
         <HeroBeakerIconMini />
       </Icon>
     );
-  }
+  },
 );

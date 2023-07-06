@@ -16,7 +16,7 @@ export const AdjustmentsHorizontalIconOutline = forwardRef(
         <HeroAdjustmentsHorizontalIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const AdjustmentsHorizontalIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const AdjustmentsHorizontalIconSolid = forwardRef(
         <HeroAdjustmentsHorizontalIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const AdjustmentsHorizontalIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const AdjustmentsHorizontalIconMini = forwardRef(
         <HeroAdjustmentsHorizontalIconMini />
       </Icon>
     );
-  }
+  },
 );

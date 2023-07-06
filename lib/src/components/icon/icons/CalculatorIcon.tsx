@@ -16,7 +16,7 @@ export const CalculatorIconOutline = forwardRef(
         <HeroCalculatorIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CalculatorIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CalculatorIconSolid = forwardRef(
         <HeroCalculatorIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CalculatorIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CalculatorIconMini = forwardRef(
         <HeroCalculatorIconMini />
       </Icon>
     );
-  }
+  },
 );

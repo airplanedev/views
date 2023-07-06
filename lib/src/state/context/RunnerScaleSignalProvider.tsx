@@ -36,7 +36,7 @@ export class RunnerScaleSignalContextType {
 
 export const RunnerScaleSignalContext =
   createContext<RunnerScaleSignalContextType>(
-    new RunnerScaleSignalContextType()
+    new RunnerScaleSignalContextType(),
   );
 
 export type RunnerScaleSignalProviderProps = {

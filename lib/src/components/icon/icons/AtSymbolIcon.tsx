@@ -16,7 +16,7 @@ export const AtSymbolIconOutline = forwardRef(
         <HeroAtSymbolIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const AtSymbolIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const AtSymbolIconSolid = forwardRef(
         <HeroAtSymbolIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const AtSymbolIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const AtSymbolIconMini = forwardRef(
         <HeroAtSymbolIconMini />
       </Icon>
     );
-  }
+  },
 );

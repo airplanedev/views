@@ -16,7 +16,7 @@ export const HandRaisedIconOutline = forwardRef(
         <HeroHandRaisedIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const HandRaisedIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const HandRaisedIconSolid = forwardRef(
         <HeroHandRaisedIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const HandRaisedIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const HandRaisedIconMini = forwardRef(
         <HeroHandRaisedIconMini />
       </Icon>
     );
-  }
+  },
 );

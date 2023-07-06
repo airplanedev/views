@@ -16,7 +16,7 @@ export const BoltIconOutline = forwardRef(
         <HeroBoltIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BoltIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BoltIconSolid = forwardRef(
         <HeroBoltIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BoltIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BoltIconMini = forwardRef(
         <HeroBoltIconMini />
       </Icon>
     );
-  }
+  },
 );

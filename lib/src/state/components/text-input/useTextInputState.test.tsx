@@ -5,7 +5,7 @@ import { useTextInputState } from "./useTextInputState";
 describe("useTextInputState", () => {
   it("sets value", () => {
     const { result } = renderHook(() =>
-      useTextInputState("id", { initialState: { value: "foo" } })
+      useTextInputState("id", { initialState: { value: "foo" } }),
     );
 
     expect(result.current.state.value).toBe("foo");
@@ -18,7 +18,7 @@ describe("useTextInputState", () => {
 
   it("sets disabled", () => {
     const { result } = renderHook(() =>
-      useTextInputState("id", { initialState: { disabled: true } })
+      useTextInputState("id", { initialState: { disabled: true } }),
     );
 
     expect(result.current.state.disabled).toBe(true);

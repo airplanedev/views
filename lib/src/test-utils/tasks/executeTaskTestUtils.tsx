@@ -31,7 +31,7 @@ export const executeTaskSuccess = (opts?: {
     }),
     rest.get("http://api/v0/runs/getOutputs", (_, res, ctx) => {
       return res(ctx.json({ output: opts?.output ?? "value" }));
-    })
+    }),
   );
 };
 
@@ -52,7 +52,7 @@ export const executeRunbookSuccess = (opts?: {
     }),
     rest.get("http://api/v0/sessions/get", (_, res, ctx) => {
       return res(ctx.json({ status: "Succeeded" }));
-    })
+    }),
   );
 };
 
@@ -70,7 +70,7 @@ export const executeTaskFail = () => {
     }),
     rest.get("http://api/v0/runs/getOutputs", (_, res, ctx) => {
       return res(ctx.json({ output: { error: "error" } }));
-    })
+    }),
   );
 };
 
@@ -82,7 +82,7 @@ export const executeRunbookFail = () => {
     }),
     rest.get("http://api/v0/sessions/get", (_, res, ctx) => {
       return res(ctx.json({ status: "Failed" }));
-    })
+    }),
   );
 };
 
@@ -102,7 +102,7 @@ export const QueryProvider = ({ children }: { children?: React.ReactNode }) => (
 );
 
 export const renderQueryHook = <TProps, TResult>(
-  callback: (props: TProps) => TResult
+  callback: (props: TProps) => TResult,
 ) => {
   return renderHook(callback, { wrapper: QueryProvider });
 };

@@ -47,7 +47,7 @@ describe("Admin panel", () => {
     cy.contains("Jul 6, 2022 12:00 AM");
     cy.get('.tbody .tr:first [data-cy="cell-checkbox"]').should("be.checked");
     cy.get('.tbody .tr:last [data-cy="cell-checkbox"]').should(
-      "not.be.checked"
+      "not.be.checked",
     );
 
     cy.contains("id").should("not.exist");

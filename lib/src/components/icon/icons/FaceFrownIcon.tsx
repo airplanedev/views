@@ -16,7 +16,7 @@ export const FaceFrownIconOutline = forwardRef(
         <HeroFaceFrownIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const FaceFrownIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const FaceFrownIconSolid = forwardRef(
         <HeroFaceFrownIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const FaceFrownIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const FaceFrownIconMini = forwardRef(
         <HeroFaceFrownIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -16,7 +16,7 @@ export const NoSymbolIconOutline = forwardRef(
         <HeroNoSymbolIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const NoSymbolIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const NoSymbolIconSolid = forwardRef(
         <HeroNoSymbolIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const NoSymbolIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const NoSymbolIconMini = forwardRef(
         <HeroNoSymbolIconMini />
       </Icon>
     );
-  }
+  },
 );

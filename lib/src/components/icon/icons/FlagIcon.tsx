@@ -16,7 +16,7 @@ export const FlagIconOutline = forwardRef(
         <HeroFlagIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const FlagIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const FlagIconSolid = forwardRef(
         <HeroFlagIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const FlagIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const FlagIconMini = forwardRef(
         <HeroFlagIconMini />
       </Icon>
     );
-  }
+  },
 );

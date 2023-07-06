@@ -47,7 +47,7 @@ export const DateTimePickerComponent = forwardRef(
       onDropdownClose,
       ...props
     }: DateTimePickerComponentProps,
-    ref: Ref<HTMLInputElement>
+    ref: Ref<HTMLInputElement>,
   ) => {
     // Logic adapted from Mantine, and modified to include TimePicker.
     const { classes, cx } = useStyles();
@@ -74,7 +74,7 @@ export const DateTimePickerComponent = forwardRef(
     const [calendarMonth, setCalendarMonth] = useState(_value || new Date());
     const [focused, setFocused] = useState(false);
     const [inputState, setInputState] = useState(
-      _value ? formatDatetime(_value) : ""
+      _value ? formatDatetime(_value) : "",
     );
     const closeDropdown = () => {
       setOpened(false);
@@ -197,7 +197,7 @@ export const DateTimePickerComponent = forwardRef(
         </Stack>
       </DatePickerBase>
     );
-  }
+  },
 );
 DateTimePickerComponent.displayName = "DateTimePickerComponent";
 
@@ -208,13 +208,13 @@ export const DateTimePicker = forwardRef(
         <DateTimePickerWithoutRef {...props} innerRef={ref} />
       </ComponentErrorBoundary>
     );
-  }
+  },
 );
 const DISPLAY_NAME = "DateTimePicker";
 DateTimePicker.displayName = DISPLAY_NAME;
 
 export const DateTimePickerWithoutRef = (
-  props: DateTimePickerProps & { innerRef: Ref<HTMLInputElement> }
+  props: DateTimePickerProps & { innerRef: Ref<HTMLInputElement> },
 ) => {
   const id = useComponentId(props.id);
   const { state, dispatch } = useDateTimePickerState(id, {

@@ -84,7 +84,7 @@ describe("useRouter", () => {
       await result.current.navigate({ view: "myView" });
 
       expect(window.top.location.href).toBe(
-        "https://app.airplane.dev/views/id?"
+        "https://app.airplane.dev/views/id?",
       );
     });
 
@@ -96,7 +96,7 @@ describe("useRouter", () => {
       await result.current.navigate({ task: "myTask" });
 
       expect(window.top.location.href).toBe(
-        "https://app.airplane.dev/tasks/id?"
+        "https://app.airplane.dev/tasks/id?",
       );
     });
 
@@ -111,7 +111,7 @@ describe("useRouter", () => {
       await result.current.navigate({ params: { test: "test" } });
       expect(window.parent.postMessage).toBeCalledWith(
         { type: "update_query_params", params: { test: "test" } },
-        "*"
+        "*",
       );
     });
   });
@@ -130,7 +130,7 @@ describe("useRouter", () => {
       result.current.peek({ view: "myView" });
       expect(window.parent.postMessage).toBeCalledWith(
         { type: "peek", peekType: "view", slug: "myView" },
-        "*"
+        "*",
       );
     });
 
@@ -147,7 +147,7 @@ describe("useRouter", () => {
           slug: "myView",
           params: { foo: "bar" },
         },
-        "*"
+        "*",
       );
     });
 
@@ -159,7 +159,7 @@ describe("useRouter", () => {
       result.current.peek({ task: "myTask" });
       expect(window.parent.postMessage).toBeCalledWith(
         { type: "peek", peekType: "task", slug: "myTask" },
-        "*"
+        "*",
       );
     });
 
@@ -176,7 +176,7 @@ describe("useRouter", () => {
           slug: "myTask",
           params: { foo: "bar" },
         },
-        "*"
+        "*",
       );
     });
 

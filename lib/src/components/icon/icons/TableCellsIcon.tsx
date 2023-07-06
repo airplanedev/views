@@ -16,7 +16,7 @@ export const TableCellsIconOutline = forwardRef(
         <HeroTableCellsIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const TableCellsIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const TableCellsIconSolid = forwardRef(
         <HeroTableCellsIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const TableCellsIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const TableCellsIconMini = forwardRef(
         <HeroTableCellsIconMini />
       </Icon>
     );
-  }
+  },
 );

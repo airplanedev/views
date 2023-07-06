@@ -16,7 +16,7 @@ export const GlobeAltIconOutline = forwardRef(
         <HeroGlobeAltIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const GlobeAltIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const GlobeAltIconSolid = forwardRef(
         <HeroGlobeAltIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const GlobeAltIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const GlobeAltIconMini = forwardRef(
         <HeroGlobeAltIconMini />
       </Icon>
     );
-  }
+  },
 );

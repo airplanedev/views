@@ -16,7 +16,7 @@ export const CameraIconOutline = forwardRef(
         <HeroCameraIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CameraIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CameraIconSolid = forwardRef(
         <HeroCameraIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CameraIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CameraIconMini = forwardRef(
         <HeroCameraIconMini />
       </Icon>
     );
-  }
+  },
 );

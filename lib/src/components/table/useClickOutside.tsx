@@ -8,7 +8,7 @@ const DEFAULT_EVENTS = ["mousedown", "touchstart"];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useClickOutside<T extends HTMLElement = any>(
   handler: () => void,
-  events?: string[] | null
+  events?: string[] | null,
 ) {
   const ref = useRef<T>();
 
@@ -28,12 +28,12 @@ export function useClickOutside<T extends HTMLElement = any>(
     };
 
     (events || DEFAULT_EVENTS).forEach((fn) =>
-      document.addEventListener(fn, listener)
+      document.addEventListener(fn, listener),
     );
 
     return () => {
       (events || DEFAULT_EVENTS).forEach((fn) =>
-        document.removeEventListener(fn, listener)
+        document.removeEventListener(fn, listener),
       );
     };
   }, [ref, handler, events]);

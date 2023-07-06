@@ -25,14 +25,14 @@ describe("useUploadAirplaneFiles", () => {
             upload: { id: "uid" },
             readOnlyURL: "http://api/readOnlyURL",
             writeOnlyURL: "http://api/writeOnlyURL",
-          })
+          }),
         );
-      })
+      }),
     );
     server.use(
       rest.put("http://api/writeOnlyURL", (req, res, ctx) => {
         return res(ctx.json({}));
-      })
+      }),
     );
 
     const onChange = jest.fn();
@@ -45,7 +45,7 @@ describe("useUploadAirplaneFiles", () => {
         onLoad,
         onLoadEnd,
         onError,
-      })
+      }),
     );
 
     await act(() => {
@@ -62,7 +62,7 @@ describe("useUploadAirplaneFiles", () => {
           url: "http://api/readOnlyURL",
           name: "foo.txt",
         }),
-      ])
+      ]),
     );
     expect(result.current.uploads).toHaveLength(0);
   });
@@ -77,7 +77,7 @@ describe("useUploadAirplaneFiles", () => {
         expect(b.fileName).toEqual("foo.txt");
         expect(b.sizeBytes).toEqual(3);
         return res(ctx.status(401), ctx.json({ error: "Forbidden" }));
-      })
+      }),
     );
 
     const onChange = jest.fn();
@@ -90,7 +90,7 @@ describe("useUploadAirplaneFiles", () => {
         onLoad,
         onLoadEnd,
         onError,
-      })
+      }),
     );
 
     await act(() => {
@@ -101,7 +101,7 @@ describe("useUploadAirplaneFiles", () => {
     expect(onLoadEnd).not.toHaveBeenCalled();
     expect(onError).toHaveBeenCalledWith(
       expect.anything(),
-      expect.objectContaining({ message: "Forbidden" })
+      expect.objectContaining({ message: "Forbidden" }),
     );
 
     expect(onChange).toHaveBeenCalledWith(
@@ -111,7 +111,7 @@ describe("useUploadAirplaneFiles", () => {
           url: "",
           name: "foo.txt",
         }),
-      ])
+      ]),
     );
     expect(result.current.uploads).toHaveLength(0);
   });

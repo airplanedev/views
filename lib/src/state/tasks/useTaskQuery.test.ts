@@ -21,7 +21,12 @@ describe("useTaskQuery", () => {
     const onSuccess = jest.fn();
 
     const { result } = renderQueryHook(() =>
-      useTaskQuery({ slug: "slug", params: { foo: "bar" }, onSuccess, onError })
+      useTaskQuery({
+        slug: "slug",
+        params: { foo: "bar" },
+        onSuccess,
+        onError,
+      }),
     );
 
     expect(result.current.loading).toBe(true);
@@ -35,7 +40,7 @@ describe("useTaskQuery", () => {
       expect(result.current.runID).toBe("1");
       expect(onSuccess).toBeCalledWith(
         result.current.output,
-        result.current.runID
+        result.current.runID,
       );
       expect(onError).not.toBeCalled();
     });
@@ -69,11 +74,11 @@ describe("useTaskQuery", () => {
       },
       (params) => {
         return "";
-      }
+      },
     );
 
     const { result } = renderQueryHook(() =>
-      useTaskQuery({ fn: myTask, params: { foo: "bar" } })
+      useTaskQuery({ fn: myTask, params: { foo: "bar" } }),
     );
 
     expect(result.current.loading).toBe(true);
@@ -96,7 +101,7 @@ describe("useTaskQuery", () => {
       },
       () => {
         return "";
-      }
+      },
     );
 
     const { result } = renderQueryHook(() => useTaskQuery(myTask));
@@ -118,7 +123,12 @@ describe("useTaskQuery", () => {
     const onError = jest.fn();
     const onSuccess = jest.fn();
     const { result } = renderQueryHook(() =>
-      useTaskQuery({ slug: "slug", params: { foo: "bar" }, onSuccess, onError })
+      useTaskQuery({
+        slug: "slug",
+        params: { foo: "bar" },
+        onSuccess,
+        onError,
+      }),
     );
 
     expect(result.current.loading).toBe(true);
@@ -136,7 +146,7 @@ describe("useTaskQuery", () => {
       expect(onError).toBeCalledWith(
         result.current.output,
         result.current.error,
-        result.current.runID
+        result.current.runID,
       );
       expect(onSuccess).not.toBeCalled();
     });
@@ -146,11 +156,11 @@ describe("useTaskQuery", () => {
     server.use(
       rest.get("http://api/v0/runs/get", (_, res, ctx) => {
         return res(ctx.json({ taskID: "tsk123", status: "Cancelled" }));
-      })
+      }),
     );
 
     const { result } = renderQueryHook(() =>
-      useTaskQuery({ slug: "slug", params: { foo: "bar" } })
+      useTaskQuery({ slug: "slug", params: { foo: "bar" } }),
     );
 
     expect(result.current.loading).toBe(true);
@@ -171,11 +181,11 @@ describe("useTaskQuery", () => {
     server.use(
       rest.post("http://api/v0/tasks/execute", (req, res, ctx) => {
         return res(ctx.status(400, "Oh NO"));
-      })
+      }),
     );
 
     const { result } = renderQueryHook(() =>
-      useTaskQuery({ slug: "slug", params: { foo: "bar" } })
+      useTaskQuery({ slug: "slug", params: { foo: "bar" } }),
     );
 
     expect(result.current.loading).toBe(true);
@@ -201,12 +211,12 @@ describe("useTaskQuery", () => {
       }),
       rest.get("http://api/v0/runs/getOutputs", (_, res, ctx) => {
         return res(ctx.json({ output: numCalls }));
-      })
+      }),
     );
 
     let slug = "slug";
     const { rerender, result } = renderQueryHook(() =>
-      useTaskQuery({ slug, params: { foo: "bar" } })
+      useTaskQuery({ slug, params: { foo: "bar" } }),
     );
 
     await waitFor(() => {
@@ -232,7 +242,7 @@ describe("useTaskQuery", () => {
 
   it("skips", async () => {
     let { result } = renderQueryHook(() =>
-      useTaskQuery({ slug: "slug", enabled: false })
+      useTaskQuery({ slug: "slug", enabled: false }),
     );
 
     expect(result.current.loading).toBe(false);
@@ -241,7 +251,7 @@ describe("useTaskQuery", () => {
 
     ({ result } = renderQueryHook(() =>
       // @ts-ignore
-      useTaskQuery({ slug: "slug", enabled: null })
+      useTaskQuery({ slug: "slug", enabled: null }),
     ));
     expect(result.current.loading).toBe(false);
     expect(result.current.error).toBeFalsy();
@@ -249,7 +259,7 @@ describe("useTaskQuery", () => {
 
     ({ result } = renderQueryHook(() =>
       // @ts-ignore
-      useTaskQuery({ slug: "slug", enabled: "" })
+      useTaskQuery({ slug: "slug", enabled: "" }),
     ));
     expect(result.current.loading).toBe(false);
     expect(result.current.error).toBeFalsy();
@@ -273,14 +283,14 @@ describe("useTaskQuery", () => {
       }),
       rest.get("http://api/v0/runs/getOutputs", (_, res, ctx) => {
         return res(ctx.json({ output: numCalls }));
-      })
+      }),
     );
 
     const { result } = renderQueryHook(() =>
       useTaskQuery({
         slug: "slug",
         params: { foo: "bar" },
-      })
+      }),
     );
 
     await waitFor(() => {

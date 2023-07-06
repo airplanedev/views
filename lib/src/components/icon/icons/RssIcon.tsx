@@ -16,7 +16,7 @@ export const RssIconOutline = forwardRef(
         <HeroRssIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const RssIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const RssIconSolid = forwardRef(
         <HeroRssIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const RssIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const RssIconMini = forwardRef(
         <HeroRssIconMini />
       </Icon>
     );
-  }
+  },
 );

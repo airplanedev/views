@@ -16,7 +16,7 @@ export const SpeakerWaveIconOutline = forwardRef(
         <HeroSpeakerWaveIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const SpeakerWaveIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const SpeakerWaveIconSolid = forwardRef(
         <HeroSpeakerWaveIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const SpeakerWaveIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const SpeakerWaveIconMini = forwardRef(
         <HeroSpeakerWaveIconMini />
       </Icon>
     );
-  }
+  },
 );

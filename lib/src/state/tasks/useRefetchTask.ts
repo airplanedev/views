@@ -37,7 +37,7 @@ export const useRefetchTasks = () => {
         .map((q) => (q.params ? [getSlug(q), q.params] : [getSlug(q)]))
         .forEach((key) => queryClient.invalidateQueries(key));
     },
-    [queryClient]
+    [queryClient],
   );
 
   return refetchTasks;

@@ -16,7 +16,7 @@ export const CursorArrowRaysIconOutline = forwardRef(
         <HeroCursorArrowRaysIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CursorArrowRaysIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CursorArrowRaysIconSolid = forwardRef(
         <HeroCursorArrowRaysIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CursorArrowRaysIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CursorArrowRaysIconMini = forwardRef(
         <HeroCursorArrowRaysIconMini />
       </Icon>
     );
-  }
+  },
 );

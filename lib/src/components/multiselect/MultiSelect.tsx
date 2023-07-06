@@ -43,9 +43,9 @@ const defaultProps: Partial<MultiSelectProps> = {
 
 export const MultiSelect = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
-  props: MultiSelectProps<TParams, TOutput>
+  props: MultiSelectProps<TParams, TOutput>,
 ) => {
   const [latestRun, setLatestRun] = useState<LatestRun>();
 
@@ -74,7 +74,7 @@ MultiSelect.displayName = "MultiSelect";
  */
 const MultiSelectWithTask = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >({
   task,
   outputTransform,
@@ -83,7 +83,7 @@ const MultiSelectWithTask = <
 }: MultiSelectPropsWithTask<TParams, TOutput> & SetLatestRunProps) => {
   const fullQuery = useSetLatestRunInTaskQuery<TParams>(task, setLatestRun);
   const { error, loading, output, runID } = useTaskQuery<TParams, TOutput>(
-    fullQuery
+    fullQuery,
   );
 
   const data = output
@@ -127,12 +127,12 @@ const ConnectedMultiSelect = (props: ConnectedMultiSelectProps) => {
         propsOnChange &&
         ((v) =>
           propsOnChange(
-            v.map((vs) => convertMultiSelectStringToOriginalType(vs))
+            v.map((vs) => convertMultiSelectStringToOriginalType(vs)),
           )),
     },
     state,
     dispatch,
-    (v) => v.map((vs) => convertMultiSelectStringToOriginalType(vs))
+    (v) => v.map((vs) => convertMultiSelectStringToOriginalType(vs)),
   );
 
   useRegisterFormInput(id, "multi-select");
@@ -171,7 +171,7 @@ const ConnectedMultiSelect = (props: ConnectedMultiSelectProps) => {
 export const MultiSelectComponent = forwardRef(
   (props: MultiSelectComponentProps, ref: React.Ref<HTMLInputElement>) => (
     <MultiSelectComponentWithoutRef {...props} innerRef={ref} />
-  )
+  ),
 );
 MultiSelectComponent.displayName = "MultiSelectComponent";
 
@@ -203,7 +203,7 @@ export const MultiSelectComponentWithoutRef = ({
     data: data as MantineMultiSelectItem[],
     value: value?.map((vs) => convertMultiSelectValueToString(vs)),
     defaultValue: defaultValue?.map((vs) =>
-      convertMultiSelectValueToString(vs)
+      convertMultiSelectValueToString(vs),
     ),
     filter: filter
       ? (value: string, selected: boolean, item: MantineMultiSelectItem) => {
@@ -232,7 +232,7 @@ export const MultiSelectComponentWithoutRef = ({
  */
 function outputToData<TParams extends ParamValues | undefined, TOutput>(
   output: TOutput,
-  dataTransform?: MultiSelectPropsWithTask<TParams, TOutput>["outputTransform"]
+  dataTransform?: MultiSelectPropsWithTask<TParams, TOutput>["outputTransform"],
 ): MultiSelectComponentProps["data"] {
   if (!output) {
     return [];
@@ -251,7 +251,7 @@ function outputToData<TParams extends ParamValues | undefined, TOutput>(
 }
 
 function doesUseTask<TParams extends ParamValues | undefined, TOutput>(
-  props: MultiSelectProps<TParams, TOutput>
+  props: MultiSelectProps<TParams, TOutput>,
 ): props is MultiSelectPropsWithTask<TParams, TOutput> {
   return Boolean((props as MultiSelectPropsWithTask<TParams, TOutput>).task);
 }
@@ -261,7 +261,7 @@ function doesUseTask<TParams extends ParamValues | undefined, TOutput>(
  * @returns The unwrapped object or undefined if the object is not unwrappable
  */
 const unwrapOutput = (
-  data: unknown
+  data: unknown,
 ): string[] | MultiSelectItem[] | undefined => {
   if (data && !Array.isArray(data) && typeof data === "object") {
     const keys = Object.keys(data);
@@ -270,7 +270,8 @@ const unwrapOutput = (
       if (
         Array.isArray(value) &&
         value.every(
-          (item: unknown) => typeof item === "string" || isMultiSelectItem(item)
+          (item: unknown) =>
+            typeof item === "string" || isMultiSelectItem(item),
         )
       ) {
         return value;
@@ -322,13 +323,13 @@ const convertMultiSelectStringToOriginalType = (s: string): string | number => {
  * MultiSelectItem type.
  */
 const multiSelectItemToMantine = (
-  item: MultiSelectItem
+  item: MultiSelectItem,
 ): MantineMultiSelectItem => {
   const { value, ...restFields } = item;
   return { value: convertMultiSelectValueToString(value), ...restFields };
 };
 const mantineToMultiSelectItem = (
-  item: MantineMultiSelectItem
+  item: MantineMultiSelectItem,
 ): MultiSelectItem => {
   const { value, ...restFields } = item;
   return {

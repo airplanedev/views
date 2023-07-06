@@ -16,7 +16,7 @@ export const ServerIconOutline = forwardRef(
         <HeroServerIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ServerIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ServerIconSolid = forwardRef(
         <HeroServerIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ServerIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ServerIconMini = forwardRef(
         <HeroServerIconMini />
       </Icon>
     );
-  }
+  },
 );

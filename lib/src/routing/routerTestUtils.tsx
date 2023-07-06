@@ -12,6 +12,6 @@ export const getRoutingCalls = () => {
     }),
     rest.get("http://api/v0/tasks/getMetadata", (req, res, ctx) => {
       return res(ctx.json({ slug: "slug", id: "id" }));
-    })
+    }),
   );
 };

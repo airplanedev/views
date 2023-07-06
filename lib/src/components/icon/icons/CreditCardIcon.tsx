@@ -16,7 +16,7 @@ export const CreditCardIconOutline = forwardRef(
         <HeroCreditCardIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CreditCardIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CreditCardIconSolid = forwardRef(
         <HeroCreditCardIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CreditCardIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CreditCardIconMini = forwardRef(
         <HeroCreditCardIconMini />
       </Icon>
     );
-  }
+  },
 );

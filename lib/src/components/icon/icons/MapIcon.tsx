@@ -16,7 +16,7 @@ export const MapIconOutline = forwardRef(
         <HeroMapIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const MapIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const MapIconSolid = forwardRef(
         <HeroMapIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const MapIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const MapIconMini = forwardRef(
         <HeroMapIconMini />
       </Icon>
     );
-  }
+  },
 );

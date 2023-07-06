@@ -28,7 +28,7 @@ export const useButtonState = (id: string): ButtonState => {
       setResult,
       componentType: ComponentType.Button,
     }),
-    [id, internalState.result, setResult]
+    [id, internalState.result, setResult],
   );
   useSyncComponentState(id, state);
 

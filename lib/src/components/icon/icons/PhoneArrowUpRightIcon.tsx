@@ -16,7 +16,7 @@ export const PhoneArrowUpRightIconOutline = forwardRef(
         <HeroPhoneArrowUpRightIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const PhoneArrowUpRightIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const PhoneArrowUpRightIconSolid = forwardRef(
         <HeroPhoneArrowUpRightIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const PhoneArrowUpRightIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const PhoneArrowUpRightIconMini = forwardRef(
         <HeroPhoneArrowUpRightIconMini />
       </Icon>
     );
-  }
+  },
 );

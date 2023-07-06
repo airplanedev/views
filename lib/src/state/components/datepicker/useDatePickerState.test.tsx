@@ -7,7 +7,7 @@ describe("useDatePickerState", () => {
   const d2 = new Date(2022, 1);
   it("sets value", () => {
     const { result } = renderHook(() =>
-      useDatePickerState("id", { initialState: { value: d } })
+      useDatePickerState("id", { initialState: { value: d } }),
     );
 
     expect(result.current.state.value).toBe(d);
@@ -20,7 +20,7 @@ describe("useDatePickerState", () => {
 
   it("sets null value", () => {
     const { result } = renderHook(() =>
-      useDatePickerState("id", { initialState: { value: d } })
+      useDatePickerState("id", { initialState: { value: d } }),
     );
 
     act(() => {
@@ -31,7 +31,7 @@ describe("useDatePickerState", () => {
 
   it("sets disabled", () => {
     const { result } = renderHook(() =>
-      useDatePickerState("id", { initialState: { disabled: true } })
+      useDatePickerState("id", { initialState: { disabled: true } }),
     );
 
     expect(result.current.state.disabled).toBe(true);

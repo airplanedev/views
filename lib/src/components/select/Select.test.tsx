@@ -36,7 +36,7 @@ describe("Select", () => {
     render(<TestC />);
 
     const selectInput = await screen.findByLabelText<HTMLInputElement>(
-      "selectMe"
+      "selectMe",
     );
     expect(selectInput.value).toBe("hi");
 
@@ -68,7 +68,7 @@ describe("Select", () => {
     render(<TestC />);
 
     const selectInput = await screen.findByLabelText<HTMLInputElement>(
-      "selectMe"
+      "selectMe",
     );
     expect(selectInput.value).toBe("9");
 
@@ -97,7 +97,7 @@ describe("Select", () => {
     render(<TestC />);
 
     const selectInput = await screen.findByLabelText<HTMLInputElement>(
-      "selectMe"
+      "selectMe",
     );
     expect(selectInput.value).toBe("9");
 
@@ -132,7 +132,7 @@ describe("Select", () => {
     render(<TestC />);
 
     const selectInput = await screen.findByLabelText<HTMLInputElement>(
-      "selectMe"
+      "selectMe",
     );
     expect(selectInput).toHaveValue("hi");
     expect(selectInput).not.toBeDisabled();
@@ -189,7 +189,7 @@ describe("Select", () => {
       render(<TestC />);
 
       const selectInput = await screen.findByLabelText<HTMLInputElement>(
-        "selectMe"
+        "selectMe",
       );
       await waitFor(() => {
         expect(selectInput).toHaveValue("hi");
@@ -213,7 +213,7 @@ describe("Select", () => {
       render(<TestC />);
 
       const selectInput = await screen.findByLabelText<HTMLInputElement>(
-        "selectMe"
+        "selectMe",
       );
       await waitFor(() => {
         expect(selectInput).toHaveValue("hi");
@@ -237,7 +237,7 @@ describe("Select", () => {
       render(<TestC defaultValue={8} />);
 
       const selectInput = await screen.findByLabelText<HTMLInputElement>(
-        "selectMe"
+        "selectMe",
       );
 
       await waitFor(() => {
@@ -268,11 +268,11 @@ describe("Select", () => {
             }))
           }
           defaultValue="HI"
-        />
+        />,
       );
 
       const selectInput = await screen.findByLabelText<HTMLInputElement>(
-        "selectMe"
+        "selectMe",
       );
       await waitFor(() => {
         expect(selectInput).toHaveValue("HI");
@@ -309,7 +309,7 @@ describe("Select", () => {
       render(
         <ViewProvider>
           <TestC />
-        </ViewProvider>
+        </ViewProvider>,
       );
     });
 
@@ -320,7 +320,7 @@ describe("Select", () => {
         rawRender(
           <ViewProvider>
             <TestC />
-          </ViewProvider>
+          </ViewProvider>,
         );
 
         await screen.findByText(getRunErrorMessage("myTask"));
@@ -352,7 +352,7 @@ describe("Select", () => {
       render(<TestC />);
 
       const selectInput = await screen.findByLabelText<HTMLInputElement>(
-        "selectMe"
+        "selectMe",
       );
       await waitFor(() => {
         expect(selectInput).toHaveValue("hi");
@@ -368,11 +368,11 @@ describe("Select", () => {
       render(
         <ViewProvider>
           <TestC />
-        </ViewProvider>
+        </ViewProvider>,
       );
 
       const selectInput = await screen.findByLabelText<HTMLInputElement>(
-        "selectMe"
+        "selectMe",
       );
       await waitFor(() => {
         expect(selectInput).toHaveValue("hi");
@@ -392,11 +392,11 @@ describe("Select", () => {
       render(
         <ViewProvider>
           <TestC />
-        </ViewProvider>
+        </ViewProvider>,
       );
 
       const selectInput = await screen.findByLabelText<HTMLInputElement>(
-        "selectMe"
+        "selectMe",
       );
       await waitFor(() => {
         expect(selectInput).toHaveValue("hi");
@@ -416,11 +416,11 @@ describe("Select", () => {
       render(
         <ViewProvider>
           <TestC />
-        </ViewProvider>
+        </ViewProvider>,
       );
 
       const selectInput = await screen.findByLabelText<HTMLInputElement>(
-        "selectMe"
+        "selectMe",
       );
       await waitFor(() => {
         expect(selectInput).toHaveValue("hi");
@@ -445,11 +445,11 @@ describe("Select", () => {
       render(
         <ViewProvider>
           <TestC />
-        </ViewProvider>
+        </ViewProvider>,
       );
 
       const selectInput = await screen.findByLabelText<HTMLInputElement>(
-        "selectMe"
+        "selectMe",
       );
       await waitFor(() => {
         expect(selectInput).toHaveValue("Hi");
@@ -472,7 +472,7 @@ describe("Select", () => {
         },
         (params) => {
           return "";
-        }
+        },
       );
 
       const TestC = () => {
@@ -504,7 +504,7 @@ describe("Select", () => {
       render(<TestC />);
 
       const selectInput = await screen.findByLabelText<HTMLInputElement>(
-        "selectMe"
+        "selectMe",
       );
       await waitFor(() => {
         expect(selectInput).toHaveValue("hi");

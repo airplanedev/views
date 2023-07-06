@@ -16,7 +16,7 @@ export type FileInputHookOptions = {
  */
 export const useFileInputState = (
   id: string,
-  options: FileInputHookOptions
+  options: FileInputHookOptions,
 ) => {
   const initialState = {
     value: options.initialState.initialValue,
@@ -36,7 +36,7 @@ export const useFileInputState = (
       id,
       componentType: ComponentType.FileInput,
     }),
-    [internalState, stateSetters, id]
+    [internalState, stateSetters, id],
   );
   useSyncComponentState(id, state);
 

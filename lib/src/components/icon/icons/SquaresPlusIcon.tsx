@@ -16,7 +16,7 @@ export const SquaresPlusIconOutline = forwardRef(
         <HeroSquaresPlusIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const SquaresPlusIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const SquaresPlusIconSolid = forwardRef(
         <HeroSquaresPlusIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const SquaresPlusIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const SquaresPlusIconMini = forwardRef(
         <HeroSquaresPlusIconMini />
       </Icon>
     );
-  }
+  },
 );

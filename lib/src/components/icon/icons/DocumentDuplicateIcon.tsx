@@ -16,7 +16,7 @@ export const DocumentDuplicateIconOutline = forwardRef(
         <HeroDocumentDuplicateIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const DocumentDuplicateIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const DocumentDuplicateIconSolid = forwardRef(
         <HeroDocumentDuplicateIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const DocumentDuplicateIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const DocumentDuplicateIconMini = forwardRef(
         <HeroDocumentDuplicateIconMini />
       </Icon>
     );
-  }
+  },
 );

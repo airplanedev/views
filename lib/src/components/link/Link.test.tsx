@@ -11,7 +11,7 @@ import { Link } from "./Link";
 describe("Link", () => {
   it("should render", async () => {
     const { findByText } = render(
-      <Link href="https://www.google.com">Google</Link>
+      <Link href="https://www.google.com">Google</Link>,
     );
     const link = await findByText("Google");
     expect(link.getAttribute("href")).toBe("https://www.google.com");
@@ -21,7 +21,7 @@ describe("Link", () => {
     const { findByText } = render(
       <Link href="https://www.google.com" newTab>
         Google
-      </Link>
+      </Link>,
     );
     const link = await findByText("Google");
     expect(link.getAttribute("target")).toBe("_blank");
@@ -64,11 +64,11 @@ describe("Link", () => {
       }),
       rest.get("http://api/v0/hosts/web", (_, res, ctx) => {
         return res(ctx.json("host"));
-      })
+      }),
     );
 
     const { findByText } = render(
-      <Link href={{ task: "myTask", params: { foo: "bar" } }}>Google</Link>
+      <Link href={{ task: "myTask", params: { foo: "bar" } }}>Google</Link>,
     );
     await waitFor(async () => {
       const link = await findByText("Google");

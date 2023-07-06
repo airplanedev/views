@@ -16,7 +16,7 @@ export const NewspaperIconOutline = forwardRef(
         <HeroNewspaperIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const NewspaperIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const NewspaperIconSolid = forwardRef(
         <HeroNewspaperIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const NewspaperIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const NewspaperIconMini = forwardRef(
         <HeroNewspaperIconMini />
       </Icon>
     );
-  }
+  },
 );

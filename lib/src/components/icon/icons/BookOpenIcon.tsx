@@ -16,7 +16,7 @@ export const BookOpenIconOutline = forwardRef(
         <HeroBookOpenIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BookOpenIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BookOpenIconSolid = forwardRef(
         <HeroBookOpenIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BookOpenIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BookOpenIconMini = forwardRef(
         <HeroBookOpenIconMini />
       </Icon>
     );
-  }
+  },
 );

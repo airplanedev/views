@@ -16,7 +16,7 @@ export const ScaleIconOutline = forwardRef(
         <HeroScaleIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ScaleIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ScaleIconSolid = forwardRef(
         <HeroScaleIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ScaleIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ScaleIconMini = forwardRef(
         <HeroScaleIconMini />
       </Icon>
     );
-  }
+  },
 );

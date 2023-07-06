@@ -22,18 +22,18 @@ export type ExecuteRunbookError = {
 export type ExecuteRunbookResult = ExecuteRunbookSuccess | ExecuteRunbookError;
 
 export const executeRunbook = async <
-  TParams extends ParamValues | undefined = ParamValues
+  TParams extends ParamValues | undefined = ParamValues,
 >(
   slug: string,
   executeType: "query" | "mutation" = "mutation",
-  params?: TParams
+  params?: TParams,
 ): Promise<ExecuteRunbookResult> => {
   try {
     const executeOptions = getExecuteOptions(executeType);
     const sessionID = await executeRunbookBackground(
       slug,
       params,
-      executeOptions
+      executeOptions,
     );
 
     sendViewMessage({
@@ -44,7 +44,7 @@ export const executeRunbook = async <
     const checkSession = async () => {
       const session = await getSession<DefaultParams>(
         sessionID,
-        executeOptions
+        executeOptions,
       );
       if (session.status === "Failed" || session.status === "Cancelled") {
         throw new SessionTerminationError(session);
@@ -72,7 +72,7 @@ export const executeRunbook = async <
           setTimeout(fnw, 500);
         };
         fnw();
-      }
+      },
     );
     return output;
   } catch (e) {
@@ -141,7 +141,7 @@ const isSessionTerminationError = (x: any): x is SessionTerminationError => {
 };
 
 export function isExecuteRunbookError(
-  value: ExecuteRunbookResult
+  value: ExecuteRunbookResult,
 ): value is ExecuteRunbookError {
   return !!(value as ExecuteRunbookError).error;
 }

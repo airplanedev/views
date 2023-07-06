@@ -16,7 +16,7 @@ export const PencilSquareIconOutline = forwardRef(
         <HeroPencilSquareIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const PencilSquareIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const PencilSquareIconSolid = forwardRef(
         <HeroPencilSquareIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const PencilSquareIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const PencilSquareIconMini = forwardRef(
         <HeroPencilSquareIconMini />
       </Icon>
     );
-  }
+  },
 );

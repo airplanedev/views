@@ -16,7 +16,7 @@ export const CubeIconOutline = forwardRef(
         <HeroCubeIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CubeIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CubeIconSolid = forwardRef(
         <HeroCubeIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CubeIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CubeIconMini = forwardRef(
         <HeroCubeIconMini />
       </Icon>
     );
-  }
+  },
 );
