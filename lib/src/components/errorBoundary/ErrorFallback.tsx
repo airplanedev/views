@@ -33,6 +33,7 @@ export const ErrorFallback = ({
       }
       size="100%"
       classNames={{ modal: classes.modal }}
+      trapFocus={false}
     >
       <ErrorStackTrace error={error} errorInfo={errorInfo} />
     </DialogComponent>

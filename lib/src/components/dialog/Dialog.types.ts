@@ -43,6 +43,11 @@ export type ComponentProps = {
    * @default true
    */
   fullScreen?: boolean;
+  /**
+   * Whether the dialog should trap focus.
+   * @default true
+   */
+  trapFocus?: boolean;
   classNames?: MantineModalProps["classNames"];
 } & CommonStylingProps;
 

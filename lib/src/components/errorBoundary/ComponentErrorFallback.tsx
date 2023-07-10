@@ -74,6 +74,7 @@ export const ComponentErrorModal = ({
       }
       size="100%"
       classNames={{ modal: classes.modal }}
+      trapFocus={false}
     >
       <StackComponent>
         <ErrorStackTrace error={error} errorInfo={errorInfo} />

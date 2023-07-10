@@ -30,6 +30,7 @@ export const DialogComponent = ({
   radius = "lg",
   title,
   children,
+  trapFocus = true,
   ...props
 }: ComponentProps) => {
   const theme = useMantineTheme();
@@ -55,6 +56,7 @@ export const DialogComponent = ({
       title={t}
       overlayOpacity={0.75}
       overlayColor={theme.colors.gray[5]}
+      trapFocus={trapFocus}
       {...props}
     >
       {body}

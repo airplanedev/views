@@ -35,3 +35,9 @@ export const Default = Template.bind({});
 Default.args = {
   title: "Dialog title",
 };
+
+export const NoFocusTrap = Template.bind({});
+NoFocusTrap.args = {
+  title: "Dialog title",
+  trapFocus: false,
+};
