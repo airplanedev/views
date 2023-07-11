@@ -16,7 +16,7 @@ export const LanguageIconOutline = forwardRef(
         <HeroLanguageIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const LanguageIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const LanguageIconSolid = forwardRef(
         <HeroLanguageIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const LanguageIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const LanguageIconMini = forwardRef(
         <HeroLanguageIconMini />
       </Icon>
     );
-  }
+  },
 );

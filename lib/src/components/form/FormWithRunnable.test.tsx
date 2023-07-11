@@ -320,9 +320,9 @@ describe("Form", () => {
                     parameters: [paramTest.paramDef],
                   },
                 },
-              })
+              }),
             );
-          })
+          }),
         );
 
         executeTaskSuccess({
@@ -348,10 +348,10 @@ describe("Form", () => {
         await paramTest.update(element);
         await userEvent.click(getByRole("button", { name: "Submit" }));
         await waitFor(() =>
-          expect(mockOnSuccess).toHaveBeenLastCalledWith("value", "123")
+          expect(mockOnSuccess).toHaveBeenLastCalledWith("value", "123"),
         );
         expect(mockOnSubmit).toHaveBeenLastCalledWith(
-          paramTest.expectedAfterUpdate
+          paramTest.expectedAfterUpdate,
         );
       });
     });
@@ -377,9 +377,9 @@ describe("Form", () => {
                     parameters: [paramTest.paramDef],
                   },
                 },
-              })
+              }),
             );
-          })
+          }),
         );
 
         executeRunbookSuccess({});
@@ -394,7 +394,7 @@ describe("Form", () => {
         await paramTest.update(element);
         await userEvent.click(getByRole("button", { name: "Submit" }));
         expect(mockOnSubmit).toHaveBeenLastCalledWith(
-          paramTest.expectedAfterUpdate
+          paramTest.expectedAfterUpdate,
         );
       });
     });
@@ -474,9 +474,9 @@ describe("Form", () => {
                     ],
                   },
                 },
-              })
+              }),
             );
-          })
+          }),
         );
         const { findByText } = render(<v.TestC />);
         await findByText(v.expectedError);
@@ -516,9 +516,9 @@ describe("Form", () => {
                 ],
               },
             },
-          })
+          }),
         );
-      })
+      }),
     );
     executeTaskSuccess({
       expectedParamValues: {
@@ -591,9 +591,9 @@ describe("Form", () => {
                   ],
                 },
               },
-            })
+            }),
           );
-        })
+        }),
       );
     });
 
@@ -607,7 +607,7 @@ describe("Form", () => {
               {
                 slug: "params_test",
               },
-              (params) => ""
+              (params) => "",
             )}
             onSubmit={mockOnSubmit}
           />
@@ -640,7 +640,7 @@ describe("Form", () => {
                 {
                   slug: "params_test",
                 },
-                (params) => ""
+                (params) => "",
               ),
               shownFields: ["integer"],
               onSuccess: mockOnSuccess,
@@ -693,9 +693,9 @@ describe("Form", () => {
                   ],
                 },
               },
-            })
+            }),
           );
-        })
+        }),
       );
       executeTaskSuccess({
         expectedParamValues: {
@@ -762,9 +762,9 @@ describe("Form", () => {
                   ],
                 },
               },
-            })
+            }),
           );
-        })
+        }),
       );
       executeTaskSuccess({
         expectedParamValues: {
@@ -817,9 +817,9 @@ describe("Form", () => {
                   ],
                 },
               },
-            })
+            }),
           );
-        })
+        }),
       );
       const TestC = () => {
         return (
@@ -867,9 +867,9 @@ describe("Form", () => {
                   ],
                 },
               },
-            })
+            }),
           );
-        })
+        }),
       );
       const TestC = () => {
         return (
@@ -917,9 +917,9 @@ describe("Request Task Dialog", () => {
                 ],
               },
             },
-          })
+          }),
         );
-      })
+      }),
     );
     const { findByRole } = render(<Form task="slug" />);
     const textComponent = await findByRole("textbox");
@@ -934,7 +934,7 @@ describe("Request Task Dialog", () => {
         taskSlug: "slug",
         paramValues: { name: "foo" },
       },
-      expect.anything()
+      expect.anything(),
     );
   });
 
@@ -957,9 +957,9 @@ describe("Request Task Dialog", () => {
                 ],
               },
             },
-          })
+          }),
         );
-      })
+      }),
     );
     const { findByRole } = render(<Form runbook="slug" />);
     const textComponent = await findByRole("textbox");
@@ -974,7 +974,7 @@ describe("Request Task Dialog", () => {
         runbookSlug: "slug",
         paramValues: { name: "bar" },
       },
-      expect.anything()
+      expect.anything(),
     );
   });
 });

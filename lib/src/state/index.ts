@@ -39,3 +39,4 @@ export type { DialogState } from "./components/dialog";
 export type { RadioGroupState } from "./components/radio-group";
 export type { ChartState } from "./components/chart";
 export type { TabsState } from "./components/tabs";
+export type { FormState } from "./components/form";

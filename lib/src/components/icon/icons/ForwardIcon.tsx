@@ -16,7 +16,7 @@ export const ForwardIconOutline = forwardRef(
         <HeroForwardIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ForwardIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ForwardIconSolid = forwardRef(
         <HeroForwardIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ForwardIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ForwardIconMini = forwardRef(
         <HeroForwardIconMini />
       </Icon>
     );
-  }
+  },
 );

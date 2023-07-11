@@ -16,7 +16,7 @@ export const FunnelIconOutline = forwardRef(
         <HeroFunnelIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const FunnelIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const FunnelIconSolid = forwardRef(
         <HeroFunnelIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const FunnelIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const FunnelIconMini = forwardRef(
         <HeroFunnelIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -16,7 +16,7 @@ export const RadioIconOutline = forwardRef(
         <HeroRadioIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const RadioIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const RadioIconSolid = forwardRef(
         <HeroRadioIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const RadioIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const RadioIconMini = forwardRef(
         <HeroRadioIconMini />
       </Icon>
     );
-  }
+  },
 );

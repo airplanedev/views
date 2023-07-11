@@ -8,7 +8,7 @@ import { useHandleParentMessage } from "message/useHandleParentMessage";
  */
 export const useToggleModal = (
   setOpen: (open: boolean) => void,
-  id: string
+  id: string,
 ) => {
   const toggleModal = useCallback(
     (message: ParentMessage) => {
@@ -16,7 +16,7 @@ export const useToggleModal = (
         setOpen(message.open);
       }
     },
-    [setOpen, id]
+    [setOpen, id],
   );
   useHandleParentMessage(toggleModal);
 };

@@ -16,7 +16,7 @@ export const IdentificationIconOutline = forwardRef(
         <HeroIdentificationIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const IdentificationIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const IdentificationIconSolid = forwardRef(
         <HeroIdentificationIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const IdentificationIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const IdentificationIconMini = forwardRef(
         <HeroIdentificationIconMini />
       </Icon>
     );
-  }
+  },
 );

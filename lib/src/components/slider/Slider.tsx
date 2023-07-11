@@ -61,7 +61,7 @@ export const SliderComponent = forwardRef(
     }: SliderComponentProps & {
       required?: boolean;
     },
-    ref: React.Ref<HTMLInputElement>
+    ref: React.Ref<HTMLInputElement>,
   ) => {
     const { classes } = useStyles({
       hasMarks: props.marks !== undefined,
@@ -96,7 +96,7 @@ export const SliderComponent = forwardRef(
         />
       </MantineInput.Wrapper>
     );
-  }
+  },
 );
 
 export const Slider = forwardRef(
@@ -104,11 +104,11 @@ export const Slider = forwardRef(
     <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <SliderWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
-  )
+  ),
 );
 
 export const SliderWithoutRef = (
-  props: SliderProps & { innerRef: React.Ref<HTMLInputElement> }
+  props: SliderProps & { innerRef: React.Ref<HTMLInputElement> },
 ) => {
   const id = useComponentId(props.id);
   const { state, dispatch } = useSliderState(id, {

@@ -58,11 +58,11 @@ export const useRouter = (): Router => {
         if (queryParams === undefined) {
           queryParams = new URLSearchParams();
         }
-        return `${webHost}/studio/view/${viewSlug}?${queryParams}`;
+        return `${webHost}/studio/views/${viewSlug}?${queryParams}`;
       }
       return `${webHost}/views/${viewData.id}?${queryParams}`;
     },
-    [queryClient]
+    [queryClient],
   );
 
   const getTaskURL = useCallback(
@@ -82,11 +82,11 @@ export const useRouter = (): Router => {
         if (queryParams === undefined) {
           queryParams = new URLSearchParams();
         }
-        return `${webHost}/studio/task/${taskSlug}?${queryParams}`;
+        return `${webHost}/studio/tasks/${taskSlug}?${queryParams}`;
       }
       return `${webHost}/tasks/${taskMetadata.id}?${queryParams}`;
     },
-    [queryClient]
+    [queryClient],
   );
 
   const getRunURL = useCallback(
@@ -105,7 +105,7 @@ export const useRouter = (): Router => {
         return `${webHost}/runs/${runID}?${queryParams}`;
       } else throw new Error("Run ID is not local or remote.");
     },
-    [queryClient]
+    [queryClient],
   );
 
   const getHref: Router["getHref"] = useCallback(
@@ -135,7 +135,7 @@ export const useRouter = (): Router => {
         return Promise.resolve(`/#${queryParams}`);
       }
     },
-    [getTaskURL, getViewURL, getRunURL]
+    [getTaskURL, getViewURL, getRunURL],
   );
 
   const navigate: Router["navigate"] = useCallback(
@@ -163,7 +163,7 @@ export const useRouter = (): Router => {
             "",
             await getHref({
               params,
-            })
+            }),
           );
           // pushState doesn't cause a hashchange event to be fired, so we do it manually.
           window.dispatchEvent(new HashChangeEvent("hashchange"));
@@ -172,7 +172,7 @@ export const useRouter = (): Router => {
 
       return nav();
     },
-    [getHref]
+    [getHref],
   );
 
   const peek: Router["peek"] = useCallback(({ view, task, params }) => {
@@ -212,7 +212,7 @@ export const useRouter = (): Router => {
  * coerceParamsType coerces the params to be a stricter Record type.
  */
 const coerceParamsType = (
-  params: Record<string, string | undefined> | undefined
+  params: Record<string, string | undefined> | undefined,
 ): Record<string, string> | undefined => {
   if (params) {
     const filteredParams: Record<string, string> = {};
@@ -239,7 +239,7 @@ const useQueryParamsFromHash = () => {
     initialViewParams = new URLSearchParams(getParamsStringFromHash());
   }
   const [viewParams, setViewParams] = useState(
-    new URLSearchParams(initialViewParams)
+    new URLSearchParams(initialViewParams),
   );
 
   useEffect(() => {

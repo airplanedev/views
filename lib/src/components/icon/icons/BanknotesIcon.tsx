@@ -16,7 +16,7 @@ export const BanknotesIconOutline = forwardRef(
         <HeroBanknotesIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BanknotesIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BanknotesIconSolid = forwardRef(
         <HeroBanknotesIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BanknotesIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BanknotesIconMini = forwardRef(
         <HeroBanknotesIconMini />
       </Icon>
     );
-  }
+  },
 );

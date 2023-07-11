@@ -16,7 +16,7 @@ export const ArrowDownOnSquareIconOutline = forwardRef(
         <HeroArrowDownOnSquareIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ArrowDownOnSquareIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ArrowDownOnSquareIconSolid = forwardRef(
         <HeroArrowDownOnSquareIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ArrowDownOnSquareIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ArrowDownOnSquareIconMini = forwardRef(
         <HeroArrowDownOnSquareIconMini />
       </Icon>
     );
-  }
+  },
 );

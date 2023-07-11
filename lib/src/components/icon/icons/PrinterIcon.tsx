@@ -16,7 +16,7 @@ export const PrinterIconOutline = forwardRef(
         <HeroPrinterIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const PrinterIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const PrinterIconSolid = forwardRef(
         <HeroPrinterIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const PrinterIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const PrinterIconMini = forwardRef(
         <HeroPrinterIconMini />
       </Icon>
     );
-  }
+  },
 );

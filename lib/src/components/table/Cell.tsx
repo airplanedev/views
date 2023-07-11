@@ -63,7 +63,7 @@ const CellComponent = <TRowData extends object>({
         updateData(row, id, v);
       }
     },
-    [id, row, updateData]
+    [id, row, updateData],
   );
 
   const startEditing = useCallback(() => setEditing(true), [setEditing]);
@@ -73,7 +73,7 @@ const CellComponent = <TRowData extends object>({
       setEditing(false);
       updateData(row, id, newValue);
     },
-    [setEditing, updateData, id, row]
+    [setEditing, updateData, id, row],
   );
 
   if (Component && !editing) {
@@ -140,7 +140,7 @@ export const Cell = React.memo(
       updateData: prevUpdateData,
       dirtyCells: prevDirtyCells,
     },
-    { value, row, column, updateData, dirtyCells }
+    { value, row, column, updateData, dirtyCells },
   ) => {
     // We must check equality for all props that we are using in CellComponent.
     const { id, canEdit, type, wrap, Component } = column;
@@ -162,7 +162,7 @@ export const Cell = React.memo(
       row === prevRow &&
       dirtyCells === prevDirtyCells
     );
-  }
+  },
 );
 
 type StaticCellProps = {
@@ -613,7 +613,7 @@ const ISO_8601_FULL =
 
 export function getDefaultCellType(
   value: unknown,
-  typeOptions: Column["typeOptions"]
+  typeOptions: Column["typeOptions"],
 ): CellType {
   if (typeof value === "boolean") {
     return "boolean";
@@ -634,7 +634,7 @@ export function getDefaultCellType(
 export const dateTimeSort = (
   rowA: Row<any>,
   rowB: Row<any>,
-  columnID: string
+  columnID: string,
 ) => {
   const diff =
     new Date(rowA.values[columnID]).getTime() -

@@ -42,6 +42,6 @@ export function useAsyncDebounce(defaultFn: any, defaultWait = 0) {
 
       return debounceRef.current.promise;
     },
-    [getDefaultFn, getDefaultWait]
+    [getDefaultFn, getDefaultWait],
   );
 }

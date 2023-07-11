@@ -36,7 +36,7 @@ export const CodeInput = ({
     { validate, required, onChange },
     state,
     dispatch,
-    (v) => v
+    (v) => v,
   );
 
   useRegisterFormInput(id, "text-input");

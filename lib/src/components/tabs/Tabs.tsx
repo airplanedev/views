@@ -52,13 +52,13 @@ export const TabsComponent = ({
           (c) =>
             isValidElement(c) &&
             (c as ReactElement).props.value &&
-            (c as ReactElement).props.children
+            (c as ReactElement).props.children,
         )
         .map((c) => ({
           value: (c as ReactElement).props.value,
           contents: (c as ReactElement).props.children,
         })),
-    [children]
+    [children],
   );
 
   const TabsList = useMemo(
@@ -70,7 +70,7 @@ export const TabsComponent = ({
         {children}
       </MantineTabs.List>
     ),
-    [children, grow, position]
+    [children, grow, position],
   );
 
   let orientation: MantineTabsOrientation;

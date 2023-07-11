@@ -16,7 +16,7 @@ export const PaperClipIconOutline = forwardRef(
         <HeroPaperClipIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const PaperClipIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const PaperClipIconSolid = forwardRef(
         <HeroPaperClipIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const PaperClipIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const PaperClipIconMini = forwardRef(
         <HeroPaperClipIconMini />
       </Icon>
     );
-  }
+  },
 );

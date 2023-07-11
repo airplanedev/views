@@ -11,7 +11,7 @@ export type StateSetters<TValue> = {
 
 export const useStateSetters = <TValue>(
   dispatch: Dispatch<InputAction<TValue>>,
-  initialState: { value: TValue; disabled: boolean }
+  initialState: { value: TValue; disabled: boolean },
 ): StateSetters<TValue> => {
   const setValue = useCallback(
     (value: TValue) => {
@@ -20,7 +20,7 @@ export const useStateSetters = <TValue>(
         value,
       });
     },
-    [dispatch]
+    [dispatch],
   );
 
   const setDisabled = useCallback(
@@ -30,7 +30,7 @@ export const useStateSetters = <TValue>(
         disabled,
       });
     },
-    [dispatch]
+    [dispatch],
   );
 
   const setShowErrors = useCallback(
@@ -40,7 +40,7 @@ export const useStateSetters = <TValue>(
         showErrors,
       });
     },
-    [dispatch]
+    [dispatch],
   );
 
   const reset = useCallback(() => {
@@ -59,6 +59,6 @@ export const useStateSetters = <TValue>(
       setShowErrors,
       reset,
     }),
-    [setValue, setDisabled, setShowErrors, reset]
+    [setValue, setDisabled, setShowErrors, reset],
   );
 };

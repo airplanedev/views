@@ -16,7 +16,7 @@ export const VideoCameraSlashIconOutline = forwardRef(
         <HeroVideoCameraSlashIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const VideoCameraSlashIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const VideoCameraSlashIconSolid = forwardRef(
         <HeroVideoCameraSlashIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const VideoCameraSlashIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const VideoCameraSlashIconMini = forwardRef(
         <HeroVideoCameraSlashIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -23,7 +23,7 @@ export type ReducerState<TRowData> = {
 
 export const reducer = <TRowData>(
   state: ReducerState<TRowData>,
-  action: Action<TRowData>
+  action: Action<TRowData>,
 ): ReducerState<TRowData> => {
   switch (action.type) {
     case "changeRowSelection": {

@@ -261,7 +261,7 @@ export type BasicRowAction<TRowData extends object> = (
 
 export type TaskRowAction<
   TRowData extends object,
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 > = {
   /**
    * Custom label of the row action button.
@@ -335,7 +335,7 @@ type BaseTableProps<TRowData extends object> = {
    * }
    */
   columnsTransform?: (
-    columns: TableComponentProps<TRowData>["columns"]
+    columns: TableComponentProps<TRowData>["columns"],
   ) => TableComponentProps<TRowData>["columns"];
 } & SharedTableProps<TRowData>;
 
@@ -345,7 +345,7 @@ type BaseTableProps<TRowData extends object> = {
 export type TableWithTaskProps<
   TRowData extends object,
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = {
   /**
    * The task query to execute. The table data will be populated by the task's output.
@@ -376,7 +376,7 @@ export type ConnectedTableProps<TRowData extends object> = {
 export type TableProps<
   TRowData extends object = Record<string, any>,
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > =
   | TableWithTaskProps<TRowData, TParams, TOutput>
   | ConnectedTableProps<TRowData>;

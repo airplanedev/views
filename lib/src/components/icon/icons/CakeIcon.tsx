@@ -16,7 +16,7 @@ export const CakeIconOutline = forwardRef(
         <HeroCakeIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CakeIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CakeIconSolid = forwardRef(
         <HeroCakeIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CakeIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CakeIconMini = forwardRef(
         <HeroCakeIconMini />
       </Icon>
     );
-  }
+  },
 );

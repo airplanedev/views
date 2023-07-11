@@ -8,7 +8,7 @@ const useBooleanState = getUseBooleanState(ComponentType.Checkbox);
 describe("useBooleanState", () => {
   it("sets value", () => {
     const { result } = renderHook(() =>
-      useBooleanState("id", { initialState: { value: true } })
+      useBooleanState("id", { initialState: { value: true } }),
     );
 
     expect(result.current.state.value).toBe(true);
@@ -21,7 +21,7 @@ describe("useBooleanState", () => {
 
   it("sets checked", () => {
     const { result } = renderHook(() =>
-      useBooleanState("id", { initialState: { value: true } })
+      useBooleanState("id", { initialState: { value: true } }),
     );
 
     expect(result.current.state.checked).toBe(true);
@@ -34,7 +34,7 @@ describe("useBooleanState", () => {
 
   it("sets disabled", () => {
     const { result } = renderHook(() =>
-      useBooleanState("id", { initialState: { disabled: true } })
+      useBooleanState("id", { initialState: { disabled: true } }),
     );
 
     expect(result.current.state.disabled).toBe(true);

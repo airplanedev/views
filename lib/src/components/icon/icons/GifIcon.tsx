@@ -16,7 +16,7 @@ export const GifIconOutline = forwardRef(
         <HeroGifIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const GifIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const GifIconSolid = forwardRef(
         <HeroGifIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const GifIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const GifIconMini = forwardRef(
         <HeroGifIconMini />
       </Icon>
     );
-  }
+  },
 );

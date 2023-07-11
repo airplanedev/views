@@ -8,7 +8,7 @@ import { UseTaskQueryOptions } from "state/tasks/useTaskQuery";
 
 export type AirplaneFunc<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = (paramValues: TParams) => Promise<Run<any, TOutput>>;
 type AirplaneFuncMetadata = { __airplane: { config: { slug: string } } };
 
@@ -20,13 +20,13 @@ type AirplaneFuncMetadata = { __airplane: { config: { slug: string } } };
  */
 export type FullQuery<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = FunctionQuery<TParams, TOutput> | SlugQuery<TParams, TOutput>;
 
 /** FunctionQuery is a query that takes an airplane function and params. */
 export type FunctionQuery<
   TParams extends ParamValues | undefined,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = (Record<string, never> extends TParams
   ? {
       /**
@@ -55,7 +55,7 @@ export type FunctionQuery<
 /** SlugQuery is a query that takes a slug and params. */
 export type SlugQuery<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = {
   /** The slug of the task to execute. */
   slug: string;
@@ -68,7 +68,7 @@ export type SlugQuery<
  */
 export type TaskQuery<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > =
   | SlugQuery<TParams, TOutput>
   | string
@@ -82,7 +82,7 @@ export type TaskQuery<
  * to their full form.
  */
 export function getFullQuery<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 >(q: TaskQuery<TParams>): FullQuery<TParams> {
   if (typeof q === "string") {
     return { slug: q };
@@ -104,13 +104,13 @@ export function getFullQuery<
  */
 export type FullMutation<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = FunctionMutation<TParams, TOutput> | SlugMutation<TParams, TOutput>;
 
 /** FunctionMutation is a mutation that takes an airplane function and params. */
 export type FunctionMutation<
   TParams extends ParamValues | undefined,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = (Record<string, never> extends TParams
   ? {
       /**
@@ -139,7 +139,7 @@ export type FunctionMutation<
 /** SlugMutation is a mutation that takes a slug and params. */
 export type SlugMutation<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = {
   /** The slug of the task to execute. */
   slug: string;
@@ -151,7 +151,7 @@ export type SlugMutation<
  */
 export type TaskMutation<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > =
   | SlugMutation<TParams, TOutput>
   | string
@@ -165,7 +165,7 @@ export type TaskMutation<
  * It converts shorthands (just string or function) to their full form.
  */
 export function getFullMutation<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 >(m: TaskMutation<TParams>): FullMutation<TParams> {
   if (typeof m === "string") {
     return { slug: m };
@@ -183,7 +183,7 @@ export function getFullMutation<
  * getSlug takes a full query or mutation and returns the task slug.
  */
 export function getSlug<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 >(fullQuery: FullQuery<TParams> | FullMutation<TParams>): string {
   if ("slug" in fullQuery && fullQuery.slug != null) {
     return fullQuery.slug;
@@ -200,7 +200,7 @@ export function getSlug<
  * It converts a shorthand string slug into the full runbook form.
  */
 export function getRunbookFullMutation<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 >(m: RunbookMutation<TParams>): RunbookFullMutation<TParams> {
   if (typeof m === "string") {
     return { slug: m };
@@ -232,17 +232,17 @@ export type ExecuteError =
   | FailedExecuteError;
 
 export type RunbookSlugMutation<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 > = {
   slug: string;
 } & RunbookMutationHookOptions<TParams>;
 
 export type RunbookFullMutation<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 > = RunbookSlugMutation<TParams>;
 
 export type RunbookMutation<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 > = RunbookSlugMutation<TParams> | string;
 
 export type RefetchQuery =

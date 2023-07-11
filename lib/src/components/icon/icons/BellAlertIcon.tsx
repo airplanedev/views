@@ -16,7 +16,7 @@ export const BellAlertIconOutline = forwardRef(
         <HeroBellAlertIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BellAlertIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BellAlertIconSolid = forwardRef(
         <HeroBellAlertIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BellAlertIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BellAlertIconMini = forwardRef(
         <HeroBellAlertIconMini />
       </Icon>
     );
-  }
+  },
 );

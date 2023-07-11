@@ -18,7 +18,7 @@ const EMPTY_ARRAY: AirplaneFile[] = [];
 export const FileInput = forwardRef(
   (
     { variant = "dropzone", ...restProps }: FileInputProps,
-    ref: Ref<HTMLDivElement> | Ref<HTMLButtonElement>
+    ref: Ref<HTMLDivElement> | Ref<HTMLButtonElement>,
   ) => {
     return (
       <ComponentErrorBoundary componentName={DISPLAY_NAME}>
@@ -29,7 +29,7 @@ export const FileInput = forwardRef(
         />
       </ComponentErrorBoundary>
     );
-  }
+  },
 );
 
 export const FileInputWithoutRef = ({
@@ -62,7 +62,7 @@ export const FileInputWithoutRef = ({
     },
     state,
     dispatch,
-    (v: AirplaneFile[]) => (props.multiple ? v : v.length ? v[0] : undefined)
+    (v: AirplaneFile[]) => (props.multiple ? v : v.length ? v[0] : undefined),
   );
   useRegisterFormInput(id, "file-input");
   const {

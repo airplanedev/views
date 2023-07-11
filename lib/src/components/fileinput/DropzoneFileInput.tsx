@@ -85,7 +85,7 @@ export const DropzoneFileInputComponent = forwardRef(
       id?: string;
       required?: boolean;
     },
-    ref: Ref<HTMLDivElement>
+    ref: Ref<HTMLDivElement>,
   ) => {
     const { classes, cx } = useStyles();
 
@@ -174,7 +174,7 @@ export const DropzoneFileInputComponent = forwardRef(
                   {effectiveFiles.map(
                     (
                       f: AirplaneFile | { percent: number; file: AirplaneFile },
-                      i
+                      i,
                     ) =>
                       f instanceof AirplaneFile ? (
                         <Preview key={i} fname={f.name} fsize={f.size} />
@@ -185,7 +185,7 @@ export const DropzoneFileInputComponent = forwardRef(
                           fsize={f.file.size}
                           progress={f.percent}
                         />
-                      )
+                      ),
                   )}
                 </Stack>
               ) : (
@@ -207,7 +207,7 @@ export const DropzoneFileInputComponent = forwardRef(
         {typeof error === "string" ? <Text color="red">{error}</Text> : error}
       </Stack>
     );
-  }
+  },
 );
 
 DropzoneFileInputComponent.displayName = "FileInputComponent";

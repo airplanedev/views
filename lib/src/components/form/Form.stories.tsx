@@ -265,7 +265,7 @@ WithMultiValidation.play = async ({
   const submit = await canvas.findByRole("button");
   await userEvent.click(submit);
   await canvas.findByText(
-    `Name must be at least 3 characters Name must not start with 'b'`
+    `Name must be at least 3 characters Name must not start with 'b'`,
   );
 };
 
@@ -392,15 +392,15 @@ const mockData = [
                 optional: true,
                 options: [
                   {
-                    label: "",
+                    label: "Cat",
                     value: "cat",
                   },
                   {
-                    label: "",
+                    label: "Dog",
                     value: "dog",
                   },
                   {
-                    label: "",
+                    label: "Fish",
                     value: "fish",
                   },
                 ],

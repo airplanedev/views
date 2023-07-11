@@ -16,7 +16,7 @@ export const SignalSlashIconOutline = forwardRef(
         <HeroSignalSlashIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const SignalSlashIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const SignalSlashIconSolid = forwardRef(
         <HeroSignalSlashIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const SignalSlashIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const SignalSlashIconMini = forwardRef(
         <HeroSignalSlashIconMini />
       </Icon>
     );
-  }
+  },
 );

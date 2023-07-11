@@ -16,7 +16,7 @@ export const HeartIconOutline = forwardRef(
         <HeroHeartIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const HeartIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const HeartIconSolid = forwardRef(
         <HeroHeartIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const HeartIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const HeartIconMini = forwardRef(
         <HeroHeartIconMini />
       </Icon>
     );
-  }
+  },
 );

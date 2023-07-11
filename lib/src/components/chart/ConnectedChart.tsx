@@ -11,7 +11,7 @@ const ChartComponent = React.lazy(() => import("./ChartComponent"));
 
 export const ConnectedChart = ({ ...props }: ConnectedChartProps) => {
   const [selectionIndexes, setSelectionIndexes] = React.useState(
-    new Map<string, number[]>()
+    new Map<string, number[]>(),
   );
   const data = useNormalizedData(props, selectionIndexes);
 
@@ -58,7 +58,7 @@ export const ConnectedChart = ({ ...props }: ConnectedChartProps) => {
       }));
       changeSelection(selectedPoints);
     },
-    [changeSelection, props.type, xAxis]
+    [changeSelection, props.type, xAxis],
   );
   const onDeselect = React.useCallback(() => {
     changeSelection([]);

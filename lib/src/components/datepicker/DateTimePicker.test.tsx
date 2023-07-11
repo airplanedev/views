@@ -24,12 +24,12 @@ describe("DateTimePicker", () => {
     render(<TestC />);
 
     const input = await screen.findByDisplayValue(
-      formatDatetime(new Date(2022, 1, 1, 5, 30))
+      formatDatetime(new Date(2022, 1, 1, 5, 30)),
     );
     await userEvent.click(input);
     await userEvent.click(await screen.findByText("17"));
     await screen.findByDisplayValue(
-      formatDatetime(new Date(2022, 1, 17, 5, 30))
+      formatDatetime(new Date(2022, 1, 17, 5, 30)),
     );
   });
 
@@ -49,7 +49,7 @@ describe("DateTimePicker", () => {
     await screen.findAllByText("2022-02-01T05:30:00.000Z");
     await screen.findAllByText("false");
     const input = await screen.findByDisplayValue(
-      formatDatetime(new Date(2022, 1, 1, 5, 30))
+      formatDatetime(new Date(2022, 1, 1, 5, 30)),
     );
     expect(input).not.toBeDisabled();
 
@@ -90,7 +90,7 @@ describe("DateTimePicker", () => {
     await screen.findAllByText("2022-02-01T05:30:00.000Z");
     await screen.findAllByText("false");
     const input = await screen.findByDisplayValue(
-      formatDatetime(new Date(2022, 1, 1, 5, 30))
+      formatDatetime(new Date(2022, 1, 1, 5, 30)),
     );
     expect(input).not.toBeDisabled();
 

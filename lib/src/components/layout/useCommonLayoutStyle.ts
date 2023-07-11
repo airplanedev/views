@@ -79,7 +79,7 @@ const SIZE_TO_STYLE: Record<string, string | undefined> = {
 };
 
 const getCommonLayoutStyles = (
-  props: CommonLayoutProps
+  props: CommonLayoutProps,
 ): {
   width: CSSProperties["width"];
   height: CSSProperties["height"];
@@ -101,5 +101,5 @@ export const useCommonLayoutStyle = createStyles(
     return {
       style: getCommonLayoutStyles(props),
     };
-  }
+  },
 );

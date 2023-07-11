@@ -16,7 +16,7 @@ export const ChatBubbleOvalLeftIconOutline = forwardRef(
         <HeroChatBubbleOvalLeftIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ChatBubbleOvalLeftIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ChatBubbleOvalLeftIconSolid = forwardRef(
         <HeroChatBubbleOvalLeftIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ChatBubbleOvalLeftIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ChatBubbleOvalLeftIconMini = forwardRef(
         <HeroChatBubbleOvalLeftIconMini />
       </Icon>
     );
-  }
+  },
 );

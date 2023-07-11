@@ -22,12 +22,12 @@ import { TableComponent, TableComponentElement } from "./TableComponent";
  * ConnectedTable is a table that's connected to the global component state.
  */
 export const ConnectedTable = <TRowData extends object>(
-  props: ConnectedTableProps<TRowData>
+  props: ConnectedTableProps<TRowData>,
 ) => {
   const tableComponentRef = useRef<TableComponentElement>(null);
   const clearSelection = useCallback(
     () => tableComponentRef.current!.toggleAllRowsSelected(false),
-    [tableComponentRef]
+    [tableComponentRef],
   );
   const id = useComponentId(props.id);
   const { changeRowSelection, setRowActionResult } = useTableState<TRowData>(
@@ -35,7 +35,7 @@ export const ConnectedTable = <TRowData extends object>(
     {
       singleSelect: props.rowSelection === "single",
       clearSelection,
-    }
+    },
   );
 
   // Used to approximate the width of text on screen
@@ -45,11 +45,11 @@ export const ConnectedTable = <TRowData extends object>(
   const rowActionsMenu = getRowActions(
     props.rowActionsMenu,
     setRowActionResult,
-    true
+    true,
   );
   const rowActionsMenuWidth = getRowActionsMenuWidth(
     props.rowActionsMenu,
-    canvas
+    canvas,
   );
 
   const columns = useColumns(props.data, props.columns, props.columnsTransform);
@@ -71,7 +71,7 @@ function getRowActions<TRowData extends object>(
   rowActions: ConnectedTableProps<TRowData>["rowActions"],
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setRowActionResult: (mutation: MutationState<any>) => void,
-  inMenu?: boolean
+  inMenu?: boolean,
 ): ComponentRowAction<TRowData>[] | undefined {
   if (rowActions === undefined) {
     return undefined;
@@ -114,7 +114,7 @@ function getRowActions<TRowData extends object>(
 
 function getRowActionsMenuWidth<TRowData extends object>(
   rowActions: ConnectedTableProps<TRowData>["rowActions"],
-  canvas: HTMLCanvasElement
+  canvas: HTMLCanvasElement,
 ): number | undefined {
   if (rowActions === undefined) {
     return 0;
@@ -229,7 +229,7 @@ const RowActionButtonWithTask = <TRowData extends object>({
       });
       fullMutationOnSuccess?.(output, runID);
     },
-    [setRowActionResult, fullMutationOnSuccess]
+    [setRowActionResult, fullMutationOnSuccess],
   );
   const onError = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -240,7 +240,7 @@ const RowActionButtonWithTask = <TRowData extends object>({
       });
       fullMutationOnError?.(output, error, runID);
     },
-    [setRowActionResult, fullMutationOnError]
+    [setRowActionResult, fullMutationOnError],
   );
   let getParamsFromRow = (row: TRowData): DefaultParams => row;
   if (rowAction.getParamsFromRow) {
@@ -278,7 +278,7 @@ const RowActionButtonWithTask = <TRowData extends object>({
 
 const getButtonDisplayProps = <TRowData extends object>(
   rowAction: TaskRowAction<TRowData, DefaultParams> | BasicRowAction<TRowData>,
-  inMenu: boolean | undefined
+  inMenu: boolean | undefined,
 ) => {
   const buttonProps: Record<string, unknown> = {
     compact: true,
@@ -309,7 +309,7 @@ const getButtonDisplayProps = <TRowData extends object>(
 const useColumns = <TRowData extends object>(
   data: TRowData[],
   columns?: (Column<TRowData> | keyof TRowData)[],
-  columnsTransform?: ConnectedTableProps<TRowData>["columnsTransform"]
+  columnsTransform?: ConnectedTableProps<TRowData>["columnsTransform"],
 ) => {
   return useMemo(() => {
     const outputColumns = columns
@@ -323,7 +323,7 @@ const useColumns = <TRowData extends object>(
 };
 
 const createColumns = <TRowData extends object>(
-  columns: (Column<TRowData> | keyof TRowData)[]
+  columns: (Column<TRowData> | keyof TRowData)[],
 ): Column<TRowData>[] => {
   return columns.map((colOrAccessor) => {
     if (isColumn(colOrAccessor)) {
@@ -344,13 +344,13 @@ const createColumns = <TRowData extends object>(
 };
 
 const isColumn = <TRowData extends object>(
-  colOrAccessor: Column<TRowData> | keyof TRowData
+  colOrAccessor: Column<TRowData> | keyof TRowData,
 ): colOrAccessor is Column<TRowData> => {
   return typeof colOrAccessor === "object";
 };
 
 const tryInferColumns = <TRowData extends object>(
-  data: ConnectedTableProps<TRowData>["data"]
+  data: ConnectedTableProps<TRowData>["data"],
 ): Column<TRowData>[] => {
   if (data.length) {
     const keySet = new Set<keyof TRowData>();

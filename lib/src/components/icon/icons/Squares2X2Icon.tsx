@@ -16,7 +16,7 @@ export const Squares2X2IconOutline = forwardRef(
         <HeroSquares2X2IconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const Squares2X2IconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const Squares2X2IconSolid = forwardRef(
         <HeroSquares2X2IconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const Squares2X2IconMini = forwardRef(
@@ -36,5 +36,5 @@ export const Squares2X2IconMini = forwardRef(
         <HeroSquares2X2IconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -16,7 +16,7 @@ export type StateProviderProps = {
 
 export const ComponentStateProvider = ({ children }: StateProviderProps) => {
   const [components, setComponents] = useState<Record<string, ComponentState>>(
-    {}
+    {},
   );
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export const ComponentStateProvider = ({ children }: StateProviderProps) => {
         [id]: state,
       }));
     },
-    []
+    [],
   );
 
   const removeComponent = useCallback((id: string) => {

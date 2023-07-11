@@ -16,7 +16,7 @@ export const ArrowRightOnRectangleIconOutline = forwardRef(
         <HeroArrowRightOnRectangleIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ArrowRightOnRectangleIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ArrowRightOnRectangleIconSolid = forwardRef(
         <HeroArrowRightOnRectangleIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ArrowRightOnRectangleIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ArrowRightOnRectangleIconMini = forwardRef(
         <HeroArrowRightOnRectangleIconMini />
       </Icon>
     );
-  }
+  },
 );

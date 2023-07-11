@@ -16,7 +16,7 @@ export const ClipboardIconOutline = forwardRef(
         <HeroClipboardIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ClipboardIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ClipboardIconSolid = forwardRef(
         <HeroClipboardIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ClipboardIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ClipboardIconMini = forwardRef(
         <HeroClipboardIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -16,7 +16,7 @@ export const GlobeEuropeAfricaIconOutline = forwardRef(
         <HeroGlobeEuropeAfricaIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const GlobeEuropeAfricaIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const GlobeEuropeAfricaIconSolid = forwardRef(
         <HeroGlobeEuropeAfricaIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const GlobeEuropeAfricaIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const GlobeEuropeAfricaIconMini = forwardRef(
         <HeroGlobeEuropeAfricaIconMini />
       </Icon>
     );
-  }
+  },
 );

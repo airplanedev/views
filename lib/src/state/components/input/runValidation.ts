@@ -7,7 +7,7 @@ export const REQUIRED_ERROR = "This field is required";
  */
 export const runValidate = <TValue>(
   value: TValue | null | undefined,
-  { validate, required }: InputProps<TValue, unknown>
+  { validate, required }: InputProps<TValue, unknown>,
 ): string[] => {
   const errors: string[] = [];
   if (required) {
@@ -28,7 +28,7 @@ export const runValidate = <TValue>(
 };
 
 const unpackValidateProp = <TValue>(
-  validateFn: ValidateFnProp<TValue>
+  validateFn: ValidateFnProp<TValue>,
 ): Array<ValidateFn<TValue>> => {
   if (Array.isArray(validateFn)) {
     return validateFn;

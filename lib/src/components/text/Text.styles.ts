@@ -22,7 +22,7 @@ export const useParagraphStyles = createStyles(
         },
       },
     };
-  }
+  },
 );
 
 export const useRawTextStyles = createStyles(
@@ -33,7 +33,7 @@ export const useRawTextStyles = createStyles(
         lineHeight: theme.other.typography.textPreset[size].lineHeight,
       },
     };
-  }
+  },
 );
 
 export const useTextWeight = (size: MantineSize) => {

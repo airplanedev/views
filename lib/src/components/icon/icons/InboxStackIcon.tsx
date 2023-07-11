@@ -16,7 +16,7 @@ export const InboxStackIconOutline = forwardRef(
         <HeroInboxStackIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const InboxStackIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const InboxStackIconSolid = forwardRef(
         <HeroInboxStackIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const InboxStackIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const InboxStackIconMini = forwardRef(
         <HeroInboxStackIconMini />
       </Icon>
     );
-  }
+  },
 );

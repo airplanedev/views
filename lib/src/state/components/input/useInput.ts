@@ -10,7 +10,7 @@ export const useInput = <TValue, TState extends InputState<TValue>, TOnChange>(
   props: InputProps<TValue, TOnChange>,
   state: TState,
   dispatch: Dispatch<InputAction<TValue>>,
-  getChangeValue: (v: TOnChange) => TValue
+  getChangeValue: (v: TOnChange) => TValue,
 ) => {
   const { value, disabled, showErrors, errors } = state;
 
@@ -30,7 +30,7 @@ export const useInput = <TValue, TState extends InputState<TValue>, TOnChange>(
         propsOnChange(v);
       }
     },
-    [dispatch, getChangeValue, propsOnChange]
+    [dispatch, getChangeValue, propsOnChange],
   );
 
   const inputProps = useMemo(
@@ -40,7 +40,7 @@ export const useInput = <TValue, TState extends InputState<TValue>, TOnChange>(
       value,
       disabled,
     }),
-    [showErrors, errors, onChange, value, disabled]
+    [showErrors, errors, onChange, value, disabled],
   );
 
   return { inputProps };
@@ -48,7 +48,7 @@ export const useInput = <TValue, TState extends InputState<TValue>, TOnChange>(
 
 const getErrorMessage = (
   showErrors: boolean,
-  errors: string[]
+  errors: string[],
 ): string | undefined => {
   if (showErrors && errors.length > 0) {
     return errors.join("\n");

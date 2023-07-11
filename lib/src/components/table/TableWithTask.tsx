@@ -22,7 +22,7 @@ import {
 export const TableWithTask = <
   TRowData extends object,
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >({
   outputTransform,
   task,
@@ -32,7 +32,7 @@ export const TableWithTask = <
 }: TableWithTaskProps<TRowData, TParams, TOutput> & SetLatestRunProps) => {
   const fullQuery = useSetLatestRunInTaskQuery<TParams>(task, setLatestRun);
   const { error, loading, output, runID } = useTaskQuery<TParams, TOutput>(
-    fullQuery
+    fullQuery,
   );
   const data = useOutputToData(output, outputTransform);
 
@@ -91,14 +91,14 @@ export const TableWithTask = <
 function useOutputToData<
   TRowData extends object,
   TParams extends ParamValues,
-  TOutput
+  TOutput,
 >(
   output?: TOutput,
   outputTransform?: TableWithTaskProps<
     TRowData,
     TParams,
     TOutput
-  >["outputTransform"]
+  >["outputTransform"],
 ): TableComponentProps<TRowData>["data"] {
   return useMemo(() => {
     if (!output) return [];
@@ -135,11 +135,11 @@ function useOutputToData<
 export function doesUseTask<
   TRowData extends object,
   TParams extends ParamValues | undefined,
-  TOutput
+  TOutput,
 >(
-  props: TableProps<TRowData, TParams, TOutput>
+  props: TableProps<TRowData, TParams, TOutput>,
 ): props is TableWithTaskProps<TRowData, TParams, TOutput> {
   return Boolean(
-    (props as TableWithTaskProps<TRowData, TParams, TOutput>).task
+    (props as TableWithTaskProps<TRowData, TParams, TOutput>).task,
   );
 }

@@ -9,7 +9,7 @@ import { ParentMessage } from "message/ParentMessage";
  * useHandleParentMessage is a hook that allows you to listen for messages sent from the parent frame.
  */
 export const useHandleParentMessage = (
-  callback: (message: ParentMessage) => void
+  callback: (message: ParentMessage) => void,
 ) => {
   const queryClient = useQueryClient();
 
@@ -21,7 +21,7 @@ export const useHandleParentMessage = (
         async () => {
           return await fetcher.get<string>(WEB_HOST_GET, {});
         },
-        { staleTime: Infinity }
+        { staleTime: Infinity },
       );
       if (message.origin === webHost) {
         callback(message.data);

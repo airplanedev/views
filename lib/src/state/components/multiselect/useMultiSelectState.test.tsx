@@ -5,7 +5,7 @@ import { useMultiSelectState } from "./useMultiSelectState";
 describe("useMultiSelectState", () => {
   it("sets value", () => {
     const { result } = renderHook(() =>
-      useMultiSelectState("id", { initialState: { value: ["foo"] } })
+      useMultiSelectState("id", { initialState: { value: ["foo"] } }),
     );
 
     expect(result.current.state.value?.length).toBe(1);
@@ -21,7 +21,7 @@ describe("useMultiSelectState", () => {
 
   it("sets disabled", () => {
     const { result } = renderHook(() =>
-      useMultiSelectState("id", { initialState: { disabled: true } })
+      useMultiSelectState("id", { initialState: { disabled: true } }),
     );
 
     expect(result.current.state.disabled).toBe(true);

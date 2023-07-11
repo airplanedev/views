@@ -16,7 +16,7 @@ export const EllipsisVerticalIconOutline = forwardRef(
         <HeroEllipsisVerticalIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const EllipsisVerticalIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const EllipsisVerticalIconSolid = forwardRef(
         <HeroEllipsisVerticalIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const EllipsisVerticalIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const EllipsisVerticalIconMini = forwardRef(
         <HeroEllipsisVerticalIconMini />
       </Icon>
     );
-  }
+  },
 );

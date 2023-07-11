@@ -16,7 +16,7 @@ export const KeyIconOutline = forwardRef(
         <HeroKeyIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const KeyIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const KeyIconSolid = forwardRef(
         <HeroKeyIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const KeyIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const KeyIconMini = forwardRef(
         <HeroKeyIconMini />
       </Icon>
     );
-  }
+  },
 );

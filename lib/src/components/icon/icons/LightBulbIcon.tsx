@@ -16,7 +16,7 @@ export const LightBulbIconOutline = forwardRef(
         <HeroLightBulbIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const LightBulbIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const LightBulbIconSolid = forwardRef(
         <HeroLightBulbIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const LightBulbIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const LightBulbIconMini = forwardRef(
         <HeroLightBulbIconMini />
       </Icon>
     );
-  }
+  },
 );

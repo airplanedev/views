@@ -16,7 +16,7 @@ export const QuestionMarkCircleIconOutline = forwardRef(
         <HeroQuestionMarkCircleIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const QuestionMarkCircleIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const QuestionMarkCircleIconSolid = forwardRef(
         <HeroQuestionMarkCircleIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const QuestionMarkCircleIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const QuestionMarkCircleIconMini = forwardRef(
         <HeroQuestionMarkCircleIconMini />
       </Icon>
     );
-  }
+  },
 );

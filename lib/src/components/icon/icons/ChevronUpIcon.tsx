@@ -16,7 +16,7 @@ export const ChevronUpIconOutline = forwardRef(
         <HeroChevronUpIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ChevronUpIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ChevronUpIconSolid = forwardRef(
         <HeroChevronUpIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ChevronUpIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ChevronUpIconMini = forwardRef(
         <HeroChevronUpIconMini />
       </Icon>
     );
-  }
+  },
 );

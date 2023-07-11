@@ -16,7 +16,7 @@ export const TicketIconOutline = forwardRef(
         <HeroTicketIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const TicketIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const TicketIconSolid = forwardRef(
         <HeroTicketIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const TicketIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const TicketIconMini = forwardRef(
         <HeroTicketIconMini />
       </Icon>
     );
-  }
+  },
 );

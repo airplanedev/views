@@ -32,7 +32,7 @@ import { MutationHookOptions, MutationResult } from "./useTaskMutation";
 
 export type TaskOrRunbookMutationResult<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > =
   | {
       type: "TASK";
@@ -45,7 +45,7 @@ export type TaskOrRunbookMutationResult<
 
 export type TaskOrRunbookFullMutation<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > =
   | {
       mutation: FullMutation<TParams, TOutput>;
@@ -58,9 +58,9 @@ export type TaskOrRunbookFullMutation<
 
 export const useTaskOrRunbookMutation = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
-  mutation: TaskOrRunbookFullMutation<TParams, TOutput>
+  mutation: TaskOrRunbookFullMutation<TParams, TOutput>,
 ): TaskOrRunbookMutationResult<TParams, TOutput> => {
   const slug = getTaskOrRunbookSlug(mutation);
   const { params, refetchTasks: refetchQuery } = mutation.mutation;
@@ -96,7 +96,7 @@ export const useTaskOrRunbookMutation = <
           const r = await executeTask<TParams, TOutput>(
             slug,
             "mutation",
-            opts?.params ?? params
+            opts?.params ?? params,
           );
           if (isExecuteTaskError<TOutput>(r)) {
             throw r;
@@ -107,7 +107,7 @@ export const useTaskOrRunbookMutation = <
           const r = await executeRunbook<TParams>(
             slug,
             "mutation",
-            opts?.params ?? params
+            opts?.params ?? params,
           );
           if (isExecuteRunbookError(r)) {
             throw r;
@@ -157,7 +157,7 @@ export const useTaskOrRunbookMutation = <
           try {
             const showRequestDialog = await shouldShowRequestDialog(
               slug,
-              mutation.type
+              mutation.type,
             );
             if (showRequestDialog) {
               // Show the request dialog and don't call error handlers.
@@ -199,7 +199,7 @@ export const useTaskOrRunbookMutation = <
             throw new Error("invalid mutation type");
         }
       },
-    }
+    },
   );
 
   switch (mutation.type) {
@@ -235,7 +235,7 @@ export const useTaskOrRunbookMutation = <
 
 const shouldShowRequestDialog = async (
   slug: string,
-  mutationType: "TASK" | "RUNBOOK"
+  mutationType: "TASK" | "RUNBOOK",
 ): Promise<boolean> => {
   if (mutationType === "TASK") {
     const fetcher = new Fetcher();
@@ -264,9 +264,9 @@ const shouldShowRequestDialog = async (
 };
 
 const getTaskOrRunbookSlug = <
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 >(
-  mutation: TaskOrRunbookFullMutation<TParams>
+  mutation: TaskOrRunbookFullMutation<TParams>,
 ): string => {
   switch (mutation.type) {
     case "TASK":

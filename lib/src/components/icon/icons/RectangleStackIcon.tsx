@@ -16,7 +16,7 @@ export const RectangleStackIconOutline = forwardRef(
         <HeroRectangleStackIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const RectangleStackIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const RectangleStackIconSolid = forwardRef(
         <HeroRectangleStackIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const RectangleStackIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const RectangleStackIconMini = forwardRef(
         <HeroRectangleStackIconMini />
       </Icon>
     );
-  }
+  },
 );

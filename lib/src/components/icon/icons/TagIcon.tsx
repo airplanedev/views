@@ -16,7 +16,7 @@ export const TagIconOutline = forwardRef(
         <HeroTagIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const TagIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const TagIconSolid = forwardRef(
         <HeroTagIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const TagIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const TagIconMini = forwardRef(
         <HeroTagIconMini />
       </Icon>
     );
-  }
+  },
 );

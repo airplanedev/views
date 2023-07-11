@@ -18,7 +18,7 @@ describe("RunnerScaleSignalProvider", () => {
       rest.post("http://api/v0/runners/createScaleSignal", (req, res, ctx) => {
         mockFn();
         return res(ctx.json({}));
-      })
+      }),
     );
     const TestC = () => {
       const { createScaleSignal } = useContext(RunnerScaleSignalContext);
@@ -48,7 +48,7 @@ describe("RunnerScaleSignalProvider", () => {
       rest.post("http://api/v0/runners/createScaleSignal", (req, res, ctx) => {
         mockFn();
         return res(ctx.json({}));
-      })
+      }),
     );
     const TestC = () => {
       const { createScaleSignal } = useContext(RunnerScaleSignalContext);

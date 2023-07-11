@@ -79,7 +79,7 @@ export type ConnectedRadioGroupProps = InputProps<
 
 export type RadioGroupPropsWithTask<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = InputProps<RadioGroupTValue, string | undefined> & {
   /**
    * The task query to execute. The radioGroup data will be populated by the task's output.
@@ -94,7 +94,7 @@ export type RadioGroupPropsWithTask<
 
 export type RadioGroupProps<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = RadioGroupPropsWithTask<TParams, TOutput> | ConnectedRadioGroupProps;
 
 export interface RadioGroupItem {

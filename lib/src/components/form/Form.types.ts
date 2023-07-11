@@ -76,7 +76,7 @@ export type TaskOptions<TOutput> = (
   onError?: (
     output: TOutput | undefined,
     error: ExecuteError,
-    runID?: string
+    runID?: string,
   ) => void;
 };
 

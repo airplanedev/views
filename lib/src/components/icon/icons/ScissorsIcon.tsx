@@ -16,7 +16,7 @@ export const ScissorsIconOutline = forwardRef(
         <HeroScissorsIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ScissorsIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ScissorsIconSolid = forwardRef(
         <HeroScissorsIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ScissorsIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ScissorsIconMini = forwardRef(
         <HeroScissorsIconMini />
       </Icon>
     );
-  }
+  },
 );

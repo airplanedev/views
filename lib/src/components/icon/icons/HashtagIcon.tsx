@@ -16,7 +16,7 @@ export const HashtagIconOutline = forwardRef(
         <HeroHashtagIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const HashtagIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const HashtagIconSolid = forwardRef(
         <HeroHashtagIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const HashtagIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const HashtagIconMini = forwardRef(
         <HeroHashtagIconMini />
       </Icon>
     );
-  }
+  },
 );

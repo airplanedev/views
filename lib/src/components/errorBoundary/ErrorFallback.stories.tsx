@@ -12,7 +12,7 @@ const Template: StoryFn<typeof ErrorFallback> = (args) => (
 );
 
 const ExampleError = new Error(
-  "Cannot read properties of undefined (reading 'no')"
+  "Cannot read properties of undefined (reading 'no')",
 );
 ExampleError.stack = `
 TypeError: Cannot read properties of undefined (reading 'no')

@@ -465,18 +465,18 @@ describe("Form", () => {
           it(`submits`, async () => {
             const mockOnSubmit = jest.fn();
             const result = render(
-              <Form onSubmit={mockOnSubmit}>{submitTest.render}</Form>
+              <Form onSubmit={mockOnSubmit}>{submitTest.render}</Form>,
             );
             const { getByRole } = result;
             await userEvent.click(getByRole("button", { name: "Submit" }));
             expect(mockOnSubmit).toHaveBeenLastCalledWith(
-              submitTest.expectedEmpty
+              submitTest.expectedEmpty,
             );
 
             await submitTest.update(elementGetter(result));
             await userEvent.click(getByRole("button", { name: "Submit" }));
             expect(mockOnSubmit).toHaveBeenLastCalledWith(
-              submitTest.expectedAfterUpdate
+              submitTest.expectedAfterUpdate,
             );
           });
 
@@ -516,7 +516,7 @@ describe("Form", () => {
               const result = render(
                 <Form resetOnSubmit onSubmit={mockOnSubmit}>
                   {resetOnSubmitTest.render}
-                </Form>
+                </Form>,
               );
               const { getByRole } = result;
               const submitButton = getByRole("button", { name: "Submit" });
@@ -524,12 +524,12 @@ describe("Form", () => {
               await resetOnSubmitTest.update(elementGetter(result));
               await userEvent.click(submitButton);
               expect(mockOnSubmit).toHaveBeenLastCalledWith(
-                resetOnSubmitTest.expectedAfterUpdate
+                resetOnSubmitTest.expectedAfterUpdate,
               );
 
               await userEvent.click(submitButton);
               expect(mockOnSubmit).toHaveBeenLastCalledWith(
-                resetOnSubmitTest.expectedAfterReset
+                resetOnSubmitTest.expectedAfterReset,
               );
             });
 
@@ -538,7 +538,7 @@ describe("Form", () => {
               const result = render(
                 <Form resetOnSubmit={false} onSubmit={mockOnSubmit}>
                   {resetOnSubmitTest.render}
-                </Form>
+                </Form>,
               );
               const { getByRole } = result;
               const submitButton = getByRole("button", { name: "Submit" });
@@ -546,17 +546,17 @@ describe("Form", () => {
               await resetOnSubmitTest.update(elementGetter(result));
               await userEvent.click(submitButton);
               expect(mockOnSubmit).toHaveBeenLastCalledWith(
-                resetOnSubmitTest.expectedAfterUpdate
+                resetOnSubmitTest.expectedAfterUpdate,
               );
 
               await userEvent.click(submitButton);
               expect(mockOnSubmit).toHaveBeenLastCalledWith(
-                resetOnSubmitTest.expectedAfterUpdate
+                resetOnSubmitTest.expectedAfterUpdate,
               );
             });
           });
         });
-      }
+      },
     );
   });
 
@@ -619,7 +619,7 @@ describe("Form", () => {
             },
           ]}
         />
-      </Form>
+      </Form>,
     );
 
     // No errors are displayed initially
@@ -630,10 +630,10 @@ describe("Form", () => {
     // Fails custom validation
     await userEvent.type(getByRole("textbox"), "b");
     expect(
-      getByText(`${expectedNameLengthError}`, { exact: false })
+      getByText(`${expectedNameLengthError}`, { exact: false }),
     ).toBeInTheDocument();
     expect(
-      getByText(`${expectedNamePatternError}`, { exact: false })
+      getByText(`${expectedNamePatternError}`, { exact: false }),
     ).toBeInTheDocument();
   });
 
@@ -668,13 +668,13 @@ describe("Form", () => {
 
     await userEvent.type(
       getByRole("textbox", { name: "Eye color" }),
-      "{backspace}{backspace}{backspace}{backspace}green"
+      "{backspace}{backspace}{backspace}{backspace}green",
     );
 
     await userEvent.click(submitButton);
 
     expect(
-      queryByText("John's eye color must be green")
+      queryByText("John's eye color must be green"),
     ).not.toBeInTheDocument();
   });
 

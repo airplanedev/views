@@ -103,7 +103,7 @@ export type ComponentStateContextType = {
   components: Record<string, ComponentState>;
   updateComponent: <TState extends ComponentState>(
     id: string,
-    state: TState
+    state: TState,
   ) => void;
   removeComponent: (id: string) => void;
 };
@@ -126,10 +126,10 @@ export const ComponentStateContext =
  */
 export const useSyncComponentState = <TState extends ComponentState>(
   id: string,
-  state: TState
+  state: TState,
 ) => {
   const { updateComponent, removeComponent } = useContext(
-    ComponentStateContext
+    ComponentStateContext,
   );
   useEffect(() => {
     updateComponent<TState>(id, state);

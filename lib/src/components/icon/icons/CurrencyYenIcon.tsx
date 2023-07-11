@@ -16,7 +16,7 @@ export const CurrencyYenIconOutline = forwardRef(
         <HeroCurrencyYenIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CurrencyYenIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CurrencyYenIconSolid = forwardRef(
         <HeroCurrencyYenIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CurrencyYenIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CurrencyYenIconMini = forwardRef(
         <HeroCurrencyYenIconMini />
       </Icon>
     );
-  }
+  },
 );

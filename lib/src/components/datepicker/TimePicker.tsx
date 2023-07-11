@@ -207,7 +207,7 @@ export const TimePicker = (props: {
         readOnly={readOnly}
         onChange={(value) => {
           props.onChange(
-            props.value?.set("hours", (isAM ? 0 : 12) + mod(value, 12))
+            props.value?.set("hours", (isAM ? 0 : 12) + mod(value, 12)),
           );
         }}
         preventFocus
@@ -238,8 +238,8 @@ export const TimePicker = (props: {
           props.onChange(
             props.value?.set(
               "hours",
-              isAM ? props.value.hour() + 12 : props.value.hour() - 12
-            )
+              isAM ? props.value.hour() + 12 : props.value.hour() - 12,
+            ),
           );
         }}
         className={classes.AMPMButton}

@@ -16,7 +16,7 @@ export const BookmarkSlashIconOutline = forwardRef(
         <HeroBookmarkSlashIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BookmarkSlashIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BookmarkSlashIconSolid = forwardRef(
         <HeroBookmarkSlashIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BookmarkSlashIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BookmarkSlashIconMini = forwardRef(
         <HeroBookmarkSlashIconMini />
       </Icon>
     );
-  }
+  },
 );

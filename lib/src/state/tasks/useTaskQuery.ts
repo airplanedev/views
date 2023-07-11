@@ -21,7 +21,7 @@ import {
 
 export type UseTaskQueryOptions<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = {
   /**
    * The params of the task to execute.
@@ -61,7 +61,7 @@ export type UseTaskQueryOptions<
   onError?: (
     output: TOutput | undefined,
     error: ExecuteError,
-    runID?: string
+    runID?: string,
   ) => void;
 };
 
@@ -101,9 +101,9 @@ export type UseTaskQueryResult<TOutput = DefaultOutput> = {
  */
 export const useTaskQuery = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
-  query: TaskQuery<TParams, TOutput>
+  query: TaskQuery<TParams, TOutput>,
 ): UseTaskQueryResult<TOutput> => {
   const fullQuery = getFullQuery<TParams>(query);
   const {
@@ -117,7 +117,7 @@ export const useTaskQuery = <
     onError,
   } = fullQuery;
   const slug = getSlug(fullQuery);
-  const enabled = enabledOption && Boolean(slug);
+  const enabled = Boolean(enabledOption) && Boolean(slug);
   const { isInitialLoading, isLoading, error, data, refetch } = useReactQuery<
     ExecuteTaskSuccess<TOutput>,
     ExecuteTaskError<TOutput>
@@ -142,7 +142,7 @@ export const useTaskQuery = <
       onError: (res) => {
         onError?.(res.output, res.error, res.runID);
       },
-    }
+    },
   );
 
   return {

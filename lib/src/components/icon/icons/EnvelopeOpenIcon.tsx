@@ -16,7 +16,7 @@ export const EnvelopeOpenIconOutline = forwardRef(
         <HeroEnvelopeOpenIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const EnvelopeOpenIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const EnvelopeOpenIconSolid = forwardRef(
         <HeroEnvelopeOpenIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const EnvelopeOpenIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const EnvelopeOpenIconMini = forwardRef(
         <HeroEnvelopeOpenIconMini />
       </Icon>
     );
-  }
+  },
 );

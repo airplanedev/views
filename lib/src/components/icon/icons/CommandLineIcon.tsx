@@ -16,7 +16,7 @@ export const CommandLineIconOutline = forwardRef(
         <HeroCommandLineIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CommandLineIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CommandLineIconSolid = forwardRef(
         <HeroCommandLineIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CommandLineIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CommandLineIconMini = forwardRef(
         <HeroCommandLineIconMini />
       </Icon>
     );
-  }
+  },
 );

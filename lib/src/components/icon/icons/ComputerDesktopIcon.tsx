@@ -16,7 +16,7 @@ export const ComputerDesktopIconOutline = forwardRef(
         <HeroComputerDesktopIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ComputerDesktopIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ComputerDesktopIconSolid = forwardRef(
         <HeroComputerDesktopIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ComputerDesktopIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ComputerDesktopIconMini = forwardRef(
         <HeroComputerDesktopIconMini />
       </Icon>
     );
-  }
+  },
 );

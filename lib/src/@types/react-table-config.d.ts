@@ -72,14 +72,14 @@ declare module "react-table" {
 
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface Hooks<
-    D extends Record<string, unknown> = Record<string, unknown>
+    D extends Record<string, unknown> = Record<string, unknown>,
   > extends UseSortByHooks<D>,
       //   UseExpandedHooks<D>,
       //   UseGroupByHooks<D>,
       UseRowSelectHooks<D> {}
 
   export interface TableInstance<
-    D extends Record<string, unknown> = Record<string, unknown>
+    D extends Record<string, unknown> = Record<string, unknown>,
   > extends UsePaginationInstanceProps<D>,
       //   UseExpandedInstanceProps<D>,
       //   UseFiltersInstanceProps<D>,
@@ -91,7 +91,7 @@ declare module "react-table" {
       UseSortByInstanceProps<D> {}
 
   export interface TableState<
-    D extends Record<string, unknown> = Record<string, unknown>
+    D extends Record<string, unknown> = Record<string, unknown>,
   > extends UsePaginationState<D>,
       //   UseExpandedState<D>,
       //   UseFiltersState<D>,
@@ -104,7 +104,7 @@ declare module "react-table" {
       UseSortByState<D> {}
 
   export interface ColumnInterface<
-    D extends Record<string, unknown> = Record<string, unknown>
+    D extends Record<string, unknown> = Record<string, unknown>,
   > extends UseResizeColumnsColumnOptions<D>,
       UseGlobalFiltersColumnOptions<D>,
       //   UseGroupByColumnOptions<D>,
@@ -113,7 +113,7 @@ declare module "react-table" {
       UseSortByColumnOptions<D> {}
 
   export interface ColumnInstance<
-    D extends Record<string, unknown> = Record<string, unknown>
+    D extends Record<string, unknown> = Record<string, unknown>,
   > extends UseResizeColumnsColumnProps<D>,
       UseCustomCellProps,
       //   UseGroupByColumnProps<D>,
@@ -121,13 +121,13 @@ declare module "react-table" {
       UseSortByColumnProps<D> {}
 
   export interface Cell<
-    D extends Record<string, unknown> = Record<string, unknown>
+    D extends Record<string, unknown> = Record<string, unknown>,
   > extends UseRowStateCellProps<D> {}
   // UseGroupByCellProps<D> {}
 
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface Row<
-    D extends Record<string, unknown> = Record<string, unknown>
+    D extends Record<string, unknown> = Record<string, unknown>,
   > extends UseRowSelectRowProps<D>,
       //   UseExpandedRowProps<D>,
       //   UseGroupByRowProps<D>,

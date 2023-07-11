@@ -5,7 +5,7 @@ import { useRadioGroupState } from "./useRadioGroupState";
 describe("useRadioGroupState", () => {
   it("sets value", () => {
     const { result } = renderHook(() =>
-      useRadioGroupState("id", { initialState: { value: "foo" } })
+      useRadioGroupState("id", { initialState: { value: "foo" } }),
     );
 
     expect(result.current.state.value).toBe("foo");
@@ -18,7 +18,7 @@ describe("useRadioGroupState", () => {
 
   it("sets disabled", () => {
     const { result } = renderHook(() =>
-      useRadioGroupState("id", { initialState: { disabled: true } })
+      useRadioGroupState("id", { initialState: { disabled: true } }),
     );
 
     expect(result.current.state.disabled).toBe(true);

@@ -29,7 +29,7 @@ export const setEnvVars = (
   token: string,
   apiKey: string,
   envSlug: string,
-  additionalEnvVars?: AdditionalEnvVars
+  additionalEnvVars?: AdditionalEnvVars,
 ) => {
   AIRPLANE_API_HOST = apiHost;
   AIRPLANE_TOKEN = token;

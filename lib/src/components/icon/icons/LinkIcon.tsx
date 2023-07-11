@@ -16,7 +16,7 @@ export const LinkIconOutline = forwardRef(
         <HeroLinkIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const LinkIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const LinkIconSolid = forwardRef(
         <HeroLinkIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const LinkIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const LinkIconMini = forwardRef(
         <HeroLinkIconMini />
       </Icon>
     );
-  }
+  },
 );

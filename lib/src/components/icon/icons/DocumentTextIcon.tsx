@@ -16,7 +16,7 @@ export const DocumentTextIconOutline = forwardRef(
         <HeroDocumentTextIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const DocumentTextIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const DocumentTextIconSolid = forwardRef(
         <HeroDocumentTextIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const DocumentTextIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const DocumentTextIconMini = forwardRef(
         <HeroDocumentTextIconMini />
       </Icon>
     );
-  }
+  },
 );

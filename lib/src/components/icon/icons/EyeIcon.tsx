@@ -16,7 +16,7 @@ export const EyeIconOutline = forwardRef(
         <HeroEyeIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const EyeIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const EyeIconSolid = forwardRef(
         <HeroEyeIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const EyeIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const EyeIconMini = forwardRef(
         <HeroEyeIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -16,7 +16,7 @@ export const CurrencyEuroIconOutline = forwardRef(
         <HeroCurrencyEuroIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CurrencyEuroIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CurrencyEuroIconSolid = forwardRef(
         <HeroCurrencyEuroIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CurrencyEuroIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CurrencyEuroIconMini = forwardRef(
         <HeroCurrencyEuroIconMini />
       </Icon>
     );
-  }
+  },
 );

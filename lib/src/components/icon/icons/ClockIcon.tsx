@@ -16,7 +16,7 @@ export const ClockIconOutline = forwardRef(
         <HeroClockIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ClockIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ClockIconSolid = forwardRef(
         <HeroClockIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ClockIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ClockIconMini = forwardRef(
         <HeroClockIconMini />
       </Icon>
     );
-  }
+  },
 );

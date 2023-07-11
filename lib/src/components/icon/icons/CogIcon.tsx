@@ -16,7 +16,7 @@ export const CogIconOutline = forwardRef(
         <HeroCogIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CogIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CogIconSolid = forwardRef(
         <HeroCogIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CogIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CogIconMini = forwardRef(
         <HeroCogIconMini />
       </Icon>
     );
-  }
+  },
 );

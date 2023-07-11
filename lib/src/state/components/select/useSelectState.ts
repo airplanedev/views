@@ -16,7 +16,7 @@ export type SelectHookOptions = {
  */
 export const useSelectState = (
   id: string,
-  options?: SelectHookOptions
+  options?: SelectHookOptions,
 ): { state: SelectState; dispatch: Dispatch<Action> } => {
   const initialState = {
     value: options?.initialState?.value,
@@ -36,7 +36,7 @@ export const useSelectState = (
       id,
       componentType: ComponentType.Select,
     }),
-    [internalState, id, stateSetters]
+    [internalState, id, stateSetters],
   );
   useSyncComponentState(id, state);
 

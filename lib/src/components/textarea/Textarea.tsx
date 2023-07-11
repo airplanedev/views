@@ -15,7 +15,7 @@ import { TextareaComponentProps, TextareaProps } from "./Textarea.types";
 export const TextareaComponent = forwardRef(
   (props: TextareaComponentProps, ref: React.Ref<HTMLTextAreaElement>) => (
     <MantineTextarea {...props} ref={ref} />
-  )
+  ),
 );
 
 export const Textarea = forwardRef(
@@ -23,11 +23,11 @@ export const Textarea = forwardRef(
     <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <TextareaWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
-  )
+  ),
 );
 
 export const TextareaWithoutRef = (
-  props: TextareaProps & { innerRef: React.Ref<HTMLTextAreaElement> }
+  props: TextareaProps & { innerRef: React.Ref<HTMLTextAreaElement> },
 ) => {
   const [inputRef, focus] = useFocus();
   const mergedRef = useMergedRef(inputRef, props.innerRef);
@@ -43,7 +43,7 @@ export const TextareaWithoutRef = (
     props,
     state,
     dispatch,
-    (e: ChangeEvent<HTMLTextAreaElement>) => e.currentTarget.value
+    (e: ChangeEvent<HTMLTextAreaElement>) => e.currentTarget.value,
   );
   useRegisterFormInput(id, "text-input");
   const {

@@ -16,7 +16,7 @@ export const SparklesIconOutline = forwardRef(
         <HeroSparklesIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const SparklesIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const SparklesIconSolid = forwardRef(
         <HeroSparklesIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const SparklesIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const SparklesIconMini = forwardRef(
         <HeroSparklesIconMini />
       </Icon>
     );
-  }
+  },
 );

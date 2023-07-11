@@ -16,7 +16,7 @@ export const XCircleIconOutline = forwardRef(
         <HeroXCircleIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const XCircleIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const XCircleIconSolid = forwardRef(
         <HeroXCircleIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const XCircleIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const XCircleIconMini = forwardRef(
         <HeroXCircleIconMini />
       </Icon>
     );
-  }
+  },
 );

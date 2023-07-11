@@ -16,7 +16,7 @@ export const SpeakerXMarkIconOutline = forwardRef(
         <HeroSpeakerXMarkIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const SpeakerXMarkIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const SpeakerXMarkIconSolid = forwardRef(
         <HeroSpeakerXMarkIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const SpeakerXMarkIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const SpeakerXMarkIconMini = forwardRef(
         <HeroSpeakerXMarkIconMini />
       </Icon>
     );
-  }
+  },
 );

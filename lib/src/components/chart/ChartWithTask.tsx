@@ -17,7 +17,7 @@ import { ConnectedChart } from "./ConnectedChart";
 
 export const ChartWithTask = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >({
   outputTransform,
   task,
@@ -26,7 +26,7 @@ export const ChartWithTask = <
 }: ChartWithTaskProps<TParams, TOutput> & SetLatestRunProps) => {
   const fullQuery = useSetLatestRunInTaskQuery<TParams>(task, setLatestRun);
   const { error, loading, output, runID } = useTaskQuery<TParams, TOutput>(
-    fullQuery
+    fullQuery,
   );
   const data = useOutputToData(output, outputTransform);
 
@@ -45,17 +45,17 @@ export const ChartWithTask = <
 };
 
 export function doesUseTask<TParams extends ParamValues | undefined, TOutput>(
-  props: ChartProps<TParams, TOutput>
+  props: ChartProps<TParams, TOutput>,
 ): props is ChartWithTaskProps<TParams, TOutput> {
   return Boolean((props as ChartWithTaskProps<TParams, TOutput>).task);
 }
 
 function useOutputToData<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
   output?: TOutput,
-  outputTransform?: ChartWithTaskProps<TParams, TOutput>["outputTransform"]
+  outputTransform?: ChartWithTaskProps<TParams, TOutput>["outputTransform"],
 ): ConnectedChartProps["data"] {
   return useMemo(() => {
     if (!output) return [];

@@ -16,7 +16,7 @@ export const Bars3BottomLeftIconOutline = forwardRef(
         <HeroBars3BottomLeftIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const Bars3BottomLeftIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const Bars3BottomLeftIconSolid = forwardRef(
         <HeroBars3BottomLeftIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const Bars3BottomLeftIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const Bars3BottomLeftIconMini = forwardRef(
         <HeroBars3BottomLeftIconMini />
       </Icon>
     );
-  }
+  },
 );

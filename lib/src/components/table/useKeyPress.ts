@@ -22,7 +22,7 @@ export default function useKeyPress({
 }: KeyPressProps) {
   const targetKeysArray = useMemo(
     () => (isArray(targetKeys) ? targetKeys : [targetKeys]),
-    [targetKeys]
+    [targetKeys],
   );
   const [keyPressed, setKeyPressed] = useState(false);
   const [allKeysPressed, setAllKeysPressed] = useState(new Set<string>());
@@ -38,7 +38,7 @@ export default function useKeyPress({
       setKeyPressed(isPressed);
       return isPressed;
     },
-    [targetKeysArray]
+    [targetKeysArray],
   );
 
   const downHandler = useCallback(
@@ -48,7 +48,7 @@ export default function useKeyPress({
       setAllKeysPressed(newAllKeysPressed);
       return handle(newAllKeysPressed);
     },
-    [allKeysPressed, handle]
+    [allKeysPressed, handle],
   );
 
   const upHandler = useCallback(
@@ -58,7 +58,7 @@ export default function useKeyPress({
       setAllKeysPressed(newAllKeysPressed);
       return handle(newAllKeysPressed);
     },
-    [allKeysPressed, handle]
+    [allKeysPressed, handle],
   );
 
   useEffect(() => {

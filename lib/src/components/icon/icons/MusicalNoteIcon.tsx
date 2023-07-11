@@ -16,7 +16,7 @@ export const MusicalNoteIconOutline = forwardRef(
         <HeroMusicalNoteIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const MusicalNoteIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const MusicalNoteIconSolid = forwardRef(
         <HeroMusicalNoteIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const MusicalNoteIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const MusicalNoteIconMini = forwardRef(
         <HeroMusicalNoteIconMini />
       </Icon>
     );
-  }
+  },
 );

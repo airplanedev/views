@@ -20,11 +20,11 @@ export const getUseTextInputState =
     componentType:
       | ComponentType.TextInput
       | ComponentType.Textarea
-      | ComponentType.CodeInput
+      | ComponentType.CodeInput,
   ) =>
   (
     id: string,
-    options?: InputHookOptions
+    options?: InputHookOptions,
   ): { state: TextInputState; dispatch: Dispatch<Action> } => {
     const initialState = {
       value: options?.initialState?.value ?? "",
@@ -50,7 +50,7 @@ export const getUseTextInputState =
         focus,
         componentType,
       }),
-      [internalState, id, focus, stateSetters]
+      [internalState, id, focus, stateSetters],
     );
     useSyncComponentState(id, state);
 

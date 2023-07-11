@@ -49,9 +49,9 @@ export const useStyles = createStyles((theme) => {
 
 export const RadioGroup = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
-  props: RadioGroupProps<TParams, TOutput>
+  props: RadioGroupProps<TParams, TOutput>,
 ) => {
   const [latestRun, setLatestRun] = useState<LatestRun>();
 
@@ -79,7 +79,7 @@ RadioGroup.displayName = "RadioGroup";
  */
 const RadioGroupWithTask = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >({
   task,
   outputTransform,
@@ -88,7 +88,7 @@ const RadioGroupWithTask = <
 }: RadioGroupPropsWithTask<TParams, TOutput> & SetLatestRunProps) => {
   const fullQuery = useSetLatestRunInTaskQuery<TParams>(task, setLatestRun);
   const { error, loading, output, runID } = useTaskQuery<TParams, TOutput>(
-    fullQuery
+    fullQuery,
   );
 
   const data = output
@@ -122,7 +122,7 @@ const ConnectedRadioGroup = (props: ConnectedRadioGroupProps) => {
     props,
     state,
     dispatch,
-    (v: RadioGroupTValue) => v
+    (v: RadioGroupTValue) => v,
   );
 
   useRegisterFormInput(id, "radio-group");
@@ -194,7 +194,7 @@ const RadioGroupComponent = ({
  */
 function outputToData<TParams extends ParamValues | undefined, TOutput>(
   output: TOutput,
-  dataTransform?: RadioGroupPropsWithTask<TParams, TOutput>["outputTransform"]
+  dataTransform?: RadioGroupPropsWithTask<TParams, TOutput>["outputTransform"],
 ): RadioGroupComponentProps["data"] {
   if (!output) {
     return [];
@@ -213,7 +213,7 @@ function outputToData<TParams extends ParamValues | undefined, TOutput>(
 }
 
 function doesUseTask<TParams extends ParamValues | undefined, TOutput>(
-  props: RadioGroupProps<TParams, TOutput>
+  props: RadioGroupProps<TParams, TOutput>,
 ): props is RadioGroupPropsWithTask<TParams, TOutput> {
   return Boolean((props as RadioGroupPropsWithTask<TParams, TOutput>).task);
 }
@@ -230,7 +230,7 @@ const unwrapOutput = (data: unknown): string[] | RadioGroupItem[] | null => {
       if (
         Array.isArray(value) &&
         value.every(
-          (item: unknown) => typeof item === "string" || isRadio(item)
+          (item: unknown) => typeof item === "string" || isRadio(item),
         )
       ) {
         return value;

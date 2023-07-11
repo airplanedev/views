@@ -16,7 +16,7 @@ export const HandThumbUpIconOutline = forwardRef(
         <HeroHandThumbUpIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const HandThumbUpIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const HandThumbUpIconSolid = forwardRef(
         <HeroHandThumbUpIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const HandThumbUpIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const HandThumbUpIconMini = forwardRef(
         <HeroHandThumbUpIconMini />
       </Icon>
     );
-  }
+  },
 );

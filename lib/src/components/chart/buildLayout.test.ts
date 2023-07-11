@@ -136,7 +136,7 @@ describe("buildLayout", () => {
 
   it("builds layout for legend positions", async () => {
     expect(
-      buildLayout({ type: "line", legendPosition: "hidden" })
+      buildLayout({ type: "line", legendPosition: "hidden" }),
     ).toMatchObject({
       showlegend: false,
     });
@@ -144,10 +144,10 @@ describe("buildLayout", () => {
       {
         showlegend: true,
         legend: { xanchor: "left", orientation: "v" },
-      }
+      },
     );
     expect(
-      buildLayout({ type: "line", legendPosition: "right" })
+      buildLayout({ type: "line", legendPosition: "right" }),
     ).toMatchObject({
       showlegend: true,
       legend: { xanchor: "left", orientation: "v" },
@@ -157,7 +157,7 @@ describe("buildLayout", () => {
       legend: { xanchor: "center", orientation: "h" },
     });
     expect(
-      buildLayout({ type: "line", legendPosition: "bottom" })
+      buildLayout({ type: "line", legendPosition: "bottom" }),
     ).toMatchObject({
       showlegend: true,
       legend: { xanchor: "center", orientation: "h" },
@@ -168,7 +168,7 @@ describe("buildLayout", () => {
     expect(
       buildLayout({
         type: "line",
-      })
+      }),
     ).toMatchObject({
       showlegend: true,
       legend: { xanchor: "left", orientation: "v" },

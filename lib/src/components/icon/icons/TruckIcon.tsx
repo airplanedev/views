@@ -16,7 +16,7 @@ export const TruckIconOutline = forwardRef(
         <HeroTruckIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const TruckIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const TruckIconSolid = forwardRef(
         <HeroTruckIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const TruckIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const TruckIconMini = forwardRef(
         <HeroTruckIconMini />
       </Icon>
     );
-  }
+  },
 );

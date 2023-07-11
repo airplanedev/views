@@ -16,7 +16,7 @@ export const RectangleGroupIconOutline = forwardRef(
         <HeroRectangleGroupIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const RectangleGroupIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const RectangleGroupIconSolid = forwardRef(
         <HeroRectangleGroupIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const RectangleGroupIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const RectangleGroupIconMini = forwardRef(
         <HeroRectangleGroupIconMini />
       </Icon>
     );
-  }
+  },
 );

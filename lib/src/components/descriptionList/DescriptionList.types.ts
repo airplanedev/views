@@ -28,7 +28,7 @@ export type DescriptionListComponentProps = {
 
 export type DescriptionListPropsWithTask<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = {
   /**
    * The task query to execute. The description list items will be populated by the task's output.
@@ -38,14 +38,14 @@ export type DescriptionListPropsWithTask<
    * Callback to transform the task output before it populates the description list items.
    */
   outputTransform?: (
-    output: TOutput
+    output: TOutput,
   ) => DescriptionListComponentProps["items"] | Record<string, React.ReactNode>;
   items?: never;
 } & Omit<DescriptionListComponentProps, "items">;
 
 export type DescriptionListProps<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > =
   | DescriptionListPropsWithTask<TParams, TOutput>
   | DescriptionListComponentProps;

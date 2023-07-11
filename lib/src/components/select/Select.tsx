@@ -41,9 +41,9 @@ const defaultProps: Partial<SelectProps> = {
 
 export const Select = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
-  props: SelectProps<TParams, TOutput>
+  props: SelectProps<TParams, TOutput>,
 ) => {
   const [latestRun, setLatestRun] = useState<LatestRun>();
   if (doesUseTask<TParams, TOutput>(props)) {
@@ -70,7 +70,7 @@ Select.displayName = "Select";
  */
 const SelectWithTask = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >({
   task,
   outputTransform,
@@ -79,7 +79,7 @@ const SelectWithTask = <
 }: SelectPropsWithTask<TParams, TOutput> & SetLatestRunProps) => {
   const fullQuery = useSetLatestRunInTaskQuery<TParams>(task, setLatestRun);
   const { error, loading, output, runID } = useTaskQuery<TParams, TOutput>(
-    fullQuery
+    fullQuery,
   );
 
   const data = output
@@ -116,12 +116,12 @@ const ConnectedSelect = (props: ConnectedSelectProps) => {
         propsOnChange &&
         ((v) =>
           propsOnChange(
-            v !== null ? convertSelectStringToOriginalType(v) : undefined
+            v !== null ? convertSelectStringToOriginalType(v) : undefined,
           )),
     },
     state,
     dispatch,
-    (v) => (v !== null ? convertSelectStringToOriginalType(v) : undefined)
+    (v) => (v !== null ? convertSelectStringToOriginalType(v) : undefined),
   );
 
   useRegisterFormInput(id, "select");
@@ -160,7 +160,7 @@ const ConnectedSelect = (props: ConnectedSelectProps) => {
 export const SelectComponent = forwardRef(
   (props: SelectComponentProps, ref: React.Ref<HTMLInputElement>) => (
     <SelectComponentWithoutRef {...props} innerRef={ref} />
-  )
+  ),
 );
 SelectComponent.displayName = "SelectComponent";
 
@@ -219,7 +219,7 @@ export const SelectComponentWithoutRef = ({
  */
 function outputToData<TParams extends ParamValues | undefined, TOutput>(
   output: TOutput,
-  dataTransform?: SelectPropsWithTask<TParams, TOutput>["outputTransform"]
+  dataTransform?: SelectPropsWithTask<TParams, TOutput>["outputTransform"],
 ): SelectComponentProps["data"] {
   if (!output) {
     return [];
@@ -238,7 +238,7 @@ function outputToData<TParams extends ParamValues | undefined, TOutput>(
 }
 
 function doesUseTask<TParams extends ParamValues | undefined, TOutput>(
-  props: SelectProps<TParams, TOutput>
+  props: SelectProps<TParams, TOutput>,
 ): props is SelectPropsWithTask<TParams, TOutput> {
   return Boolean((props as SelectPropsWithTask<TParams, TOutput>).task);
 }
@@ -275,7 +275,7 @@ const unwrapOutput = (data: unknown): string[] | SelectItem[] | undefined => {
       if (
         Array.isArray(value) &&
         value.every(
-          (item: unknown) => typeof item === "string" || isSelectItem(item)
+          (item: unknown) => typeof item === "string" || isSelectItem(item),
         )
       ) {
         return value;
@@ -291,7 +291,7 @@ const getColumns = (value: Record<string, unknown>[]): string[] => {
 
 const unwrapSingleColumn = (
   value: Record<string, unknown>[],
-  column_name: string
+  column_name: string,
 ): string[] | SelectItem[] | undefined => {
   const unwrapped = value.map((value) => value[column_name]);
   if (
@@ -325,7 +325,7 @@ const convertSelectValueToString = (value: string | number): string => {
   }
 };
 const maybeConvertSelectValueToString = (
-  value: string | number | undefined
+  value: string | number | undefined,
 ): string | null => {
   if (value === undefined) {
     return null;
