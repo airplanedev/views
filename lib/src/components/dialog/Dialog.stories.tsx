@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "components/button/Button";
 import { Heading } from "components/heading/Heading";
@@ -6,12 +6,12 @@ import { Stack } from "components/stack/Stack";
 import { Text } from "components/text/Text";
 
 import { Dialog } from "./Dialog";
-import { Props } from "./Dialog.types";
 
-export default {
+const meta = {
   title: "Dialog",
   component: Dialog,
   args: {
+    title: "Dialog title",
     children: (
       <Stack>
         <Heading>Dialog content</Heading>
@@ -22,25 +22,22 @@ export default {
     opened: true,
   },
   argTypes: { onClose: { action: "close" } },
-  parameters: {
-    chromatic: { delay: 300 },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 1200, height: 800 }}>
+        <Story />
+      </div>
+    ),
+  ],
+} satisfies Meta<typeof Dialog>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};
+
+export const NoFocusTrap: Story = {
+  args: {
+    trapFocus: false,
   },
-} as Meta<typeof Dialog>;
-
-const Template: StoryFn<Props> = (args: Props) => (
-  <div>
-    <div>Stuff in the background</div>
-    <Dialog {...args} />
-  </div>
-);
-
-export const Default = Template.bind({});
-Default.args = {
-  title: "Dialog title",
-};
-
-export const NoFocusTrap = Template.bind({});
-NoFocusTrap.args = {
-  title: "Dialog title",
-  trapFocus: false,
 };
