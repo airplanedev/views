@@ -10,6 +10,13 @@ export type Props = {
   children: ReactNode;
   fallback?: ReactNode;
 };
+
+/**
+ * ErrorBoundary is a component that catches errors in its children and displays a fallback UI.
+ *
+ * This is used in the builder to wrap the entire View to catch any errors that aren't caught by
+ * component error boundaries.
+ */
 export class ErrorBoundary extends Component<
   Props,
   { error?: Error; errorInfo?: ErrorInfo; errorID?: string }
