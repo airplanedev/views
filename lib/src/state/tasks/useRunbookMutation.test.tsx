@@ -24,7 +24,7 @@ describe("useRunbookMutation", () => {
 
   it("session succeeds", async () => {
     const { result } = renderQueryHook(() =>
-      useRunbookMutation({ slug: "slug", params: { foo: "bar" } })
+      useRunbookMutation({ slug: "slug", params: { foo: "bar" } }),
     );
 
     const { mutate } = result.current;
@@ -41,7 +41,7 @@ describe("useRunbookMutation", () => {
   it("session succeeds with just a slug", async () => {
     executeRunbookSuccess();
     const { result } = renderQueryHook(() =>
-      useRunbookMutation({ slug: "slug" })
+      useRunbookMutation({ slug: "slug" }),
     );
 
     const { mutate } = result.current;
@@ -75,7 +75,7 @@ describe("useRunbookMutation", () => {
     executeRunbookFail();
 
     const { result } = renderQueryHook(() =>
-      useRunbookMutation({ slug: "slug", params: { foo: "bar" } })
+      useRunbookMutation({ slug: "slug", params: { foo: "bar" } }),
     );
 
     const { mutate } = result.current;
@@ -101,9 +101,9 @@ describe("useRunbookMutation", () => {
           expect((req.body as { slug: string }).slug).toBeTruthy();
           return res(
             ctx.status(403),
-            ctx.json({ error: "Error unauthorized" })
+            ctx.json({ error: "Error unauthorized" }),
           );
-        })
+        }),
       );
       const setState = jest.fn();
 
@@ -123,7 +123,7 @@ describe("useRunbookMutation", () => {
 
       const { result } = renderHook(
         () => useRunbookMutation({ slug: "slug", params: { foo: "bar" } }),
-        { wrapper: RequestDialogProvider }
+        { wrapper: RequestDialogProvider },
       );
 
       const { mutate } = result.current;
@@ -186,7 +186,7 @@ describe("useRunbookMutation", () => {
         }),
         rest.get("http://api/v0/runs/getOutputs", (_, res, ctx) => {
           return res(ctx.json({ output: "value" }));
-        })
+        }),
       );
     });
 
@@ -198,7 +198,7 @@ describe("useRunbookMutation", () => {
             refetchTasks: "query2",
           });
         },
-        { wrapper: WrapperWithQueries }
+        { wrapper: WrapperWithQueries },
       );
 
       const { mutate } = result.current;
@@ -220,7 +220,7 @@ describe("useRunbookMutation", () => {
             refetchTasks: ["query2", "query3"],
           });
         },
-        { wrapper: WrapperWithQueries }
+        { wrapper: WrapperWithQueries },
       );
 
       const { mutate } = result.current;
@@ -249,7 +249,7 @@ describe("useRunbookMutation", () => {
             ],
           });
         },
-        { wrapper: WrapperWithQueries }
+        { wrapper: WrapperWithQueries },
       );
 
       const { mutate } = result.current;
@@ -275,7 +275,7 @@ describe("useRunbookMutation", () => {
         },
         () => {
           return "";
-        }
+        },
       );
 
       const { result } = renderHook(
@@ -285,7 +285,7 @@ describe("useRunbookMutation", () => {
             refetchTasks: myTask,
           });
         },
-        { wrapper: WrapperWithQueries }
+        { wrapper: WrapperWithQueries },
       );
 
       const { mutate } = result.current;
@@ -307,7 +307,7 @@ describe("useRunbookMutation", () => {
         },
         () => {
           return "";
-        }
+        },
       );
       const myTask2 = airplane.task(
         {
@@ -318,7 +318,7 @@ describe("useRunbookMutation", () => {
         },
         () => {
           return "";
-        }
+        },
       );
 
       const { result } = renderHook(
@@ -333,7 +333,7 @@ describe("useRunbookMutation", () => {
             ],
           });
         },
-        { wrapper: WrapperWithQueries }
+        { wrapper: WrapperWithQueries },
       );
 
       const { mutate } = result.current;

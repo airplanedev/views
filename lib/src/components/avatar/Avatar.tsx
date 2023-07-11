@@ -43,10 +43,10 @@ export const AvatarComponent = ({
       const fetcher = new Fetcher();
       return await fetcher.get<{ user: User }>(
         USERS_GET,
-        email ? { email } : { userID }
+        email ? { email } : { userID },
       );
     },
-    { enabled: !!emailOrUserID }
+    { enabled: !!emailOrUserID },
   );
 
   // avatarURL might be an empty string here, in which case we want to make it undefined.

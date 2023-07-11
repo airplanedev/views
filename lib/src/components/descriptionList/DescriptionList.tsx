@@ -85,7 +85,7 @@ export const DescriptionListComponent = ({
 
 export const DescriptionListWithTask = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >({
   task,
   outputTransform,
@@ -94,7 +94,7 @@ export const DescriptionListWithTask = <
 }: DescriptionListPropsWithTask<TParams, TOutput> & SetLatestRunProps) => {
   const fullQuery = useSetLatestRunInTaskQuery<TParams>(task, setLatestRun);
   const { error, loading, output, runID } = useTaskQuery<TParams, TOutput>(
-    fullQuery
+    fullQuery,
   );
 
   const items = output
@@ -121,9 +121,9 @@ export const DescriptionListWithTask = <
 
 export const DescriptionList = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
-  props: DescriptionListProps<TParams, TOutput>
+  props: DescriptionListProps<TParams, TOutput>,
 ) => {
   const [latestRun, setLatestRun] = useState<LatestRun>();
   if (doesUseTask<TParams, TOutput>(props)) {
@@ -154,7 +154,7 @@ function outputToItems<TParams extends ParamValues | undefined, TOutput>(
   outputTransform?: DescriptionListPropsWithTask<
     TParams,
     TOutput
-  >["outputTransform"]
+  >["outputTransform"],
 ): DescriptionListComponentProps["items"] {
   if (!output) {
     return [];
@@ -199,15 +199,15 @@ function unwrapOutput<TOutput>(data: unknown): TOutput {
 }
 
 function doesUseTask<TParams extends ParamValues | undefined, TOutput>(
-  props: DescriptionListProps<TParams, TOutput>
+  props: DescriptionListProps<TParams, TOutput>,
 ): props is DescriptionListPropsWithTask<TParams, TOutput> {
   return Boolean(
-    (props as DescriptionListPropsWithTask<TParams, TOutput>).task
+    (props as DescriptionListPropsWithTask<TParams, TOutput>).task,
   );
 }
 
 function validateItems(
-  items: unknown[] | unknown
+  items: unknown[] | unknown,
 ): items is DescriptionListComponentProps["items"] {
   if (!Array.isArray(items)) return false;
   return items.every((item) => {

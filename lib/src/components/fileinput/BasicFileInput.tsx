@@ -20,7 +20,7 @@ export const BasicFileInputComponent = forwardRef<
       onChange,
       ...restProps
     }: FileInputComponentProps,
-    ref: React.Ref<HTMLButtonElement>
+    ref: React.Ref<HTMLButtonElement>,
   ) => {
     const [loading, setLoading] = useState(false);
     const { onDrop } = useUploadAirplaneFiles({
@@ -64,7 +64,7 @@ export const BasicFileInputComponent = forwardRef<
           </div>
         );
       },
-      [loading]
+      [loading],
     );
     return (
       <MantineFileInput
@@ -76,11 +76,11 @@ export const BasicFileInputComponent = forwardRef<
         ref={ref}
       />
     );
-  }
+  },
 );
 
 const componentValueToMantineValue = (
-  v: FileInputTValue
+  v: FileInputTValue,
 ): File[] | File | null => {
   if (v === undefined) {
     return null;

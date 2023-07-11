@@ -10,9 +10,9 @@ import { ConnectedChart } from "./ConnectedChart";
 
 export const Chart = <
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 >(
-  props: ChartProps<TParams, TOutput>
+  props: ChartProps<TParams, TOutput>,
 ) => {
   const usesTask = doesUseTask<TParams, TOutput>(props);
   const [latestRun, setLatestRun] = useState<LatestRun>();

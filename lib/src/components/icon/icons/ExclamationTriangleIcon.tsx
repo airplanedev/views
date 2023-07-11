@@ -16,7 +16,7 @@ export const ExclamationTriangleIconOutline = forwardRef(
         <HeroExclamationTriangleIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ExclamationTriangleIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ExclamationTriangleIconSolid = forwardRef(
         <HeroExclamationTriangleIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ExclamationTriangleIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ExclamationTriangleIconMini = forwardRef(
         <HeroExclamationTriangleIconMini />
       </Icon>
     );
-  }
+  },
 );

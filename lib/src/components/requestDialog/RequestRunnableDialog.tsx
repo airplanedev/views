@@ -66,7 +66,7 @@ const ResultRow = React.forwardRef<HTMLDivElement, ItemProps>(
         )}
       </div>
     );
-  }
+  },
 );
 ResultRow.displayName = "ResultRow";
 
@@ -82,7 +82,7 @@ type HydratedReviewers = UseQueryResult<
 >[];
 
 export function RequestRunnableDialog<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 >(props: RequestRunnableDialogProps<TParams>) {
   const [selections, setSelections] = useState<string[]>([]);
   const [reason, setReason] = useState("");
@@ -111,9 +111,9 @@ export function RequestRunnableDialog<
         {
           taskSlug: props.taskSlug,
           runbookSlug: props.runbookSlug,
-        }
+        },
       );
-    }
+    },
   );
 
   const { data: entities } = useQuery(
@@ -125,7 +125,7 @@ export function RequestRunnableDialog<
         scope: "all",
       });
     },
-    { staleTime: Infinity, enabled: !hasExplicitPermissions(runnableData) }
+    { staleTime: Infinity, enabled: !hasExplicitPermissions(runnableData) },
   );
 
   const hydratedReviewers = useQueries({
@@ -164,8 +164,8 @@ export function RequestRunnableDialog<
   const reviewersToAdd = newReviewersForSelect.filter(
     (newReviewer) =>
       !reviewersForSelect.current.some(
-        (reviewer) => reviewer.value === newReviewer.value
-      )
+        (reviewer) => reviewer.value === newReviewer.value,
+      ),
   );
   reviewersForSelect.current.push(...reviewersToAdd);
 
@@ -276,7 +276,7 @@ export function RequestRunnableDialog<
 function processQueryOutputs(
   hydratedReviewers: HydratedReviewers,
   runnableData: TaskOrRunbookReviewersResponse | undefined,
-  entities: EntitiesResponse | undefined
+  entities: EntitiesResponse | undefined,
 ) {
   let triggerID = "";
   let reviewersForSelect: { label: string; value: string; ug: UserGroup }[] =
@@ -284,7 +284,7 @@ function processQueryOutputs(
 
   if (runnableData != null) {
     const allUsersAndGroupsFetched = hydratedReviewers.every(
-      (res) => res.status === "success"
+      (res) => res.status === "success",
     );
 
     const triggers =
@@ -363,7 +363,7 @@ function getUserOrGroupFromValue(value: string): UserOrGroup {
   throw new Error("unexpected value: " + value);
 }
 function hasExplicitPermissions(
-  taskOrRunbook?: TaskOrRunbookReviewersResponse
+  taskOrRunbook?: TaskOrRunbookReviewersResponse,
 ): boolean {
   return !!(
     taskOrRunbook?.task?.requireExplicitPermissions ||

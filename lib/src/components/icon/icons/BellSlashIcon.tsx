@@ -16,7 +16,7 @@ export const BellSlashIconOutline = forwardRef(
         <HeroBellSlashIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BellSlashIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BellSlashIconSolid = forwardRef(
         <HeroBellSlashIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BellSlashIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BellSlashIconMini = forwardRef(
         <HeroBellSlashIconMini />
       </Icon>
     );
-  }
+  },
 );

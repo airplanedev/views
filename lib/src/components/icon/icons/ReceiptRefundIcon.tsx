@@ -16,7 +16,7 @@ export const ReceiptRefundIconOutline = forwardRef(
         <HeroReceiptRefundIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ReceiptRefundIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ReceiptRefundIconSolid = forwardRef(
         <HeroReceiptRefundIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ReceiptRefundIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ReceiptRefundIconMini = forwardRef(
         <HeroReceiptRefundIconMini />
       </Icon>
     );
-  }
+  },
 );

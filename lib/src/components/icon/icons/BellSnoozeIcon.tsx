@@ -16,7 +16,7 @@ export const BellSnoozeIconOutline = forwardRef(
         <HeroBellSnoozeIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BellSnoozeIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BellSnoozeIconSolid = forwardRef(
         <HeroBellSnoozeIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BellSnoozeIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BellSnoozeIconMini = forwardRef(
         <HeroBellSnoozeIconMini />
       </Icon>
     );
-  }
+  },
 );

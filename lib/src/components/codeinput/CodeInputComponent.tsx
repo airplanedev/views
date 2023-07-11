@@ -42,7 +42,7 @@ const CodeInputComponent = ({
 }) => {
   const extensions = useMemo(
     () => getExtensions(language, foldGutter),
-    [language, foldGutter]
+    [language, foldGutter],
   );
 
   const hasGutters = lineNumbers || foldGutter;

@@ -16,7 +16,7 @@ export const BriefcaseIconOutline = forwardRef(
         <HeroBriefcaseIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BriefcaseIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BriefcaseIconSolid = forwardRef(
         <HeroBriefcaseIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BriefcaseIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BriefcaseIconMini = forwardRef(
         <HeroBriefcaseIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -16,7 +16,7 @@ export const WrenchScrewdriverIconOutline = forwardRef(
         <HeroWrenchScrewdriverIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const WrenchScrewdriverIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const WrenchScrewdriverIconSolid = forwardRef(
         <HeroWrenchScrewdriverIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const WrenchScrewdriverIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const WrenchScrewdriverIconMini = forwardRef(
         <HeroWrenchScrewdriverIconMini />
       </Icon>
     );
-  }
+  },
 );

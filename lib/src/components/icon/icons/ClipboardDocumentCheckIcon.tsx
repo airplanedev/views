@@ -16,7 +16,7 @@ export const ClipboardDocumentCheckIconOutline = forwardRef(
         <HeroClipboardDocumentCheckIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ClipboardDocumentCheckIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ClipboardDocumentCheckIconSolid = forwardRef(
         <HeroClipboardDocumentCheckIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ClipboardDocumentCheckIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ClipboardDocumentCheckIconMini = forwardRef(
         <HeroClipboardDocumentCheckIconMini />
       </Icon>
     );
-  }
+  },
 );

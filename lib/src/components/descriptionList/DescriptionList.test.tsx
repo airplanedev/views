@@ -6,7 +6,7 @@ import { DescriptionList } from "./DescriptionList";
 describe("DescriptionList", () => {
   it("displays items", async () => {
     const { findByText } = render(
-      <DescriptionList items={[{ term: "One", description: "1" }]} />
+      <DescriptionList items={[{ term: "One", description: "1" }]} />,
     );
 
     await findByText("One");
@@ -21,7 +21,7 @@ describe("DescriptionList", () => {
       });
 
       const { findByText } = render(
-        <DescriptionList task={{ slug: "myTask", params: { foo: "bar" } }} />
+        <DescriptionList task={{ slug: "myTask", params: { foo: "bar" } }} />,
       );
 
       await findByText("One");
@@ -35,7 +35,7 @@ describe("DescriptionList", () => {
       });
 
       const { findByText } = render(
-        <DescriptionList task={{ slug: "myTask", params: { foo: "bar" } }} />
+        <DescriptionList task={{ slug: "myTask", params: { foo: "bar" } }} />,
       );
 
       await findByText("One");
@@ -49,7 +49,7 @@ describe("DescriptionList", () => {
       });
 
       const { findByText } = render(
-        <DescriptionList task={{ slug: "myTask", params: { foo: "bar" } }} />
+        <DescriptionList task={{ slug: "myTask", params: { foo: "bar" } }} />,
       );
 
       await findByText("One");
@@ -69,7 +69,7 @@ describe("DescriptionList", () => {
               description: item.notTerm,
             }))
           }
-        />
+        />,
       );
 
       await findByText("One");
@@ -88,7 +88,7 @@ describe("DescriptionList", () => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             o.map((item: any) => ({ ...item, term: item.term.toUpperCase() }))
           }
-        />
+        />,
       );
 
       await findByText("ONE");
@@ -102,7 +102,7 @@ describe("DescriptionList", () => {
       });
 
       const { findByText } = render(
-        <DescriptionList task={{ slug: "myTask", params: { foo: "bar" } }} />
+        <DescriptionList task={{ slug: "myTask", params: { foo: "bar" } }} />,
       );
 
       await findByText("Something went wrong in the DescriptionList component");

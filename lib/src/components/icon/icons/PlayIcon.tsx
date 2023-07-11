@@ -16,7 +16,7 @@ export const PlayIconOutline = forwardRef(
         <HeroPlayIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const PlayIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const PlayIconSolid = forwardRef(
         <HeroPlayIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const PlayIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const PlayIconMini = forwardRef(
         <HeroPlayIconMini />
       </Icon>
     );
-  }
+  },
 );

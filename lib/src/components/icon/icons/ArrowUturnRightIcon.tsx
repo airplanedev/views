@@ -16,7 +16,7 @@ export const ArrowUturnRightIconOutline = forwardRef(
         <HeroArrowUturnRightIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ArrowUturnRightIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ArrowUturnRightIconSolid = forwardRef(
         <HeroArrowUturnRightIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ArrowUturnRightIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ArrowUturnRightIconMini = forwardRef(
         <HeroArrowUturnRightIconMini />
       </Icon>
     );
-  }
+  },
 );

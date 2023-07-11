@@ -13,7 +13,7 @@ export type ReducerState<TOutput = DefaultOutput> = {
 
 export const reducer = <TOutput = DefaultOutput>(
   state: ReducerState<TOutput>,
-  action: Action<TOutput>
+  action: Action<TOutput>,
 ): ReducerState<TOutput> => {
   switch (action.type) {
     case "setResult": {

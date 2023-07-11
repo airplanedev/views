@@ -5,7 +5,7 @@ import { useSelectState } from "./useSelectState";
 describe("useSelectState", () => {
   it("sets value", () => {
     const { result } = renderHook(() =>
-      useSelectState("id", { initialState: { value: "foo" } })
+      useSelectState("id", { initialState: { value: "foo" } }),
     );
 
     expect(result.current.state.value).toBe("foo");
@@ -18,7 +18,7 @@ describe("useSelectState", () => {
 
   it("sets disabled", () => {
     const { result } = renderHook(() =>
-      useSelectState("id", { initialState: { disabled: true } })
+      useSelectState("id", { initialState: { disabled: true } }),
     );
 
     expect(result.current.state.disabled).toBe(true);

@@ -16,13 +16,13 @@ export type ChartHookOptions = {
  */
 export const useChartState = (
   id: string,
-  options: ChartHookOptions
+  options: ChartHookOptions,
 ): ChartState => {
   const [internalState, dispatch] = useReducer<Reducer<ReducerState, Action>>(
     reducer,
     {
       selectedPoints: [],
-    }
+    },
   );
 
   const changeSelection = useCallback((points: SelectedPoint[]) => {
@@ -46,7 +46,7 @@ export const useChartState = (
       clearSelection,
       componentType: ComponentType.Chart,
     }),
-    [id, changeSelection, clearSelection, internalState.selectedPoints]
+    [id, changeSelection, clearSelection, internalState.selectedPoints],
   );
   useSyncComponentState(id, state);
 

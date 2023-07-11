@@ -18,7 +18,7 @@ const INITIAL_VALUE: (string | number)[] = [];
  */
 export const useMultiSelectState = (
   id: string,
-  options?: MultiSelectHookOptions
+  options?: MultiSelectHookOptions,
 ): { state: MultiSelectState; dispatch: Dispatch<Action> } => {
   const initialState = {
     value: options?.initialState?.value ?? INITIAL_VALUE,
@@ -38,7 +38,7 @@ export const useMultiSelectState = (
       id,
       componentType: ComponentType.MultiSelect,
     }),
-    [internalState, id, stateSetters]
+    [internalState, id, stateSetters],
   );
   useSyncComponentState(id, state);
 

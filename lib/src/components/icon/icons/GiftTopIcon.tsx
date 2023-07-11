@@ -16,7 +16,7 @@ export const GiftTopIconOutline = forwardRef(
         <HeroGiftTopIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const GiftTopIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const GiftTopIconSolid = forwardRef(
         <HeroGiftTopIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const GiftTopIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const GiftTopIconMini = forwardRef(
         <HeroGiftTopIconMini />
       </Icon>
     );
-  }
+  },
 );

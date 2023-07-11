@@ -16,7 +16,7 @@ export const CalendarIconOutline = forwardRef(
         <HeroCalendarIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CalendarIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CalendarIconSolid = forwardRef(
         <HeroCalendarIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CalendarIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CalendarIconMini = forwardRef(
         <HeroCalendarIconMini />
       </Icon>
     );
-  }
+  },
 );

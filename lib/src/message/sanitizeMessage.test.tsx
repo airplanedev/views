@@ -18,14 +18,14 @@ describe("sanitizeMessage", () => {
   it("should replace functions with string with prefix", () => {
     const obj = EMPTY_FUNCTION;
     expect(sanitizeMessage(obj)).toStrictEqual(
-      FUNCTION_PREFIX + objectInspect(EMPTY_FUNCTION)
+      FUNCTION_PREFIX + objectInspect(EMPTY_FUNCTION),
     );
   });
 
   it("should replace elements with string with prefix", () => {
     const obj = document.createElement("div");
     expect(sanitizeMessage(obj)).toStrictEqual(
-      ELEMENT_PREFIX + objectInspect(obj)
+      ELEMENT_PREFIX + objectInspect(obj),
     );
   });
 

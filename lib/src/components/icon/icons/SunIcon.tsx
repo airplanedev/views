@@ -16,7 +16,7 @@ export const SunIconOutline = forwardRef(
         <HeroSunIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const SunIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const SunIconSolid = forwardRef(
         <HeroSunIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const SunIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const SunIconMini = forwardRef(
         <HeroSunIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -16,7 +16,7 @@ export const CpuChipIconOutline = forwardRef(
         <HeroCpuChipIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CpuChipIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CpuChipIconSolid = forwardRef(
         <HeroCpuChipIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CpuChipIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CpuChipIconMini = forwardRef(
         <HeroCpuChipIconMini />
       </Icon>
     );
-  }
+  },
 );

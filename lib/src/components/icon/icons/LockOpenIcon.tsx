@@ -16,7 +16,7 @@ export const LockOpenIconOutline = forwardRef(
         <HeroLockOpenIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const LockOpenIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const LockOpenIconSolid = forwardRef(
         <HeroLockOpenIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const LockOpenIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const LockOpenIconMini = forwardRef(
         <HeroLockOpenIconMini />
       </Icon>
     );
-  }
+  },
 );

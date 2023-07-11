@@ -16,7 +16,7 @@ export const CloudIconOutline = forwardRef(
         <HeroCloudIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CloudIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CloudIconSolid = forwardRef(
         <HeroCloudIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CloudIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CloudIconMini = forwardRef(
         <HeroCloudIconMini />
       </Icon>
     );
-  }
+  },
 );

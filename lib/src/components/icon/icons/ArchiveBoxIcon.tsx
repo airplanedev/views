@@ -16,7 +16,7 @@ export const ArchiveBoxIconOutline = forwardRef(
         <HeroArchiveBoxIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ArchiveBoxIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ArchiveBoxIconSolid = forwardRef(
         <HeroArchiveBoxIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ArchiveBoxIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ArchiveBoxIconMini = forwardRef(
         <HeroArchiveBoxIconMini />
       </Icon>
     );
-  }
+  },
 );

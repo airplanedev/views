@@ -2,7 +2,7 @@ import { CSSObject, MantineTheme } from "@mantine/core";
 
 export const getEditIconStyle = (
   theme: MantineTheme,
-  backgroundColor: string
+  backgroundColor: string,
 ): CSSObject => ({
   position: "absolute",
   color: theme.colors.gray[3],

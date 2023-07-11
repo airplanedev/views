@@ -16,7 +16,7 @@ export type RadioGroupHookOptions = {
  */
 export const useRadioGroupState = (
   id: string,
-  options?: RadioGroupHookOptions
+  options?: RadioGroupHookOptions,
 ): { state: RadioGroupState; dispatch: Dispatch<Action> } => {
   const initialState = {
     value: options?.initialState?.value ?? undefined,
@@ -36,7 +36,7 @@ export const useRadioGroupState = (
       id,
       componentType: ComponentType.RadioGroup,
     }),
-    [internalState, id, stateSetters]
+    [internalState, id, stateSetters],
   );
   useSyncComponentState(id, state);
 

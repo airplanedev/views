@@ -16,7 +16,7 @@ export const StopIconOutline = forwardRef(
         <HeroStopIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const StopIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const StopIconSolid = forwardRef(
         <HeroStopIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const StopIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const StopIconMini = forwardRef(
         <HeroStopIconMini />
       </Icon>
     );
-  }
+  },
 );

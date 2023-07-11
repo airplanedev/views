@@ -16,7 +16,7 @@ export const ListBulletIconOutline = forwardRef(
         <HeroListBulletIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ListBulletIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ListBulletIconSolid = forwardRef(
         <HeroListBulletIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ListBulletIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ListBulletIconMini = forwardRef(
         <HeroListBulletIconMini />
       </Icon>
     );
-  }
+  },
 );

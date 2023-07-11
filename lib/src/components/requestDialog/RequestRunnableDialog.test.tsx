@@ -28,9 +28,9 @@ const testCases = [
                 ],
               },
               reviewers: [{ userID: "usr1" }],
-            })
+            }),
           );
-        })
+        }),
       );
       server.use(
         rest.get("http://api/v0/users/get", (_, res, ctx) => {
@@ -41,14 +41,14 @@ const testCases = [
                 name: "George Du",
                 avatarURL: "",
               },
-            })
+            }),
           );
-        })
+        }),
       );
       server.use(
         rest.get("http://api/v0/entities/search", (_, res, ctx) => {
           throw new Error("Should not be called");
-        })
+        }),
       );
     },
     taskSlug: "exit_1",
@@ -73,9 +73,9 @@ const testCases = [
                 ],
               },
               reviewers: [{ userID: "usr1" }],
-            })
+            }),
           );
-        })
+        }),
       );
       server.use(
         rest.get("http://api/v0/users/get", (_, res, ctx) => {
@@ -86,14 +86,14 @@ const testCases = [
                 email: "George Du",
                 avatarURL: "",
               },
-            })
+            }),
           );
-        })
+        }),
       );
       server.use(
         rest.get("http://api/v0/entities/search", (_, res, ctx) => {
           throw new Error("Should not be called");
-        })
+        }),
       );
     },
     taskSlug: "exit_1",
@@ -118,9 +118,9 @@ const testCases = [
                 ],
               },
               reviewers: [{ userID: "usr1" }],
-            })
+            }),
           );
-        })
+        }),
       );
       server.use(
         rest.get("http://api/v0/users/get", (_, res, ctx) => {
@@ -131,9 +131,9 @@ const testCases = [
                 name: "unused",
                 avatarURL: "unused",
               },
-            })
+            }),
           );
-        })
+        }),
       );
       server.use(
         rest.get("http://api/v0/entities/search", (_, res, ctx) => {
@@ -148,9 +148,9 @@ const testCases = [
                   },
                 },
               ],
-            })
+            }),
           );
-        })
+        }),
       );
     },
     taskSlug: "exit_1",
@@ -175,9 +175,9 @@ const testCases = [
                 ],
               },
               reviewers: [{ userID: "usr1" }],
-            })
+            }),
           );
-        })
+        }),
       );
       server.use(
         rest.get("http://api/v0/users/get", (_, res, ctx) => {
@@ -188,14 +188,14 @@ const testCases = [
                 name: "George Du",
                 avatarURL: "",
               },
-            })
+            }),
           );
-        })
+        }),
       );
       server.use(
         rest.get("http://api/v0/entities/search", (_, res, ctx) => {
           throw new Error("Should not be called");
-        })
+        }),
       );
     },
     runbookSlug: "runbook_1",
@@ -220,9 +220,9 @@ const testCases = [
                 ],
               },
               reviewers: [{ userID: "usr1" }],
-            })
+            }),
           );
-        })
+        }),
       );
       server.use(
         rest.get("http://api/v0/users/get", (_, res, ctx) => {
@@ -233,9 +233,9 @@ const testCases = [
                 name: "unused",
                 avatarURL: "unused",
               },
-            })
+            }),
           );
-        })
+        }),
       );
       server.use(
         rest.get("http://api/v0/entities/search", (_, res, ctx) => {
@@ -250,9 +250,9 @@ const testCases = [
                   },
                 },
               ],
-            })
+            }),
           );
-        })
+        }),
       );
     },
     runbookSlug: "runbook_1",
@@ -272,7 +272,7 @@ describe("RequestRunnableDialog", () => {
           expect(b.triggerID).toEqual("trg1");
           expect(b.reviewers).toEqual([{ userID: "usr1" }]);
           return res(ctx.json({ triggerRequestID: "trg1" }));
-        })
+        }),
       );
       let onSubmitDone = false;
       const TestC = () => {

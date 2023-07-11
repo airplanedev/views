@@ -13,7 +13,7 @@ export const useFormState = (id: string) => {
 
   const reset = useCallback(() => {
     const inputResets = Object.values(inputData).map(
-      (input) => input.state.reset
+      (input) => input.state.reset,
     );
     for (const inputReset of inputResets) {
       inputReset();
@@ -31,7 +31,7 @@ export const useFormState = (id: string) => {
       reset,
       componentType: ComponentType.Form,
     }),
-    [id, values, reset]
+    [id, values, reset],
   );
   useSyncComponentState(id, state);
 

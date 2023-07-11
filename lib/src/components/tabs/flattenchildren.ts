@@ -12,7 +12,7 @@ import { isFragment } from "react-is";
 export default function flattenChildren(
   children: ReactNode,
   depth = 0,
-  keys: (string | number)[] = []
+  keys: (string | number)[] = [],
 ): ReactChild[] {
   return Children.toArray(children).reduce(
     (acc: ReactChild[], node, nodeIndex) => {
@@ -23,15 +23,15 @@ export default function flattenChildren(
           flattenChildren(
             node.props.children,
             depth + 1,
-            keys.concat(node.key || nodeIndex)
-          )
+            keys.concat(node.key || nodeIndex),
+          ),
         );
       } else {
         if (isValidElement(node)) {
           acc.push(
             cloneElement(node, {
               key: keys.concat(String(node.key)).join("."),
-            })
+            }),
           );
         } else if (typeof node === "string" || typeof node === "number") {
           acc.push(node);
@@ -39,6 +39,6 @@ export default function flattenChildren(
       }
       return acc;
     },
-    []
+    [],
   );
 }

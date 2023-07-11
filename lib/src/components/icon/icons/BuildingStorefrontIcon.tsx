@@ -16,7 +16,7 @@ export const BuildingStorefrontIconOutline = forwardRef(
         <HeroBuildingStorefrontIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BuildingStorefrontIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BuildingStorefrontIconSolid = forwardRef(
         <HeroBuildingStorefrontIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BuildingStorefrontIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BuildingStorefrontIconMini = forwardRef(
         <HeroBuildingStorefrontIconMini />
       </Icon>
     );
-  }
+  },
 );

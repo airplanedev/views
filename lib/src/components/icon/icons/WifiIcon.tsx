@@ -16,7 +16,7 @@ export const WifiIconOutline = forwardRef(
         <HeroWifiIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const WifiIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const WifiIconSolid = forwardRef(
         <HeroWifiIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const WifiIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const WifiIconMini = forwardRef(
         <HeroWifiIconMini />
       </Icon>
     );
-  }
+  },
 );

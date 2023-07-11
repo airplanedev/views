@@ -19,7 +19,7 @@ export const QueryClientProvider = ({
 }: QueryClientProviderProps) => {
   const queryClient = useMemo(
     () => new QueryClient(queryClientConfig),
-    [queryClientConfig]
+    [queryClientConfig],
   );
   return (
     <ReactQueryClientProvider client={queryClient}>

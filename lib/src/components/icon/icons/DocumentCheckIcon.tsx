@@ -16,7 +16,7 @@ export const DocumentCheckIconOutline = forwardRef(
         <HeroDocumentCheckIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const DocumentCheckIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const DocumentCheckIconSolid = forwardRef(
         <HeroDocumentCheckIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const DocumentCheckIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const DocumentCheckIconMini = forwardRef(
         <HeroDocumentCheckIconMini />
       </Icon>
     );
-  }
+  },
 );

@@ -51,7 +51,7 @@ export default {
 
 const createStory = <P extends CommonLayoutProps>(
   Component: ComponentType<P>,
-  props: P
+  props: P,
 ) => {
   return function LayoutStory() {
     return (

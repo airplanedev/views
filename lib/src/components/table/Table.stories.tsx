@@ -28,7 +28,7 @@ import {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = <T extends object = Record<string, any>>(
-  args: TableProps<T>
+  args: TableProps<T>,
 ) => <Table<T> {...args} />;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TemplateFn = <T extends object = Record<string, any>>(): StoryFn<
@@ -250,7 +250,7 @@ CustomizedRowActions.play = async ({
   setTimeout(
     async () =>
       await userEvent.click((await canvas.findAllByText("Delete"))[0]),
-    750
+    750,
   );
 };
 CustomizedRowActions.parameters = {
@@ -288,7 +288,7 @@ export const ControlledSelection = () => {
         setUsername(row.username);
       }
     },
-    [setUsername, username]
+    [setUsername, username],
   );
   return (
     <Stack>
@@ -338,11 +338,11 @@ export const ControlledMultiSelection = () => {
         setUsernames([...usernames, row.username]);
       }
     },
-    [setUsernames, usernames]
+    [setUsernames, usernames],
   );
   const isSelectedRow = useCallback(
     (row: SimpleUser) => usernames.includes(row.username),
-    [usernames]
+    [usernames],
   );
   return (
     <Stack>
@@ -429,7 +429,7 @@ NullData.args = {
   columns: Object.values(NULL_DATA_COLUMNS),
   data: [
     Object.fromEntries(
-      Object.keys(NULL_DATA_COLUMNS).map((key) => [key, null])
+      Object.keys(NULL_DATA_COLUMNS).map((key) => [key, null]),
     ),
   ],
 };

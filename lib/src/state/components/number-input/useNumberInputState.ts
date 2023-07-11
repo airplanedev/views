@@ -16,7 +16,7 @@ export type InputHookOptions = {
 const clipMinAndMax = (
   value?: number,
   min?: number,
-  max?: number
+  max?: number,
 ): number | undefined => {
   if (value === undefined) {
     return value;
@@ -37,7 +37,7 @@ export const getUseNumberInputState =
   (componentType: ComponentType.NumberInput | ComponentType.Slider) =>
   (
     id: string,
-    options?: InputHookOptions
+    options?: InputHookOptions,
   ): { state: NumberInputState; dispatch: Dispatch<Action> } => {
     const initialState = {
       value: options?.initialState?.value,
@@ -59,7 +59,7 @@ export const getUseNumberInputState =
         id,
         componentType,
       }),
-      [internalState, id, stateSetters, options?.min, options?.max]
+      [internalState, id, stateSetters, options?.min, options?.max],
     );
     useSyncComponentState(id, state);
 
@@ -67,6 +67,6 @@ export const getUseNumberInputState =
   };
 
 export const useNumberInputState = getUseNumberInputState(
-  ComponentType.NumberInput
+  ComponentType.NumberInput,
 );
 export const useSliderState = getUseNumberInputState(ComponentType.Slider);

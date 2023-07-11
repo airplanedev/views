@@ -31,7 +31,7 @@ describe("useTaskMutation", () => {
         params: { foo: "bar" },
         onError,
         onSuccess,
-      })
+      }),
     );
 
     const { mutate } = result.current;
@@ -55,7 +55,7 @@ describe("useTaskMutation", () => {
       useTaskMutation({
         slug: "slug",
         params: { foo: "bar" },
-      })
+      }),
     );
 
     const { mutate } = result.current;
@@ -109,7 +109,7 @@ describe("useTaskMutation", () => {
         onSuccess: (output, runID) => {
           mockOnSuccess();
         },
-      })
+      }),
     );
 
     const { mutate } = result.current;
@@ -155,11 +155,11 @@ describe("useTaskMutation", () => {
       },
       (params) => {
         return "";
-      }
+      },
     );
 
     const { result } = renderQueryHook(() =>
-      useTaskMutation({ fn: myTask, params: { foo: "bar" } })
+      useTaskMutation({ fn: myTask, params: { foo: "bar" } }),
     );
 
     const { mutate } = result.current;
@@ -184,7 +184,7 @@ describe("useTaskMutation", () => {
       },
       () => {
         return "";
-      }
+      },
     );
 
     const { result } = renderQueryHook(() => useTaskMutation(myTask));
@@ -210,9 +210,9 @@ describe("useTaskMutation", () => {
           expect((req.body as { slug: string }).slug).toBeTruthy();
           return res(
             ctx.status(403),
-            ctx.json({ error: "Error unauthorized" })
+            ctx.json({ error: "Error unauthorized" }),
           );
-        })
+        }),
       );
       const setState = jest.fn();
 
@@ -232,7 +232,7 @@ describe("useTaskMutation", () => {
 
       const { result } = renderHook(
         () => useTaskMutation({ slug: "slug", params: { foo: "bar" } }),
-        { wrapper: RequestDialogProvider }
+        { wrapper: RequestDialogProvider },
       );
 
       const { mutate } = result.current;
@@ -267,7 +267,7 @@ describe("useTaskMutation", () => {
         params: { foo: "bar" },
         onError,
         onSuccess,
-      })
+      }),
     );
 
     const { mutate } = result.current;
@@ -298,7 +298,7 @@ describe("useTaskMutation", () => {
       useTaskMutation({
         slug: "slug",
         params: { foo: "bar" },
-      })
+      }),
     );
 
     const { mutate } = result.current;
@@ -351,7 +351,7 @@ describe("useTaskMutation", () => {
         }),
         rest.get("http://api/v0/runs/getOutputs", (_, res, ctx) => {
           return res(ctx.json({ output: "value" }));
-        })
+        }),
       );
     });
 
@@ -363,7 +363,7 @@ describe("useTaskMutation", () => {
             refetchTasks: "query2",
           });
         },
-        { wrapper: WrapperWithQueries }
+        { wrapper: WrapperWithQueries },
       );
 
       const { mutate } = result.current;
@@ -382,7 +382,7 @@ describe("useTaskMutation", () => {
             refetchTasks: ["query2", "query3"],
           });
         },
-        { wrapper: WrapperWithQueries }
+        { wrapper: WrapperWithQueries },
       );
 
       const { mutate } = result.current;
@@ -407,7 +407,7 @@ describe("useTaskMutation", () => {
             ],
           });
         },
-        { wrapper: WrapperWithQueries }
+        { wrapper: WrapperWithQueries },
       );
 
       const { mutate } = result.current;
@@ -429,7 +429,7 @@ describe("useTaskMutation", () => {
         },
         () => {
           return "";
-        }
+        },
       );
 
       const { result } = renderHook(
@@ -439,7 +439,7 @@ describe("useTaskMutation", () => {
             refetchTasks: myTask,
           });
         },
-        { wrapper: WrapperWithQueries }
+        { wrapper: WrapperWithQueries },
       );
 
       const { mutate } = result.current;
@@ -458,7 +458,7 @@ describe("useTaskMutation", () => {
         },
         () => {
           return "";
-        }
+        },
       );
       const myTask2 = airplane.task(
         {
@@ -469,7 +469,7 @@ describe("useTaskMutation", () => {
         },
         () => {
           return "";
-        }
+        },
       );
 
       const { result } = renderHook(
@@ -484,7 +484,7 @@ describe("useTaskMutation", () => {
             ],
           });
         },
-        { wrapper: WrapperWithQueries }
+        { wrapper: WrapperWithQueries },
       );
 
       const { mutate } = result.current;

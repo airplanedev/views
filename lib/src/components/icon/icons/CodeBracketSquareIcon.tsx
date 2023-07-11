@@ -16,7 +16,7 @@ export const CodeBracketSquareIconOutline = forwardRef(
         <HeroCodeBracketSquareIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CodeBracketSquareIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CodeBracketSquareIconSolid = forwardRef(
         <HeroCodeBracketSquareIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CodeBracketSquareIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CodeBracketSquareIconMini = forwardRef(
         <HeroCodeBracketSquareIconMini />
       </Icon>
     );
-  }
+  },
 );

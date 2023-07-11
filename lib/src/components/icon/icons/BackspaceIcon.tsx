@@ -16,7 +16,7 @@ export const BackspaceIconOutline = forwardRef(
         <HeroBackspaceIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BackspaceIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BackspaceIconSolid = forwardRef(
         <HeroBackspaceIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BackspaceIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BackspaceIconMini = forwardRef(
         <HeroBackspaceIconMini />
       </Icon>
     );
-  }
+  },
 );

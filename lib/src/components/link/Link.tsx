@@ -17,7 +17,7 @@ export const LinkWithoutRef = ({
   ...props
 }: Props & { innerRef: Ref<HTMLAnchorElement> }) => {
   const [linkHref, setLinkHref] = useState(() =>
-    typeof href === "string" ? href : ""
+    typeof href === "string" ? href : "",
   );
   const { getHref } = useRouter();
   useEffect(() => {
@@ -54,14 +54,14 @@ export const LinkWithoutRef = ({
 export const Link = forwardRef(
   (
     { newTab = true, size = "md", ...props }: Props,
-    ref: Ref<HTMLAnchorElement>
+    ref: Ref<HTMLAnchorElement>,
   ) => {
     return (
       <ComponentErrorBoundary componentName={DISPLAY_NAME}>
         <LinkWithoutRef {...props} newTab={newTab} size={size} innerRef={ref} />
       </ComponentErrorBoundary>
     );
-  }
+  },
 );
 const DISPLAY_NAME = "Link";
 Link.displayName = DISPLAY_NAME;

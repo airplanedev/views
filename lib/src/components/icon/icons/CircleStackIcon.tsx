@@ -16,7 +16,7 @@ export const CircleStackIconOutline = forwardRef(
         <HeroCircleStackIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CircleStackIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CircleStackIconSolid = forwardRef(
         <HeroCircleStackIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CircleStackIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CircleStackIconMini = forwardRef(
         <HeroCircleStackIconMini />
       </Icon>
     );
-  }
+  },
 );

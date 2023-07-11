@@ -87,7 +87,7 @@ const FormWithRunnable = <TOutput,>({
         : "fn" in runnableDef
         ? { ...runnableDef, slug: getSlug(getFullQuery(runnableDef.fn)) }
         : runnableDef,
-    [runnableDef]
+    [runnableDef],
   );
   const prefix = `${props.id}.`;
   const requestDialogContext = useContext(RequestDialogContext);
@@ -107,9 +107,9 @@ const FormWithRunnable = <TOutput,>({
           actions: task
             ? ["tasks.execute", "tasks.request_run"]
             : ["runbooks.execute", "trigger_requests.create"],
-        }
+        },
       );
-    }
+    },
   );
 
   const {
@@ -125,9 +125,9 @@ const FormWithRunnable = <TOutput,>({
         {
           taskSlug: task && opts.slug,
           runbookSlug: runbook && opts.slug,
-        }
+        },
       );
-    }
+    },
   );
 
   const params =
@@ -138,14 +138,14 @@ const FormWithRunnable = <TOutput,>({
     const visibleParams = params?.filter(
       (v) =>
         (!opts.shownFields || opts.shownFields.includes(v.slug)) &&
-        (!opts.hiddenFields || !opts.hiddenFields.includes(v.slug))
+        (!opts.hiddenFields || !opts.hiddenFields.includes(v.slug)),
     );
     return visibleParams?.map((param, index) => {
       return parameterToInput(
         param,
         index,
         prefix,
-        opts.fieldOptions?.find((opt: FieldOption) => param.slug === opt.slug)
+        opts.fieldOptions?.find((opt: FieldOption) => param.slug === opt.slug),
       );
     });
   }, [params, opts, prefix]);
@@ -185,19 +185,19 @@ const FormWithRunnable = <TOutput,>({
   const paramMetadata = Object.fromEntries(
     params.map((v, i) => {
       return [v.slug, v.type];
-    })
+    }),
   );
 
   const { canExecute, canRequest } = task
     ? processPermissionsQueryResult(
         permissionsStatus,
         permissionsData!.resource["tasks.execute"],
-        permissionsData!.resource["tasks.request_run"]
+        permissionsData!.resource["tasks.request_run"],
       )
     : processPermissionsQueryResult(
         permissionsStatus,
         permissionsData!.resource["runbooks.execute"],
-        permissionsData!.resource["trigger_requests.create"]
+        permissionsData!.resource["trigger_requests.create"],
       );
 
   const newOnSubmit = (formValues: State) => {
@@ -221,11 +221,12 @@ const FormWithRunnable = <TOutput,>({
         // Extract the first element of file inputs
         .map(([key, val]) => {
           if (paramMetadata[key] === "upload") {
-            return [key, val?.length ? val[0] : undefined];
+            const fileVal = val as File | File[];
+            return [key, Array.isArray(fileVal) ? fileVal[0] : fileVal];
           } else {
             return [key, val];
           }
-        })
+        }),
     );
 
     const executeRunnable = async () => {
@@ -249,7 +250,7 @@ const FormWithRunnable = <TOutput,>({
           opts.onError?.(
             executeResult.output,
             executeResult.error,
-            executeResult.runID
+            executeResult.runID,
           );
         }
       } else {
@@ -289,7 +290,7 @@ const FormWithRunnable = <TOutput,>({
       k.startsWith(prefix) ? k.substring(prefix.length) : k;
 
     const valuesWithoutPrefix = Object.fromEntries(
-      Object.entries(rawFormValues).map(([k, v]) => [maybeRemovePrefix(k), v])
+      Object.entries(rawFormValues).map(([k, v]) => [maybeRemovePrefix(k), v]),
     );
 
     return beforeSubmitTransform
@@ -354,7 +355,7 @@ const InnerForm = ({
           }
           setShowErrors(formInputs, false);
           onSubmit?.(
-            beforeSubmitTransform ? beforeSubmitTransform(values) : values
+            beforeSubmitTransform ? beforeSubmitTransform(values) : values,
           );
         } else {
           setShowErrors(formInputs, true);
@@ -404,13 +405,13 @@ const hasErrors = (formInputs: FormInputs) =>
 
 const isButtonDisabled = (formInputs: FormInputs) =>
   Object.values(formInputs).some(
-    (state) => state.state.errors.length > 0 && state.state.showErrors
+    (state) => state.state.errors.length > 0 && state.state.showErrors,
   );
 
 function processPermissionsQueryResult(
   status: string,
   apiCanExecute: boolean,
-  apiCanRequest: boolean
+  apiCanRequest: boolean,
 ): { canExecute: boolean; canRequest: boolean } {
   let canExecute = true;
   let canRequest = false;

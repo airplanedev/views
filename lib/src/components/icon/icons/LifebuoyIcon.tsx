@@ -16,7 +16,7 @@ export const LifebuoyIconOutline = forwardRef(
         <HeroLifebuoyIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const LifebuoyIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const LifebuoyIconSolid = forwardRef(
         <HeroLifebuoyIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const LifebuoyIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const LifebuoyIconMini = forwardRef(
         <HeroLifebuoyIconMini />
       </Icon>
     );
-  }
+  },
 );

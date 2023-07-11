@@ -15,10 +15,10 @@ describe("Chart", () => {
   };
   it("renders Chart", async () => {
     const { container, getByText } = render(
-      <Chart type="line" data={data} title="My Chart" />
+      <Chart type="line" data={data} title="My Chart" />,
     );
     await waitFor(async () =>
-      expect(container.querySelector(".js-plotly-plot")).toBeTruthy()
+      expect(container.querySelector(".js-plotly-plot")).toBeTruthy(),
     );
     expect(getByText("My Chart")).toBeVisible();
     expect(getByText("User Count")).toBeVisible();
@@ -57,7 +57,7 @@ describe("Chart", () => {
       const { container, findByText } = render(<TestC />);
 
       await waitFor(async () =>
-        expect(container.querySelector(".js-plotly-plot")).toBeTruthy()
+        expect(container.querySelector(".js-plotly-plot")).toBeTruthy(),
       );
       await waitFor(() => expect(mockCallback.mock.calls.length).toBe(1));
       await findByText("My Chart");
@@ -77,11 +77,11 @@ describe("Chart", () => {
             x: output.x,
             "Member Count": output["User Count"],
           })}
-        />
+        />,
       );
 
       await waitFor(async () =>
-        expect(container.querySelector(".js-plotly-plot")).toBeTruthy()
+        expect(container.querySelector(".js-plotly-plot")).toBeTruthy(),
       );
       await waitFor(() => expect(mockCallback.mock.calls.length).toBe(1));
       await findByText("My Chart");
@@ -97,7 +97,7 @@ describe("Chart", () => {
       const { container, findByText } = render(<TestC />);
 
       await waitFor(async () =>
-        expect(container.querySelector(".js-plotly-plot")).toBeTruthy()
+        expect(container.querySelector(".js-plotly-plot")).toBeTruthy(),
       );
       await waitFor(() => expect(mockCallback.mock.calls.length).toBe(1));
       await findByText("My Chart");
@@ -128,7 +128,7 @@ describe("Chart", () => {
               // @ts-expect-error
               data.Q7.map((d) => ({ ...d, name: "test" }))
             }
-          />
+          />,
         );
         await screen.findAllByRole("dialog");
         await screen.findByText("Something went wrong in the Chart component");

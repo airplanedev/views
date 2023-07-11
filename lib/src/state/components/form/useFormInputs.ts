@@ -27,7 +27,7 @@ export const useFormInputs = (): FormInputs => {
   const { formTypeByID } = useContext(FormContext);
   const componentState = useContext(ComponentStateContext);
   let inputComponents = Object.keys(formTypeByID).map(
-    (id) => componentState.components[id]
+    (id) => componentState.components[id],
   );
   if (shallowEqual(inputComponents, memoizedInputComponents.current)) {
     inputComponents = memoizedInputComponents.current;

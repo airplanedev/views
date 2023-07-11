@@ -19,7 +19,7 @@ export type InputAction<TValue> =
 
 export const inputReducer = <TValue>(
   state: InputState<TValue>,
-  action: InputAction<TValue>
+  action: InputAction<TValue>,
 ): InputState<TValue> => {
   switch (action.type) {
     case "setValue": {

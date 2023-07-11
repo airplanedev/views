@@ -16,7 +16,7 @@ export const BuildingLibraryIconOutline = forwardRef(
         <HeroBuildingLibraryIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const BuildingLibraryIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const BuildingLibraryIconSolid = forwardRef(
         <HeroBuildingLibraryIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const BuildingLibraryIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const BuildingLibraryIconMini = forwardRef(
         <HeroBuildingLibraryIconMini />
       </Icon>
     );
-  }
+  },
 );

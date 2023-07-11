@@ -16,7 +16,7 @@ export const GlobeAsiaAustraliaIconOutline = forwardRef(
         <HeroGlobeAsiaAustraliaIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const GlobeAsiaAustraliaIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const GlobeAsiaAustraliaIconSolid = forwardRef(
         <HeroGlobeAsiaAustraliaIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const GlobeAsiaAustraliaIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const GlobeAsiaAustraliaIconMini = forwardRef(
         <HeroGlobeAsiaAustraliaIconMini />
       </Icon>
     );
-  }
+  },
 );

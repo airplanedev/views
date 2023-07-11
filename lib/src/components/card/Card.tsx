@@ -11,7 +11,7 @@ export const Card = forwardRef(
     <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <CardWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
-  )
+  ),
 );
 const DISPLAY_NAME = "Card";
 Card.displayName = DISPLAY_NAME;

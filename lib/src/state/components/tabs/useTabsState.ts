@@ -15,7 +15,7 @@ export type TabsHookOptions = {
  */
 export const useTabsState = (
   id: string,
-  options?: TabsHookOptions
+  options?: TabsHookOptions,
 ): TabsState => {
   const [internalState, dispatch] = useReducer(reducer, {
     value: options?.initialState?.value,
@@ -35,7 +35,7 @@ export const useTabsState = (
       value: internalState.value,
       componentType: ComponentType.Tabs,
     }),
-    [id, internalState.value, setValue]
+    [id, internalState.value, setValue],
   );
   useSyncComponentState(id, state);
 

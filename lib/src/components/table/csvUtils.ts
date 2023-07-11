@@ -11,7 +11,7 @@ function arrayToCSVRow<TData>(array: Array<TData>): string {
 
 export function dataToCSVLink<TData>(
   columns: string[],
-  data: Array<Array<TData>>
+  data: Array<Array<TData>>,
 ): string {
   const columnRows = arrayToCSVRow(columns);
   const dataRows = data.map((row) => arrayToCSVRow(row));

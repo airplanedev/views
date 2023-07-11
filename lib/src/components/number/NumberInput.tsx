@@ -23,7 +23,7 @@ import {
 export const NumberInputComponent = forwardRef(
   (
     { width, ...props }: NumberInputComponentProps,
-    ref: React.Ref<HTMLInputElement>
+    ref: React.Ref<HTMLInputElement>,
   ) => {
     let parser;
     let formatter;
@@ -42,7 +42,7 @@ export const NumberInputComponent = forwardRef(
         ref={ref}
       />
     );
-  }
+  },
 );
 
 export const NumberInput = forwardRef(
@@ -50,11 +50,11 @@ export const NumberInput = forwardRef(
     <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <NumberInputWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
-  )
+  ),
 );
 
 export const NumberInputWithoutRef = (
-  props: NumberInputProps & { innerRef: React.Ref<HTMLInputElement> }
+  props: NumberInputProps & { innerRef: React.Ref<HTMLInputElement> },
 ) => {
   const id = useComponentId(props.id);
   const { state, dispatch } = useNumberInputState(id, {

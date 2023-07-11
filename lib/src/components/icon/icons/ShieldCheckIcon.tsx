@@ -16,7 +16,7 @@ export const ShieldCheckIconOutline = forwardRef(
         <HeroShieldCheckIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ShieldCheckIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ShieldCheckIconSolid = forwardRef(
         <HeroShieldCheckIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ShieldCheckIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ShieldCheckIconMini = forwardRef(
         <HeroShieldCheckIconMini />
       </Icon>
     );
-  }
+  },
 );

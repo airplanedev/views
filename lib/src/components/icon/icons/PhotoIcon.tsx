@@ -16,7 +16,7 @@ export const PhotoIconOutline = forwardRef(
         <HeroPhotoIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const PhotoIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const PhotoIconSolid = forwardRef(
         <HeroPhotoIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const PhotoIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const PhotoIconMini = forwardRef(
         <HeroPhotoIconMini />
       </Icon>
     );
-  }
+  },
 );

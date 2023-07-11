@@ -16,7 +16,7 @@ export const CheckBadgeIconOutline = forwardRef(
         <HeroCheckBadgeIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CheckBadgeIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CheckBadgeIconSolid = forwardRef(
         <HeroCheckBadgeIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CheckBadgeIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CheckBadgeIconMini = forwardRef(
         <HeroCheckBadgeIconMini />
       </Icon>
     );
-  }
+  },
 );

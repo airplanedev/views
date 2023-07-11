@@ -16,7 +16,7 @@ export const ShoppingBagIconOutline = forwardRef(
         <HeroShoppingBagIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ShoppingBagIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ShoppingBagIconSolid = forwardRef(
         <HeroShoppingBagIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ShoppingBagIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ShoppingBagIconMini = forwardRef(
         <HeroShoppingBagIconMini />
       </Icon>
     );
-  }
+  },
 );

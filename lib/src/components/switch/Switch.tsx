@@ -18,7 +18,7 @@ export const useStyles = createStyles((theme) => ({
 export const SwitchComponent = forwardRef(
   (
     { width, ...props }: SwitchComponentProps,
-    ref: React.Ref<HTMLInputElement>
+    ref: React.Ref<HTMLInputElement>,
   ) => {
     const { classes } = useStyles();
     const propsOnChange = props.onChange;
@@ -26,7 +26,7 @@ export const SwitchComponent = forwardRef(
       (e: ChangeEvent<HTMLInputElement>) => {
         propsOnChange?.(e.currentTarget.checked);
       },
-      [propsOnChange]
+      [propsOnChange],
     );
     return (
       <MantineSwitch
@@ -36,7 +36,7 @@ export const SwitchComponent = forwardRef(
         onChange={onChange}
       />
     );
-  }
+  },
 );
 SwitchComponent.displayName = "SwitchComponent";
 
@@ -45,14 +45,14 @@ export const Switch = forwardRef(
     <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <SwitchWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
-  )
+  ),
 );
 const DISPLAY_NAME = "Switch";
 Switch.displayName = DISPLAY_NAME;
 
 /** Exported for documentation purposes */
 export const SwitchWithoutRef = (
-  props: SwitchProps & { innerRef: React.Ref<HTMLInputElement> }
+  props: SwitchProps & { innerRef: React.Ref<HTMLInputElement> },
 ) => {
   const id = useComponentId(props.id);
   const { state, dispatch } = useSwitchState(id, {

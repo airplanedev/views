@@ -16,7 +16,7 @@ export const MinusCircleIconOutline = forwardRef(
         <HeroMinusCircleIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const MinusCircleIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const MinusCircleIconSolid = forwardRef(
         <HeroMinusCircleIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const MinusCircleIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const MinusCircleIconMini = forwardRef(
         <HeroMinusCircleIconMini />
       </Icon>
     );
-  }
+  },
 );

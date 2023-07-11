@@ -75,7 +75,7 @@ describe("Table", () => {
       <Table
         columns={[{ label: "date", type: "date", accessor: "date" }]}
         data={[{ date: 1657131622218 }]}
-      />
+      />,
     );
     await screen.findByText("Jul 06, 2022");
   });
@@ -112,7 +112,7 @@ describe("Table", () => {
             bool: true,
           },
         ]}
-      />
+      />,
     );
     await screen.findByText("My String");
     await screen.findByText(1);
@@ -127,7 +127,7 @@ describe("Table", () => {
 
   it("supports pagination", async () => {
     const { getAllByRole } = render(
-      <Table columns={columns} data={data} defaultPageSize={1} />
+      <Table columns={columns} data={data} defaultPageSize={1} />,
     );
     const headers = getAllByRole("columnheader");
     expect(headers).toHaveLength(columns.length);
@@ -185,13 +185,13 @@ describe("Table", () => {
         ]}
         columns={["foo", "foo2"]}
         enableCSVDownload
-      />
+      />,
     );
     const expectedData =
       "data:text/csv;charset=utf-8," +
       encodeURIComponent(`"foo","foo2"\n"bar","bar2"\n"bar","abc""\ndef"`);
     const downloadLink = await screen.findByTestId<HTMLAnchorElement>(
-      "csvDownload"
+      "csvDownload",
     );
     expect(downloadLink.href).toEqual(expectedData);
     expect(downloadLink.download).toEqual(expect.stringMatching(/\.csv$/));
@@ -210,10 +210,10 @@ describe("Table", () => {
         ]}
         columns={["foo", "foo2"]}
         enableCSVDownload="my-custom-name.csv"
-      />
+      />,
     );
     const downloadLink = await screen.findByTestId<HTMLAnchorElement>(
-      "csvDownload"
+      "csvDownload",
     );
     expect(downloadLink.download).toEqual("my-custom-name.csv");
   });
@@ -285,12 +285,12 @@ describe("Table", () => {
           rowActions={[
             ({ row }) => <Button onClick={() => mockCallback(row)}>b1</Button>,
           ]}
-        />
+        />,
       );
       const editIcons = await screen.findAllByTestId("edit-icon");
       await userEvent.click(editIcons[0]);
       const stringInput: HTMLInputElement = await screen.findByDisplayValue(
-        "My String"
+        "My String",
       );
       await userEvent.type(stringInput, "2");
       expect(stringInput.value).toBe("My String2");
@@ -312,7 +312,7 @@ describe("Table", () => {
 
       await userEvent.click(editIcons[3]);
       const dateInput: HTMLInputElement = await screen.findByDisplayValue(
-        "Jul 06, 2022"
+        "Jul 06, 2022",
       );
       await userEvent.click(await screen.findByText("7"));
       expect(dateInput.value).toBe("Jul 07, 2022");
@@ -321,12 +321,12 @@ describe("Table", () => {
 
       await userEvent.click(editIcons[4]);
       const datetimeInput: HTMLInputElement = await screen.findByDisplayValue(
-        formatDatetime(new Date(2022, 6, 6, 4, 20))
+        formatDatetime(new Date(2022, 6, 6, 4, 20)),
       );
       await userEvent.click(await screen.findByText("7"));
       await userEvent.click(await screen.findByText("+5"));
       expect(datetimeInput.value).toBe(
-        formatDatetime(new Date(2022, 6, 7, 4, 25))
+        formatDatetime(new Date(2022, 6, 7, 4, 25)),
       );
       await userEvent.type(document.body, "{enter}");
       await screen.findByText(formatDatetime(new Date(2022, 6, 7, 4, 25)));
@@ -373,11 +373,11 @@ describe("Table", () => {
           rowActions={[
             (row) => <Button onClick={() => mockCallback(row)}>b1</Button>,
           ]}
-        />
+        />,
       );
       await userEvent.click(await screen.findByTestId("edit-icon"));
       const stringInput: HTMLInputElement = await screen.findByDisplayValue(
-        "My String"
+        "My String",
       );
       await userEvent.type(stringInput, "2");
       expect(stringInput.value).toBe("My String2");
@@ -405,7 +405,7 @@ describe("Table", () => {
           rowActions={[
             ({ row }) => <Button onClick={() => mockCallback(row)}>b1</Button>,
           ]}
-        />
+        />,
       );
 
       await userEvent.click(await screen.findByTestId("edit-icon"));
@@ -457,7 +457,7 @@ describe("Table", () => {
           rowActions={[
             ({ row }) => <Button onClick={() => mockCallback(row)}>b1</Button>,
           ]}
-        />
+        />,
       );
       const boolToggle = await screen.findByRole("checkbox", {
         name: "toggle",
@@ -504,7 +504,7 @@ describe("Table", () => {
               string: "My String",
             },
           ]}
-        />
+        />,
       );
       await screen.findByText("Hi My String");
     });
@@ -547,7 +547,7 @@ describe("Table", () => {
           rowActions={[
             ({ row }) => <Button onClick={() => mockCallback(row)}>b1</Button>,
           ]}
-        />
+        />,
       );
 
       await userEvent.click(await screen.findByText("Edit"));
@@ -583,14 +583,14 @@ describe("Table", () => {
       if (column !== "skip") {
         it(`renders ${column.type} column with null data`, () => {
           const { getByRole } = render(
-            <Table columns={[column]} data={[{ [column.accessor!]: null }]} />
+            <Table columns={[column]} data={[{ [column.accessor!]: null }]} />,
           );
           expect(getByRole("cell")).toHaveTextContent(/$^/);
         });
 
         it(`renders ${column.type} column with undefined data`, () => {
           const { getByRole } = render(
-            <Table columns={[column]} data={[{}]} />
+            <Table columns={[column]} data={[{}]} />,
           );
           expect(getByRole("cell")).toHaveTextContent(/$^/);
         });
@@ -604,7 +604,7 @@ describe("Table", () => {
         <Table
           columns={[{ accessor: "json", type: "json" }]}
           data={[{ json: null }]}
-        />
+        />,
       );
       expect(getByRole("cell").textContent).not.toContain("null");
     });
@@ -614,7 +614,7 @@ describe("Table", () => {
         <Table<{ json?: string }>
           columns={[{ accessor: "json", type: "json" }]}
           data={[{}]}
-        />
+        />,
       );
       expect(getByRole("cell").textContent).not.toContain("undefined");
     });
@@ -636,12 +636,12 @@ describe("Table", () => {
         { name: "C" },
       ];
       const { getByRole, getAllByRole } = render(
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={data} />,
       );
       await user.click(getByRole("columnheader", { name: "Name" }));
       const ascCells = getAllByRole("cell");
       expect(ascCells.map((cell) => cell.textContent)).toEqual(
-        data.map((d) => d.name).sort()
+        data.map((d) => d.name).sort(),
       );
       await user.click(getByRole("columnheader", { name: "Name" }));
       const descCells = getAllByRole("cell");
@@ -649,12 +649,12 @@ describe("Table", () => {
         data
           .map((d) => d.name)
           .sort()
-          .reverse()
+          .reverse(),
       );
       await user.click(getByRole("columnheader", { name: "Name" }));
       const unorderedCells = getAllByRole("cell");
       expect(unorderedCells.map((cell) => cell.textContent)).toEqual(
-        data.map((d) => d.name)
+        data.map((d) => d.name),
       );
     });
 
@@ -670,7 +670,7 @@ describe("Table", () => {
         { date: new Date(2022, 3) },
       ];
       const { getByRole, getAllByRole } = render(
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={data} />,
       );
       await user.click(getByRole("columnheader", { name: "Date" }));
       const ascCells = getAllByRole("cell");
@@ -704,7 +704,7 @@ describe("Table", () => {
         { name: "c", bool: false },
       ];
       const { getByRole, getAllByRole } = render(
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={data} />,
       );
       await user.click(getByRole("columnheader", { name: "Bool" }));
       const ascCells = getAllByRole("cell");
@@ -755,10 +755,10 @@ describe("Table", () => {
       // Select row 1.
       await userEvent.click(cells[0]);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       await screen.findByText(
-        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`
+        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`,
       );
       // De-select row 1.
       await userEvent.click(cells[0]);
@@ -767,18 +767,18 @@ describe("Table", () => {
       // Re-select row 1.
       await userEvent.click(cells[0]);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       await screen.findByText(
-        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`
+        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`,
       );
       // Select row 2.
       await userEvent.click(cells[2]);
       await screen.findByText(
-        `SelectedRows: [{"name":"Orson Irwin","phone":"1-384-411-2149"}]`
+        `SelectedRows: [{"name":"Orson Irwin","phone":"1-384-411-2149"}]`,
       );
       await screen.findByText(
-        `SelectedRow: {"name":"Orson Irwin","phone":"1-384-411-2149"}`
+        `SelectedRow: {"name":"Orson Irwin","phone":"1-384-411-2149"}`,
       );
       // Clear the selection.
       await userEvent.click(await screen.findByText("clear"));
@@ -818,10 +818,10 @@ describe("Table", () => {
       // Select row 1.
       await userEvent.click(cells[0]);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       await screen.findByText(
-        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`
+        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`,
       );
     });
 
@@ -832,17 +832,17 @@ describe("Table", () => {
       // Select row 1.
       await userEvent.click(checkboxes[1]);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       // Select row 2.
       await userEvent.click(checkboxes[2]);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"},{"name":"Orson Irwin","phone":"1-384-411-2149"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"},{"name":"Orson Irwin","phone":"1-384-411-2149"}]`,
       );
       // Select row 2 again.
       await userEvent.click(checkboxes[2]);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
 
       // Select row 1 again.
@@ -858,7 +858,7 @@ describe("Table", () => {
       // Select all.
       await userEvent.click(selectAllCheckbox);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"},{"name":"Orson Irwin","phone":"1-384-411-2149"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"},{"name":"Orson Irwin","phone":"1-384-411-2149"}]`,
       );
       // Deselect all.
       await userEvent.click(selectAllCheckbox);
@@ -866,12 +866,12 @@ describe("Table", () => {
       // Select row 1.
       await userEvent.click(checkboxes[1]);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       // Checkbox is indeterminate. Clicking again should select all.
       await userEvent.click(selectAllCheckbox);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"},{"name":"Orson Irwin","phone":"1-384-411-2149"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"},{"name":"Orson Irwin","phone":"1-384-411-2149"}]`,
       );
     });
 
@@ -880,25 +880,25 @@ describe("Table", () => {
         <TestC
           rowSelection="single"
           isDefaultSelectedRow={(row, idx) => idx === 1}
-        />
+        />,
       );
 
       // Check row 2 selected by default.
       await screen.findByText(
-        `SelectedRows: [{"name":"Orson Irwin","phone":"1-384-411-2149"}]`
+        `SelectedRows: [{"name":"Orson Irwin","phone":"1-384-411-2149"}]`,
       );
       await screen.findByText(
-        `SelectedRow: {"name":"Orson Irwin","phone":"1-384-411-2149"}`
+        `SelectedRow: {"name":"Orson Irwin","phone":"1-384-411-2149"}`,
       );
 
       const cells = await screen.findAllByRole("cell");
       // Select row 1.
       await userEvent.click(cells[0]);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       await screen.findByText(
-        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`
+        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`,
       );
       // De-select row 1.
       await userEvent.click(cells[0]);
@@ -910,7 +910,7 @@ describe("Table", () => {
         <TestC
           rowSelection="single"
           isDefaultSelectedRow={(row, idx) => idx === 0}
-        />
+        />,
       );
       await screen.findByText(`SelectedRows: []`);
       await screen.findByText(`SelectedRow: undefined`);
@@ -920,7 +920,7 @@ describe("Table", () => {
       const TestCWithTask = <TRowData extends object, TOutput>(
         props: Partial<
           Omit<TableProps<TRowData, { foo: string }, TOutput>, "data">
-        >
+        >,
       ) => {
         const state = useComponentState<TableState<Row>>("myTable");
         return (
@@ -942,10 +942,10 @@ describe("Table", () => {
       });
       render(<TestCWithTask />);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       await screen.findByText(
-        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`
+        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`,
       );
     });
 
@@ -954,15 +954,15 @@ describe("Table", () => {
         <TestC
           rowSelection="single"
           isDefaultSelectedRow={(row, idx) => true}
-        />
+        />,
       );
 
       // Check that only row 1 is selected.
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       await screen.findByText(
-        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`
+        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`,
       );
     });
 
@@ -973,15 +973,15 @@ describe("Table", () => {
           rowSelection="single"
           isSelectedRow={(row, idx) => idx === 0}
           onToggleRow={mockCallback}
-        />
+        />,
       );
 
       // Check row 1 selected by default.
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       await screen.findByText(
-        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`
+        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`,
       );
       // Make sure that onToggleRow isn't called yet.
       expect(mockCallback.mock.calls).toHaveLength(0);
@@ -990,10 +990,10 @@ describe("Table", () => {
       // De-select row 1, make sure that it doesn't work.
       await userEvent.click(cells[0]);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       await screen.findByText(
-        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`
+        `SelectedRow: {"name":"Chester Delacruz","phone":"1-845-716-5093"}`,
       );
       // Make sure that onToggleRow triggers though, even if row 1 doesn't get de-selected.
       expect(mockCallback.mock.lastCall).toEqual([
@@ -1002,14 +1002,14 @@ describe("Table", () => {
       ]);
 
       rerender(
-        <TestC rowSelection="single" isSelectedRow={(row, idx) => idx === 1} />
+        <TestC rowSelection="single" isSelectedRow={(row, idx) => idx === 1} />,
       );
       // Check row 2 is now selected.
       await screen.findByText(
-        `SelectedRows: [{"name":"Orson Irwin","phone":"1-384-411-2149"}]`
+        `SelectedRows: [{"name":"Orson Irwin","phone":"1-384-411-2149"}]`,
       );
       await screen.findByText(
-        `SelectedRow: {"name":"Orson Irwin","phone":"1-384-411-2149"}`
+        `SelectedRow: {"name":"Orson Irwin","phone":"1-384-411-2149"}`,
       );
     });
 
@@ -1036,7 +1036,7 @@ describe("Table", () => {
       // Select row 1.
       await userEvent.click(checkboxes[1]);
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       expect(checkboxes[1]).toBeChecked();
 
@@ -1046,7 +1046,7 @@ describe("Table", () => {
       checkboxes = await screen.findAllByRole("checkbox");
       // The same row should be checked in a different position.
       await screen.findByText(
-        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`
+        `SelectedRows: [{"name":"Chester Delacruz","phone":"1-845-716-5093"}]`,
       );
       expect(checkboxes[2]).toBeChecked();
     });
@@ -1063,7 +1063,7 @@ describe("Table", () => {
             ({ row }) => <Button onClick={() => mockCallback(row)}>b1</Button>,
             ({ row }) => <Button onClick={() => mockCallback(row)}>b2</Button>,
           ]}
-        />
+        />,
       );
 
       const b1s = await screen.findAllByText("b1");
@@ -1091,7 +1091,7 @@ describe("Table", () => {
             { label: "b1", onClick: (row) => mockCallback(row) },
             { label: "b2", onClick: (row) => mockCallback(row) },
           ]}
-        />
+        />,
       );
 
       const b1s = await screen.findAllByText("b1");
@@ -1119,7 +1119,7 @@ describe("Table", () => {
             { label: "b1", onClick: (row) => mockCallback(row) },
             { label: "b2", onClick: (row) => mockCallback(row) },
           ]}
-        />
+        />,
       );
 
       const menus = await screen.findAllByRole("button");
@@ -1138,7 +1138,7 @@ describe("Table", () => {
           rowActions={({ row }) => (
             <Button onClick={() => mockCallback(row)}>b1</Button>
           )}
-        />
+        />,
       );
 
       const b1s = await screen.findAllByText("b1");
@@ -1161,7 +1161,7 @@ describe("Table", () => {
           rowActions={[
             { slug: "foo", params: { foo: "bar" }, onSuccess: mockCallback },
           ]}
-        />
+        />,
       );
 
       await screen.findAllByText("foo");
@@ -1185,7 +1185,7 @@ describe("Table", () => {
           rowActionsMenu={[
             { slug: "foo", params: { foo: "bar" }, onSuccess: mockCallback },
           ]}
-        />
+        />,
       );
 
       const menus = await screen.findAllByRole("button");
@@ -1217,7 +1217,7 @@ describe("Table", () => {
               },
             ]}
           />
-        </QueryProvider>
+        </QueryProvider>,
       );
 
       await screen.findAllByText("Do a thing");
@@ -1274,7 +1274,7 @@ describe("Table", () => {
           columns={columns}
           data={data}
           rowActions={[{ slug: "foo", confirm: true, onSuccess: mockCallback }]}
-        />
+        />,
       );
 
       await screen.findAllByText("foo");
@@ -1302,7 +1302,9 @@ describe("Table", () => {
 
     it("infers columns from all rows", async () => {
       const { getAllByRole } = render(
-        <Table data={[...data, { name: "Jane Doe", address: "123 Main St" }]} />
+        <Table
+          data={[...data, { name: "Jane Doe", address: "123 Main St" }]}
+        />,
       );
       const headers = getAllByRole("columnheader");
       expect(headers).toHaveLength(columns.length + 1);
@@ -1316,7 +1318,7 @@ describe("Table", () => {
         { label: "Phone Number", accessor: "phone" },
       ];
       const { getAllByRole } = render(
-        <Table data={data} columns={explicitColumns} />
+        <Table data={data} columns={explicitColumns} />,
       );
       const headers = getAllByRole("columnheader");
       expect(headers).toHaveLength(explicitColumns.length);
@@ -1339,7 +1341,7 @@ describe("Table", () => {
             }));
             return cols;
           }}
-        />
+        />,
       );
       const headers = getAllByRole("columnheader");
       expect(headers).toHaveLength(explicitColumns.length);
@@ -1353,7 +1355,7 @@ describe("Table", () => {
           columnsTransform={(cols) =>
             cols.filter((col) => !["phone"].includes(col.accessor))
           }
-        />
+        />,
       );
       const headers = getAllByRole("columnheader");
       expect(headers).toHaveLength(columns.length - 1);
@@ -1367,7 +1369,7 @@ describe("Table", () => {
           columnsTransform={(cols) =>
             cols.filter((col) => ["phone"].includes(col.accessor))
           }
-        />
+        />,
       );
       const headers = getAllByRole("columnheader");
       expect(headers).toHaveLength(1);
@@ -1376,7 +1378,7 @@ describe("Table", () => {
 
     it("hides columns", async () => {
       const { getAllByRole } = render(
-        <Table data={data} hiddenColumns={["phone"]} />
+        <Table data={data} hiddenColumns={["phone"]} />,
       );
       const headers = getAllByRole("columnheader");
       expect(headers).toHaveLength(columns.length - 1);
@@ -1388,7 +1390,7 @@ describe("Table", () => {
         <Table
           data={data}
           columns={[{ accessor: "name" }, { accessor: "phone" }]}
-        />
+        />,
       );
       const headers = getAllByRole("columnheader");
       expect(headers).toHaveLength(2);
@@ -1410,7 +1412,7 @@ describe("Table", () => {
 
   describe("task query", () => {
     const TestC = <TRowData extends object, TOutput>(
-      props: Partial<TableWithTaskProps<TRowData, { foo: string }, TOutput>>
+      props: Partial<TableWithTaskProps<TRowData, { foo: string }, TOutput>>,
     ) => {
       return (
         <>
@@ -1470,7 +1472,7 @@ describe("Table", () => {
           outputTransform={(data) =>
             data.map((d) => ({ ...d, name: d.name.toUpperCase() }))
           }
-        />
+        />,
       );
       await screen.findByText(data[0].name.toUpperCase());
       const headers = await screen.findAllByRole("columnheader");
@@ -1494,7 +1496,7 @@ describe("Table", () => {
           outputTransform={({ data }) =>
             data.map((d) => ({ ...d, name: d.name.toUpperCase() }))
           }
-        />
+        />,
       );
       await screen.findByText(data[0].name.toUpperCase());
       const headers = await screen.findAllByRole("columnheader");
@@ -1519,7 +1521,7 @@ describe("Table", () => {
         },
         (params) => {
           return "";
-        }
+        },
       );
       executeTaskSuccess({
         output: data,
@@ -1558,7 +1560,7 @@ describe("Table", () => {
           outputTransform={(data) =>
             data.map((d) => ({ ...d, name: d.name.toUpperCase() }))
           }
-        />
+        />,
       );
 
       await screen.findByText(data[0].name.toUpperCase());
@@ -1585,7 +1587,7 @@ describe("Table", () => {
             }));
             return cols;
           }}
-        />
+        />,
       );
 
       await screen.findByText(data[0].name);
@@ -1602,7 +1604,7 @@ describe("Table", () => {
       });
 
       render(
-        <TestC<Row, Row[]> columns={[{ accessor: "name", label: "NAME" }]} />
+        <TestC<Row, Row[]> columns={[{ accessor: "name", label: "NAME" }]} />,
       );
 
       const headers = await screen.findAllByRole("columnheader");
@@ -1641,7 +1643,7 @@ describe("Table", () => {
         rawRender(
           <ViewProvider>
             <TestC />
-          </ViewProvider>
+          </ViewProvider>,
         );
 
         await screen.findByText(getRunErrorMessage("myTask"));
@@ -1659,7 +1661,7 @@ describe("Table", () => {
               // @ts-expect-error
               data.Q7.map((d) => ({ ...d, name: "test" }))
             }
-          />
+          />,
         );
         await screen.findAllByRole("dialog");
         await screen.findByText("Something went wrong in the Table component");
@@ -1673,7 +1675,7 @@ describe("Table", () => {
   describe("filtering", () => {
     it("filters", async () => {
       const { getAllByRole, findByRole, findByText, queryByText } = render(
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={data} />,
       );
       expect(getAllByRole("cell")).toHaveLength(data.length * columns.length);
       const filter = await findByRole("textbox");
@@ -1686,7 +1688,7 @@ describe("Table", () => {
 
     it("filters when on second page", async () => {
       const { findByRole, findByText, queryByText } = render(
-        <Table columns={columns} data={data} defaultPageSize={1} />
+        <Table columns={columns} data={data} defaultPageSize={1} />,
       );
       // Go to second page.
       const next = await screen.findByRole("button", { name: "next" });

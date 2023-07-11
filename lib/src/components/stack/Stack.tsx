@@ -14,7 +14,7 @@ type StyleParams = Pick<
 const useStyles = createStyles(
   (
     theme,
-    { direction, justify, align, spacing, wrap, scroll }: StyleParams
+    { direction, justify, align, spacing, wrap, scroll }: StyleParams,
   ) => {
     const justifyContent = justifyToJustifyContent[justify];
     const alignItems = alignToAlignItems[align];
@@ -29,7 +29,7 @@ const useStyles = createStyles(
         overflow: scroll ? "auto" : undefined,
       },
     };
-  }
+  },
 );
 
 export const StackComponent = ({

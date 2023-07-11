@@ -157,7 +157,7 @@ export type ConnectedSelectProps = {
 
 export type SelectPropsWithTask<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = {
   /**
    * The task query to execute. The select data will be populated by the task's output.
@@ -177,5 +177,5 @@ export type SelectPropsWithTask<
 
 export type SelectProps<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = SelectPropsWithTask<TParams, TOutput> | ConnectedSelectProps;

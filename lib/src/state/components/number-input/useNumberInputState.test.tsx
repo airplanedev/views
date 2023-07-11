@@ -5,7 +5,7 @@ import { useNumberInputState } from "./useNumberInputState";
 describe("useNumberInputState", () => {
   it("sets value", () => {
     const { result } = renderHook(() =>
-      useNumberInputState("id", { initialState: { value: 1 } })
+      useNumberInputState("id", { initialState: { value: 1 } }),
     );
 
     expect(result.current.state.value).toBe(1);
@@ -18,7 +18,7 @@ describe("useNumberInputState", () => {
 
   it("sets disabled", () => {
     const { result } = renderHook(() =>
-      useNumberInputState("id", { initialState: { disabled: true } })
+      useNumberInputState("id", { initialState: { disabled: true } }),
     );
 
     expect(result.current.state.disabled).toBe(true);

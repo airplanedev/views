@@ -93,7 +93,7 @@ export const buildLayout = ({
 };
 
 const computeLegend = (
-  legendPosition: NonNullable<ChartProps["legendPosition"]>
+  legendPosition: NonNullable<ChartProps["legendPosition"]>,
 ): Partial<Layout> => {
   switch (legendPosition ?? "right") {
     case "left": {

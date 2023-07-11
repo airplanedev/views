@@ -158,7 +158,7 @@ describe("Button", () => {
       },
       (params) => {
         return "";
-      }
+      },
     );
     executeTaskSuccess({
       output: "output",
@@ -248,20 +248,20 @@ describe("Button", () => {
 
     expect(screen.getByText("button").closest("a")).toHaveAttribute(
       "href",
-      "https://www.airplane.dev"
+      "https://www.airplane.dev",
     );
   });
 
   it("can be a link button that links to a view", async () => {
     getRoutingCalls();
     render(
-      <Button href={{ view: "myView", params: { foo: "bar" } }}>button</Button>
+      <Button href={{ view: "myView", params: { foo: "bar" } }}>button</Button>,
     );
     await waitFor(() =>
       expect(screen.getByText("button").closest("a")).toHaveAttribute(
         "href",
-        "https://app.airplane.dev/views/id?foo=bar"
-      )
+        "https://app.airplane.dev/views/id?foo=bar",
+      ),
     );
   });
 
@@ -286,14 +286,14 @@ describe("Button", () => {
 
     expect(screen.getByText("button").closest("a")).toHaveAttribute(
       "href",
-      "https://www.airplane.dev"
+      "https://www.airplane.dev",
     );
 
     await userEvent.click(screen.getByText("Change href"));
 
     expect(screen.getByText("button").closest("a")).toHaveAttribute(
       "href",
-      "https://web.airstage.app"
+      "https://web.airstage.app",
     );
   });
 
@@ -304,7 +304,7 @@ describe("Button", () => {
       render(
         <Button onClick={mockOnClick} confirm>
           button
-        </Button>
+        </Button>,
       );
 
       const button = await screen.findByText("button");
@@ -337,7 +337,7 @@ describe("Button", () => {
           }}
         >
           button
-        </Button>
+        </Button>,
       );
 
       const button = await screen.findByText("button");
@@ -365,7 +365,7 @@ describe("Button", () => {
       render(
         <Button confirm task="myTask">
           button
-        </Button>
+        </Button>,
       );
 
       const button = await screen.findByRole("button");
@@ -400,7 +400,7 @@ describe("Button", () => {
           task="myTask"
         >
           button
-        </Button>
+        </Button>,
       );
 
       const button = await screen.findByText("button");
@@ -428,7 +428,7 @@ describe("Request Task Dialog", () => {
   });
   it("opens dialog with task request perms", async () => {
     render(
-      <Button task={{ slug: "slug", params: { foo: "bar" } }}>Click!</Button>
+      <Button task={{ slug: "slug", params: { foo: "bar" } }}>Click!</Button>,
     );
     await waitFor(() => expect(screen.getByRole("button")).not.toBeDisabled());
     await userEvent.click(screen.getByRole("button", { name: "Click!" }));
@@ -441,13 +441,15 @@ describe("Request Task Dialog", () => {
         taskSlug: "slug",
         paramValues: { foo: "bar" },
       },
-      expect.anything()
+      expect.anything(),
     );
   });
 
   it("opens dialog with runbook request perms", async () => {
     render(
-      <Button runbook={{ slug: "slug", params: { foo: "bar" } }}>Click!</Button>
+      <Button runbook={{ slug: "slug", params: { foo: "bar" } }}>
+        Click!
+      </Button>,
     );
     await waitFor(() => expect(screen.getByRole("button")).not.toBeDisabled());
     await userEvent.click(screen.getByRole("button", { name: "Click!" }));
@@ -460,7 +462,7 @@ describe("Request Task Dialog", () => {
         runbookSlug: "slug",
         paramValues: { foo: "bar" },
       },
-      expect.anything()
+      expect.anything(),
     );
   });
 });

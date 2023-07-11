@@ -16,7 +16,7 @@ export const ExclamationCircleIconOutline = forwardRef(
         <HeroExclamationCircleIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ExclamationCircleIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ExclamationCircleIconSolid = forwardRef(
         <HeroExclamationCircleIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ExclamationCircleIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ExclamationCircleIconMini = forwardRef(
         <HeroExclamationCircleIconMini />
       </Icon>
     );
-  }
+  },
 );

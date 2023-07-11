@@ -16,7 +16,7 @@ export const DevicePhoneMobileIconOutline = forwardRef(
         <HeroDevicePhoneMobileIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const DevicePhoneMobileIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const DevicePhoneMobileIconSolid = forwardRef(
         <HeroDevicePhoneMobileIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const DevicePhoneMobileIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const DevicePhoneMobileIconMini = forwardRef(
         <HeroDevicePhoneMobileIconMini />
       </Icon>
     );
-  }
+  },
 );

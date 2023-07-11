@@ -16,7 +16,7 @@ export const PhoneXMarkIconOutline = forwardRef(
         <HeroPhoneXMarkIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const PhoneXMarkIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const PhoneXMarkIconSolid = forwardRef(
         <HeroPhoneXMarkIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const PhoneXMarkIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const PhoneXMarkIconMini = forwardRef(
         <HeroPhoneXMarkIconMini />
       </Icon>
     );
-  }
+  },
 );

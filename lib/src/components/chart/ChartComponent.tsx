@@ -28,7 +28,7 @@ const useStyles = createStyles(
     }: {
       width: ChartComponentProps["width"];
       height: ChartComponentProps["height"];
-    }
+    },
   ) => ({
     wrapper: {
       display: "flex",
@@ -58,7 +58,7 @@ const useStyles = createStyles(
       // If the container's height is not set, use a fixed height.
       minHeight: height != null ? undefined : DEFAULT_HEIGHT,
     },
-  })
+  }),
 );
 
 /**

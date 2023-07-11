@@ -9,7 +9,7 @@ import {
 import { useTaskOrRunbookMutation } from "./useTaskOrRunbookMutation";
 
 export type RunbookMutationHookOptions<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 > = {
   /**
    * The params of the runbook to execute.
@@ -32,7 +32,7 @@ export type RunbookMutationHookOptions<
 };
 
 export type RunbookMutationFn<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 > = (options?: RunbookMutationHookOptions<TParams>) => void;
 
 export type RunbookMutationState = {
@@ -51,7 +51,7 @@ export type RunbookMutationState = {
 };
 
 export type RunbookMutationResult<
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 > = {
   /**
    * Function that executes the runbook mutation.
@@ -60,9 +60,9 @@ export type RunbookMutationResult<
 } & RunbookMutationState;
 
 export const useRunbookMutation = <
-  TParams extends ParamValues | undefined = DefaultParams
+  TParams extends ParamValues | undefined = DefaultParams,
 >(
-  mutation: RunbookMutation<TParams>
+  mutation: RunbookMutation<TParams>,
 ): RunbookMutationResult<TParams> => {
   const fullMutation = getRunbookFullMutation<TParams>(mutation);
   const result = useTaskOrRunbookMutation<TParams, null>({

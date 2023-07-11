@@ -123,7 +123,7 @@ export function TableComponent<TRowData extends object>({
     const hiddenSet = new Set(hiddenColumns);
     const newTableColumns = columns
       .filter(
-        (c) => typeof c.accessor === "string" && !hiddenSet.has(c.accessor)
+        (c) => typeof c.accessor === "string" && !hiddenSet.has(c.accessor),
       )
       .map((c) => {
         const id = c.accessor as string;
@@ -177,12 +177,12 @@ export function TableComponent<TRowData extends object>({
       } else if (rowID) {
         // eslint-disable-next-line no-console
         console.warn(
-          `Row ID ${rowID} not found in row data. Falling back to the row's index.`
+          `Row ID ${rowID} not found in row data. Falling back to the row's index.`,
         );
       }
       return relativeIndex.toString();
     },
-    [rowID]
+    [rowID],
   );
 
   const updateData = useCallback(
@@ -220,7 +220,7 @@ export function TableComponent<TRowData extends object>({
         return oldCopy;
       });
     },
-    [data, dirtyCells]
+    [data, dirtyCells],
   );
   const defaultColumn = useMemo(
     () => ({
@@ -229,7 +229,7 @@ export function TableComponent<TRowData extends object>({
       width: 150, // width is used for both the flex-basis and flex-grow
       maxWidth: 300, // maxWidth is only used as a limit for resizing
     }),
-    []
+    [],
   );
 
   function addCheckboxSelection(hooks: Hooks<TRowData>) {
@@ -296,7 +296,7 @@ export function TableComponent<TRowData extends object>({
                 <RowActionsMenu
                   width={Math.max(
                     DEFAULT_ROW_MENU_WIDTH,
-                    rowActionsMenuWidth || 0
+                    rowActionsMenuWidth || 0,
                   )}
                   rowActionsMenu={rowActionsMenu}
                   row={row}
@@ -312,7 +312,7 @@ export function TableComponent<TRowData extends object>({
 
   function rowSelectorToRowIds(
     data: TRowData[],
-    rowSelector?: (row: TRowData, rowIndex: number) => boolean
+    rowSelector?: (row: TRowData, rowIndex: number) => boolean,
   ): Record<string, boolean> {
     if (rowSelector === undefined) {
       return {};
@@ -387,7 +387,7 @@ export function TableComponent<TRowData extends object>({
       rowOffsetWidth:
         headerGroupOffsetWidths.current?.reduce(
           (sum, width) => sum + width,
-          0
+          0,
         ) ?? 0,
       // onToggleRow and onToggleAllRows are passed so that checkbox-based
       // row selection can use them if needed.
@@ -418,7 +418,7 @@ export function TableComponent<TRowData extends object>({
     (hooks) => {
       addCheckboxSelection(hooks);
       addActions(hooks);
-    }
+    },
   );
 
   const setFilter = useCallback(
@@ -426,7 +426,7 @@ export function TableComponent<TRowData extends object>({
       setGlobalFilter(val);
       gotoPage(0);
     },
-    [setGlobalFilter, gotoPage]
+    [setGlobalFilter, gotoPage],
   );
 
   useEffect(() => {
@@ -482,7 +482,7 @@ export function TableComponent<TRowData extends object>({
   useEffect(() => {
     headerGroupOffsetWidths.current = headerGroupOffsetWidths.current.slice(
       0,
-      headerGroups.length
+      headerGroups.length,
     );
   }, [headerGroups.length]);
 
@@ -538,8 +538,8 @@ export function TableComponent<TRowData extends object>({
               {headerGroup.headers.map((column, i) => {
                 const columnProps = fixActionCol(
                   column.getHeaderProps(
-                    column.getSortByToggleProps({ title: undefined })
-                  )
+                    column.getSortByToggleProps({ title: undefined }),
+                  ),
                 );
                 const nextColumn = headerGroup.headers[i + 1];
                 return (
@@ -754,7 +754,7 @@ const RowActionsMenu = <TRowData extends object>({
 
 const didColumnsChange = <TRowData extends object>(
   currColumns: ReactTableColumn<TRowData>[],
-  newColumns: ReactTableColumn<TRowData>[]
+  newColumns: ReactTableColumn<TRowData>[],
 ) => {
   if (currColumns.length !== newColumns.length) {
     return true;

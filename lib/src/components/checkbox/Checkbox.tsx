@@ -14,17 +14,17 @@ import { CheckboxComponentProps, CheckboxProps } from "./Checkbox.types";
 export const CheckboxComponent = forwardRef(
   (
     { width, ...props }: CheckboxComponentProps,
-    ref: React.Ref<HTMLInputElement>
+    ref: React.Ref<HTMLInputElement>,
   ) => {
     const propsOnChange = props.onChange;
     const onChange = useCallback(
       (e: ChangeEvent<HTMLInputElement>) => {
         propsOnChange?.(e.currentTarget.checked);
       },
-      [propsOnChange]
+      [propsOnChange],
     );
     return <MantineCheckbox {...props} ref={ref} onChange={onChange} />;
-  }
+  },
 );
 CheckboxComponent.displayName = "CheckboxComponent";
 
@@ -33,14 +33,14 @@ export const Checkbox = forwardRef(
     <ComponentErrorBoundary componentName={DISPLAY_NAME}>
       <CheckboxWithoutRef {...props} innerRef={ref} />
     </ComponentErrorBoundary>
-  )
+  ),
 );
 const DISPLAY_NAME = "Checkbox";
 Checkbox.displayName = DISPLAY_NAME;
 
 /** Exported for documentation purposes */
 export const CheckboxWithoutRef = (
-  props: CheckboxProps & { innerRef: React.Ref<HTMLInputElement> }
+  props: CheckboxProps & { innerRef: React.Ref<HTMLInputElement> },
 ) => {
   const id = useComponentId(props.id);
   const { state, dispatch } = useCheckboxState(id, {

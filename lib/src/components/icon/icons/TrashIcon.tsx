@@ -16,7 +16,7 @@ export const TrashIconOutline = forwardRef(
         <HeroTrashIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const TrashIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const TrashIconSolid = forwardRef(
         <HeroTrashIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const TrashIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const TrashIconMini = forwardRef(
         <HeroTrashIconMini />
       </Icon>
     );
-  }
+  },
 );

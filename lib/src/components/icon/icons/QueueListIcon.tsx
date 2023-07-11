@@ -16,7 +16,7 @@ export const QueueListIconOutline = forwardRef(
         <HeroQueueListIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const QueueListIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const QueueListIconSolid = forwardRef(
         <HeroQueueListIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const QueueListIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const QueueListIconMini = forwardRef(
         <HeroQueueListIconMini />
       </Icon>
     );
-  }
+  },
 );

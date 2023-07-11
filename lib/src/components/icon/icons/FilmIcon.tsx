@@ -16,7 +16,7 @@ export const FilmIconOutline = forwardRef(
         <HeroFilmIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const FilmIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const FilmIconSolid = forwardRef(
         <HeroFilmIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const FilmIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const FilmIconMini = forwardRef(
         <HeroFilmIconMini />
       </Icon>
     );
-  }
+  },
 );

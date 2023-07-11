@@ -13,7 +13,7 @@ import {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useComponentState = <TState extends ComponentState = any>(
-  id?: string
+  id?: string,
 ): TState => {
   const stateContext = useContext(ComponentStateContext);
   const componentID = useComponentId(id);
@@ -32,7 +32,7 @@ export const useComponentState = <TState extends ComponentState = any>(
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useComponentStates = <TState extends ComponentState = any>(
-  ids: string[]
+  ids: string[],
 ): Record<string, TState> => {
   const stateContext = useContext(ComponentStateContext);
   return useMemo(
@@ -45,8 +45,8 @@ export const useComponentStates = <TState extends ComponentState = any>(
               id,
             },
           }),
-        {}
+        {},
       ),
-    [ids, stateContext.components]
+    [ids, stateContext.components],
   );
 };

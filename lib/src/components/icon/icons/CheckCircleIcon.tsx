@@ -16,7 +16,7 @@ export const CheckCircleIconOutline = forwardRef(
         <HeroCheckCircleIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const CheckCircleIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const CheckCircleIconSolid = forwardRef(
         <HeroCheckCircleIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const CheckCircleIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const CheckCircleIconMini = forwardRef(
         <HeroCheckCircleIconMini />
       </Icon>
     );
-  }
+  },
 );

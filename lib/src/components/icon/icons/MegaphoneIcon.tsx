@@ -16,7 +16,7 @@ export const MegaphoneIconOutline = forwardRef(
         <HeroMegaphoneIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const MegaphoneIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const MegaphoneIconSolid = forwardRef(
         <HeroMegaphoneIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const MegaphoneIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const MegaphoneIconMini = forwardRef(
         <HeroMegaphoneIconMini />
       </Icon>
     );
-  }
+  },
 );

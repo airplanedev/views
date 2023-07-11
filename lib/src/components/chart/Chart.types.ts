@@ -8,12 +8,12 @@ import { TaskQuery } from "../query";
 
 export type ChartProps<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = ChartWithTaskProps<TParams, TOutput> | ConnectedChartProps;
 
 export type ChartWithTaskProps<
   TParams extends ParamValues | undefined = DefaultParams,
-  TOutput = DefaultOutput
+  TOutput = DefaultOutput,
 > = {
   /**
    * The task query to execute. The chart data will be populated by the task's output.

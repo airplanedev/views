@@ -16,7 +16,7 @@ export const GiftIconOutline = forwardRef(
         <HeroGiftIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const GiftIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const GiftIconSolid = forwardRef(
         <HeroGiftIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const GiftIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const GiftIconMini = forwardRef(
         <HeroGiftIconMini />
       </Icon>
     );
-  }
+  },
 );

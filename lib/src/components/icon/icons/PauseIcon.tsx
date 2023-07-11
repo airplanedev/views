@@ -16,7 +16,7 @@ export const PauseIconOutline = forwardRef(
         <HeroPauseIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const PauseIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const PauseIconSolid = forwardRef(
         <HeroPauseIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const PauseIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const PauseIconMini = forwardRef(
         <HeroPauseIconMini />
       </Icon>
     );
-  }
+  },
 );

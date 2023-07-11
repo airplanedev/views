@@ -16,7 +16,7 @@ export const ShareIconOutline = forwardRef(
         <HeroShareIconOutline />
       </Icon>
     );
-  }
+  },
 );
 
 export const ShareIconSolid = forwardRef(
@@ -26,7 +26,7 @@ export const ShareIconSolid = forwardRef(
         <HeroShareIconSolid />
       </Icon>
     );
-  }
+  },
 );
 
 export const ShareIconMini = forwardRef(
@@ -36,5 +36,5 @@ export const ShareIconMini = forwardRef(
         <HeroShareIconMini />
       </Icon>
     );
-  }
+  },
 );

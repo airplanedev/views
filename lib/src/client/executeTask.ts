@@ -31,11 +31,11 @@ export type DefaultOutput = any;
 
 export const executeTask = async <
   TParams extends ParamValues | undefined = ParamValues,
-  TOutput = Record<string, unknown>
+  TOutput = Record<string, unknown>,
 >(
   slug: string,
   executeType: "query" | "mutation",
-  params?: TParams
+  params?: TParams,
 ): Promise<ExecuteTaskResult<TOutput>> => {
   try {
     const executeOptions = getExecuteOptions(executeType);
@@ -76,7 +76,7 @@ export const executeTask = async <
           setTimeout(fnw, 500);
         };
         fnw();
-      }
+      },
     );
     return output;
   } catch (e) {
@@ -147,13 +147,13 @@ interface RunTerminationErrorIface<TOutput = Record<string, unknown>> {
 
 const isRunTerminationError = <TOutput = Record<string, unknown>>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  x: any
+  x: any,
 ): x is RunTerminationErrorIface<TOutput> => {
   return typeof x.message === "string" && "run" in x;
 };
 
 export function isExecuteTaskError<TOutput>(
-  value: ExecuteTaskResult<TOutput>
+  value: ExecuteTaskResult<TOutput>,
 ): value is ExecuteTaskError<TOutput> {
   return !!(value as ExecuteTaskError).error;
 }

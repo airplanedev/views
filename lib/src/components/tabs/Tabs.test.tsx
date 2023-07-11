@@ -43,10 +43,10 @@ describe("Tabs", () => {
     render(<TestC />);
 
     const galleryTab = await screen.findByTestId<HTMLButtonElement>(
-      "gallerytab"
+      "gallerytab",
     );
     const messagesTab = await screen.findByTestId<HTMLButtonElement>(
-      "messagestab"
+      "messagestab",
     );
 
     expect(galleryTab).toHaveAttribute("aria-selected", "true");
@@ -79,16 +79,16 @@ describe("Tabs", () => {
     render(<TestC />);
 
     const galleryTab = await screen.findByTestId<HTMLButtonElement>(
-      "gallerytab"
+      "gallerytab",
     );
     expect(galleryTab).toHaveAttribute("aria-selected", "true");
 
     await userEvent.click(screen.getByText("Set null"));
     const messagesTab = await screen.findByTestId<HTMLButtonElement>(
-      "messagestab"
+      "messagestab",
     );
     const settingsTab = await screen.findByTestId<HTMLButtonElement>(
-      "settingstab"
+      "settingstab",
     );
     expect(galleryTab).toHaveAttribute("aria-selected", "false");
     expect(messagesTab).toHaveAttribute("aria-selected", "false");
@@ -118,10 +118,10 @@ describe("Tabs", () => {
     render(<TestC />);
 
     const galleryTab = await screen.findByTestId<HTMLButtonElement>(
-      "gallerytab"
+      "gallerytab",
     );
     const messagesTab = await screen.findByTestId<HTMLButtonElement>(
-      "messagestab"
+      "messagestab",
     );
 
     expect(galleryTab).toHaveAttribute("aria-selected", "true");
@@ -138,7 +138,7 @@ describe("Tabs", () => {
     await screen.findByText("Value: messages");
 
     const settingsTab = await screen.findByTestId<HTMLButtonElement>(
-      "settingstab"
+      "settingstab",
     );
     expect(settingsTab).toHaveAttribute("aria-selected", "false");
     await userEvent.click(settingsTab);
@@ -163,7 +163,7 @@ describe("Tabs", () => {
       render(<TestC />);
 
       const galleryTab = await screen.findByTestId<HTMLButtonElement>(
-        "gallerytab"
+        "gallerytab",
       );
       await userEvent.click(galleryTab);
       expect(window.location.hash).toBe("#tab=gallery");
@@ -179,7 +179,7 @@ describe("Tabs", () => {
       render(<TestC />);
 
       const settingsTab = await screen.findByTestId<HTMLButtonElement>(
-        "settingstab"
+        "settingstab",
       );
       expect(settingsTab).toHaveAttribute("aria-selected", "true");
     });
@@ -237,10 +237,10 @@ describe("Tabs", () => {
       render(<TestC />);
 
       const galleryTab = await screen.findByTestId<HTMLButtonElement>(
-        "gallerytab"
+        "gallerytab",
       );
       const messagesTab = await screen.findByTestId<HTMLButtonElement>(
-        "messagestab"
+        "messagestab",
       );
 
       await userEvent.click(galleryTab);

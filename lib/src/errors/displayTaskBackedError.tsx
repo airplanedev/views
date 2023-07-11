@@ -32,14 +32,14 @@ export const displayTaskBackedError = ({
     );
   } else if (error.type === "CLIENT_ERROR") {
     throw new Error(
-      getClientErrorMessageForTaskBackedComponent(error.message, componentName)
+      getClientErrorMessageForTaskBackedComponent(error.message, componentName),
     );
     // AIRPLANE_INTERNAL error
   } else {
     const errorID = uniqueId();
     const message = getInternalErrorMessageForTaskBackedComponent(
       error.message,
-      componentName
+      componentName,
     );
     sendViewMessage({
       type: "console",

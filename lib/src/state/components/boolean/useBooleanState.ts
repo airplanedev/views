@@ -14,7 +14,7 @@ export const getUseBooleanState =
   (componentType: ComponentType.Switch | ComponentType.Checkbox) =>
   (
     id: string,
-    options?: BooleanHookOptions
+    options?: BooleanHookOptions,
   ): { state: BooleanState; dispatch: Dispatch<Action> } => {
     const initialState = {
       value: options?.initialState?.value ?? false,
@@ -36,7 +36,7 @@ export const getUseBooleanState =
         id,
         componentType,
       }),
-      [internalState, id, stateSetters]
+      [internalState, id, stateSetters],
     );
     useSyncComponentState(id, state);
 
