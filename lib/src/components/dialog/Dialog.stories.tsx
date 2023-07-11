@@ -22,6 +22,9 @@ export default {
     opened: true,
   },
   argTypes: { onClose: { action: "close" } },
+  parameters: {
+    chromatic: { delay: 300 },
+  },
 } as Meta<typeof Dialog>;
 
 const Template: StoryFn<Props> = (args: Props) => (
