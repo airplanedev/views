@@ -22,13 +22,6 @@ const meta = {
     opened: true,
   },
   argTypes: { onClose: { action: "close" } },
-  decorators: [
-    (Story) => (
-      <div style={{ width: 1200, height: 800 }}>
-        <Story />
-      </div>
-    ),
-  ],
 } satisfies Meta<typeof Dialog>;
 
 export default meta;
